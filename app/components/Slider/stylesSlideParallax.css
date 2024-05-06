@@ -1,0 +1,27 @@
+.slideParallax {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+.slideParallax .swiper-slide {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2rem 2rem;
+  backdrop-filter: brightness(0.5);
+  height: auto;
+}
+
+
+
+
+
+.step-number {
+  content: attr(data-step);
+  font-size: 18px;
+  font-weight: bold;
+  color: #eeeee;
+  margin-bottom: 8px;
+}
+
