@@ -19,7 +19,7 @@ type Props = {}
 export default function HeroSection({ }: Props) {
   const theme = useTheme();
   return (
-    <ImagesSlider className={cn(`min-h-[80dvh] justify-center xs:justify-start mb-8`)} images={ImagesSliding}>
+    <ImagesSlider className={cn(`min-h-[100dvh] justify-center xs:justify-start mb-8`)} images={ImagesSliding}>
       <Stack
         id={'hero'}
         component={motion.section}
@@ -38,8 +38,9 @@ export default function HeroSection({ }: Props) {
           md: '0 auto',
         }}
         marginTop={{
-          xs: '80px', sm: '175px', md: '72px'
+          xs: '80px', sm: '165px', md: '72px'
         }}
+        width={{ xs: '100%', sm: '100%', md: '60%' }}
         sx={{
           minWidth: {
             sm: theme.breakpoints.values.sm,
@@ -53,7 +54,8 @@ export default function HeroSection({ }: Props) {
         }}>
         <Box>
           <Typography
-            p={{ xs: 2, sm: 4 }}
+            px={{ xs: 2, sm: 4, md: 0 }}
+            py={{ xs: 2, sm: 4, md: 4 }}
             variant="h1"
             maxWidth={{
               xs: theme.breakpoints.values.sm,
@@ -72,13 +74,13 @@ export default function HeroSection({ }: Props) {
           <Stack
             component={motion.article}
             flexDirection={'column'}
-            gap={4}
-            p={{ xs: 2, sm: 4 }}
+            flexGrow={1}
           >
             <Box
               display={'flex'}
               flexDirection={'column'}
               gap={2}
+              flexGrow={1}
               maxWidth={{
                 xs: theme.breakpoints.values.sm,
                 sm: theme.breakpoints.values.md
@@ -89,7 +91,12 @@ export default function HeroSection({ }: Props) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'flex-start',
-                  color: theme.palette.grey[200]
+                  color: theme.palette.grey[200],
+                  backdropFilter: 'blur(10px) brightness(0.5)',
+                  paddingX: theme.spacing(2),
+                  paddingY: theme.spacing(1),
+                  fontWeight: 300,
+                  flexGrow: 1,
                 },
                 '& .MuiSvgIcon-root': {
                   fontSize: { xs: theme.typography.pxToRem(28), sm: theme.typography.pxToRem(32) },
@@ -109,12 +116,13 @@ export default function HeroSection({ }: Props) {
                 <CheckCircle color="success" />
                 Un espace qui vous est propre.
               </Typography>
-
             </Box>
-            <Stack flexDirection={{ xs: 'column', md: 'row' }} gap={{ xs: 4 }} justifyContent={'flex-start'} marginTop={4} marginBottom={2} sx={{
+            <Stack flexDirection={{ xs: 'column', md: 'row' }} justifyContent={'flex-start'} marginTop={{ xs: 2, md: 6 }} marginBottom={2} px={{ xs: 2, md: 0 }} sx={{
               '& .MuiButtonBase-root': {
                 minWidth: { md: '15rem' },
                 textAlign: 'center',
+                marginTop: { xs: 3, md: 0 },
+                marginRight: { xs: 0, md: 3 },
                 '@keyframes moveHorizontal': {
                   '0%': { transform: 'translateX(0)' },
                   '100%': { transform: 'translateX(-10px)' }

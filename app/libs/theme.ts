@@ -60,17 +60,15 @@ export const useCustomTheme = (mode: PaletteMode) => ({
             lineHeight: '1',
             letterSpacing: '0.02em',
             '@media (min-width:600px)': { // sm
-                fontSize: '3rem',
+                fontSize: '2.5rem',
             },
         },
         h3: {
             fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
-            fontWeight: 700,
-            fontSize: '1.5rem', // Taille par défaut pour xs
-            '@media (min-width:600px)': { // sm
-                fontSize: '2rem',
-            },
-
+            fontWeight: 500,
+            fontSize: '1.125rem', // Taille par défaut pour xs
+            letterSpacing: '0.02em',
+            lineHeight: '1.75rem',
         },
         h4: {
             fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1

@@ -40,12 +40,12 @@ export default function SlideParallax() {
 
                 <SwiperSlide>
                     <div className="step-number" data-swiper-parallax="-400">Étape 1</div>
-                    <Typography variant="h3" fontSize={32} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" paragraph sx={{
+                    <Typography variant="h3" fontSize={32} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom sx={{
                         textShadow: '2px 2px 4px #000000ba'
                     }}>
                         Planification Initiale
                     </Typography>
-                    <Typography variant="h4" fontSize={24} data-swiper-parallax="-200" paragraph sx={{
+                    <Typography variant="h4" fontSize={24} data-swiper-parallax="-200" gutterBottom sx={{
                         textShadow: '2px 2px 4px #000000ba'
                     }}>
                         La première étape vers la réussite
@@ -59,12 +59,12 @@ export default function SlideParallax() {
                 <SwiperSlide>
                     <div className="step-number" data-swiper-parallax="-400">Étape 2</div>
 
-                    <Typography variant="h3" fontSize={32} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" paragraph sx={{
+                    <Typography variant="h3" fontSize={32} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom sx={{
                         textShadow: '2px 2px 4px #000000ba'
                     }}>
                         Conception et Développement
                     </Typography>
-                    <Typography variant="h4" fontSize={24} data-swiper-parallax="-200" paragraph sx={{
+                    <Typography variant="h4" fontSize={24} data-swiper-parallax="-200" gutterBottom sx={{
                         textShadow: '2px 2px 4px #000000ba'
                     }}>
                         Créer avec précision
@@ -76,12 +76,12 @@ export default function SlideParallax() {
                 <SwiperSlide>
                     <div className="step-number" data-swiper-parallax="-400">Étape 3</div >
 
-                    <Typography variant="h3" fontSize={32} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" paragraph sx={{
+                    <Typography variant="h3" fontSize={32} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom sx={{
                         textShadow: '2px 2px 4px #000000ba'
                     }}>
                         Exécution du Projet
                     </Typography>
-                    <Typography variant="h4" fontSize={24} data-swiper-parallax="-200" paragraph sx={{
+                    <Typography variant="h4" fontSize={24} data-swiper-parallax="-200" gutterBottom sx={{
                         textShadow: '2px 2px 4px #000000ba'
                     }}>
                         Réalisation et finitions

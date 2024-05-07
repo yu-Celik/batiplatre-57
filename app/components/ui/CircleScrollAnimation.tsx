@@ -1,7 +1,7 @@
 'use client'
-import { Typography, useTheme } from "@mui/material";
+import { SxProps, Theme, Typography, TypographyProps, useTheme } from "@mui/material";
 import { useTransform, motion, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { CSSProperties, useRef } from "react";
 
 interface CircleProps {
     start: number;
@@ -27,10 +27,9 @@ const Circle: React.FC<CircleProps> = ({ start, end }) => {
             style={{
                 translateX: x,
                 opacity: opacity,
-                width: 24,
+                width: 48,
                 height: 4,
                 backgroundColor: theme.palette.secondary.main,
-
             }}
         />
     );
@@ -41,7 +40,7 @@ const CircleScrollAnimation = ({ text, ...props }: { text: string }) => {
 
     return (
 
-        <div className="relative inline-block mb-6 w-full">
+        <div className="relative inline-block mb-6 max-w-[90%] mx-auto">
             <Typography variant="h2" textAlign={"center"} gutterBottom {...props}>
                 <span className="absolute inset-y-full -inset-x-0 ">
                     <motion.span style={{ display: 'flex', overflow: 'hidden', justifyContent: 'flex-start' }}>
@@ -60,29 +59,63 @@ const CircleScrollAnimation = ({ text, ...props }: { text: string }) => {
 
 export default CircleScrollAnimation;
 
-
-interface CircleNoAnimateProps {
-    start: number;
-}
-
-export const CircleNoAnimate: React.FC<CircleNoAnimateProps> = ({ start }) => {
+export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant: TypographyProps['variant'], styles?: SxProps<Theme> }> = ({ text, variant, styles }) => {
     const theme = useTheme();
-    const circles = 10;
 
     return (
-        <div className="flex w-full items-center justify-center my-6">
-            {Array.from({ length: circles }).map((_, index) => (
-                <div
-                    key={index}
-                    style={{
-                        width: 24,
-                        height: 4,
-                        backgroundColor: theme.palette.secondary.main,
-                        marginLeft: `${start * 10}%`, // Ajustement pour positionner les cercles sans animation
-                    }}
-                />
-            ))}
+        <div className="flex justify-center items-center relative">
+            <Typography
+                variant={variant}
+                textAlign={'center'}
+                display={'flex'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                sx={{
+                    height: '100px',
+                    maxWidth: '24rem',
+                    position: 'relative',
+                    zIndex: 1,
+                    // boxShadow: theme.shadows[5],
+                    ...styles,
+                    '&::before': {
+                        content: '""',
+                        backgroundImage: `linear-gradient(-45deg, ${theme.palette.secondary.dark}, ${theme.palette.secondary.main})`,
+                        borderRadius: '20px',
+                        width: '85%',
+                        height: '100%',
+                        rotate: '-.1deg',
+                        position: 'absolute',
+                        top: 0,
+                        left: { xs: '55%', sm: '35%' },
+                        transform: 'translateX(-50%)',
+                        zIndex: -1,
+                        animation: 'gradient 1s linear infinite',
+                        backgroundSize: '400% auto',
+                        boxShadow: theme.shadows[5],
+                        '@keyframes gradient': {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' },
+                        },
+                    },
+                    '&::after': {
+                        content: '""',
+                        borderRadius: '20px',
+                        backgroundColor: theme.palette.background.default,
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        top: 0,
+                        left: { xs: '45%', sm: '45%' },
+                        transform: 'translateX(-50%)',
+                        zIndex: -1,
+
+                    }
+                }}>
+                {text}
+            </Typography>
         </div>
     );
 };
+
 

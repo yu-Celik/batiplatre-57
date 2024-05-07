@@ -1,23 +1,25 @@
 'use client'
 import { Box, Container, Typography, Button } from '@mui/material';
 import { RightCardDecoration } from '@/components/ui/CardDecoration';
-import CircleScrollAnimation from '@/components/ui/CircleScrollAnimation';
 import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ScrollBox } from '@/components/ui/ScrollBox';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import RenderTablet from './RenderTablet';
+
+
+
 
 type Props = {}
-export default function SectionOne({ }: Props) {
+export default function RenderMobile({ }: Props) {
     return (
-        <Box component={'section'} >
-            <CircleScrollAnimation text={"Pourquoi choisir BatiPlatre57 ?"} />
-            <article className={cn(`brightness-100 dark:backdrop-brightness-100 bg-gradientToBottomLight dark:bg-gradientToBottom mb-8`)}>
-                <Container className=''>
+            <article className={cn(` brightness-100 dark:backdrop-brightness-100 bg-gradientToBottomLight dark:bg-gradientToBottom mb-8 block sm:hidden `)}>
+                <Container >
                     <ScrollBox>
-                        <Typography component={motion.h3} initial='initial' animate='animate' transition={{ duration: 1 }} variant="h3" fontSize={18} fontWeight={300} textAlign={'center'} paragraph>
+                        <Typography variant="h3" gutterBottom>
                             Découvrez comment BatiPlatre57 transforme chaque espace en un lieu de vie unique et personnalisé.
                         </Typography>
                     </ScrollBox>
@@ -39,6 +41,5 @@ export default function SectionOne({ }: Props) {
                     </Button>
                 </Container>
             </article>
-        </Box>
     )
 }

@@ -6,7 +6,6 @@ export default function ContactCard() {
     return (
         <FormControl
             sx={{
-                position: "absolute",
                 display: "flex",
                 flexDirection: "column",
                 width: '93%',

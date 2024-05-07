@@ -10,8 +10,7 @@ const Footer = () => {
                 backgroundColor: grey[900],
                 color: grey[200],
                 py: 3,
-                mt: contactCardHeight,
-                pt: 9
+                mt: 8,
             }}
             role="contentinfo" // Rôle ARIA pour identifier le contenu comme informations de pied de page
         >

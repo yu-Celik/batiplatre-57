@@ -92,8 +92,8 @@ const ImagesSlider = ({
     }, [isPaused]);
 
     return (<>
-        <div className={cn("overflow-hidden h-full w-full relative flex", className)} style={{ perspective: "1000px" }}>
-            {overlay && <div className={cn("absolute inset-0", overlayClassName)} />}
+        <div className={cn("overflow-hidden h-full w-full relative flex ", className)} style={{ perspective: "1000px" }}>
+            {overlay && <div className={cn("absolute inset-0  ", overlayClassName)} />}
             <AnimatePresence initial={false}>
                 {images.length > 0 && (
                     <motion.div
@@ -102,7 +102,7 @@ const ImagesSlider = ({
                         animate="visible"
                         exit={direction === "up" ? "upExit" : "downExit"}
                         variants={slideVariants}
-                        className="h-full w-full absolute inset-0 brightness-75">
+                        className="h-full w-full absolute inset-0 bg-blend-multiply brightness-75">
                         <Image
                             src={images[currentIndex].img}
                             alt={images[currentIndex].alt}
