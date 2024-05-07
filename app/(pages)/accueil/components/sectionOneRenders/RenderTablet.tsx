@@ -1,12 +1,10 @@
 'use client'
 import { Box, Container, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import { RightCardDecoration } from '@/components/ui/CardDecoration';
-import CircleScrollAnimation from '@/components/ui/CircleScrollAnimation';
 import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ScrollBox } from '@/components/ui/ScrollBox';
 import { useInView } from 'framer-motion';
 import { forwardRef, useRef } from 'react';
 
@@ -40,7 +38,6 @@ export default function RenderTablet({ }: Props) {
                         }
                     }}>
                         <Container disableGutters>
-                            <ScrollBox>
                                 <Typography
                                     variant="h3"
                                     color={isInView ? 'primary' : 'inherit'}
@@ -53,7 +50,6 @@ export default function RenderTablet({ }: Props) {
                                 >
                                     Découvrez comment BatiPlatre57 transforme chaque espace en un lieu de vie unique et personnalisé.
                                 </Typography>
-                            </ScrollBox>
                             <Typography
                                 variant="body1"
                                 style={{

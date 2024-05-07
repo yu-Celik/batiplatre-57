@@ -19,7 +19,7 @@ type Props = {}
 export default function HeroSection({ }: Props) {
   const theme = useTheme();
   return (
-    <ImagesSlider className={cn(`min-h-[100dvh] justify-center xs:justify-start mb-8`)} images={ImagesSliding}>
+    <ImagesSlider className={cn(`min-h-[100svh] justify-center xs:justify-start mb-8`)} images={ImagesSliding}>
       <Stack
         id={'hero'}
         component={motion.section}

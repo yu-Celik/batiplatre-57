@@ -6,7 +6,6 @@ import { tabsClasses } from '@mui/material/Tabs';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { peintureImg, platerieImg, cloisonImg, carrelageImg, poseDeSolImg } from "@/data/imageSlideHome";
-import { ScrollBox } from '@/components/ui/ScrollBox';
 import { LiveHelp } from '@mui/icons-material';
 import { useInView } from 'framer-motion';
 type Props = {}
@@ -26,11 +25,9 @@ export default function SectionFour({ }: Props) {
             <Box component={'section'} position={'relative'} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} mb={2}>
                 <TextDecoration styles={{ mb: 2 }} variant={'h2'} text={"Découvrez nos prestations"} />
                 <Container>
-                    <ScrollBox>
                         <Typography variant="body1" paragraph>
                             Chez BatiPlatre57, nous offrons une gamme complète de services de rénovation, allant de la conception initiale à la réalisation finale.
                         </Typography>
-                    </ScrollBox>
                 </Container>
                 <Container
                     sx={{
@@ -82,11 +79,9 @@ export default function SectionFour({ }: Props) {
                     </CustomTabPanel>
                 </Container>
                 <Container>
-                    <ScrollBox>
                         <Typography variant="body1" paragraph>
                             Nos spécialistes travaillent avec des matériaux de haute qualité pour garantir durabilité et esthétique.
                         </Typography>
-                    </ScrollBox>
                     <Button
                         component={Link}
                         href={'/contact'}

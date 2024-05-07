@@ -75,7 +75,6 @@ export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant:
                     maxWidth: '24rem',
                     position: 'relative',
                     zIndex: 1,
-                    // boxShadow: theme.shadows[5],
                     ...styles,
                     '&::before': {
                         content: '""',
@@ -83,7 +82,7 @@ export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant:
                         borderRadius: '20px',
                         width: '85%',
                         height: '100%',
-                        rotate: '-.1deg',
+                        rotate: { xs: '.1deg', sm: '-.1deg' },
                         position: 'absolute',
                         top: 0,
                         left: { xs: '55%', sm: '35%' },

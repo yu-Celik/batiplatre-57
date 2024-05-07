@@ -33,7 +33,7 @@ export default function CustomSwipeableDrawer({ isOpen, toggleOpen, pages }: { i
                     display: { xs: 'block', sm: 'none', md: 'none' },
                     "& .MuiDrawer-paper": {
                         width: '60%',
-                        height: '100dvh',
+                        height: '100svh',
                         overflow: 'hidden'
 
                     },
