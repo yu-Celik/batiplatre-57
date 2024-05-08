@@ -16,6 +16,9 @@ export default function RenderMobile({ }: Props) {
                 },
                 '& strong': {
                     fontWeight: '500'
+                },
+                '& .MuiTypography-root': {
+                    // maxWidth: '300px'
                 }
             }}>
                 <Typography variant="h3" gutterBottom>
@@ -28,7 +31,7 @@ export default function RenderMobile({ }: Props) {
                             <div className='absolute right-5 inset-y-2.5'>
                                 <DoneAll fontSize='medium' color='success' />
                             </div>
-                            <Typography variant="h6" pb={1}>
+                            <Typography variant="h6" pb={1} className='max-[400px]:max-w-[300px]'>
                                 <strong>1. Expertise</strong> et <strong>personnalisation</strong>
                             </Typography>
                             <Typography variant="body2">
