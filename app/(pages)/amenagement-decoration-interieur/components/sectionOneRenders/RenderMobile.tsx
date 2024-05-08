@@ -17,8 +17,8 @@ export default function RenderMobile({ }: Props) {
     return (
         <article className={cn(` brightness-100 dark:backdrop-brightness-100 bg-gradientToBottomLight dark:bg-gradientToBottom mb-8 block sm:hidden `)}>
             <Container >
-                <Typography variant="h3" gutterBottom >
-                    Découvrez comment BatiPlatre57 transforme chaque espace en un lieu de vie unique et personnalisé.
+                <Typography variant="h3" gutterBottom>
+                    Découvrez la transformation unique et personnalisée de chaque espace par BatiPlatre57.
                 </Typography>
                 <RightCardDecoration height={'100%'} width={'20%'} marginBottom={2}>
                     <Image width={400} height={400} src={img21} alt="Design intérieur élégant" className="w-full h-80 object-cover rounded " />

@@ -65,10 +65,11 @@ const config: Config = {
         'gradientToLeft': 'linear-gradient(to left bottom, #424242, #3c3c3c, #353535, #2f2f2f, #292929, #292929, #292929, #292929, #2f2f2f, #353535, #3c3c3c, #424242)',
         'gradientRadial': 'radial-gradient(circle, #424242, #3c3c3c, #353535, #2f2f2f, #292929, #292929, #292929, #292929, #2f2f2f, #353535, #3c3c3c, #424242)',
         'gradientToBottom': 'linear-gradient(to bottom, #424242, #3c3c3c, #353535, #2f2f2f, #292929, #292929, #292929, #292929, #2f2f2f, #353535, #3c3c3c, #424242)',
-        'gradientToBottomLight': 'linear-gradient(to bottom, #eeeeee, #e5e5e5, #dbdbdb, #d2d2d2, #c9c9c9, #c9c9c9, #c9c9c9, #c9c9c9, #d2d2d2, #dbdbdb, #e5e5e5, #eeeeee)',
+        // 'gradientToBottomLight': 'linear-gradient(to bottom, #eeeeee, #e5e5e5, #dbdbdb, #d2d2d2, #c9c9c9, #c9c9c9, #c9c9c9, #c9c9c9, #d2d2d2, #dbdbdb, #e5e5e5, #eeeeee)',
+        'gradientToBottomLight': 'linear-gradient(to bottom, #eeeeee, #f1f1f1, #f4f4f4, #f8f8f8, #fbfbfb, #fbfbfb, #fbfbfb, #fbfbfb, #f8f8f8, #f4f4f4, #f1f1f1, #eeeeee)',
       }
-    },
+},
   },
-  plugins: [],
+plugins: [],
 };
 export default config;

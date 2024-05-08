@@ -50,7 +50,6 @@ const SimpleSlide: React.FC<SimpleSlideProps> = ({ images }) => {
                 modifier: 2.5,
                 slideShadows: true,
             }}
-            loop={true}
             slidesPerView={'auto'}
             spaceBetween={25}
             pagination={{ clickable: true, type: 'bullets' }}
@@ -73,7 +72,7 @@ const SimpleSlide: React.FC<SimpleSlideProps> = ({ images }) => {
                         quality={100}
                         sizes="100vw"
                         style={{ objectFit: "cover", height: "18rem" }}
-                        loading={index === 0 ? "eager" : "lazy"}
+                        loading={'lazy'}
                     />
                 </SwiperSlide>
             ))}

@@ -39,18 +39,18 @@ export default function RenderTablet({ }: Props) {
                         }
                     }}>
                         <Container disableGutters>
-                                <Typography
-                                    variant="h3"
-                                    color={isInView ? 'primary' : 'inherit'}
-                                    style={{
-                                        transform: isInView ? "none" : "translateX(-200px)",
-                                        opacity: isInView ? 1 : 0,
-                                        transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-                                    }}
-                                    gutterBottom
-                                >
-                                    Découvrez comment BatiPlatre57 transforme chaque espace en un lieu de vie unique et personnalisé.
-                                </Typography>
+                            <Typography
+                                variant="h3"
+                                color={isInView ? 'primary' : 'inherit'}
+                                style={{
+                                    transform: isInView ? "none" : "translateX(-200px)",
+                                    opacity: isInView ? 1 : 0,
+                                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                                }}
+                                gutterBottom
+                            >
+                                Découvrez la transformation unique et personnalisée de chaque espace par BatiPlatre57.
+                            </Typography>
                             <Typography
                                 variant="body1"
                                 style={{

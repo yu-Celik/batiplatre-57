@@ -121,7 +121,7 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                 aria-labelledby={labelledby}
             >
                 {pages.map((page) => (
-                    <Link key={page.path} href={page.path} role="link" aria-label={page.title}>
+                    <Link key={page.path} href={page.path} aria-label={page.title}>
                         <MenuItem sx={{
                             color: theme.palette.text.primary,
                             ...(location === page.path && {

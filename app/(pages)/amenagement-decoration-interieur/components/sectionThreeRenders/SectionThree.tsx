@@ -15,13 +15,7 @@ export default function SectionThree({ }: Props) {
     return (
         <Container disableGutters>
             <Box
-                onClick={() => router.push('/Devis')}
-                tabIndex={0}
-                onKeyUp={(e) => { if (e.key === 'Enter') router.push('/Devis'); }}
                 className={cn(`min-h-72 rounded-none bg-gradientToBottomLight dark:bg-gradientToBottom`)}
-                role="button"
-                aria-label="Aller à la page de devis"
-
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',

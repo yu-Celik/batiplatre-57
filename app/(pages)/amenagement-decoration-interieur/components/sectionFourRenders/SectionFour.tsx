@@ -5,7 +5,7 @@ import CustomSwiper from '@/components/Slider/SimpleSlide';
 import { tabsClasses } from '@mui/material/Tabs';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { peintureImg, platerieImg, cloisonImg, carrelageImg, poseDeSolImg } from "@/data/imageSlideHome";
+import { peintureImg, platerieImg, amenagementCombleImg, carrelageImg, poseDeSolImg } from "@/data/imageSlideHome";
 import { LiveHelp } from '@mui/icons-material';
 import { useInView } from 'framer-motion';
 type Props = {}
@@ -58,7 +58,7 @@ export default function SectionFour({ }: Props) {
                     >
                         <Tab label="Peinture" value={0} />
                         <Tab label="Plâtrerie" value={1} />
-                        <Tab label="Cloison" value={2} />
+                        <Tab label="Aménagement & Débarras de comble" value={2} />
                         <Tab label="Carrelage" value={3} />
                         <Tab label="Pose de sol" value={4} />
                     </Tabs>
@@ -68,8 +68,8 @@ export default function SectionFour({ }: Props) {
                     <CustomTabPanel value={value} index={1} aria-label="Plâtrerie" aria-controls="plâtrerie" >
                         <CustomSwiper images={platerieImg} />
                     </CustomTabPanel>
-                    <CustomTabPanel value={value} index={2} aria-label="Cloison" aria-controls="cloison" >
-                        <CustomSwiper images={cloisonImg} />
+                    <CustomTabPanel value={value} index={2} aria-label="Aménagement & Débarras de comble" aria-controls="Aménagement & Débarras de comble" >
+                        <CustomSwiper images={amenagementCombleImg} />
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={3} aria-label="Carrelage" aria-controls="carrelage" >
                         <CustomSwiper images={carrelageImg} />
@@ -80,7 +80,7 @@ export default function SectionFour({ }: Props) {
                 </Container>
                 <Container>
                         <Typography variant="body1" paragraph>
-                            Nos spécialistes travaillent avec des matériaux de haute qualité pour garantir durabilité et esthétique.
+                            Pose de faux Plafond, mur, cloison intérieur, isolation, pose de porte intérieur & tout travaux de plâtrerie.
                         </Typography>
                     <Button
                         component={Link}

@@ -6,13 +6,14 @@ import { grey } from "@mui/material/colors";
 const Footer = () => {
     return (
         <Box
+            component="footer"
             sx={{
                 backgroundColor: grey[900],
                 color: grey[200],
                 py: 3,
                 mt: 8,
             }}
-            role="contentinfo" // Rôle ARIA pour identifier le contenu comme informations de pied de page
+            role="contentinfo"
         >
             <Container maxWidth="lg">
                 <Grid container spacing={4}>

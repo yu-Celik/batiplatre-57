@@ -13,21 +13,17 @@ export default function SectionThree({ }: Props) {
     const router = useRouter()
 
     return (
-        <Container disableGutters>
+        <Container component={'article'} disableGutters sx={{
+            mt: { xs: 6, sm: 6 },
+            mb: { xs: 2, sm: 2 },
+        }}>
             <Box
-                onClick={() => router.push('/Devis')}
-                tabIndex={0}
-                onKeyUp={(e) => { if (e.key === 'Enter') router.push('/Devis'); }}
-                className={cn(`min-h-72 rounded-none bg-gradientToBottomLight dark:bg-gradientToBottom`)}
-                role="button"
-                aria-label="Aller à la page de devis"
-
+                className={cn(`min-h-72 rounded-none  dark:bg-gradientToBottom`)}
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    cursor: 'pointer',
                     justifyContent: 'center',
-                    alignItems: 'center'
+                    alignItems: 'center',
                 }}>
                 <ScrollBoxHorizontal >
                     <div className="px-4 py-6">

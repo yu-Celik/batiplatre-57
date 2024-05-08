@@ -37,7 +37,6 @@ export default function Header({ }: Props) {
                 <AppBar role="banner" sx={{ zIndex: 1000 }}>
                     <Toolbar
                         component={'nav'}
-                        role="navigation"
                         sx={{
                             transition: 'all .3s ease-in-out',
                             paddingY: '0.5rem',

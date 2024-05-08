@@ -8,7 +8,7 @@ export const ScrollBoxHorizontal: React.FC<{ children: React.ReactNode | React.R
     const springConfig = { stiffness: 300, damping: 30, bounce: 1 };
 
     return (
-        <LayoutGroup>
+        <>
             {Children.map(children, (child, index) => {
                 const ref = useRef<HTMLDivElement>(null);
                 const { scrollYProgress } = useScroll({
@@ -25,7 +25,8 @@ export const ScrollBoxHorizontal: React.FC<{ children: React.ReactNode | React.R
 
                 const style = shouldReduceMotion ? {} : {
                     translateY: translateYSpring,
-                    opacity: opacity
+                    opacity: opacity,
+                    willChange: 'transform, opacity'
                 };
 
                 return (
@@ -34,7 +35,7 @@ export const ScrollBoxHorizontal: React.FC<{ children: React.ReactNode | React.R
                     </motion.div>
                 );
             })}
-        </LayoutGroup>
+        </>
     );
 };
 

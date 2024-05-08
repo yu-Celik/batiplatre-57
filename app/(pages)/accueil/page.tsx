@@ -1,11 +1,22 @@
-import { Typography, Box, Button } from "@mui/material";
-import HeroSection from "(pages)/accueil/components/HeroSection";
-import SectionOne from "(pages)/accueil/components/sectionOneRenders/SectionOne";
-import SectionTwo from "(pages)/accueil/components/sectionTwoRenders/SectionTwo";
-import SectionThree from "(pages)/accueil/components/sectionThreeRenders/SectionThree";
-import SectionFour from "(pages)/accueil/components/sectionFourRenders/SectionFour";
-import ContactCard from "@/components/Contact/Contact";
+const HeroSection = dynamic(() => import('(pages)/accueil/components/HeroSection'), {
+  loading: () => <CircularProgress />
+})
+const SectionOne = dynamic(() => import('(pages)/accueil/components/sectionOneRenders/SectionOne'), {
+  loading: () => <CircularProgress />
+})
+const SectionTwo = dynamic(() => import('(pages)/accueil/components/sectionTwoRenders/SectionTwo'), {
+  loading: () => <CircularProgress />
+})
+const SectionThree = dynamic(() => import('(pages)/accueil/components/sectionThreeRenders/SectionThree'), {
+  loading: () => <CircularProgress />
+})
+const SectionFour = dynamic(() => import('(pages)/accueil/components/sectionFourRenders/SectionFour'), {
+  loading: () => <CircularProgress />
+})
+
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+import { CircularProgress } from "@mui/material";
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.batiplatre57.fr/accueil'),
   title: 'BatiPlatre57 - Expertise en Plâtrerie, Peinture et Rénovation à Metz',

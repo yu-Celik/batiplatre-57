@@ -1,121 +1,176 @@
-'use client'
-import { Box, Container, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
+import { Container, Typography, Button, Box, Card, CardContent } from '@mui/material';
 import { RightCardDecoration } from '@/components/ui/CardDecoration';
 import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useInView } from 'framer-motion';
-import { forwardRef, useRef } from 'react';
+import { amber } from '@mui/material/colors';
+import { Timelapse, AutoAwesome, PriceCheck, DoneAll } from '@mui/icons-material';
 
 
 type Props = {}
 export default function RenderTablet({ }: Props) {
-    const refBox = useRef<HTMLDivElement>(null);
-    const isInView = useInView(refBox, { once: true });
-    const refImg = useRef<HTMLAnchorElement>(null);
-    const isInView2 = useInView(refImg, { once: true });
-    const theme = useTheme();
 
     return (
         <>
-            <Container disableGutters sx={{
-                my: 5,
-                display: { xs: 'none', sm: 'block', md: 'none' }
-            }}>
-                <article className={cn(` brightness-100 dark:backdrop-brightness-100 bg-gradientToBottomLight dark:bg-gradientToBottom mb-8  `)}>
-                    <Container ref={refBox} id='section-one' sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        gap: 4,
-                        padding: { xs: 0, sm: 0, md: 0, lg: 0, xl: 0 },
-                        paddingX: { xs: 0, sm: 2, md: 0, lg: 0, xl: 0 },
-                        [theme.breakpoints.up(630)]: {
-                            paddingY: 2,
-                            paddingX: 3
-                        }
-                    }}>
-                        <Container disableGutters>
-                                <Typography
-                                    variant="h3"
-                                    color={isInView ? 'primary' : 'inherit'}
-                                    style={{
-                                        transform: isInView ? "none" : "translateX(-200px)",
-                                        opacity: isInView ? 1 : 0,
-                                        transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-                                    }}
-                                    gutterBottom
-                                >
-                                    Découvrez comment BatiPlatre57 transforme chaque espace en un lieu de vie unique et personnalisé.
-                                </Typography>
-                            <Typography
-                                variant="body1"
-                                style={{
-                                    transform: isInView ? "none" : "translateX(-200px)",
-                                    opacity: isInView ? 1 : 0,
-                                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-                                }}
-                                paragraph
-                            >
-                                Avec une attention particulière aux détails et une passion pour la qualité, nous nous assurons que chaque projet reflète parfaitement vos attentes et votre style personnel.
-                            </Typography>
-                            <Typography
-                                variant="body1"
-                                style={{
-                                    transform: isInView ? "none" : "translateX(-200px)",
-                                    opacity: isInView ? 1 : 0,
-                                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-                                }}
-                                paragraph>
-                                Nous comprenons l&apos;importance de respecter les délais et les budgets, c&apos;est pourquoi nous nous engageons à fournir des estimations précises.
-                            </Typography>
-                        </Container>
+            <Container component={'article'} disableGutters
+                className='dark:backdrop-brightness-100 bg-gradientToBottomLight dark:bg-gradientToBottom'
+                sx={{
+                    mt: 4,
+                    display: { xs: 'none', sm: 'block', md: 'none' }
+                }}
+            >
+                <Container id='section-one' className='min-[630px]:py-2 min-[630px]:px-3' sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: { xs: 0, sm: 0, md: 0, lg: 0, xl: 0 },
+                    paddingX: { xs: 0, sm: 2, md: 0, lg: 0, xl: 0 },
+                }}>
+                    <RightCardDecoration className='bg-amber-500 dark:bg-amber-600 mb-2 w-1/4 h-full'>
                         <Container
                             disableGutters
                             sx={{
                                 position: 'relative',
+                                display: 'flex',
+                                gap: '1rem',
+                                justifyContent: 'center',
+                                mb: 2
                             }}
                         >
-                            <RightCardDecoration
-                                height={'100%'}
-                                width={'20%'}
-                                marginBottom={2}
-                                sx={{
-                                    opacity: isInView2 ? 1 : 0,
-                                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+                            <Image
+                                src={img21}
+                                width={900}
+                                height={900}
+                                alt="Design intérieur élégant"
+                                placeholder="blur"
+                                quality={100}
+                                style={{
+                                    objectFit: 'cover',
+                                    // borderRadius: '100% 100% 0 0',
+                                    borderRadius: '1rem',
+                                    filter: 'brightness(0.90)'
                                 }}
-                            >
-                                <Image
-                                    src={img21}
-                                    width={400}
-                                    height={400}
-                                    alt="Design intérieur élégant"
-                                    placeholder="blur"
-                                    quality={100}
-                                    className='bg-cover min-[680px]:aspect-square'
-                                />
-                            </RightCardDecoration>
+                                className='w-full h-72 aspect-square'
+                            />
+                            <Image
+                                src={img21}
+                                width={900}
+                                height={900}
+                                alt="Design intérieur élégant"
+                                placeholder="blur"
+                                quality={100}
+                                style={{
+                                    objectFit: 'cover',
+                                    // borderRadius: '100% 100% 0 0',
+                                    borderRadius: '1rem',
+                                    filter: 'brightness(0.90)'
+                                }}
+                                className='w-full h-72 aspect-square'
+                            />
                         </Container>
-                    </Container>
-                    <Container>
-                        <Button
-                            ref={refImg}
-                            component={Link}
-                            href={'/services'}
-                            variant="contained"
-                            fullWidth
-                            color="primary"
-                            sx={{
-                                opacity: isInView2 ? 1 : 0,
-                                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-                            }}
-                        >
-                            Découvrez nos réalisations
-                        </Button>
-                    </Container>
-                </article >
+                        <Container disableGutters sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            '& .MuiCard-root': {
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                position: 'relative',
+                                gap: '1rem',
+                                backdropFilter: 'brightness(1.5)',
+                                borderRadius: '1rem',
+                                marginBottom: '1rem',
+                                '&:last-child': {
+                                    marginBottom: 0
+                                }
+                            },
+                            '& .MuiTypography-root': {
+                                width: '80%'
+                            },
+                            '& span': {
+                                // minHeight: '12rem',
+                            },
+                            '& strong': {
+                                fontWeight: '500'
+                            }
+                        }}>
+
+                            <Card raised>
+                                <CardContent>
+                                    <Typography
+                                        variant="h3"
+                                        fontSize={'24px'}
+                                        color='secondary'
+                                        sx={{
+                                            '&.MuiTypography-root': {
+                                                display: 'block',
+                                                width: '90%'
+                                            }
+                                        }}
+                                    >
+                                        Trois raisons de choisir <strong>BatiPlatre57</strong> pour transformer votre <strong></strong>espace.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                            <Card raised>
+                                <CardContent>
+                                    <div className='absolute right-5 inset-y-2.5'>
+                                        <DoneAll fontSize='large' color='success' />
+                                    </div>
+                                    <Typography variant="h6" pb={1}>
+                                        <strong>1. Expertise</strong> et <strong>personnalisation</strong>
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        Chaque <strong>projet</strong> est une <strong>création unique</strong>, adaptée à vos <strong>besoins</strong> et à votre <strong>style de vie</strong>, transformant chaque <strong>espace</strong> en un lieu de vie <strong>unique</strong> et <strong>personnalisé</strong>.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                            <Card raised>
+                                <CardContent>
+                                    <div className='absolute right-5 inset-y-2.5'>
+                                        <DoneAll fontSize='large' color='success' />
+                                    </div>
+
+                                    <Typography variant="h6" pb={1}>
+                                        <strong>2. Qualité</strong> et <strong>durabilité</strong>
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        Nous nous engageons à utiliser des <strong>matériaux de haute qualité</strong> et des <strong>techniques éprouvées</strong> pour assurer la <strong>fiabilité</strong> et la <strong>longévité</strong> de vos installations.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                            <Card raised >
+                                <CardContent>
+                                    <div className='absolute right-5 inset-y-2.5'>
+                                        <DoneAll fontSize='large' color='success' />
+                                    </div>
+
+                                    <Typography variant="h6" pb={1}>
+                                        <strong>3. Rapport qualité-prix</strong>
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        Nous offrons des <strong>solutions compétitives</strong> sans compromettre la <strong>qualité</strong>, valorisant un <strong>travail bien fait</strong> qui nécessite du <strong>temps</strong>, des <strong>compétences</strong> et des <strong>ressources adéquates</strong>.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        </Container>
+                    </RightCardDecoration>
+                    <Button
+                        component={Link}
+                        href={'/nos-realisations'}
+                        variant="contained"
+                        fullWidth
+                        color="primary"
+                        size='large'
+                        sx={{
+                            mt: 4
+                        }}
+                    >
+                        Découvrez nos réalisations
+                    </Button>
+                </Container>
             </Container >
         </>
     )

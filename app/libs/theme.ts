@@ -119,6 +119,13 @@ export const useCustomTheme = (mode: PaletteMode) => ({
                 },
             }
         },
+        MuiTypography: {
+            styleOverrides: {
+                gutterBottom: {
+                    marginBottom: '1rem',
+                },
+            },
+        },
         MuiContainer: {
             styleOverrides: {
                 root: {

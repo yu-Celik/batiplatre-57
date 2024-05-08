@@ -7,9 +7,9 @@ import platerie3 from "./../assets/chantier photo/Plâtrerie/20150428_153343.jpg
 import peinture1 from "./../assets/chantier photo/Peinture, sol et carrelage/20150516_141757.jpg"
 import peinture2 from "./../assets/chantier photo/Peinture, sol et carrelage/20150528_231224.jpg"
 import peinture3 from "./../assets/chantier photo/Peinture, sol et carrelage/20161013_123124.jpg"
-import cloison1 from "./../assets/chantier photo/Peinture, sol et carrelage/20170729_181247.jpg"
-import cloison2 from "./../assets/chantier photo/Peinture, sol et carrelage/IMG_0244.jpg"
-import cloison3 from "./../assets/chantier photo/Peinture, sol et carrelage/IMG_0244.jpg"
+import amenagementComble1 from "./../assets/chantier photo/Peinture, sol et carrelage/20170729_181247.jpg"
+import amenagementComble2 from "./../assets/chantier photo/Peinture, sol et carrelage/IMG_0244.jpg"
+import amenagementComble3 from "./../assets/chantier photo/Peinture, sol et carrelage/IMG_0244.jpg"
 import poseDeSol1 from "./../assets/chantier photo/Peinture, sol et carrelage/rBVaI1mxBuqARbPmAAF0Inbx1oU584.jpg"
 import poseDeSol2 from "./../assets/chantier photo/Peinture, sol et carrelage/salon-marron-et-blanc-tollens.jpg"
 import poseDeSol3 from "./../assets/chantier photo/Peinture, sol et carrelage/IMG_20140109_2317344.jpg"
@@ -67,18 +67,18 @@ export const platerieImg = [
     },
 ]
 
-export const cloisonImg = [
+export const amenagementCombleImg = [
     {
-        src: cloison1,
-        alt: "cloison-1",
+        src: amenagementComble1,
+        alt: "Aménagement comble C-1",
     },
     {
-        src: cloison2,
-        alt: "cloison-2",
+        src: amenagementComble2,
+        alt: "Aménagement comble C-2",
     },
     {
-        src: cloison3,
-        alt: "cloison-3",
+        src: amenagementComble3,
+        alt: "Aménagement comble C-3",
     },
 ]
 

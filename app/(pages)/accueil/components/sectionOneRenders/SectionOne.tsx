@@ -8,11 +8,11 @@ export default function SectionOne({ }: Props) {
     return (
         <>
             <Box component={'section'} display={'flex'} flexDirection={'column'} >
-                <TextDecoration variant={'h2'} styles={{ mb: 2 }} text={"Pourquoi choisir BatiPlatre57 ?"} />
+                <TextDecoration variant={'h2'} styles={{ my: 6 }} text={"Pourquoi choisir BatiPlatre57 ?"} />
                 <RenderTablet />
                 <RenderMobile />
             </Box>
-        </>
+        </>         
     )
 }
 
