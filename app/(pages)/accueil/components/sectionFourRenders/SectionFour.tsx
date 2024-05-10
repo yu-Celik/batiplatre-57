@@ -11,6 +11,7 @@ import { useInView } from 'framer-motion';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useRouter } from 'next/navigation';
 import { RightCardDecoration } from '@/components/ui/CardDecoration';
+import { SpringUpFadeInBox } from '@/components/motion/SpringUpFadeInBox';
 
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -66,7 +67,7 @@ export default function SectionFour({ }: Props) {
     const theme = useTheme();
     const [value, setValue] = useState(1);
     const refBox = useRef(null);
-    const isInView = useInView(refBox);
+    const isInView = useInView(refBox, { once: true });
     const [expanded, setExpanded] = useState(Array(services.length).fill(false));
     const router = useRouter();
 
@@ -204,22 +205,16 @@ export default function SectionFour({ }: Props) {
                     </RightCardDecoration>
                 </Container>
             </Box >
-            <Container component={'article'} sx={{
-                willChange: 'transform, opacity',
+            <Container component={SpringUpFadeInBox} sx={{
                 position: 'relative',
                 mt: 6,
                 px: { sm: 2 },
-                opacity: isInView ? 1 : 0,
-                transform: isInView ? 'translate(0, 0)' : 'translate(0, 120px)',
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.4s"
-
             }}>
-                <Box sx={{
+                <Box component={'article'} sx={{
                     backgroundColor: theme.palette.background.paper,
                     borderRadius: theme.shape.borderRadius,
                     boxShadow: theme.shadows[10],
                     p: theme.spacing(6),
-
                 }}>
                     <LiveHelp color='secondary' sx={{ fontSize: 100, position: 'absolute', top: 0, right: 0, bottom: 0, transform: 'translate(0, -50%)' }} />
                     <Typography ref={refBox} variant="h3" gutterBottom sx={{ mt: 2, textAlign: 'left', maxWidth: '22rem' }}>

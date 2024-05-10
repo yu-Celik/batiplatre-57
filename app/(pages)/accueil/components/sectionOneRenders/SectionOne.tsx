@@ -3,6 +3,7 @@ import RenderMobile from "./RenderMobile"
 import RenderTablet from "./RenderTablet"
 import CircleScrollAnimation, { TextDecoration } from '@/components/ui/CircleScrollAnimation';
 import { Box } from '@mui/material';
+import RenderDesktop from "./RenderDesktop";
 type Props = {}
 export default function SectionOne({ }: Props) {
     return (
@@ -11,8 +12,9 @@ export default function SectionOne({ }: Props) {
                 <TextDecoration variant={'h2'} styles={{ my: 6 }} text={"Pourquoi choisir BatiPlatre57 ?"} />
                 <RenderTablet />
                 <RenderMobile />
+                <RenderDesktop />
             </Box>
-        </>         
+        </>
     )
 }
 

@@ -70,9 +70,10 @@ export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant:
                 display={'flex'}
                 justifyContent={'center'}
                 alignItems={'center'}
+                lineHeight={1.25}
                 sx={{
                     height: '100px',
-                    maxWidth: '24rem',
+                    maxWidth: { xs: '24rem', sm: '24rem', md: '100%' },
                     position: 'relative',
                     zIndex: 1,
                     ...styles,
