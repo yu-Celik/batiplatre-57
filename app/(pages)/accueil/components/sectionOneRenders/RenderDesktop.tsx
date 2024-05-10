@@ -41,7 +41,7 @@ export default function RenderDesktop({ }: Props) {
                     }}
                 >
                     <CardContent sx={{ display: 'flex', position: 'relative', paddingY: 4 }}>
-                        <Container 
+                        <Container
                             sx={{
                                 display: 'flex',
                                 justifyContent: 'center',
@@ -97,28 +97,35 @@ export default function RenderDesktop({ }: Props) {
                                 </CardBody>
                             </CardContainer>
                             <CardContainer variant='outlined'>
-                                <div className='absolute right-5 inset-y-2.5'>
-                                    <DoneAll fontSize='large' color='success' />
-                                </div>
-
-                                <Typography variant="h6" color='secondary' pb={1}>
-                                    <strong>2. Qualité</strong> et <strong>durabilité</strong>
-                                </Typography>
-                                <Typography variant="body2" fontSize={'16px'}>
-                                    Nous nous engageons à utiliser des <strong>matériaux de haute qualité</strong> et des <strong>techniques éprouvées</strong> pour assurer la <strong>fiabilité</strong> et la <strong>longévité</strong> de vos installations.
-                                </Typography>
+                                <CardBody className='relative'>
+                                    <CardItem as={'div'} translateX={-10} translateZ={60} rotateZ={-10} className='absolute right-5 inset-y'>
+                                        <DoneAll fontSize='large' color='success' />
+                                    </CardItem>
+                                    <CardItem as={Typography} variant="h6" color='secondary' pb={1} translateX={10} translateZ={60} sx={{
+                                        maxWidth: 290
+                                    }}>
+                                        <strong>2. Qualité</strong> et <strong>durabilité</strong>
+                                    </CardItem>
+                                    <CardItem as={Typography} variant="body2" fontSize={'16px'} translateX={10} translateZ={60}>
+                                        Nous nous engageons à utiliser des <strong>matériaux de haute qualité</strong> et des <strong>techniques éprouvées</strong> pour assurer la <strong>fiabilité</strong> et la <strong>longévité</strong> de vos installations.
+                                    </CardItem>
+                                </CardBody>
                             </CardContainer>
                             <CardContainer variant='outlined'>
-                                <div className='absolute right-5 inset-y-2.5'>
-                                    <DoneAll fontSize='large' color='success' />
-                                </div>
+                                <CardBody className='relative'>
+                                    <CardItem as={'div'} translateX={-10} translateZ={60} rotateZ={-10} className='absolute right-5 inset-y'>
+                                        <DoneAll fontSize='large' color='success' />
+                                    </CardItem>
+                                    <CardItem as={Typography} variant="h6" color='secondary' pb={1} translateX={10} translateZ={60} sx={{
+                                        maxWidth: 290
+                                    }}>
+                                        <strong>3. Rapport qualité-prix</strong>
+                                    </CardItem>
+                                    <CardItem as={Typography} variant="body2" fontSize={'16px'} translateX={10} translateZ={60}>
+                                        Nous offrons des <strong>solutions compétitives</strong> sans compromettre la <strong>qualité</strong>, valorisant un <strong>travail bien fait</strong> qui nécessite du <strong>temps</strong>, des <strong>compétences</strong> et des <strong>ressources adéquates</strong>.
+                                    </CardItem>
+                                </CardBody>
 
-                                <Typography variant="h6" color='secondary' pb={1}>
-                                    <strong>3. Rapport qualité-prix</strong>
-                                </Typography>
-                                <Typography variant="body2" fontSize={'16px'}>
-                                    Nous offrons des <strong>solutions compétitives</strong> sans compromettre la <strong>qualité</strong>, valorisant un <strong>travail bien fait</strong> qui nécessite du <strong>temps</strong>, des <strong>compétences</strong> et des <strong>ressources adéquates</strong>.
-                                </Typography>
                             </CardContainer>
                             <CardActions sx={{ display: 'flex', justifyContent: 'center', p: 0 }}>
                                 <Button variant='contained' color='primary' size="large">Découvrir nos réalisations</Button>
@@ -126,7 +133,7 @@ export default function RenderDesktop({ }: Props) {
                         </Container>
                     </CardContent>
                 </Container >
-            </Card>
+            </Card >
         </>
     )
 }
