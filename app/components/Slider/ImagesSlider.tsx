@@ -95,7 +95,7 @@ const ImagesSlider = ({
                         animate="visible"
                         exit={direction === "up" ? "upExit" : "downExit"}
                         variants={slideVariants}
-                        className="h-full w-full absolute inset-0 bg-blend-multiply brightness-75">
+                        className="h-full w-full absolute inset-">
                         <Image
                             src={images[currentIndex].img}
                             alt={images[currentIndex].alt}

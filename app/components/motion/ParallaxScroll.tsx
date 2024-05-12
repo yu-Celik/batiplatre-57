@@ -28,7 +28,9 @@ export const ParallaxScroll = ({
 
     return (
         <div
-            className={cn("max-h-[40rem] items-start overflow-y-auto w-full", className)}
+            role="grid"
+            tabIndex={0}
+            className={cn("max-h-[44rem] items-start overflow-y-auto w-full", className)}
             style={{
                 scrollbarWidth: "thin",
                 scrollSnapType: "y mandatory",
@@ -48,7 +50,7 @@ export const ParallaxScroll = ({
                         >
                             <Image
                                 src={el}
-                                className="h-60 w-full object-cover object-center rounded-lg gap-10 !m-0 !p-0 border-2 border-grey-300 dark:border-grey-800 shadow-md shadow-grey-800  dark:shadow-grey-800"
+                                className="h-60 w-full object-cover object-center rounded-lg gap-10 !m-0 !p-0 "
                                 height="400"
                                 width="400"
                                 alt="thumbnail"
@@ -64,7 +66,7 @@ export const ParallaxScroll = ({
                         >
                             <Image
                                 src={el}
-                                className="h-60 w-full object-cover object-center rounded-lg gap-10 !m-0 !p-0 border-2 border-grey-300 dark:border-grey-800 shadow-md shadow-grey-800  dark:shadow-grey-800"
+                                className="h-60 w-full object-cover object-center rounded-lg gap-10 !m-0 !p-0 "
                                 height="400"
                                 width="400"
                                 alt="thumbnail"

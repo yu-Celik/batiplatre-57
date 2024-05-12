@@ -17,6 +17,7 @@ export default function RenderTablet({ }: Props) {
                 className='dark:backdrop-brightness-100 bg-gradientToBottomLight dark:bg-gradientToBottom'
                 sx={{
                     mt: 4,
+                    mb: 2,
                     display: { xs: 'none', sm: 'block', md: 'none' }
                 }}
             >
@@ -50,11 +51,12 @@ export default function RenderTablet({ }: Props) {
                                     objectFit: 'cover',
                                     // borderRadius: '100% 100% 0 0',
                                     borderRadius: '1rem',
-                                    filter: 'brightness(0.90)'
+                                    filter: 'brightness(0.90)',
+                                    objectPosition: 'center'
                                 }}
                                 className='w-full h-72 aspect-square'
                             />
-                            <Image
+                            {/* <Image
                                 src={img21}
                                 width={900}
                                 height={900}
@@ -68,7 +70,7 @@ export default function RenderTablet({ }: Props) {
                                     filter: 'brightness(0.90)'
                                 }}
                                 className='w-full h-72 aspect-square'
-                            />
+                            /> */}
                         </Container>
                         <Container disableGutters sx={{
                             display: 'flex',
@@ -106,19 +108,16 @@ export default function RenderTablet({ }: Props) {
                                         sx={{
                                             '&.MuiTypography-root': {
                                                 display: 'block',
-                                                width: '90%'
+                                                width: '100%'
                                             }
                                         }}
                                     >
-                                        Trois raisons de choisir <strong>BatiPlatre57</strong> pour transformer votre <strong></strong>espace.
+                                        Trois raisons de choisir <strong>BatiPlatre57</strong>
                                     </Typography>
                                 </CardContent>
                             </Card>
                             <Card raised>
                                 <CardContent>
-                                    <div className='absolute right-5 inset-y-2.5'>
-                                        <DoneAll fontSize='large' color='success' />
-                                    </div>
                                     <Typography variant="h6" pb={1}>
                                         <strong>1. Expertise</strong> et <strong>personnalisation</strong>
                                     </Typography>
@@ -128,11 +127,7 @@ export default function RenderTablet({ }: Props) {
                                 </CardContent>
                             </Card>
                             <Card raised>
-                                <CardContent>
-                                    <div className='absolute right-5 inset-y-2.5'>
-                                        <DoneAll fontSize='large' color='success' />
-                                    </div>
-
+                                <CardContent> 
                                     <Typography variant="h6" pb={1}>
                                         <strong>2. Qualité</strong> et <strong>durabilité</strong>
                                     </Typography>
@@ -143,10 +138,6 @@ export default function RenderTablet({ }: Props) {
                             </Card>
                             <Card raised >
                                 <CardContent>
-                                    <div className='absolute right-5 inset-y-2.5'>
-                                        <DoneAll fontSize='large' color='success' />
-                                    </div>
-
                                     <Typography variant="h6" pb={1}>
                                         <strong>3. Rapport qualité-prix</strong>
                                     </Typography>

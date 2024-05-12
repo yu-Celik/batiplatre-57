@@ -18,7 +18,7 @@ const ImagesSliding = [
 type Props = {}
 export default function HeroSection({ }: Props) {
   return (
-    <ImagesSlider className={cn(`min-h-[calc(100svh-56px)] sm:min-h-[calc(100svh-69px)] md:min-h-svh justify-center xs:justify-start xs:mb-4 sm:mb-8`)} images={ImagesSliding}>
+    <ImagesSlider className={cn(`min-h-[calc(100svh-56px)] sm:min-h-[calc(100svh-69px)] md:min-h-svh justify-center xs:justify-start xs:mb-4 sm:mb-8 md:mb-0`)} images={ImagesSliding}>
       <FadeInUpBox className=" w-full md:px-6 z-10">
         <Stack
           id={'hero'}
@@ -27,7 +27,7 @@ export default function HeroSection({ }: Props) {
             md: '0 auto',
           }}
           marginTop={{
-            xs: '70px', sm: '165px', md: '72px'
+            xs: '70px', sm: '165px', md: '165px'
           }}
           width={'100%'}
           minWidth={{
@@ -69,18 +69,15 @@ export default function HeroSection({ }: Props) {
                 gap={2}
                 flexGrow={1}
                 zIndex={9999}
-                width={'100%'}
+                width={{ xs: '100%', md: '40%' }}
                 sx={{
                   '& .MuiTypography-root': {
                     fontSize: { xs: '1.25rem', sm: '1.5rem' },
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'flex-start',
-                    color: grey[200],
                     backdropFilter: 'blur(10px) brightness(0.5)',
                     paddingY: '0.5rem',
-                    fontWeight: 300,
-                    flexGrow: 1,
                     px: 2
                   },
                   '& .MuiSvgIcon-root': {
@@ -89,15 +86,15 @@ export default function HeroSection({ }: Props) {
                   }
                 }}
               >
-                <Typography variant="h3">
+                <Typography color="white" >
                   <CheckCircle color="success" />
                   Chaque projet est unique.
                 </Typography>
-                <Typography variant="h3">
+                <Typography color="white" >
                   <CheckCircle color="success" />
                   Solutions sur mesure.
                 </Typography>
-                <Typography variant="h3">
+                <Typography color="white" >
                   <CheckCircle color="success" />
                   Un espace qui vous est propre.
                 </Typography>

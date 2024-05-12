@@ -36,49 +36,11 @@ export const useCustomTheme = (mode: PaletteMode) => ({
             paper: mode === 'light' ? grey[100] : grey[900],
         },
         text: {
-            primary: mode === 'light' ? grey[900] : grey[200],
+            primary: mode === 'light' ? grey[900] : grey[50],
             secondary: mode === 'light' ? grey[800] : grey[100],
         },
-    },
-    typography: {
-        fontFamily: saira.style.fontFamily,
-        h1: {
-            fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
-            fontWeight: 700,
-            fontSize: '2.5rem', // Taille par défaut pour xs
-            lineHeight: '1.2',
-            letterSpacing: '0.02em',
-            '@media (min-width:600px)': { // sm
-                fontSize: '3.5rem',
-            },
+        white: grey[50],
 
-        },
-        h2: {
-            fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
-            fontWeight: 700,
-            fontSize: '2rem', // Taille par défaut pour xs
-            lineHeight: '1',
-            letterSpacing: '0.02em',
-            '@media (min-width:600px)': { // sm
-                fontSize: '2.5rem',
-            },
-        },
-        h3: {
-            fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
-            fontWeight: 500,
-            fontSize: '1.125rem', // Taille par défaut pour xs
-            letterSpacing: '0.02em',
-            lineHeight: '1.75rem',
-        },
-        h4: {
-            fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
-        },
-        h5: {
-            fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
-        },
-        h6: {
-            fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
-        },
     },
     components: {
         MuiAppBar: {
@@ -97,17 +59,19 @@ export const useCustomTheme = (mode: PaletteMode) => ({
                     fontWeight: 500,
                     borderRadius: `0 10px 0 10px`,
                     transition: 'all 0.3s ease-in-out',
-                    color: mode === 'light' ? grey[900] : grey[200],
+                    textTransform: 'capitalize', // Transforme la première lettre en majuscule
+                    fontSize: '1rem',
+                    color: mode === 'light' ? grey[900] : grey[200], // Couleur adaptative selon le mode
                     '&:hover': {
                         borderRadius: `10px 10px 10px 10px`,
                     }
                 },
                 containedPrimary: { // Styles spécifiques pour les boutons 'contained' avec la couleur 'primary'
-                    boxShadow: `0 0.5px 5px 0.5px ${blue[500]}`,
-                    color: grey[200],
+                    // boxShadow: `0 0.5px 5px 0.5px ${blue[500]}`,
+                    color: grey[100],
                 },
                 containedSecondary: { // Styles spécifiques pour les boutons 'contained' avec la couleur 'secondary'
-                    boxShadow: `0 0.5px 5px 0.5px ${amber[500]}`,
+                    // boxShadow: `0 0.5px 5px 0.5px ${amber[500]}`,
                     color: grey[900],
 
                 },
@@ -121,9 +85,56 @@ export const useCustomTheme = (mode: PaletteMode) => ({
         },
         MuiTypography: {
             styleOverrides: {
+                root: {
+                    fontWeight: 300,
+                    fontFamily: saira.style.fontFamily,
+                },
                 gutterBottom: {
                     marginBottom: '1rem',
                 },
+                h1: {
+                    fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
+                    fontWeight: 700,
+                    fontSize: '2.5rem', // Taille par défaut pour xs
+                    lineHeight: '1.2',
+                    letterSpacing: '0.02em',
+                    color: mode === 'light' ? grey[900] : '#fff',
+                    '@media (min-width:600px)': { // sm
+                        fontSize: '3.5rem',
+                    },
+                },
+                h2: {
+                    fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
+                    fontWeight: 500,
+                    fontSize: '2rem', // Taille par défaut pour xs
+                    lineHeight: '1',
+                    letterSpacing: '0.02em',
+                    color: mode === 'light' ? grey[900] : '#fff',
+                    '@media (min-width:600px)': { // sm
+                        fontSize: '2.5rem',
+                    },
+                },
+                h3: {
+                    fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
+                    fontWeight: 500,
+                    fontSize: '1.125rem', // Taille par défaut pour xs
+                    letterSpacing: '0.02em',
+                    lineHeight: '1.75rem',
+                    color: mode === 'light' ? grey[900] : '#fff',
+                },
+                h4: {
+                    fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
+                    fontWeight: 400,
+                },
+                h5: {
+                    fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
+                    fontWeight: 400,
+                },
+                h6: {
+                    fontFamily: poppins.style.fontFamily, // Police spécifique pour les titres h1
+                    fontWeight: 400,
+                },
+
             },
         },
         MuiContainer: {
@@ -131,10 +142,10 @@ export const useCustomTheme = (mode: PaletteMode) => ({
                 root: {
                     padding: '1rem',
                 },
-                disableGutters: { // Styles spécifiques pour les boutons 'contained' avec la couleur 'secondary'
+                disableGutters: {
                     padding: '0rem',
-                }
-            }
+                },
+            },
         },
         MuiCircularProgress: {
             styleOverrides: {
@@ -146,7 +157,7 @@ export const useCustomTheme = (mode: PaletteMode) => ({
                 },
 
             }
-        }
+        },
     },
 })
 

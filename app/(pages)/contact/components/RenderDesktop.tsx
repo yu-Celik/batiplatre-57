@@ -176,7 +176,9 @@ export default function RenderDesktop({ }: Props) {
                     </div>
                 </div>
             </Box>
-            <Container sx={{
+            <Container
+                component={'article'}
+                sx={{
                 position: 'relative',
                 p: theme.spacing(6),
                 mt: 8,

@@ -25,12 +25,9 @@ export default function RenderMobile({ }: Props) {
                     Trois raisons de choisir <strong>BatiPlatre57</strong> pour transformer votre espace.
                 </Typography>
                 <RightCardDecoration className='bg-amber-500 dark:bg-amber-600 mb-2 w-1/3 h-full'>
-                    <Image width={400} height={400} src={img21} alt="Design intérieur élégant" className="w-full h-80 object-cover rounded" />
+                    <Image width={400} height={400} src={img21} alt="Design intérieur élégant" className="relative w-full h-80 object-cover rounded " />
                     <Card raised sx={{ my: 2 }}>
                         <CardContent>
-                            <div className='absolute right-5 inset-y-2.5'>
-                                <DoneAll fontSize='medium' color='success' />
-                            </div>
                             <Typography variant="h6" pb={1} className='max-[400px]:max-w-[300px]'>
                                 <strong>1. Expertise</strong> et <strong>personnalisation</strong>
                             </Typography>
@@ -41,9 +38,6 @@ export default function RenderMobile({ }: Props) {
                     </Card>
                     <Card raised sx={{ mb: 2 }}>
                         <CardContent>
-                            <div className='absolute right-5 inset-y-2.5'>
-                                <DoneAll fontSize='medium' color='success' />
-                            </div>
                             <Typography variant="h6" pb={1}>
                                 <strong>2. Qualité</strong> et <strong>durabilité</strong>
                             </Typography>
@@ -54,9 +48,6 @@ export default function RenderMobile({ }: Props) {
                     </Card>
                     <Card raised sx={{ mb: 2 }}>
                         <CardContent>
-                            <div className='absolute right-5 inset-y-2.5'>
-                                <DoneAll fontSize='medium' color='success' />
-                            </div>
                             <Typography variant="h6" pb={1}>
                                 <strong>3. Rapport qualité-prix</strong>
                             </Typography>

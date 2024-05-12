@@ -15,20 +15,22 @@ export default function SectionThree({ }: Props) {
     return (
         <Container
             component={'article'}
-            className="min-h-72 rounded-none  dark:bg-gradientToBottom"
+            className="min-h-72 md:min-h-[40svh] rounded-none bg-grey-50 dark:bg-gradientToBottom"
             disableGutters
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                mt: { xs: 6, sm: 6 },
-                mb: { xs: 2, sm: 2 },
+                mt: { xs: 6, sm: 6, md: 0 },
+                mb: { xs: 2, sm: 2, md: 0 },
+                mx: { md: 0 },
+                maxWidth: { md: '100%' },
             }}
         >
             <StaggeredFadeInScrollBox className='flex flex-col items-center justify-center'>
                 <div className="px-4 py-6">
-                    <Typography variant="h3" fontWeight={700} fontSize={theme.typography.pxToRem(32)} textAlign={'center'}>
+                    <Typography variant="h3" fontWeight={700} fontSize={32} textAlign={'center'}>
                         Prêt à transformer votre espace ?
                     </Typography>
                 </div>
@@ -42,19 +44,7 @@ export default function SectionThree({ }: Props) {
                         px: 4,
                         py: 1,
                         mb: 2,
-                        animation: 'pulse 4s linear infinite',
                         borderRadius: 2,
-                        '@keyframes pulse': {
-                            '0%': {
-                                boxShadow: `0 0.5px 5px 0.5px${alpha(theme.palette.secondary.main, 0.4)}`
-                            },
-                            '70%': {
-                                boxShadow: `0 0.5px 15px 0.5px ${alpha(theme.palette.secondary.main, 0)}`
-                            },
-                            '100%': {
-                                boxShadow: `0 0.5px 5px 0.5px ${alpha(theme.palette.secondary.main, 0.4)}`
-                            }
-                        }
                     }}
                     aria-label="Commencer le devis maintenant"
 

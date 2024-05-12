@@ -34,8 +34,9 @@ export default function SlideParallax() {
                 parallax={true}
                 pagination={pagination}
                 modules={[Parallax, Pagination]}
-                className="slideParallax"
-            >
+                slidesPerView={1}
+                height={900}
+                className="slideParallax md:min-h-[calc(50vh-156px)]"            >
                 <div
                     slot="container-start"
                     className="absolute left-0 top-0 w-[130%] h-full bg-cover bg-center bg-url"
@@ -43,47 +44,53 @@ export default function SlideParallax() {
                         'backgroundImage': `url(${name.src})`,
                     }}
                     data-swiper-parallax="-23%"
-                ></div>
+                >
 
-                <SwiperSlide>
-                    <div className="step-number" data-swiper-parallax="-400">Étape 1</div>
-                    <Typography variant="h3" fontSize={32} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom >
-                        <strong>Planification Initiale</strong>
-                    </Typography>
-                    <Typography variant="h4" fontSize={24} data-swiper-parallax="-200" gutterBottom >
-                        La première étape vers la <strong>réussite</strong>
-                    </Typography>
-                    <Typography variant="body1" fontSize={16} lineHeight={1.75} data-swiper-parallax="-100" >
-                        Notre processus commence par une <strong>consultation détaillée</strong> pour comprendre vos <strong>besoins</strong> et vos attentes. Nous discutons de vos <strong>objectifs</strong>, évaluons les <strong>contraintes</strong> et proposons des <strong>solutions personnalisées</strong>. Cette étape est cruciale pour établir un plan solide qui guidera toutes les phases suivantes du projet.
-                    </Typography>
+                </div>
+
+                <SwiperSlide >
+                    <div className='max-w-[900px] mx-auto flex flex-col gap-2'>
+                        <div className="step-number" data-swiper-parallax="-400">Étape 1</div>
+                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom >
+                            <strong>Planification Initiale</strong>
+                        </Typography>
+                        <Typography variant="h4" fontSize={{ xs: 24, md: 32 }} data-swiper-parallax="-200" gutterBottom >
+                            La première étape vers la <strong>réussite</strong>
+                        </Typography>
+                        <Typography variant="body1" fontSize={{ xs: 16, md: 20 }} lineHeight={1.75} data-swiper-parallax="-100" >
+                            Notre processus commence par une <strong>consultation détaillée</strong> pour comprendre vos <strong>besoins</strong> et vos attentes. Nous discutons de vos <strong>objectifs</strong>, évaluons les <strong>contraintes</strong> et proposons des <strong>solutions personnalisées</strong>. Cette étape est cruciale pour établir un plan solide qui guidera toutes les phases suivantes du projet.
+                        </Typography>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="step-number" data-swiper-parallax="-400">Étape 2</div>
-
-                    <Typography variant="h3" fontSize={32} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom >
-                        <strong>Conception</strong> et <strong>Développement</strong>
-                    </Typography>
-                    <Typography variant="h4" fontSize={24} data-swiper-parallax="-200" gutterBottom >
-                        Créer avec <strong>précision</strong>
-                    </Typography>
-                    <Typography variant="body1" fontSize={16} lineHeight={1.75} data-swiper-parallax="-100" >
-                        Après avoir établi un plan clair, nous démarrerons la phase de <strong>conception</strong>. Utilisant les dernières <strong>technologies de pointe</strong>, nous transformons les idées en plans détaillés. Chaque <strong>conception</strong> est revue et raffinée pour assurer qu&apos;elle répond bien à vos attentes avant de passer à la <strong>réalisation</strong>.
-                    </Typography>
+                    <div className='max-w-[900px] mx-auto flex flex-col gap-2'>
+                        <div className="step-number" data-swiper-parallax="-400">Étape 2</div>
+                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom >
+                            <strong>Conception</strong> et <strong>Développement</strong>
+                        </Typography>
+                        <Typography variant="h4" fontSize={{ xs: 24, md: 32 }} data-swiper-parallax="-200" gutterBottom >
+                            Créer avec <strong>précision</strong>
+                        </Typography>
+                        <Typography variant="body1" fontSize={{ xs: 16, md: 20 }} lineHeight={1.75} data-swiper-parallax="-100" >
+                            Après avoir établi un plan clair, nous démarrerons la phase de <strong>conception</strong>. Utilisant les dernières <strong>technologies de pointe</strong>, nous transformons les idées en plans détaillés. Chaque <strong>conception</strong> est revue et raffinée pour assurer qu&apos;elle répond bien à vos attentes avant de passer à la <strong>réalisation</strong>.
+                        </Typography>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="step-number" data-swiper-parallax="-400">Étape 3</div >
-
-                    <Typography variant="h3" fontSize={32}  color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom>
-                        <strong>Exécution</strong> du Projet
-                    </Typography>
-                    <Typography variant="h4" fontSize={24} data-swiper-parallax="-200" gutterBottom >
-                        <strong>Réalisation</strong> et <strong>finitions</strong>
-                    </Typography>
-                    <Typography variant="body1" fontSize={16} lineHeight={1.75} data-swiper-parallax="-100" >
-                        La dernière étape est l&apos;<strong>exécution</strong> du projet. Nos équipes travaillent avec efficacité pour <strong>matérialiser</strong> votre projet, en respectant strictement les normes de qualité du DTU et les délais convenus. Nous assurons une communication continue tout au long de cette phase pour garantir que le projet avance selon le plan. Une fois terminé, nous procédons à une inspection finale et à la <strong>livraison</strong> du projet.
-                    </Typography>
+                    <div className='max-w-[900px] mx-auto flex flex-col gap-2'>
+                        <div className="step-number" data-swiper-parallax="-400">Étape 3</div >
+                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom>
+                            <strong>Exécution</strong> du Projet
+                        </Typography>
+                        <Typography variant="h4" fontSize={{ xs: 24, md: 32 }} data-swiper-parallax="-200" gutterBottom >
+                            <strong>Réalisation</strong> et <strong>finitions</strong>
+                        </Typography>
+                        <Typography variant="body1" fontSize={{ xs: 16, md: 20 }} lineHeight={1.75} data-swiper-parallax="-100" >
+                            La dernière étape est l&apos;<strong>exécution</strong> du projet. Nos équipes travaillent avec efficacité pour <strong>matérialiser</strong> votre projet, en respectant strictement les normes de qualité du DTU et les délais convenus. Nous assurons une communication continue tout au long de cette phase pour garantir que le projet avance selon le plan. Une fois terminé, nous procédons à une inspection finale et à la <strong>livraison</strong> du projet.
+                        </Typography>
+                    </div>
                 </SwiperSlide>
-            </Swiper >
+            </Swiper>
         </>
     );
 }
