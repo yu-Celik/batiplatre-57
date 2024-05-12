@@ -59,9 +59,9 @@ export const useCustomTheme = (mode: PaletteMode) => ({
                     fontWeight: 500,
                     borderRadius: `0 10px 0 10px`,
                     transition: 'all 0.3s ease-in-out',
-                    textTransform: 'capitalize', // Transforme la première lettre en majuscule
+                    textTransform: 'capitalize' as 'capitalize',
                     fontSize: '1rem',
-                    color: mode === 'light' ? grey[900] : grey[200], // Couleur adaptative selon le mode
+                    color: mode === 'light' ? grey[900] : grey[200],
                     '&:hover': {
                         borderRadius: `10px 10px 10px 10px`,
                     }
