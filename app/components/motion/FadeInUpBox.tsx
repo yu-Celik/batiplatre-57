@@ -1,6 +1,6 @@
 'use client'
 import { cn } from "@/utils/cn"
-import { motion } from "framer-motion"
+import { LazyMotion, m } from "framer-motion"
 import { ReactNode } from "react"
 
 type Props = {
@@ -9,10 +9,10 @@ type Props = {
 }
 
 export default function BoxAnimate({ children, className }: Props) {
-    // const loadFeatures = () => import('./features').then((res) => res.default)
+    const loadFeatures = () => import('./features').then((res) => res.default)
     return (
-        // <LazyMotion features={loadFeatures}>
-            <motion.div
+        <LazyMotion features={loadFeatures}>
+            <m.div
                 initial={{
                     opacity: 0,
                     y: -80,
@@ -28,7 +28,7 @@ export default function BoxAnimate({ children, className }: Props) {
                 className={cn(className)}
             >
                 {children}
-            </motion.div>
-        // </LazyMotion>
+            </m.div>
+        </LazyMotion>
     )
 }
