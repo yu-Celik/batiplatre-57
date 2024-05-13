@@ -1,8 +1,9 @@
 'use client'
 import { cn } from "utils/cn";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, m, AnimatePresence } from "framer-motion"
 import { useCallback, useEffect, useState } from "react";
 import Image, { StaticImageData } from 'next/image'; // Importer Image de Next.js
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const ImagesSlider = ({
     images,
@@ -21,8 +22,9 @@ const ImagesSlider = ({
     autoplay?: boolean;
     direction?: "up" | "down";
 }) => {
+    const loadFeatures = () => import('./features').then((res) => res.default)
     const [currentIndex, setCurrentIndex] = useState(0);
-
+    const isMobileOrTablet = useMediaQuery('(max-width: 900px)');
     const handleNext = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, [images.length]);
@@ -43,7 +45,7 @@ const ImagesSlider = ({
         window.addEventListener("keydown", handleKeyDown);
 
         let interval: NodeJS.Timeout | undefined;
-        if (autoplay) {
+        if (autoplay && !isMobileOrTablet) {
             interval = setInterval(handleNext, 8000);
         }
 
@@ -51,31 +53,29 @@ const ImagesSlider = ({
             window.removeEventListener("keydown", handleKeyDown);
             if (interval) clearInterval(interval);
         };
-    }, [autoplay, handleNext, handlePrevious]);
-
-
+    }, [autoplay, handleNext, handlePrevious, isMobileOrTablet]);
 
     const slideVariants = {
         initial: {
-            scale: 0,
-            opacity: 0,
+            scale: isMobileOrTablet ? 1 : 0,
+            opacity: isMobileOrTablet ? 1 : 0,
         },
         visible: {
             scale: 1,
             opacity: 1,
-            transition: {
+            transition: isMobileOrTablet ? {} : {
                 duration: 1,
                 ease: [0.645, 0.045, 0.355, 1.0],
             },
         },
-        upExit: {
+        upExit: isMobileOrTablet ? {} : {
             opacity: 1,
             x: "-150%",
             transition: {
                 duration: 2,
             },
         },
-        downExit: {
+        downExit: isMobileOrTablet ? {} : {
             opacity: 1,
             x: "-150%",
             transition: {
@@ -85,35 +85,37 @@ const ImagesSlider = ({
     };
 
     return (<>
-        <div className={cn("overflow-hidden h-full w-full relative flex ", className)} style={{ perspective: "1000px" }}>
-            {overlay && <div className={cn("absolute inset-0  ", overlayClassName)} />}
-            <AnimatePresence initial={false}>
-                {images.length > 0 && (
-                    <motion.div
-                        key={currentIndex}
-                        initial="initial"
-                        animate="visible"
-                        exit={direction === "up" ? "upExit" : "downExit"}
-                        variants={slideVariants}
-                        className="h-full w-full absolute inset-">
-                        <Image
-                            src={images[currentIndex].img}
-                            alt={images[currentIndex].alt}
-                            placeholder="blur"
-                            quality={100}
-                            fill
-                            sizes="100dvw"
-                            style={{ objectFit: "cover" }}
-                            priority={currentIndex === 0} 
-                            loading={currentIndex === 0 ? "eager" : "lazy"}
+        <LazyMotion features={loadFeatures}>
+            <div className={cn("overflow-hidden h-full w-full relative flex ", className)} style={{ perspective: "1000px" }}>
+                {overlay && <div className={cn("absolute inset-0  ", overlayClassName)} />}
+                <AnimatePresence initial={false}>
+                    {images.length > 0 && (
+                        <m.div
+                            key={currentIndex}
+                            initial="initial"
+                            animate="visible"
+                            exit={direction === "up" ? "upExit" : "downExit"}
+                            variants={slideVariants}
+                            className="h-full w-full absolute inset-">
+                            <Image
+                                src={images[currentIndex].img}
+                                alt={images[currentIndex].alt}
+                                placeholder="blur"
+                                quality={100}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                style={{ objectFit: "cover" }}
+                                priority={currentIndex === 0}
+                                loading={currentIndex === 0 ? "eager" : "lazy"}
                             />
-                            
-                    </motion.div>
-                )}
-            </AnimatePresence>
-            {children}
 
-        </div>
+                        </m.div>
+                    )}
+                </AnimatePresence>
+                {children}
+
+            </div>
+        </LazyMotion>
     </>
     );
 };

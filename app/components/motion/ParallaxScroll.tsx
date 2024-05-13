@@ -1,7 +1,7 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { motion } from "framer-motion";
+import { LazyMotion, m } from "framer-motion"
 import Image, { StaticImageData } from "next/image";
 import { cn } from "@/utils/cn";
 
@@ -12,6 +12,8 @@ export const ParallaxScroll = ({
     images: StaticImageData[];
     className?: string;
 }) => {
+    const loadFeatures = () => import('./features').then((res) => res.default)
+
     const gridRef = useRef<any>(null);
     const { scrollYProgress } = useScroll({
         container: gridRef,
@@ -27,6 +29,7 @@ export const ParallaxScroll = ({
     const secondPart = images.slice(halfIndex);
 
     return (
+        <LazyMotion features={loadFeatures}>
         <div
             role="grid"
             tabIndex={0}
@@ -44,8 +47,8 @@ export const ParallaxScroll = ({
             >
                 <div className="grid gap-10">
                     {firstPart.map((el, idx) => (
-                        <motion.div
-                            style={{ y: translateFirst }} // Apply the translateY motion value here
+                        <m.div
+                            style={{ y: translateFirst }} // Apply the translateY m value here
                             key={"grid-1" + idx}
                         >
                             <Image
@@ -55,12 +58,12 @@ export const ParallaxScroll = ({
                                 width="400"
                                 alt="thumbnail"
                             />
-                        </motion.div>
+                        </m.div>
                     ))}
                 </div>
                 <div className="grid gap-10">
                     {secondPart.map((el, idx) => (
-                        <motion.div
+                        <m.div
                             style={{ y: translateSecond }}
                             key={"grid-2" + idx}
                         >
@@ -71,10 +74,11 @@ export const ParallaxScroll = ({
                                 width="400"
                                 alt="thumbnail"
                             />
-                        </motion.div>
+                        </m.div>
                     ))}
                 </div>
             </div>
         </div>
+        </LazyMotion>
     );
 };

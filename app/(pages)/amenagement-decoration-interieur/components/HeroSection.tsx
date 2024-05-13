@@ -1,5 +1,5 @@
 'use client'
-import ImagesSlider from "@/components/Slider/ImagesSlider"
+import ImagesSlider from "@/components/motion/ImagesSlider"
 import { cn } from "utils/cn"
 import { Stack, useTheme, Box, Typography, Button } from "@mui/material"
 import { ArrowRightAlt, CheckCircle } from "@mui/icons-material"

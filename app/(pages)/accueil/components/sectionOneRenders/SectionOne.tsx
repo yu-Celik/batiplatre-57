@@ -1,7 +1,7 @@
 import RenderMobile from "./RenderMobile"
 import RenderTablet from "./RenderTablet"
-import CircleScrollAnimation, { TextDecoration } from '@/components/ui/CircleScrollAnimation';
-import { Box, Typography } from '@mui/material';
+import { TextDecoration } from '@/components/ui/CircleScrollAnimation';
+import { Box } from '@mui/material';
 import RenderDesktop from "./RenderDesktop";
 type Props = {}
 export default function SectionOne({ }: Props) {

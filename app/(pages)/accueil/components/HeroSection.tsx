@@ -1,4 +1,4 @@
-import ImagesSlider from "@/components/Slider/ImagesSlider"
+import ImagesSlider from "@/components/motion/ImagesSlider"
 import { cn } from "utils/cn"
 import { Stack, Box, Typography, Button } from "@mui/material"
 import { ArrowRightAlt, CheckCircle } from "@mui/icons-material"
@@ -6,7 +6,6 @@ import Link from "next/link"
 import accueil7 from "../../../../public/accueil7.webp"
 import accueil8 from "../../../../public/accueil8.webp"
 import accueil9 from "../../../../public/accueil9.webp"
-import { grey } from "@mui/material/colors"
 import FadeInUpBox from "@/components/motion/FadeInUpBox"
 
 const ImagesSliding = [

@@ -1,21 +1,19 @@
 'use client';
 import { Poppins, Saira } from "next/font/google";
-import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
 import { amber, blue, green, grey } from '@mui/material/colors';
-import { useMediaQuery, createTheme, PaletteMode } from '@mui/material';
-import { useMemo } from 'react';
+import {PaletteMode } from '@mui/material';
 
 export const heightHeader = '56px';
 export const contactCardHeight = '450px';
 
 const poppins = Poppins({
-    weight: ['300', '400', '500', '700'],
+    weight: ['400', '500', '700'],
     subsets: ['latin'],
     display: 'swap',
 });
 
 const saira = Saira({
-    weight: ['300', '400', '500', '700'],
+    weight: ['300', '400', '500'],
     subsets: ['latin'],
     display: 'swap',
 });
