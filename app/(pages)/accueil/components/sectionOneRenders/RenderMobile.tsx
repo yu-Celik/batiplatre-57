@@ -4,7 +4,6 @@ import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
-import { DoneAll } from '@mui/icons-material';
 
 type Props = {}
 export default function RenderMobile({ }: Props) {

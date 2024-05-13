@@ -1,5 +1,5 @@
-// 'use client'
-// import { SxProps, Theme, Typography, TypographyProps, useTheme } from "@mui/material";
+'use client'
+import { SxProps, Theme, Typography, TypographyProps, useTheme } from "@mui/material";
 // import { useTransform, motion, useScroll } from "framer-motion";
 // import { CSSProperties, useRef } from "react";
 
@@ -59,63 +59,63 @@
 
 // export default CircleScrollAnimation;
 
-// export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant: TypographyProps['variant'], styles?: SxProps<Theme> }> = ({ text, variant, styles }) => {
-//     const theme = useTheme();
+export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant: TypographyProps['variant'], styles?: SxProps<Theme> }> = ({ text, variant, styles }) => {
+    const theme = useTheme();
 
-//     return (
-//         <div className="flex justify-center items-center relative">
-//             <Typography
-//                 variant={variant}
-//                 textAlign={'center'}
-//                 display={'flex'}
-//                 justifyContent={'center'}
-//                 alignItems={'center'}
-//                 lineHeight={1.25}
-//                 sx={{
-//                     height: '100px',
-//                     maxWidth: { xs: '24rem', sm: '24rem', md: '100%' },
-//                     position: 'relative',
-//                     zIndex: 1,
-//                     ...styles,
-//                     '&::before': {
-//                         content: '""',
-//                         backgroundImage: `linear-gradient(-45deg, ${theme.palette.secondary.dark}, ${theme.palette.secondary.main})`,
-//                         borderRadius: '20px',
-//                         width: '85%',
-//                         height: '100%',
-//                         rotate: { xs: '.1deg', sm: '-.1deg' },
-//                         position: 'absolute',
-//                         top: 0,
-//                         left: { xs: '55%', sm: '35%' },
-//                         transform: 'translateX(-50%)',
-//                         zIndex: -1,
-//                         animation: 'gradient 1s linear infinite',
-//                         backgroundSize: '400% auto',
-//                         boxShadow: theme.shadows[5],
-//                         '@keyframes gradient': {
-//                             '0%': { backgroundPosition: '0% 50%' },
-//                             '50%': { backgroundPosition: '100% 50%' },
-//                             '100%': { backgroundPosition: '0% 50%' },
-//                         },
-//                     },
-//                     '&::after': {
-//                         content: '""',
-//                         borderRadius: '20px',
-//                         backgroundColor: theme.palette.background.default,
-//                         width: '100%',
-//                         height: '100%',
-//                         position: 'absolute',
-//                         top: 0,
-//                         left: { xs: '45%', sm: '45%' },
-//                         transform: 'translateX(-50%)',
-//                         zIndex: -1,
+    return (
+        <div className="flex justify-center items-center relative">
+            <Typography
+                variant={variant}
+                textAlign={'center'}
+                display={'flex'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                lineHeight={1.25}
+                sx={{
+                    height: '100px',
+                    maxWidth: { xs: '24rem', sm: '24rem', md: '100%' },
+                    position: 'relative',
+                    zIndex: 1,
+                    ...styles,
+                    '&::before': {
+                        content: '""',
+                        backgroundImage: `linear-gradient(-45deg, ${theme.palette.secondary.dark}, ${theme.palette.secondary.main})`,
+                        borderRadius: '20px',
+                        width: '85%',
+                        height: '100%',
+                        rotate: { xs: '.1deg', sm: '-.1deg' },
+                        position: 'absolute',
+                        top: 0,
+                        left: { xs: '55%', sm: '35%' },
+                        transform: 'translateX(-50%)',
+                        zIndex: -1,
+                        animation: 'gradient 1s linear infinite',
+                        backgroundSize: '400% auto',
+                        boxShadow: theme.shadows[5],
+                        '@keyframes gradient': {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' },
+                        },
+                    },
+                    '&::after': {
+                        content: '""',
+                        borderRadius: '20px',
+                        backgroundColor: theme.palette.background.default,
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        top: 0,
+                        left: { xs: '45%', sm: '45%' },
+                        transform: 'translateX(-50%)',
+                        zIndex: -1,
 
-//                     }
-//                 }}>
-//                 {text}
-//             </Typography>
-//         </div>
-//     );
-// };
+                    }
+                }}>
+                {text}
+            </Typography>
+        </div>
+    );
+};
 
 
