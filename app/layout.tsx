@@ -6,6 +6,7 @@ import FooterFixed from "components/Footer/FooterFixed";
 // import Footer from "components/Footer/Footer";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import Footer from "components/Footer/Footer";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.batiplatre57.fr'),
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <ThemeProvider>
             <Header />
             {children}
+            <SpeedInsights />
             <Footer />
             <FooterFixed />
           </ThemeProvider>
