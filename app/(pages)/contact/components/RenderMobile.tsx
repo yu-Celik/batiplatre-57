@@ -3,7 +3,7 @@ import { TextDecoration } from "@/components/ui/CircleScrollAnimation"
 import { Box, Stack, TextField, MenuItem, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography, useTheme, Container } from "@mui/material"
 import Image from 'next/image'
 import accueil6 from './../../../../public/accueil6.webp';
-import { RestartAlt, Phone, Email, LiveHelp } from '@mui/icons-material';
+import { RestartAlt, LiveHelp } from '@mui/icons-material';
 import { useState } from 'react';
 
 type Props = {}

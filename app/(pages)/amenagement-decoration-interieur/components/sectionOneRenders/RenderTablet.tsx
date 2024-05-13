@@ -1,7 +1,6 @@
 'use client'
 import { Box, Container, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import { RightCardDecoration } from '@/components/ui/CardDecoration';
-import CircleScrollAnimation from '@/components/ui/CircleScrollAnimation';
 import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';

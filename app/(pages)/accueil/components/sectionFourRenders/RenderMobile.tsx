@@ -1,12 +1,12 @@
 'use client'
-import { Box, Container, Typography, Button, Tabs, Tab, Stack, useTheme, Card, CardContent, Grid, IconButton, styled, Collapse, CardActions, IconButtonProps } from '@mui/material';
-import CircleScrollAnimation, { TextDecoration } from '@/components/ui/CircleScrollAnimation';
+import { Box, Container, Typography, Button, Tabs, Tab, useTheme, Card, CardContent, Grid, IconButton, styled, Collapse, CardActions, IconButtonProps } from '@mui/material';
+import { TextDecoration } from '@/components/ui/CircleScrollAnimation';
 import CustomSwiper from '@/components/Slider/SimpleSlide';
 import { tabsClasses } from '@mui/material/Tabs';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { peintureImg, platerieImg, amenagementCombleImg, carrelageImg, poseDeSolImg } from "@/data/imageSlideHome";
-import { AddCircleOutline, ArrowBackIos, ArrowForwardIos, LiveHelp } from '@mui/icons-material';
+import { ArrowForwardIos, LiveHelp } from '@mui/icons-material';
 import { useInView } from 'framer-motion';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useRouter } from 'next/navigation';

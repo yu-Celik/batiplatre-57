@@ -1,6 +1,5 @@
 'use client'
-import { Box, Container, Typography, Button, Tabs, Tab, Stack, useTheme } from '@mui/material';
-import CircleScrollAnimation from '@/components/ui/CircleScrollAnimation';
+import { Box, Container, Typography, Button, Tabs, Tab, useTheme } from '@mui/material';
 import CustomSwiper from '@/components/Slider/SimpleSlide';
 import { tabsClasses } from '@mui/material/Tabs';
 import { useRef, useState } from 'react';
@@ -23,7 +22,7 @@ export default function SectionFour({ }: Props) {
     return (
         <>
             <Box component={'section'} position={'relative'} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} mb={2}>
-                <CircleScrollAnimation text={"Découvrez nos prestations"} />
+                {/* <CircleScrollAnimation text={"Découvrez nos prestations"} /> */}
                 <Container>
                         <Typography variant="body1" paragraph>
                             Chez BatiPlatre57, nous offrons une gamme complète de services de rénovation, allant de la conception initiale à la réalisation finale.

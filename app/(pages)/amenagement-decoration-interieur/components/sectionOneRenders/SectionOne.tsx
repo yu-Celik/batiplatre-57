@@ -1,7 +1,6 @@
-import { LeftCardDecoration } from "@/components/ui/CardDecoration";
 import RenderMobile from "./RenderMobile"
 import RenderTablet from "./RenderTablet"
-import CircleScrollAnimation, { TextDecoration } from '@/components/ui/CircleScrollAnimation';
+import { TextDecoration } from '@/components/ui/CircleScrollAnimation';
 import { Box } from '@mui/material';
 type Props = {}
 export default function SectionOne({ }: Props) {
