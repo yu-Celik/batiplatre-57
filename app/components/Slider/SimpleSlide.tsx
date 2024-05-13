@@ -13,7 +13,7 @@ import Image, { StaticImageData } from 'next/image';
 import { PlayArrow, Pause } from '@mui/icons-material';
 
 interface SimpleSlideProps {
-    images: { src: StaticImageData, alt: string }[];
+    images: { img: StaticImageData, alt: string }[];
 }
 interface CustomCSSProperties extends CSSProperties {
     [key: `--${string}`]: string | undefined;
@@ -66,7 +66,7 @@ const SimpleSlide: React.FC<SimpleSlideProps> = ({ images }) => {
             {images.map((img, index) => (
                 <SwiperSlide key={index}>
                     <Image
-                        src={img.src}
+                        src={img.img}
                         alt={img.alt}
                         placeholder="blur"
                         quality={100}

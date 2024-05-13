@@ -1,5 +1,4 @@
 'use client'
-import { heightHeader } from '@/libs/theme';
 import { SvgIcon, useTheme, type SvgIconProps, Typography } from '@mui/material';
 import Link from 'next/link';
 
@@ -14,7 +13,7 @@ const LogoBatiPlatre: React.FC<SvgIconProps> = ({ id, ...props }: SvgIconProps):
             className='flex items-center relative sm:justify-center md:justify-start'
             style={{
                 width: 'auto',
-                height: heightHeader,
+                height: '100%',
             }}
         >
             <SvgIcon {...props} >

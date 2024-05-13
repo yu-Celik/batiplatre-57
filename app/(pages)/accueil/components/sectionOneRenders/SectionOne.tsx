@@ -7,8 +7,13 @@ type Props = {}
 export default function SectionOne({ }: Props) {
     return (
         <>
-            <Box component={'section'} display={'flex'} flexDirection={'column'} className="md:bg-grey-100 md:dark:bg-grey-900">
-                <TextDecoration variant={'h2'} styles={{ my: 6, display: {xs:'flex', md:'none'} }} text={"Pourquoi choisir BatiPlatre57 ?"} />
+            <Box
+                component={'section'}
+                display={'flex'}
+                flexDirection={'column'}
+                // className="md:bg-grey-200 md:dark:bg-grey-800"
+            >
+                <TextDecoration variant={'h2'} styles={{ my: 6, display: { xs: 'flex', md: 'none' } }} text={"Pourquoi choisir BatiPlatre57 ?"} />
                 <RenderTablet />
                 <RenderMobile />
                 <RenderDesktop />

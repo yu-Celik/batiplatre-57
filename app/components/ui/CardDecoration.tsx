@@ -16,9 +16,9 @@ export function LeftCardDecoration({ children, height, width, ...props }: CardDe
         </Box>
     )
 }
-export function RightCardDecoration({ children, className }: CardDecorationProps) {
+export function RightCardDecoration({ children, className, ...props }: CardDecorationProps) {
     return (
-        <Box position="relative">
+        <Box position="relative" {...props}>
             <span className={cn('absolute -inset-x-3 -inset-y rounded-tr rounded-bl', className)} />
             {children}
         </Box>

@@ -28,7 +28,6 @@ export default function SlideParallax() {
                 style={{
                     '--swiper-pagination-bullet-inactive-color': `${alpha(theme.palette.grey[800], 0.5)}`,
                     '--swiper-pagination-color': `${theme.palette.mode === 'dark' ? theme.palette.secondary.main : theme.palette.primary.main}`,
-                    '--swiper-pagination-bullet-active-color': `${theme.palette.mode === 'dark' ? theme.palette.secondary.main : theme.palette.primary.main}`,
                 } as CustomCSSProperties}
                 speed={600}
                 parallax={true}
@@ -36,7 +35,9 @@ export default function SlideParallax() {
                 modules={[Parallax, Pagination]}
                 slidesPerView={1}
                 height={900}
-                className="slideParallax md:min-h-[calc(50vh-156px)]"            >
+                keyboard={{ enabled: true }}
+                grabCursor={true}
+                className="slideParallax md:min-h-[calc(60vh-156px)]"            >
                 <div
                     slot="container-start"
                     className="absolute left-0 top-0 w-[130%] h-full bg-cover bg-center bg-url"

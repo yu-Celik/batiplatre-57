@@ -28,7 +28,9 @@
   }
 }
 
-
+.slideParallax .swiper-pagination-bullet-active {
+  color: #212121;
+}
 
 .slideParallax .step-number {
   content: attr(data-step);

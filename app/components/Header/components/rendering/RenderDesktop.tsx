@@ -40,6 +40,7 @@ export default function RenderDesktop({ pages }: Props) {
                         href="/nos-partenaires"
                         sx={{
                             '&.MuiButtonBase-root': {
+                                textAlign: 'center',
                                 '&:hover': {
                                     color: 'primary.main' // Utilisez des valeurs de thème directement.
                                 }

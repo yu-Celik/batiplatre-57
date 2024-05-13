@@ -16,7 +16,7 @@ export default function RenderDesktop({ }: Props) {
                 sx={{
                     width: '100%',
                 }}
-                className="bg-grey-100 dark:bg-grey-900"
+                // className="bg-grey-200 dark:bg-grey-900"
 
             >
                 Les étapes de votre projet

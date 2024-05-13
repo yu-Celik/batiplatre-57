@@ -7,7 +7,7 @@ import { CardBody, CardContainer, CardItem } from '@/components/ui/3dCard';
 import { ParallaxScroll } from '@/components/motion/ParallaxScroll';
 import { peintureImg } from '@/data/imageSlideHome';
 
-const images = peintureImg.map(img => img.src);
+const images = peintureImg.map(img => img.img);
 
 type Props = {}
 export default function RenderDesktop({ }: Props) {

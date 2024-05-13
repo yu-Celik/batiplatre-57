@@ -1,7 +1,7 @@
 'use client';
 import { Poppins, Saira } from "next/font/google";
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
-import { amber, blue, grey } from '@mui/material/colors';
+import { amber, blue, green, grey } from '@mui/material/colors';
 import { useMediaQuery, createTheme, PaletteMode } from '@mui/material';
 import { useMemo } from 'react';
 
@@ -40,6 +40,9 @@ export const useCustomTheme = (mode: PaletteMode) => ({
             secondary: mode === 'light' ? grey[800] : grey[100],
         },
         white: grey[50],
+        success: {
+            main: green[400],
+        },
 
     },
     components: {

@@ -15,7 +15,7 @@ export default function SectionThree({ }: Props) {
     return (
         <Container
             component={'article'}
-            className="min-h-72 md:min-h-[40svh] rounded-none bg-grey-50 dark:bg-gradientToBottom"
+            className="min-h-72 md:min-h-[40svh] rounded-none bg-grey-50 dark:bg-grey-900"
             disableGutters
             sx={{
                 display: 'flex',
@@ -29,8 +29,8 @@ export default function SectionThree({ }: Props) {
             }}
         >
             <StaggeredFadeInScrollBox className='flex flex-col items-center justify-center'>
-                <div className="px-4 py-6">
-                    <Typography variant="h3" fontWeight={700} fontSize={32} textAlign={'center'}>
+                <div className="px-4 py-16">
+                    <Typography variant="h3" fontWeight={700} fontSize={{ xs: 32, md: 48 }} textAlign={'center'}>
                         Prêt à transformer votre espace ?
                     </Typography>
                 </div>

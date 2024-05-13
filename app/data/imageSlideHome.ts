@@ -19,95 +19,117 @@ import poseDeSol3 from "./../assets/chantier photo/Peinture, sol et carrelage/IM
 
 export const peintureImg = [
     {
-        src: peinture1,
+        id: '1',
+        img: peinture1,
         alt: "peinture-1",
     },
     {
-        src: peinture2,
+        id: '2',
+        img: peinture2,
         alt: "peinture-2",
     },
     {
-        src: peinture3,
+        id: '3',
+        img: peinture3,
         alt: "peinture-3",
     },
     {
-        src: peinture3,
+        id: '4',
+        img: peinture3,
         alt: "peinture-3",
     },
     {
-        src: peinture3,
+        id: '5',
+        img: peinture3,
         alt: "peinture-3",
     },
     {
-        src: peinture3,
+        id: '6',
+        img: peinture3,
         alt: "peinture-3",
     },
     {
-        src: peinture3,
+        id: '7',
+        img: peinture3,
         alt: "peinture-3",
+        width: 1000,
+        height: 1000,
     },
     {
-        src: peinture3,
+        id: '8',
+        img: peinture3,
         alt: "peinture-3",
     },
 ]
 
 export const platerieImg = [
     {
-        src: platerie1,
+        id: '1',
+        img: platerie1,
         alt: "platerie-1",
     },
     {
-        src: platerie2,
+        id: '2',
+        img: platerie2,
         alt: "platerie-2",
     },
     {
-        src: platerie3,
+        id: '3',
+        img: platerie3,
         alt: "platerie-3",
     },
 ]
 
 export const amenagementCombleImg = [
     {
-        src: amenagementComble1,
+        id: '1',
+        img: amenagementComble1,
         alt: "Aménagement comble C-1",
     },
     {
-        src: amenagementComble2,
+        id: '2',
+        img: amenagementComble2,
         alt: "Aménagement comble C-2",
     },
     {
-        src: amenagementComble3,
+        id: '3',
+        img: amenagementComble3,
         alt: "Aménagement comble C-3",
     },
 ]
 
 export const carrelageImg = [
     {
-        src: carrelage1,
+        id: '1',
+        img: carrelage1,
         alt: "carrelage-1",
     },
     {
-        src: carrelage2,
+        id: '2',
+        img: carrelage2,
         alt: "carrelage-2",
     },
     {
-        src: carrelage3,
+        id: '3',
+        img: carrelage3,
         alt: "carrelage-3",
     },
 ]
 
 export const poseDeSolImg = [
     {
-        src: poseDeSol1,
+        id: '1',
+        img: poseDeSol1,
         alt: "pose-de-sol-1",
     },
     {
-        src: poseDeSol2,
+        id: '2',
+        img: poseDeSol2,
         alt: "pose-de-sol-2",
     },
     {
-        src: poseDeSol3,
+        id: '3',
+        img: poseDeSol3,
         alt: "pose-de-sol-3",
     },
 ]

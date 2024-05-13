@@ -1,0 +1,24 @@
+
+
+.slideGallery .swiper-pagination-bullet {
+  text-align: center;
+  color: #fafafa;
+  /* background: #fafafa; */
+  opacity: 1;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 16px;
+}
+.slideGallery .swiper-pagination-bullet-active {
+  color: #212121;
+}
+
+/* 
+.slideGallery .step-number {
+  content: attr(data-step);
+  font-size: 18px;
+  font-weight: bold;
+  color: #eeeee;
+  margin-bottom: 8px;
+} */
