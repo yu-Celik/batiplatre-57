@@ -1,12 +1,12 @@
 'use client'
-import { Box, Container, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
+import { Container, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import { RightCardDecoration } from '@/components/ui/CardDecoration';
 import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useInView } from 'framer-motion';
-import { forwardRef, useRef } from 'react';
+import { useRef } from 'react';
 
 
 type Props = {}

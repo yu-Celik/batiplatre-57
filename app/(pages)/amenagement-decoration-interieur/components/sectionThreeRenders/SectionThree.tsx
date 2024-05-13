@@ -2,7 +2,6 @@
 import { Box, Button, Container, Typography, useTheme } from "@mui/material";
 import { DirectionsRun } from "@mui/icons-material";
 import { alpha } from "@mui/system";
-import { ScrollBoxHorizontal } from "@/components/ui/ScrollBox";
 import Link from "next/link";
 import { cn } from "@/utils/cn";
 import { useRouter } from 'next/navigation'
@@ -23,7 +22,7 @@ export default function SectionThree({ }: Props) {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
-                <ScrollBoxHorizontal >
+                {/* <ScrollBoxHorizontal > */}
                     <div className="px-4 py-6">
                         <Typography variant="h3" fontWeight={700} fontSize={theme.typography.pxToRem(32)} textAlign={'center'}>
                             Prêt à transformer votre espace ?
@@ -58,7 +57,7 @@ export default function SectionThree({ }: Props) {
                     >
                         Commencez maintenant !
                     </Button>
-                </ScrollBoxHorizontal>
+                {/* </ScrollBoxHorizontal> */}
             </Box>
         </Container>
     )

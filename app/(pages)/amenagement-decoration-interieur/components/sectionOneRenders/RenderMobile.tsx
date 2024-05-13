@@ -1,13 +1,10 @@
 'use client'
-import { Box, Container, Typography, Button } from '@mui/material';
+import { Container, Typography, Button } from '@mui/material';
 import { RightCardDecoration } from '@/components/ui/CardDecoration';
 import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import RenderTablet from './RenderTablet';
 
 
 

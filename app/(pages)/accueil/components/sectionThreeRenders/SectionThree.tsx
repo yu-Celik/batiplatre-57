@@ -1,9 +1,7 @@
 'use client'
-import { Box, Button, Container, Typography, useTheme } from "@mui/material";
+import { Button, Container, Typography, useTheme } from "@mui/material";
 import { DirectionsRun } from "@mui/icons-material";
-import { alpha } from "@mui/system";
 import Link from "next/link";
-import { cn } from "@/utils/cn";
 import { useRouter } from 'next/navigation'
 import { StaggeredFadeInScrollBox } from "@/components/motion/StaggeredFadeInScrollBox";
 
