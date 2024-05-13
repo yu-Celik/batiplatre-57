@@ -1,7 +1,7 @@
 'use client'
 import { Container, Typography, Button } from '@mui/material';
 import { RightCardDecoration } from '@/components/ui/CardDecoration';
-import img21 from '@/assets/chantier photo/plat.jpg';
+// import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,9 +17,9 @@ export default function RenderMobile({ }: Props) {
                 <Typography variant="h3" gutterBottom>
                     Découvrez la transformation unique et personnalisée de chaque espace par BatiPlatre57.
                 </Typography>
-                <RightCardDecoration height={'100%'} width={'20%'} marginBottom={2}>
-                    <Image width={400} height={400} src={img21} alt="Design intérieur élégant" className="w-full h-80 object-cover rounded " />
-                </RightCardDecoration>
+                {/* <RightCardDecoration height={'100%'} width={'20%'} marginBottom={2}> */}
+                    {/* <Image width={400} height={400} src={img21} alt="Design intérieur élégant" className="w-full h-80 object-cover rounded " /> */}
+                {/* </RightCardDecoration> */}
                 <Typography variant="body1" paragraph>
                     Avec une attention particulière aux détails et une passion pour la qualité, nous nous assurons que chaque projet reflète parfaitement vos attentes et votre style personnel.
                 </Typography>
