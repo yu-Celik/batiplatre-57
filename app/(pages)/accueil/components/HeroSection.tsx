@@ -23,13 +23,13 @@ export default function HeroSection({ }: Props) {
         minHeight={{ xs: 'calc(100svh - 70px)', sm: 'calc(100svh - 165px)', md: 'calc(100svh - 100px)' }}
       >
 
-        <SlideHeroSection images={ImagesSliding} styleSlide={{
+        {/* <SlideHeroSection images={ImagesSliding} styleSlide={{
           position: "absolute",
           top: 0,
           bottom: 0,
           left: 0,
           width: "100%",
-        }} />
+        }} /> */}
         <Stack
           id={'hero'}
           component={'section'}
