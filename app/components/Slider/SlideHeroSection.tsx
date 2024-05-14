@@ -54,8 +54,6 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                             loading={index === 0 ? "eager" : "lazy"}
                             priority={index === 0 ? true : false}
                             quality={100}
-                            placeholder="blur"
-                            blurDataURL={image.image.blurDataURL}
                             fill
                             style={{
                                 objectFit: "cover"
