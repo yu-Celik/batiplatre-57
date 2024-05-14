@@ -27,7 +27,7 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                     clickable: true,
                 }}
                 keyboard={true}
-                // loop={true}
+                loop={true}
                 modules={[EffectFade, Pagination, A11y]}
                 className="SlideHeroSection"
                 allowTouchMove={false}
