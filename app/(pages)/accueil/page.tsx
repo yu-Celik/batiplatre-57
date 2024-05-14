@@ -1,22 +1,17 @@
 const HeroSection = dynamic(() => import('(pages)/accueil/components/HeroSection'), {
   loading: () => <CircularProgress />,
-  ssr: false
 })
 const SectionOne = dynamic(() => import('(pages)/accueil/components/sectionOneRenders/SectionOne'), {
   loading: () => <CircularProgress />,
-  ssr: false
 })
 const SectionTwo = dynamic(() => import('(pages)/accueil/components/sectionTwoRenders/SectionTwo'), {
   loading: () => <CircularProgress />,
-  ssr: false
 })
 const SectionThree = dynamic(() => import('(pages)/accueil/components/sectionThreeRenders/SectionThree'), {
   loading: () => <CircularProgress />,
-  ssr: false
 })
 const SectionFour = dynamic(() => import('(pages)/accueil/components/sectionFourRenders/SectionFour'), {
   loading: () => <CircularProgress />,
-  ssr: false
 })
 
 
@@ -24,11 +19,6 @@ const SectionFour = dynamic(() => import('(pages)/accueil/components/sectionFour
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { CircularProgress } from "@mui/material";
-// import HeroSection from "./components/HeroSection";
-// import SectionOne from "./components/sectionOneRenders/SectionOne";
-// import SectionTwo from "./components/sectionTwoRenders/SectionTwo";
-// import SectionThree from "./components/sectionThreeRenders/SectionThree";
-// import SectionFour from "./components/sectionFourRenders/SectionFour";
 
 export const metadata: Metadata = {
   title: 'Accueil',

@@ -1,5 +1,5 @@
 import ImagesSlider from "@/components/motion/ImagesSlider"
-import { Stack, Box, Typography, Button } from "@mui/material"
+import { Stack, Box, Typography, Button, Container } from "@mui/material"
 import { ArrowRightAlt, CheckCircle } from "@mui/icons-material"
 import Link from "next/link"
 import accueil7 from "../../../../public/accueil7.webp"
@@ -23,7 +23,7 @@ export default function HeroSection({ }: Props) {
         top: 0,
         left: 0,
         width: "100%",
-        height: "100svh"
+        height: "100svh",
       }} />
       <Stack
         id={'hero'}
@@ -41,13 +41,16 @@ export default function HeroSection({ }: Props) {
           lg: '1200px'
         }}
         maxWidth={1200}
-        minHeight={{ md: 'calc(100svh - 100px)' }}
+        minHeight={{ xs: 'calc(100svh - 70px)', sm: 'calc(100svh - 165px)', md: 'calc(100svh - 100px)' }}
         sx={{
           '& h1, & h2, & h3,& p': {
             textShadow: '2px 2px 4px #000000ba'
           },
         }}>
-        <Box>
+        <Container maxWidth="lg" sx={{
+          position: 'relative',
+          zIndex: 2
+        }}>
           <Typography
             px={{ xs: 2, sm: 2, md: 0 }}
             py={{ xs: 2, sm: 4, md: 4 }}
@@ -57,13 +60,9 @@ export default function HeroSection({ }: Props) {
             }}
             color="secondary"
             marginTop={{
-              xs: '3rem',
+              xs: '0rem',
               sm: '3rem',
               md: '10rem'
-            }}
-            sx={{
-              position: 'relative',
-              zIndex: 1
             }}
           >
             Votre artisan pour tous travaux d&apos;intérieur
@@ -78,7 +77,6 @@ export default function HeroSection({ }: Props) {
               flexDirection={'column'}
               gap={2}
               flexGrow={1}
-              zIndex={1}
               width={{ xs: '100%', md: '40%' }}
               sx={{
                 '& .MuiTypography-root': {
@@ -151,7 +149,7 @@ export default function HeroSection({ }: Props) {
 
             </Stack>
           </Stack>
-        </Box >
+        </Container >
       </Stack >
     </>
   )

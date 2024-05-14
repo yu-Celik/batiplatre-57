@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mui/icons-material": "^5.15.17",
+    "@mui/material": "^5.15.17",
     "@mui/material-nextjs": "^5.15.11",
     "@vercel/speed-insights": "^1.0.10",
     "clsx": "^2.1.1",
