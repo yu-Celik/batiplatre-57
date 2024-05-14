@@ -2,7 +2,7 @@
 import { CSSProperties } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import { alpha, useTheme } from "@mui/material";
+import { alpha, useTheme } from "@mui/material";
 // // Import Swiper styles
 // import 'swiper/css';
 // import 'swiper/css/effect-fade';
@@ -17,7 +17,7 @@ interface CustomCSSProperties extends CSSProperties {
     [key: `--${string}`]: string | undefined;
 }
 export default function SlideHeroSection({ images, styleSlide }: { images: { image: StaticImageData, alt: string }[], styleSlide: CSSProperties }) {
-    // const theme = useTheme()
+    const theme = useTheme()
     return (
         <>
             <Swiper
@@ -38,11 +38,11 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                 // }}
                 style={{
                     ...styleSlide,
-                    // '--swiper-theme-color': theme.palette.secondary.main,
-                    // '--swiper-pagination-bullet-horizontal-gap': '0.5rem',
-                    // '--swiper-pagination-bullet-size': '1.25rem',
-                    // '--swiper-pagination-bullet-border-radius': '50%',
-                    // '--swiper-pagination-bullet-inactive-color': theme.palette.secondary.dark,
+                    '--swiper-theme-color': theme.palette.secondary.main,
+                    '--swiper-pagination-bullet-horizontal-gap': '0.5rem',
+                    '--swiper-pagination-bullet-size': '1.25rem',
+                    '--swiper-pagination-bullet-border-radius': '50%',
+                    '--swiper-pagination-bullet-inactive-color': theme.palette.secondary.dark,
                 } as CustomCSSProperties}
             >
                 {images.map((image, index) => (
