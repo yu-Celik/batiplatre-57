@@ -1,5 +1,7 @@
 .imageSlideHeroSection {
-    animation: zoomIn 5s ease-in-out forwards;
+    @media (min-width: 900px) {
+        animation: zoomIn 5s ease-in-out forwards;
+    }
 }
 
 @keyframes zoomIn {

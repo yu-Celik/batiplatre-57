@@ -53,10 +53,10 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                             alt={image.alt}
                             loading={index === 0 ? "eager" : "lazy"}
                             priority={index === 0 ? true : false}
-                            quality={100}
-                            fill
                             style={{
-                                objectFit: "cover"
+                                objectFit: "cover",
+                                width: "100%",
+                                height: "100%"
                             }}
                             className="imageSlideHeroSection"
                         />

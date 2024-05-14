@@ -18,30 +18,36 @@ type Props = {}
 export default function HeroSection({ }: Props) {
   return (
     <>
-      <SlideHeroSection images={ImagesSliding} styleSlide={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100svh",
-      }} />
-      <Stack
-        id={'hero'}
-        component={'section'}
-        margin={{
-          md: '0 auto',
-        }}
-        marginTop={{
-          xs: '70px', sm: '165px', md: '100px'
-        }}
-        width={'100%'}
-        minWidth={{
-          sm: '600px',
-          md: '900px',
-          lg: '1200px'
-        }}
-        maxWidth={1200}
+      <Box
+        position="relative"
         minHeight={{ xs: 'calc(100svh - 70px)', sm: 'calc(100svh - 165px)', md: 'calc(100svh - 100px)' }}
+      >
+
+        <SlideHeroSection images={ImagesSliding} styleSlide={{
+          position: "absolute",
+          top: 0,
+          bottom: 0,
+          left: 0,
+          width: "100%",
+        }} />
+        <Stack
+          id={'hero'}
+          component={'section'}
+          margin={{
+            md: '0 auto',
+          }}
+          marginTop={{
+            xs: '70px', sm: '165px', md: '72px'
+          }}
+          width={'100%'}
+          minWidth={{
+            sm: '600px',
+            md: '900px',
+            lg: '1200px'
+          }}
+          maxWidth={1200}
+          minHeight={{ md: 'calc(100svh - 100px)' }}
+          justifyContent={{ md: "center" }}
         sx={{
           '& h1, & h2, & h3,& p': {
             textShadow: '2px 2px 4px #000000ba'
@@ -49,21 +55,21 @@ export default function HeroSection({ }: Props) {
         }}>
         <Container maxWidth="lg" sx={{
           position: 'relative',
-          zIndex: 2
+          zIndex: 2,
+          paddingBottom: 6,
         }}>
           <Typography
-            px={{ xs: 2, sm: 2, md: 0 }}
             py={{ xs: 2, sm: 4, md: 4 }}
             variant="h1"
             maxWidth={{
               xs: '600px',
             }}
             color="secondary"
-            marginTop={{
-              xs: '0rem',
-              sm: '3rem',
-              md: '10rem'
-            }}
+          // marginTop={{
+          //   xs: '0rem',
+          //   sm: '3rem',
+          //   md: '10rem'
+          // }}
           >
             Votre artisan pour tous travaux d&apos;intérieur
           </Typography>
@@ -151,6 +157,8 @@ export default function HeroSection({ }: Props) {
           </Stack>
         </Container >
       </Stack >
+    </Box >
+
     </>
   )
 }
