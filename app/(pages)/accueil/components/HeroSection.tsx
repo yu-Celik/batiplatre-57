@@ -17,7 +17,6 @@ type Props = {}
 export default function HeroSection({ }: Props) {
   return (
     <ImagesSlider className={cn(`min-h-[calc(100svh-56px)] sm:min-h-[calc(100svh-69px)] md:min-h-svh justify-center xs:justify-start xs:mb-4 sm:mb-8 md:mb-0`)} images={ImagesSliding}>
-
       <Stack
         id={'hero'}
         component={'section'}
@@ -53,6 +52,10 @@ export default function HeroSection({ }: Props) {
               sm: '3rem',
               md: '2rem'
             }}
+            sx={{
+              position: 'relative',
+              zIndex: 1
+            }}
           >
             Votre artisan pour tous travaux d&apos;intérieur
           </Typography>
@@ -66,7 +69,7 @@ export default function HeroSection({ }: Props) {
               flexDirection={'column'}
               gap={2}
               flexGrow={1}
-              zIndex={9999}
+              zIndex={1}
               width={{ xs: '100%', md: '40%' }}
               sx={{
                 '& .MuiTypography-root': {

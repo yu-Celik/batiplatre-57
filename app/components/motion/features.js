@@ -1,4 +1,4 @@
-import { domAnimation } from "framer-motion"
+import { domMax } from "framer-motion"
 
-export default domAnimation
+export default domMax
 
