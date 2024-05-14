@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import './stylesSlideHeroSection.css'
-import { EffectFade, Navigation, Pagination, A11y } from 'swiper/modules';
+import { EffectFade, Pagination, A11y } from 'swiper/modules';
 import Image, { StaticImageData } from 'next/image';
 
 interface CustomCSSProperties extends CSSProperties {
