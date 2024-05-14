@@ -6,7 +6,7 @@ import accueil7 from "../../../../public/accueil7.webp"
 import accueil8 from "../../../../public/accueil8.webp"
 import accueil9 from "../../../../public/accueil9.webp"
 import { cn } from "@/utils/cn"
-import SlideHeroSection from "@/components/Slider/SlideHeroSection"
+// import SlideHeroSection from "@/components/Slider/SlideHeroSection"
 
 const ImagesSliding = [
   { image: accueil7, alt: "Description de l'image accueil7" },
@@ -23,13 +23,13 @@ export default function HeroSection({ }: Props) {
         minHeight={{ xs: 'calc(100svh - 70px)', sm: 'calc(100svh - 165px)', md: 'calc(100svh - 100px)' }}
       >
 
-        <SlideHeroSection images={ImagesSliding} styleSlide={{
+        {/* <SlideHeroSection images={ImagesSliding} styleSlide={{
           position: "absolute",
           top: 0,
           bottom: 0,
           left: 0,
           width: "100%",
-        }} />
+        }} /> */}
         <Stack
           id={'hero'}
           component={'section'}
