@@ -54,8 +54,8 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                             priority={index === 0 ? true : false}
                             // placeholder='blur'
                             // sizes="100vw"
-                            // quality={100}
-                            // fill
+                            quality={100}
+                            fill
                             style={{
                                 objectFit: "cover",
                             }}
