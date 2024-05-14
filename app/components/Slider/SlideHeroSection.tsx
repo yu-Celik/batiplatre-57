@@ -45,7 +45,7 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                     // '--swiper-pagination-bullet-inactive-color': theme.palette.secondary.dark,
                 } as CustomCSSProperties}
             >
-                {/* {images.map((image, index) => (
+                {images.map((image, index) => (
                     <SwiperSlide key={index}>
                         <Image
                             src={image.image}
@@ -62,7 +62,7 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                             // className="imageSlideHeroSection"
                         />
                     </SwiperSlide>
-                ))} */}
+                ))}
             </Swiper>
         </>
     );
