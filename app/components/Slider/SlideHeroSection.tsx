@@ -50,16 +50,16 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                         <Image
                             src={image.image}
                             alt={image.alt}
-                            // loading={index === 0 ? "eager" : "lazy"}
-                            // priority={index === 0 ? true : false}
-                            // placeholder='blur'
-                            // sizes="100vw"
-                            // quality={100}
-                            // fill
-                            // style={{
-                            //     objectFit: "cover",
-                            // }}
-                            // className="imageSlideHeroSection"
+                            loading={index === 0 ? "eager" : "lazy"}
+                            priority={index === 0 ? true : false}
+                            placeholder='blur'
+                            sizes="100vw"
+                            quality={100}
+                            fill
+                            style={{
+                                objectFit: "cover",
+                            }}
+                            className="imageSlideHeroSection"
                         />
                     </SwiperSlide>
                 ))}
