@@ -64,9 +64,10 @@ export default function RenderDesktop({ }: Props) {
                 sx={{
                     height: 'fit-content',
                     backdropFilter: 'brightness(1.25)',
+                    borderRadius: theme.shape.borderRadius,
                     '& .MuiTextField-root': {
                         width: '100%',
-                        mx: 'auto'
+                        mx: 'auto',
                     },
                 }}
             >
