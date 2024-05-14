@@ -3,14 +3,14 @@ import { CSSProperties } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { alpha, useTheme } from "@mui/material";
-// // Import Swiper styles
-// import 'swiper/css';
-// import 'swiper/css/effect-fade';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-// import './stylesSlideHeroSection.css'
-// import { EffectFade, Navigation, Pagination, A11y } from 'swiper/modules';
+import './stylesSlideHeroSection.css'
+import { EffectFade, Navigation, Pagination, A11y } from 'swiper/modules';
 import Image, { StaticImageData } from 'next/image';
 
 interface CustomCSSProperties extends CSSProperties {
@@ -21,21 +21,21 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
     return (
         <>
             <Swiper
-                // spaceBetween={30}
-                // effect={'fade'}
-                // pagination={{
-                //     clickable: true,
-                // }}
-                // keyboard={true}
-                // // loop={true}
-                // modules={[EffectFade, Pagination, A11y]}
-                // className="SlideHeroSection"
-                // allowTouchMove={false}
-                // autoplay={{
-                    // delay: 5000,
-                    // disableOnInteraction: false,
-                    // pauseOnMouseEnter: true,
-                // }}
+                spaceBetween={30}
+                effect={'fade'}
+                pagination={{
+                    clickable: true,
+                }}
+                keyboard={true}
+                // loop={true}
+                modules={[EffectFade, Pagination, A11y]}
+                className="SlideHeroSection"
+                allowTouchMove={false}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                }}
                 style={{
                     ...styleSlide,
                     '--swiper-theme-color': theme.palette.secondary.main,
@@ -52,7 +52,6 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                             alt={image.alt}
                             loading={index === 0 ? "eager" : "lazy"}
                             priority={index === 0 ? true : false}
-                            // placeholder='blur'
                             sizes="100vw"
                             quality={100}
                             fill
