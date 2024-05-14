@@ -56,9 +56,9 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                             // sizes="100vw"
                             // quality={100}
                             // fill
-                            // style={{
-                                // objectFit: "cover",
-                            // }}
+                            style={{
+                                objectFit: "cover",
+                            }}
                             className="imageSlideHeroSection"
                         />
                     </SwiperSlide>
