@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import './stylesSlideHeroSection.css'
-import { EffectFade, Pagination, A11y } from 'swiper/modules';
+import { EffectFade, Pagination, A11y, Autoplay } from 'swiper/modules';
 import Image, { StaticImageData } from 'next/image';
 
 interface CustomCSSProperties extends CSSProperties {
@@ -27,7 +27,7 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                 }}
                 keyboard={true}
                 loop={true}
-                modules={[EffectFade, Pagination, A11y]}
+                modules={[EffectFade, Pagination, A11y, Autoplay]}
                 className="SlideHeroSection"
                 allowTouchMove={false}
                 autoplay={{
