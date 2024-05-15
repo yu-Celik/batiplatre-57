@@ -1,7 +1,7 @@
 'use client';
 import React, { ReactNode, createContext, useContext } from 'react';
 import { ThemeProvider as MUIThemeProvider, CssBaseline, useMediaQuery, createTheme } from '@mui/material';
-import { useCustomTheme } from './theme'; // Correction du chemin relatif
+import { useCustomTheme } from './theme';
 
 const ThemeContext = createContext({ toggleTheme: () => {} });
 

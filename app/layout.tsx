@@ -32,15 +32,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fr">
       <body>
-        <AppRouterCacheProvider>
-          <ThemeProvider>
+        {/* <AppRouterCacheProvider> */}
+          {/* <ThemeProvider> */}
             <Header />
             {children}
             <SpeedInsights />
             <Footer />
             <FooterFixed />
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+          {/* </ThemeProvider> */}
+        {/* </AppRouterCacheProvider> */}
       </body>
     </html>
   );
