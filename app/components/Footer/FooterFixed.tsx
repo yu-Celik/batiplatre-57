@@ -9,7 +9,7 @@ const FooterFixed = () => {
     const isSmUp = useMediaQuery(theme.breakpoints.up('sm'));
     return (
         <AppBar
-            position="sticky"
+            position="fixed"
             sx={{ top: 'auto', bottom: 0, display: { md: 'none' } }}
             aria-label="Barre de navigation inférieure"
         >

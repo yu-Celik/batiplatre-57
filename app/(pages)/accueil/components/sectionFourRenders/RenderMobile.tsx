@@ -206,7 +206,7 @@ export default function RenderMobile({ }: Props) {
             </Box >
             <Container component={SpringUpFadeInBox} sx={{
                 position: 'relative',
-                mt: 6,
+                my: 6,
                 px: { sm: 2 },
                 display: { xs: 'block', md: 'none' }
             }}>

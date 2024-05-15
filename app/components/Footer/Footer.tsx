@@ -11,7 +11,6 @@ const Footer = () => {
                 backgroundColor: grey[900],
                 color: grey[200],
                 py: 3,
-                mt: 8,
             }}
             role="contentinfo"
         >
@@ -36,12 +35,12 @@ const Footer = () => {
                             Contact
                         </Typography>
                         <Typography variant="body2">
-                            123 Rue Exemple, 57000 Metz<br/>
+                            123 Rue Exemple, 57000 Metz<br />
                             contact@batiplatre57.com
                         </Typography>
                     </Grid>
                 </Grid>
-                <Typography variant="body2" sx={{ mt: 3, textAlign: 'center' }}>
+                <Typography variant="body2" sx={{ my: 3, textAlign: 'center' }}>
                     © {new Date().getFullYear()} BatiPlatre57. Tous droits réservés.
                 </Typography>
             </Container>

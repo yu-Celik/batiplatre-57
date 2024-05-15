@@ -75,7 +75,7 @@ export default function RenderDesktop({ }: Props) {
                 position: 'relative',
                 display: 'flex',
                 justifyContent: 'center',
-                mt: 6,
+                my: 6,
             }}>
                 <Box component={'article'} display={'flex'} justifyContent={'space-between'} maxWidth={'1024px'} className="bg-grey-50 dark:bg-grey-900 rounded-xl shadow-xl p-12" sx={{
                 }}>

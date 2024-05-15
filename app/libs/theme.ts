@@ -58,9 +58,8 @@ export const useCustomTheme = (mode: PaletteMode) => ({
                 root: {
                     fontFamily: poppins.style.fontFamily,
                     fontWeight: 500,
-                    borderRadius: `0 10px 0 10px`,
                     transition: 'all 0.3s ease-in-out',
-                    textTransform: 'capitalize' as 'capitalize',
+                    textTransform: 'none' as 'none',
                     fontSize: '1rem',
                     color: mode === 'light' ? grey[900] : grey[200],
                     '&:hover': {
@@ -70,17 +69,21 @@ export const useCustomTheme = (mode: PaletteMode) => ({
                 containedPrimary: { // Styles spécifiques pour les boutons 'contained' avec la couleur 'primary'
                     // boxShadow: `0 0.5px 5px 0.5px ${blue[500]}`,
                     color: grey[100],
+                    borderRadius: `10px 0px 10px 0px`,
+
                 },
                 containedSecondary: { // Styles spécifiques pour les boutons 'contained' avec la couleur 'secondary'
                     // boxShadow: `0 0.5px 5px 0.5px ${amber[500]}`,
                     color: grey[900],
+                    borderRadius: `10px 0px 10px 0px`,
+
 
                 },
                 outlinedPrimary: { // Styles spécifiques pour les boutons 'contained' avec la couleur 'primary'
-                    boxShadow: `0 0.5px 5px 0.5px ${blue[500]}`,
+                    // boxShadow: `0 0.5px 5px 0.5px ${blue[500]}`,
                 },
                 outlinedSecondary: { // Styles spécifiques pour les boutons 'contained' avec la couleur 'secondary'
-                    boxShadow: `0 0.5px 5px 0.5px ${amber[500]}`,
+                    // boxShadow: `0 0.5px 5px 0.5px ${amber[500]}`,
                 },
             }
         },

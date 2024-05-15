@@ -9,8 +9,6 @@ export default function ContactCard() {
                 display: "flex",
                 flexDirection: "column",
                 width: '93%',
-                left: "50%",
-                transform: "translate(-50%, 5%)",
                 borderRadius: theme.shape.borderRadius,
                 backgroundColor: theme.palette.background.paper,
                 boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
