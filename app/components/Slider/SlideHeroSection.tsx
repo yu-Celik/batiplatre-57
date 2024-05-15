@@ -1,6 +1,5 @@
 'use client'
 import { CSSProperties } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useTheme } from "@mui/material";
 // Import Swiper styles
@@ -9,7 +8,7 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// import './stylesSlideHeroSection.css'
+import './stylesSlideHeroSection.css'
 import { EffectFade, Pagination, A11y } from 'swiper/modules';
 import Image, { StaticImageData } from 'next/image';
 
