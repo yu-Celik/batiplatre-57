@@ -58,13 +58,13 @@ export default function SlideGallery({ items }: SlideGalleryProps) {
                                 alt={item.alt}
                                 width={item.img.width}
                                 height={item.img.height}
-                                className="max-h-[30rem] min-h-[30rem] w-full rounded-xl"
+                                className="max-h-[30rem] min-h-[30rem] rounded-xl"
                                 loading={item.id === items[0].id ? 'eager' : 'lazy'}
+                                sizes="100vw"
                                 quality={100}
                                 style={{
                                     objectFit: 'cover',
                                     objectPosition: 'center',
-
                                 }}
                             />
                         </SwiperSlide>
