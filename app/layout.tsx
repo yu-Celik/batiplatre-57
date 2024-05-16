@@ -32,7 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fr">
       <body>
-        <AppRouterCacheProvider options={{ enableCssLayer: true, key: 'css' }}>
+        <AppRouterCacheProvider>
           <CustomThemeProvider>
             <Header />
             {children}
