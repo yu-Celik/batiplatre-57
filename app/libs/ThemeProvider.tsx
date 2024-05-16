@@ -1,21 +1,31 @@
 'use client';
-import React, { ReactNode, createContext, useContext } from 'react';
-import { ThemeProvider as MUIThemeProvider, CssBaseline, useMediaQuery, createTheme } from '@mui/material';
-import { useCustomTheme } from './theme';
+import React, { ReactNode, createContext, useContext, useMemo } from 'react';
+import { ThemeProvider as MUIThemeProvider, CssBaseline, useMediaQuery } from '@mui/material';
+import theme from './theme';
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 
-const ThemeContext = createContext({ toggleTheme: () => {} });
+const ThemeContext = createContext({ toggleTheme: () => { } });
 
 export const useThemeContext = () => useContext(ThemeContext);
 
 const CustomThemeProvider = ({ children }: { children: ReactNode }) => {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-    const theme = createTheme(useCustomTheme(prefersDarkMode ? 'dark' : 'light'));
+
+    const appliedTheme = useMemo(() => {
+        return {
+            ...theme,
+            palette: {
+                mode: prefersDarkMode ? 'dark' : 'light',
+            },
+        };
+    }, [prefersDarkMode]);
+
     return (
-        <ThemeContext.Provider value={{ toggleTheme: () => {} }}>
-            <MUIThemeProvider theme={theme}>
+        <ThemeContext.Provider value={{ toggleTheme: () => { } }}>
+            <CssVarsProvider theme={appliedTheme} disableTransitionOnChange={true}>
                 <CssBaseline />
                 {children}
-            </MUIThemeProvider>
+            </CssVarsProvider>
         </ThemeContext.Provider>
     );
 };

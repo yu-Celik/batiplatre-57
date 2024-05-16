@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "globals.css";
-import ThemeProvider from "@/libs/ThemeProvider"; // Assurez-vous que le chemin d'importation est correct
 import Header from "components/Header/Header";
 import FooterFixed from "components/Footer/FooterFixed";
 // import Footer from "components/Footer/Footer";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import Footer from "components/Footer/Footer";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import CustomThemeProvider from 'libs/ThemeProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.batiplatre57.fr'),
@@ -32,15 +32,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fr">
       <body>
-        {/* <AppRouterCacheProvider> */}
-          {/* <ThemeProvider> */}
+        <AppRouterCacheProvider options={{ enableCssLayer: true, key: 'css' }}>
+          <CustomThemeProvider>
             <Header />
             {children}
             <SpeedInsights />
             <Footer />
             <FooterFixed />
-          {/* </ThemeProvider> */}
-        {/* </AppRouterCacheProvider> */}
+          </CustomThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
