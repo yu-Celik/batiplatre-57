@@ -1,4 +1,3 @@
-import ImagesSlider from "@/components/motion/ImagesSlider"
 import { Stack, Box, Typography, Button, Container } from "@mui/material"
 import { ArrowRightAlt, CheckCircle } from "@mui/icons-material"
 import Link from "next/link"

@@ -6,8 +6,9 @@ import 'swiper/css/navigation';
 import './stylesSlideParallax.css';
 import name from '@/assets/chantier photo/2nd/IMG_20210107_162721.jpg';
 import { Parallax, Pagination } from 'swiper/modules';
-import { Typography, alpha, useTheme } from '@mui/material';
+import { Typography, alpha } from '@mui/material';
 import { CSSProperties } from 'react';
+import { useTheme } from 'next-themes';
 
 interface CustomCSSProperties extends CSSProperties {
     [key: `--${string}`]: string | undefined;
@@ -26,8 +27,8 @@ export default function SlideParallax() {
         <>
             <Swiper
                 style={{
-                    '--swiper-pagination-bullet-inactive-color': `${alpha(theme.palette.grey[800], 0.5)}`,
-                    '--swiper-pagination-color': `${theme.palette.mode === 'dark' ? theme.palette.secondary.main : theme.palette.primary.main}`,
+                    '--swiper-pagination-bullet-inactive-color': `var(--mui-palette-primary-light)`,
+                    '--swiper-pagination-color': `${theme.resolvedTheme === 'dark' ? 'var(--mui-palette-secondary-main)' : 'var(--mui-palette-primary-main)'}`,
                 } as CustomCSSProperties}
                 speed={600}
                 parallax={true}
@@ -37,7 +38,8 @@ export default function SlideParallax() {
                 height={900}
                 keyboard={{ enabled: true }}
                 grabCursor={true}
-                className="slideParallax md:min-h-[calc(60vh-156px)]"            >
+                className="slideParallax md:min-h-[calc(60vh-156px)]"
+            >
                 <div
                     slot="container-start"
                     className="absolute left-0 top-0 w-[130%] h-full bg-cover bg-center bg-url"
@@ -52,7 +54,7 @@ export default function SlideParallax() {
                 <SwiperSlide >
                     <div className='max-w-[900px] mx-auto flex flex-col gap-2'>
                         <div className="step-number" data-swiper-parallax="-400">Étape 1</div>
-                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom >
+                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} color={'secondary'} data-swiper-parallax="-300" gutterBottom >
                             <strong>Planification Initiale</strong>
                         </Typography>
                         <Typography variant="h4" fontSize={{ xs: 24, md: 32 }} data-swiper-parallax="-200" gutterBottom >
@@ -66,7 +68,12 @@ export default function SlideParallax() {
                 <SwiperSlide>
                     <div className='max-w-[900px] mx-auto flex flex-col gap-2'>
                         <div className="step-number" data-swiper-parallax="-400">Étape 2</div>
-                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom >
+                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} data-swiper-parallax="-300" gutterBottom sx={{
+                            color: 'var(--mui-palette-primary-main)',
+                            '[class="dark"] &': {
+                                color: 'var(--mui-palette-secondary-main)'
+                            }
+                        }}>
                             <strong>Conception</strong> et <strong>Développement</strong>
                         </Typography>
                         <Typography variant="h4" fontSize={{ xs: 24, md: 32 }} data-swiper-parallax="-200" gutterBottom >
@@ -80,7 +87,12 @@ export default function SlideParallax() {
                 <SwiperSlide>
                     <div className='max-w-[900px] mx-auto flex flex-col gap-2'>
                         <div className="step-number" data-swiper-parallax="-400">Étape 3</div >
-                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} color={theme.palette.mode === 'light' ? 'primary' : 'secondary'} data-swiper-parallax="-300" gutterBottom>
+                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} data-swiper-parallax="-300" gutterBottom sx={{
+                            color: 'var(--mui-palette-primary-main)',
+                            '[class="dark"] &': {
+                                color: 'var(--mui-palette-secondary-main)'
+                            }
+                        }}>
                             <strong>Exécution</strong> du Projet
                         </Typography>
                         <Typography variant="h4" fontSize={{ xs: 24, md: 32 }} data-swiper-parallax="-200" gutterBottom >

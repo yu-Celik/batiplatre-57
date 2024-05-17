@@ -42,7 +42,7 @@ export default function RenderDesktop({ pages }: Props) {
                             '&.MuiButtonBase-root': {
                                 textAlign: 'center',
                                 '&:hover': {
-                                    color: 'primary.main' // Utilisez des valeurs de thème directement.
+                                    // color: 'primary.main' // Utilisez des valeurs de thème directement.
                                 }
                             }
                         }}

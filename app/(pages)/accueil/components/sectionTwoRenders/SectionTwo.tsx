@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { TextDecoration } from "@/components/ui/CircleScrollAnimation";
 import SlideParallax from "@/components/Slider/SlideParallax";
 import RenderDesktop from "./RenderDesktop";
@@ -23,7 +23,7 @@ export default function SectionTwo({ }: Props) {
             </Box>
 
             <RenderDesktop />
-            
+
         </>
     )
 }

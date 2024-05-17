@@ -11,7 +11,6 @@ const images = peintureImg.map(img => img.img);
 
 type Props = {}
 export default function RenderDesktop({ }: Props) {
-    console.log(images)
     return (
         <>
             <Container component={'article'} disableGutters

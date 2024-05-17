@@ -75,8 +75,11 @@ const theme = extendTheme({
         MuiAppBar: {
             styleOverrides: {
                 root: ({ theme }) => ({
-                    backgroundColor: theme.vars.palette.background.paper,
+                    backgroundColor: 'var(--mui-palette-grey-50)',
                     backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))',
+                    '[class="dark"] &': {
+                        backgroundColor: 'var(--mui-palette-grey-900)',
+                    },
                 }),
             },
         },
@@ -88,17 +91,23 @@ const theme = extendTheme({
                     transition: 'all 0.3s ease-in-out',
                     textTransform: 'none',
                     fontSize: '1rem',
-                    color: theme.vars.palette.text.primary,
+                    color: 'var(--mui-palette-grey-900)',
+                    '[class="dark"] &': {
+                        color: 'var(--mui-palette-grey-50)',
+                    },
                     '&:hover': {
                         borderRadius: `10px 10px 10px 10px`,
                     }
                 }),
                 containedPrimary: ({ theme }) => ({
-                    color: theme.vars.palette.background.paper,
+                    // color: 'var(--mui-palette-grey-50)',
                     borderRadius: `10px 0px 10px 0px`,
                 }),
                 containedSecondary: ({ theme }) => ({
-                    color: theme.vars.palette.text.primary,
+                    color: 'var(--mui-palette-grey-900)',
+                    '[class="dark"] &': {
+                        color: 'var(--mui-palette-grey-900)',
+                    },
                     borderRadius: `10px 0px 10px 0px`,
                 }),
                 outlinedPrimary: {},

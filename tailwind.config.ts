@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -68,8 +69,10 @@ const config: Config = {
         // 'gradientToBottomLight': 'linear-gradient(to bottom, #eeeeee, #e5e5e5, #dbdbdb, #d2d2d2, #c9c9c9, #c9c9c9, #c9c9c9, #c9c9c9, #d2d2d2, #dbdbdb, #e5e5e5, #eeeeee)',
         'gradientToBottomLight': 'linear-gradient(to bottom, #eeeeee, #f1f1f1, #f4f4f4, #f8f8f8, #fbfbfb, #fbfbfb, #fbfbfb, #fbfbfb, #f8f8f8, #f4f4f4, #f1f1f1, #eeeeee)',
       }
-},
+    },
   },
-plugins: [],
+  corePlugins: {
+    preflight: false,
+  },
 };
 export default config;

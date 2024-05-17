@@ -95,8 +95,8 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                         top: "100%",
                         left: "50%",
                         transform: "translateX(-50%)",
-                        backgroundColor: theme.palette.background.default,
-                        boxShadow: theme.shadows[1],
+                        backgroundColor: 'var(--mui-palette-background-paper)',
+                        boxShadow: 'var(--mui-shadows-24)',
                         padding: theme.spacing(1),
                         flexDirection: 'row',
                         gap: theme.spacing(1),
@@ -123,7 +123,7 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                     aria-labelledby={labelledby}
                 >
                     {pages.map((page) => (
-                        <Link key={page.path} href={page.path} aria-label={page.title}>
+                        <Link key={page.path} href={page.path} aria-label={page.title} style={{ textDecoration: 'none' }}>
                             <MenuItem sx={{
                                 color: theme.palette.text.primary,
                                 ...(location === page.path && {

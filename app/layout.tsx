@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import "globals.css";
 import Header from "components/Header/Header";
 import FooterFixed from "components/Footer/FooterFixed";
-// import Footer from "components/Footer/Footer";
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import Footer from "components/Footer/Footer";
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import CustomThemeProvider from 'libs/ThemeProvider';
-
+import { Box} from "@mui/material";
+import Providers from "libs/ThemeProvider";
+import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.batiplatre57.fr'),
   title: {
@@ -25,23 +23,22 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://www.batiplatre57.fr",
     description: "Services professionnels de rénovation et décoration à Metz.",
-  }
+  },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
       <body>
-        <AppRouterCacheProvider>
-          <CustomThemeProvider>
-            <Header />
-            {children}
-            <SpeedInsights />
-            <Footer />
-            <FooterFixed />
-          </CustomThemeProvider>
-        </AppRouterCacheProvider>
+        <Providers>
+          <Header />
+          <Box component="main">{children}</Box>
+          <SpeedInsights />
+          <FooterFixed />
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
 }
+

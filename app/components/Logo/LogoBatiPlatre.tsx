@@ -10,10 +10,11 @@ const LogoBatiPlatre: React.FC<SvgIconProps> = ({ id, ...props }: SvgIconProps):
             aria-controls="header"
             aria-label="Logo Bati Plâtre 57"
             href="/accueil"
-            className='flex items-center relative sm:justify-center md:justify-start'
+            className='flex items-center relative sm:justify-center md:justify-start h-96' 
             style={{
                 width: 'auto',
                 height: '100%',
+                textDecoration: 'none',
             }}
         >
             <SvgIcon {...props} >
