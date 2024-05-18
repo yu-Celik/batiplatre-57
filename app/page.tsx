@@ -1,17 +1,22 @@
 const HeroSection = dynamic(() => import('(pages)/accueil/components/HeroSection'), {
-    loading: () => <CircularProgress />
+    loading: () => <CircularProgress />,
+    ssr: false
 })
 const SectionOne = dynamic(() => import('(pages)/accueil/components/sectionOneRenders/SectionOne'), {
-    loading: () => <CircularProgress />
+    loading: () => <CircularProgress />,
+    ssr: false
 })
 const SectionTwo = dynamic(() => import('(pages)/accueil/components/sectionTwoRenders/SectionTwo'), {
-    loading: () => <CircularProgress />
+    loading: () => <CircularProgress />,
+    ssr: false
 })
 const SectionThree = dynamic(() => import('(pages)/accueil/components/sectionThreeRenders/SectionThree'), {
-    loading: () => <CircularProgress />
+    loading: () => <CircularProgress />,
+    ssr: false
 })
 const SectionFour = dynamic(() => import('(pages)/accueil/components/sectionFourRenders/SectionFour'), {
-    loading: () => <CircularProgress />
+    loading: () => <CircularProgress />,
+    ssr: false
 })
 
 import { Metadata } from "next";
