@@ -3,14 +3,12 @@
 import { heightHeader } from '@/libs/theme';
 import Grid from '@mui/material/Unstable_Grid2';
 import { Stack, Button } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 type Props = {
     pages: { label: string, path: string, display?: string }[]
 }
 export default function RenderTablet({ pages }: Props) {
-    const theme = useTheme();
     const location = usePathname();
 
     return (
@@ -29,11 +27,11 @@ export default function RenderTablet({ pages }: Props) {
                             textAlign: 'center',
                             width: 'max-content',
                             minHeight: '61px',
-                            padding: theme.spacing(0, 2),
+                            paddingX: '1rem',
                             '&.MuiButton-text': {
                                 border: 'none',
                                 ...(location === page.path && {
-                                    color: theme.palette.primary.main,
+                                    color: 'var(--mui-palette-primary-main)',
                                     '&::after': {
                                         content: '""',
                                         position: 'absolute',
@@ -42,7 +40,7 @@ export default function RenderTablet({ pages }: Props) {
                                         display: 'block',
                                         height: '2px',
                                         width: '100%',
-                                        background: theme.palette.primary.main
+                                        background: 'var(--mui-palette-primary-main)'
                                     }
                                 }),
                             }

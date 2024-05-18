@@ -1,12 +1,9 @@
-'use client'
 import { AssignmentOutlined, EmailOutlined, LocalPhoneOutlined } from "@mui/icons-material";
-import { AppBar, Button, Toolbar, useMediaQuery, useTheme } from "@mui/material";
+import { AppBar, Button, Toolbar } from "@mui/material";
 import Grid from '@mui/material/Unstable_Grid2';
 import Link from "next/link";
 
 const FooterFixed = () => {
-    const theme = useTheme();
-    const isSmUp = useMediaQuery(theme.breakpoints.up('sm'));
     return (
         <AppBar
             position="fixed"
@@ -16,52 +13,57 @@ const FooterFixed = () => {
             <Toolbar
                 component={Grid}
                 container
+                spacing={{ xs: 0, sm: 2 }}
                 sx={{
-                    py: 1,
+                    py: { xs: 0, sm: 2 },
                     display: 'flex',
                     alignItems: 'center',
-                    ...(isSmUp ? { gap: 0, justifyContent: 'center' } : { gap: 0.5, justifyContent: 'space-evenly' }),
+                    gap: { xs: 0.5, sm: 0 },
+                    justifyContent: { xs: 'space-evenly', sm: 'center' },
                     '& .MuiButtonBase-root': {
                         textAlign: 'center',
                         fontSize: '0.875rem',
-                        ...(isSmUp ? { margin: 1, width: '100%' } : { margin: 0, width: 'min-content' })
-                        
+                        margin: { xs: 1, sm: 0 },
+                        width: { xs: 'min-content', sm: '100%' },
                     }
                 }}
             >
-                <Grid sm={4} sx={{ display: 'flex', flexDirection: isSmUp ? 'row' : 'column', alignItems: 'center', }}>
+                <Grid sm={4} sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', }}>
                     <Button
                         variant={'contained'}
                         color={'secondary'}
                         href="tel:+1234567890"
                         aria-label="Appeler"
-                        {...(isSmUp ? { startIcon: <LocalPhoneOutlined /> } : {})}
+                        size="large"
                     >
-                        {isSmUp ? "Appeler" : <LocalPhoneOutlined />}
+                        <LocalPhoneOutlined sx={{ mr: 0.5, fontSize: '1.25rem' }} />
+                        <span className="hidden sm:block">Appeler</span>
                     </Button>
                 </Grid>
-                <Grid sm={4} sx={{ display: 'flex', flexDirection: isSmUp ? 'row' : 'column', alignItems: 'center', }}>
+                <Grid sm={4} sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', }}>
                     <Button
                         variant={'contained'}
                         color={'secondary'}
                         component={Link}
                         href={'/contact'}
                         aria-label="Prendre rendez-vous"
-                        {...(isSmUp ? { startIcon: <EmailOutlined /> } : {})}
+                        size="large"
                     >
-                        {isSmUp ? "Prendre RDV" : <EmailOutlined />}
+                        <EmailOutlined sx={{ mr: 0.5, fontSize: '1.25rem' }} />
+                        <span className="hidden sm:block">Prendre RDV</span>
                     </Button>
                 </Grid>
-                <Grid sm={4} sx={{ display: 'flex', flexDirection: isSmUp ? 'row' : 'column', alignItems: 'center', }}>
+                <Grid sm={4} sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', }}>
                     <Button
                         variant={'contained'}
                         color={'secondary'}
                         component={Link}
                         href={'/demander-un-devis'}
                         aria-label="Demander un devis"
-                        {...(isSmUp ? { startIcon: <AssignmentOutlined /> } : {})}
+                        size="large"
                     >
-                        {isSmUp ? "DEVIS" : <AssignmentOutlined />}
+                        <AssignmentOutlined sx={{ mr: 0.5, fontSize: '1.25rem' }} />
+                        <span className="hidden sm:block">Devis</span>
                     </Button>
                 </Grid>
             </Toolbar>

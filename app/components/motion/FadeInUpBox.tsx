@@ -9,7 +9,7 @@ type Props = {
 }
 
 export default function BoxAnimate({ children, className }: Props) {
-    const loadFeatures = () => import('./features').then((res) => res.default)
+    const loadFeatures = () => import('@/components/motion/features').then((res) => res.default)
     return (
         <LazyMotion features={loadFeatures}>
             <m.div

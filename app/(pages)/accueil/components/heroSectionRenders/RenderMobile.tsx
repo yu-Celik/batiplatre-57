@@ -25,9 +25,9 @@ export default function RenderMobile({ }: Props) {
             <Image
                 src={accueil7}
                 alt="Description de l'image accueil7"
-                quality={80}
                 fill
-                sizes="50vw"
+                priority={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 style={{
                     position: "absolute",
                     objectFit: "cover",

@@ -2,9 +2,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import name from '@/assets/chantier photo/2nd/IMG_20210107_162721.jpg';
 import { Parallax, Pagination } from 'swiper/modules';
-import { Typography } from '@mui/material';
+import { Typography, alpha, useTheme } from '@mui/material';
 import { CSSProperties } from 'react';
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
 
 interface CustomCSSProperties extends CSSProperties {
@@ -24,8 +23,9 @@ export default function SlideParallax() {
         <>
             <Swiper
                 style={{
-                    '--swiper-pagination-bullet-inactive-color': `var(--mui-palette-primary-light)`,
-                    '--swiper-pagination-color': `${theme.resolvedTheme === 'dark' ? 'var(--mui-palette-secondary-main)' : 'var(--mui-palette-primary-main)'}`,
+                    '--swiper-navigation-color': theme.palette.grey[200],
+                    '--swiper-pagination-bullet-inactive-color': `${alpha(theme.palette.grey[800], 0.5)}`,
+                    '--swiper-pagination-color': `${theme.palette.mode === 'dark' ? 'var(--mui-palette-secondary-main)' : 'var(--mui-palette-primary-main)'}`,
                 } as CustomCSSProperties}
                 speed={600}
                 parallax={true}
@@ -48,7 +48,12 @@ export default function SlideParallax() {
                 <SwiperSlide >
                     <div className='max-w-[900px] mx-auto flex flex-col gap-2'>
                         <div className="step-number" data-swiper-parallax="-400">Étape 1</div>
-                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} color={'secondary'} data-swiper-parallax="-300" gutterBottom >
+                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} data-swiper-parallax="-300" gutterBottom  sx={{
+                            color: 'var(--mui-palette-primary-main)',
+                            '[class="dark"] &': {
+                                color: 'var(--mui-palette-secondary-main)'
+                            }
+                        }}>
                             <strong>Planification Initiale</strong>
                         </Typography>
                         <Typography variant="h4" fontSize={{ xs: 24, md: 32 }} data-swiper-parallax="-200" gutterBottom >

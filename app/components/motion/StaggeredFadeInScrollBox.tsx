@@ -1,6 +1,6 @@
 'use client'
 import { cn } from "@/utils/cn";
-import { LazyMotion, m, domAnimation } from "framer-motion";
+import { LazyMotion, m } from "framer-motion";
 import { ReactNode } from "react";
 
 type Props = {

@@ -1,4 +1,3 @@
-'use client'
 import { CircularProgress } from '@mui/material';
 import dynamic from 'next/dynamic';
 

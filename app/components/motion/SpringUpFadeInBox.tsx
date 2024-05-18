@@ -26,7 +26,7 @@ const variants = {
 }
 
 export function SpringUpFadeInBox({ children, className }: Props) {
-    const loadFeatures = () => import('./features').then((res) => res.default);
+    const loadFeatures = () => import('@/components/motion/features').then((res) => res.default);
 
     return (
         <LazyMotion features={loadFeatures}>

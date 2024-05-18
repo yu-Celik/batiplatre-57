@@ -13,7 +13,9 @@
 .slideGallery .swiper-pagination-bullet-active {
   color: #212121;
 }
-
+.slideGallery .swiper-pagination {
+  padding: 0.5rem 0rem;
+}
 /* 
 .slideGallery .step-number {
   content: attr(data-step);

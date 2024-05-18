@@ -2,7 +2,7 @@
 import React, { CSSProperties } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectCoverflow, Keyboard } from 'swiper/modules';
-import { Box, Button, useTheme } from '@mui/material';
+import { Box } from '@mui/material';
 import Image, { StaticImageData } from 'next/image';
 
 interface SimpleSlideProps {
@@ -12,8 +12,6 @@ interface CustomCSSProperties extends CSSProperties {
     [key: `--${string}`]: string | undefined;
 }
 const SimpleSlide: React.FC<SimpleSlideProps> = ({ images }) => {
-const theme = useTheme()
-
     return (
         <Swiper
             modules={[Autoplay, Pagination, EffectCoverflow, Keyboard]}

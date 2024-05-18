@@ -3,11 +3,14 @@ import { CSSProperties } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Pagination, A11y, Autoplay } from 'swiper/modules';
 import Image, { StaticImageData } from 'next/image';
+import { alpha, useTheme } from '@mui/material';
 
 interface CustomCSSProperties extends CSSProperties {
     [key: `--${string}`]: string | undefined;
 }
 export default function SlideHeroSection({ images, styleSlide }: { images: { image: StaticImageData, alt: string }[], styleSlide: CSSProperties }) {
+    const theme = useTheme();
+
     return (
         <>
             <Swiper
@@ -31,7 +34,7 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                     '--swiper-pagination-bullet-horizontal-gap': '0.5rem',
                     '--swiper-pagination-bullet-size': '1.25rem',
                     '--swiper-pagination-bullet-border-radius': '50%',
-                    '--swiper-pagination-bullet-inactive-color': 'var(--mui-palette-secondary-dark)',
+                    '--swiper-pagination-bullet-inactive-color': `${alpha(theme.palette.grey[100], 0.9)}`,
                 } as CustomCSSProperties}
             >
                 {images.map((image, index) => (
@@ -39,8 +42,8 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                         <Image
                             src={image.image}
                             alt={image.alt}
-                            // loading={index === 0 ? "eager" : "lazy"}
-                            // priority={index === 0 ? true : false}
+                            loading={index === 0 ? "eager" : "lazy"}
+                            priority={index === 0 ? true : false}
                             quality={100}
                             fill
                             sizes='70vw'

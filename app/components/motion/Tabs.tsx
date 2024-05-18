@@ -53,7 +53,7 @@ export const Tabs = ({ tabs: propTabs, containerClassName, activeTabClassName, t
                             }}
                             onMouseEnter={() => setHovering(true)}
                             onMouseLeave={() => setHovering(false)}
-                            className={cn("relative px-4 py-2 rounded-full hover:text-amber-600 dark:hover:text-amber-700", tabClassName)}
+                            className={cn("relative px-4 py-2 rounded-full text-grey-900 dark:text-grey-50  hover:text-amber-600 dark:hover:text-amber-700 border-none bg-transparent", tabClassName)}
                             style={{
                                 transformStyle: "preserve-3d",
                             }}
@@ -63,12 +63,12 @@ export const Tabs = ({ tabs: propTabs, containerClassName, activeTabClassName, t
                                     layoutId="clickedbutton"
                                     transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                                     className={cn(
-                                        "absolute inset-0  bg-amber-600 dark:bg-amber-700 rounded-full ",
+                                        "absolute inset-0  bg-amber-600 dark:bg-amber-700 rounded-full",
                                         activeTabClassName
                                     )}
                                 />
                             )}
-                            <Typography variant="h6" fontSize={18} color={active.value === tab.value ? 'black' : 'text'} className="relative block">
+                            <Typography variant="h6" fontSize={18} color={active.value === tab.value ? 'black' : 'text'} className="relative block cursor-pointer">
                                 {tab.title}
                             </Typography>
                         </button>
