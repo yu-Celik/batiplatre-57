@@ -16,6 +16,7 @@ import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import Providers from "./libs/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react"
 import React from 'react';
 
 export const metadata: Metadata = {
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <Box component="main">{children}</Box>
           <SpeedInsights />
+          <Analytics />
           <FooterFixed />
           <Footer />
         </Providers>
