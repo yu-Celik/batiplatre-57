@@ -46,7 +46,7 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                             priority={index === 0 ? true : false}
                             quality={100}
                             fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 50vw"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw"
                             style={{
                                 objectFit: "cover",
                             }}
