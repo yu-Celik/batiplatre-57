@@ -1,5 +1,4 @@
-import { Box, Container, Grid, Typography, useTheme, Link as MuiLink } from "@mui/material";
-import { contactCardHeight } from "@/libs/theme";
+import { Box, Container, Grid, Typography, Link as MuiLink } from "@mui/material";
 import Link from "next/link";
 import { grey } from "@mui/material/colors";
 

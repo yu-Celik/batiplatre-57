@@ -23,7 +23,9 @@ const FooterFixed = () => {
                     ...(isSmUp ? { gap: 0, justifyContent: 'center' } : { gap: 0.5, justifyContent: 'space-evenly' }),
                     '& .MuiButtonBase-root': {
                         textAlign: 'center',
+                        fontSize: '0.875rem',
                         ...(isSmUp ? { margin: 1, width: '100%' } : { margin: 0, width: 'min-content' })
+                        
                     }
                 }}
             >
@@ -59,7 +61,7 @@ const FooterFixed = () => {
                         aria-label="Demander un devis"
                         {...(isSmUp ? { startIcon: <AssignmentOutlined /> } : {})}
                     >
-                        {isSmUp ? "DEMANDER UN DEVIS" : <AssignmentOutlined />}
+                        {isSmUp ? "DEVIS" : <AssignmentOutlined />}
                     </Button>
                 </Grid>
             </Toolbar>

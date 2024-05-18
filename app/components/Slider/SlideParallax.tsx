@@ -5,6 +5,7 @@ import { Parallax, Pagination } from 'swiper/modules';
 import { Typography } from '@mui/material';
 import { CSSProperties } from 'react';
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
 
 interface CustomCSSProperties extends CSSProperties {
     [key: `--${string}`]: string | undefined;
@@ -36,17 +37,14 @@ export default function SlideParallax() {
                 grabCursor={true}
                 className="slideParallax md:min-h-[calc(60vh-156px)]"
             >
-                <div
+                <Image
+                    src={name}
+                    alt=""
+                    loading='lazy'
                     slot="container-start"
                     className="absolute left-0 top-0 w-[130%] h-full bg-cover bg-center bg-url"
-                    style={{
-                        'backgroundImage': `url(${name.src})`,
-                    }}
                     data-swiper-parallax="-23%"
-                >
-
-                </div>
-
+                />
                 <SwiperSlide >
                     <div className='max-w-[900px] mx-auto flex flex-col gap-2'>
                         <div className="step-number" data-swiper-parallax="-400">Étape 1</div>

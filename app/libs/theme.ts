@@ -1,11 +1,56 @@
 'use client';
 import { Poppins, Saira } from "next/font/google";
-import {experimental_extendTheme as extendTheme } from '@mui/material/styles';
+import { PaletteColorOptions, experimental_extendTheme as extendTheme } from '@mui/material/styles';
 import { amber, blue, green, grey } from '@mui/material/colors';
 
 
 export const heightHeader = '56px';
 export const contactCardHeight = '450px';
+
+declare module '@mui/material/styles' {
+    interface Palette {
+        whiteAndBlue: PaletteColor;
+        whiteAndAmber: PaletteColor;
+        blueAndAmber: PaletteColor;
+    }
+    interface PaletteOptions {
+        whiteAndBlue?: PaletteColorOptions;
+        whiteAndAmber?: PaletteColorOptions;
+        blueAndAmber?: PaletteColorOptions;
+    }
+}
+declare module '@mui/material' {
+    interface Color {
+        whiteAndBlue: true;
+        whiteAndAmber: true;
+        blueAndAmber: true;
+    }
+}
+
+declare module '@mui/material/Button' {
+    interface ButtonPropsColorOverrides {
+        whiteAndBlue: true;
+        whiteAndAmber: true;
+        blueAndAmber: true;
+    }
+}
+
+declare module '@mui/material/AppBar' {
+    interface AppBarPropsColorOverrides {
+        whiteAndBlue: true;
+        whiteAndAmber: true;
+        blueAndAmber: true;
+    }
+}
+
+declare module '@mui/material/Typography' {
+    interface TypographyPropsColorOverrides {
+        whiteAndBlue: true;
+        whiteAndAmber: true;
+        blueAndAmber: true;
+    }
+}
+
 
 
 const poppins = Poppins({
@@ -45,6 +90,18 @@ const theme = extendTheme({
                 success: {
                     main: green[400],
                 },
+                whiteAndBlue: {
+                    main: blue[500],
+                    dark: blue[600],
+                },
+                whiteAndAmber: {
+                    main: amber[500],
+                    dark: amber[600],
+                },
+                blueAndAmber: {
+                    main: blue[500],
+                    dark: blue[600],
+                }
             },
         },
         dark: {
@@ -69,6 +126,18 @@ const theme = extendTheme({
                 success: {
                     main: green[400],
                 },
+                whiteAndBlue: {
+                    main: grey[50],
+                    dark: grey[100],
+                },
+                whiteAndAmber: {
+                    main: grey[50],
+                    dark: grey[100],
+                },
+                blueAndAmber: {
+                    main: amber[600],
+                    dark: amber[700],
+                }
             },
         },
     },

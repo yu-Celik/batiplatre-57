@@ -1,10 +1,9 @@
 'use client'
-import React, { useRef, useState, CSSProperties } from 'react';
-import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
+import React, { CSSProperties } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectCoverflow, Keyboard } from 'swiper/modules';
-import { useTheme, Button } from '@mui/material';
+import { Button, useTheme } from '@mui/material';
 import Image, { StaticImageData } from 'next/image';
-import { PlayArrow, Pause } from '@mui/icons-material';
 
 interface SimpleSlideProps {
     images: { img: StaticImageData, alt: string }[];
@@ -13,24 +12,10 @@ interface CustomCSSProperties extends CSSProperties {
     [key: `--${string}`]: string | undefined;
 }
 const SimpleSlide: React.FC<SimpleSlideProps> = ({ images }) => {
-    const [isAutoplaying, setIsAutoplaying] = useState(true);
-    const theme = useTheme();
-    const swiperRef = useRef<SwiperRef | null>(null);
-
-    const toggleAutoplay = () => {
-        if (swiperRef.current) {
-            const swiper = swiperRef.current.swiper;
-            if (swiper.autoplay.running) {
-                swiper.autoplay.stop();
-            } else {
-                swiper.autoplay.start();
-            }
-        }
-    };
+const theme = useTheme()
 
     return (
         <Swiper
-            ref={swiperRef}
             modules={[Autoplay, Pagination, EffectCoverflow, Keyboard]}
             effect="coverflow"
             aria-label="Galerie d'images"
@@ -54,7 +39,7 @@ const SimpleSlide: React.FC<SimpleSlideProps> = ({ images }) => {
             }}
             className="simpleSlide"
             style={{
-                '--swiper-pagination-color': `${theme.palette.mode === 'dark' ? theme.palette.secondary.main : theme.palette.primary.main}`,
+                '--swiper-pagination-color': `var(--mui-palette-blueAndAmber-main)`,
             } as CustomCSSProperties}
         >
             {images.map((img, index) => (
@@ -65,31 +50,15 @@ const SimpleSlide: React.FC<SimpleSlideProps> = ({ images }) => {
                         placeholder="blur"
                         quality={100}
                         sizes="100vw"
-                        style={{ objectFit: "cover", height: "18rem" }}
+                        style={{
+                            objectFit: "cover",
+                            height: theme.breakpoints.down('sm') ? '30rem' : "18rem",
+                            width: "100%"
+                        }}
                         loading={'lazy'}
                     />
                 </SwiperSlide>
             ))}
-            <Button
-                sx={{
-                    position: "absolute",
-                    bottom: "0px",
-                    right: "0px",
-                    zIndex: 10,
-                    color: theme.palette.grey[200],
-                    boxShadow: "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)"
-                }}
-                variant="text"
-                startIcon={isAutoplaying ? <Pause /> : <PlayArrow />}
-                onClick={() => {
-                    toggleAutoplay();
-                    setIsAutoplaying(!isAutoplaying);
-                }}
-                aria-label={isAutoplaying ? "Mettre en pause le diaporama" : "Démarrer le diaporama"}
-                aria-pressed={isAutoplaying}
-            >
-                {isAutoplaying ? "Pause" : "Play"}
-            </Button>
         </Swiper>
     );
 };

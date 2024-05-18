@@ -1,5 +1,7 @@
 import { IconButton, IconButtonProps, Tooltip, Typography, styled } from "@mui/material";
 import { Theme } from '@mui/material/styles'
+import type {} from '@mui/material/themeCssVarsAugmentation';
+
 interface IconButtonBurgerProps extends IconButtonProps {
     buttonClicked: boolean;
     theme?: Theme
@@ -7,7 +9,7 @@ interface IconButtonBurgerProps extends IconButtonProps {
 
 
 const IconButtonBurgerStyled = styled(IconButton, { shouldForwardProp: (prop) => prop !== 'buttonClicked', })<IconButtonBurgerProps>(({ theme, buttonClicked }) => ({
-    color: theme.palette.grey[200],
+    color: theme.vars.palette.grey[200],
     '&.MuiButtonBase-root': {
         display: 'flex',
         padding: '1.5rem',
@@ -19,7 +21,7 @@ const IconButtonBurgerStyled = styled(IconButton, { shouldForwardProp: (prop) =>
         height: '0.10rem',
         borderRadius: 1,
         transition: 'transform 0.2s ease-out',
-        backgroundColor: theme.palette.text.primary,
+        backgroundColor: theme.vars.palette.text.primary,
         '&:nth-of-type(1)': {
             transform: buttonClicked ? 'translateY(0rem) rotate(-135deg)' : 'translateY(0.375rem) rotate(0)'
 

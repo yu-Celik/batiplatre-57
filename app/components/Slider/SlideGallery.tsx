@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCreative, Keyboard, Navigation, Pagination } from 'swiper/modules';
 import Image, { StaticImageData } from 'next/image';
 import { CSSProperties } from "react";
-
 type SlideGalleryProps = {
     items: { id: string; img: StaticImageData; alt: string; }[];
 }
@@ -30,6 +29,8 @@ export default function SlideGallery({ items }: SlideGalleryProps) {
                 style={{
                     '--swiper-navigation-color': theme.palette.grey[200],
                     '--swiper-pagination-bullet-inactive-color': `${alpha(theme.palette.grey[800], 0.5)}`,
+                    // '--swiper-navigation-color': 'var(--mui-palette-grey-200)',
+                    // '--swiper-pagination-bullet-inactive-color': `rgba(var(--mui-palette-grey-800),0.5)`,
                     '--swiper-theme-color': theme.palette.mode === 'light' ? theme.palette.secondary.main : theme.palette.secondary.light,
                 } as CustomCSSProperties}
                 creativeEffect={{

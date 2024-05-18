@@ -105,7 +105,7 @@ const ImagesSlider = ({
                                 fill
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                 style={{ objectFit: "cover" }}
-                                priority={currentIndex === 0}
+                                // priority={currentIndex === 0}
                                 loading={currentIndex === 0 ? "eager" : "lazy"}
                             />
 

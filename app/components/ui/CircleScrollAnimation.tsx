@@ -1,5 +1,4 @@
-'use client'
-import { SxProps, Theme, Typography, TypographyProps, useTheme } from "@mui/material";
+import { SxProps, Theme, Typography, TypographyProps } from "@mui/material";
 // import { useTransform, motion, useScroll } from "framer-motion";
 // import { CSSProperties, useRef } from "react";
 
@@ -60,7 +59,6 @@ import { SxProps, Theme, Typography, TypographyProps, useTheme } from "@mui/mate
 // export default CircleScrollAnimation;
 
 export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant: TypographyProps['variant'], styles?: SxProps<Theme> }> = ({ text, variant, styles }) => {
-    const theme = useTheme();
 
     return (
         <div className="flex justify-center items-center relative">
@@ -79,7 +77,7 @@ export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant:
                     ...styles,
                     '&::before': {
                         content: '""',
-                        backgroundImage: `linear-gradient(-45deg, ${theme.palette.secondary.dark}, ${theme.palette.secondary.main})`,
+                        backgroundImage: `linear-gradient(-45deg, var(--mui-palette-secondary-dark), var(--mui-palette-secondary-main))`,
                         borderRadius: '20px',
                         width: '85%',
                         height: '100%',
@@ -91,7 +89,7 @@ export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant:
                         zIndex: -1,
                         animation: 'gradient 1s linear infinite',
                         backgroundSize: '400% auto',
-                        boxShadow: theme.shadows[5],
+                        boxShadow: 'var(--mui-shadows-5)',
                         '@keyframes gradient': {
                             '0%': { backgroundPosition: '0% 50%' },
                             '50%': { backgroundPosition: '100% 50%' },
@@ -101,7 +99,7 @@ export const TextDecoration: React.FC<{ text: string | React.ReactNode, variant:
                     '&::after': {
                         content: '""',
                         borderRadius: '20px',
-                        backgroundColor: theme.palette.background.default,
+                        backgroundColor: 'var(--mui-palette-background-default)',
                         width: '100%',
                         height: '100%',
                         position: 'absolute',

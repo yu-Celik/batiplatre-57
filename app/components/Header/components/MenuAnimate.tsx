@@ -1,3 +1,4 @@
+'use client'
 import { useEffect } from "react";
 import { useAnimate, stagger, LazyMotion, m } from "framer-motion";
 import { Box, Button, MenuItem, useTheme } from "@mui/material";

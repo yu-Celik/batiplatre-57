@@ -1,14 +1,10 @@
-'use client'
-import { Button, Container, Typography, useTheme } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import { DirectionsRun } from "@mui/icons-material";
 import Link from "next/link";
-import { useRouter } from 'next/navigation'
 import { StaggeredFadeInScrollBox } from "@/components/motion/StaggeredFadeInScrollBox";
 
 type Props = {}
 export default function SectionThree({ }: Props) {
-    const theme = useTheme();
-    const router = useRouter()
 
     return (
         <Container
@@ -35,17 +31,17 @@ export default function SectionThree({ }: Props) {
                 <Button
                     component={Link}
                     href={'/devis'}
-                    variant={`${theme.palette.mode === 'light' ? 'contained' : 'outlined'}`}
                     color="secondary"
                     startIcon={<DirectionsRun />}
+                    variant="contained"
                     sx={{
                         px: 4,
                         py: 1,
                         mb: 2,
                         borderRadius: 2,
+        
                     }}
                     aria-label="Commencer le devis maintenant"
-
                 >
                     Commencez maintenant !
                 </Button>

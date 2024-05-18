@@ -1,5 +1,5 @@
 'use client'
-import { Box, Container, Typography, Button, Tabs, Tab, useTheme, Card, CardContent, Grid, IconButton, styled, Collapse, CardActions, IconButtonProps } from '@mui/material';
+import { Box, Container, Typography, Button, Tabs, Tab, Card, CardContent, Grid, IconButton, styled, Collapse, CardActions, IconButtonProps } from '@mui/material';
 import { TextDecoration } from '@/components/ui/CircleScrollAnimation';
 import CustomSwiper from '@/components/Slider/SimpleSlide';
 import { tabsClasses } from '@mui/material/Tabs';
@@ -7,7 +7,6 @@ import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { peintureImg, platerieImg, amenagementCombleImg, carrelageImg, poseDeSolImg } from "@/data/imageSlideHome";
 import { ArrowForwardIos, LiveHelp } from '@mui/icons-material';
-import { useInView } from 'framer-motion';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useRouter } from 'next/navigation';
 import { RightCardDecoration } from '@/components/ui/CardDecoration';
@@ -64,10 +63,8 @@ const services = [
 
 type Props = {}
 export default function RenderMobile({ }: Props) {
-    const theme = useTheme();
     const [value, setValue] = useState(1);
     const refBox = useRef(null);
-    const isInView = useInView(refBox, { once: true });
     const [expanded, setExpanded] = useState(Array(services.length).fill(false));
     const router = useRouter();
 
@@ -81,13 +78,12 @@ export default function RenderMobile({ }: Props) {
     const handleChange = (_: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
-
     return (
         <>
             <Box component={'section'} position={'relative'} display={{ xs: 'flex', md: 'none' }} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} mb={2} sx={{ '& strong': { fontWeight: 500 } }}>
                 <TextDecoration styles={{ my: 6 }} variant={'h2'} text={"Découvrez nos prestations"} />
                 <Container>
-                    <Typography variant="body1" >
+                    <Typography variant="body1">
                         Chez <strong>BatiPlatre57</strong>, nous offrons une gamme complète de services de <strong>rénovation</strong>, allant de la <strong>conception initiale</strong> à la <strong>réalisation finale</strong>.
                     </Typography>
                 </Container>
@@ -96,21 +92,22 @@ export default function RenderMobile({ }: Props) {
                     sx={{
                         position: 'relative',
                         flexGrow: 1,
-                        backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[300] : theme.palette.grey[900],
-                        borderRadius: theme.spacing(1, 1, 0, 0),
+                        backgroundColor: 'var(--mui-palette-background-paper)',
+                        borderRadius: 'var(--mui-spacing-1) var(--mui-spacing-1) 0 0',
                     }}
                 >
                     <Button
-                        variant='text'
+                        variant='contained'
                         size='large'
                         aria-label="Voir la galerie précédente"
-
+                        onClick={() => { router.push('/galerie') }}
+                        color="secondary"
                         sx={{
                             position: 'absolute',
-                            top: '20%',
+                            top: { xs: '20%', sm: '15%' },
                             right: 10,
-                            zIndex: 9999,
-                            color: theme.palette.grey[200],
+                            zIndex: 2,
+                            // backgroundColor: 'var(--mui-palette-blueAndAmber-main)',
                         }}
                     >
                         Voir la galerie
@@ -122,9 +119,11 @@ export default function RenderMobile({ }: Props) {
                         variant="scrollable"
                         allowScrollButtonsMobile
                         scrollButtons='auto'
-                        textColor={theme.palette.mode === 'light' ? 'primary' : 'secondary'}
-                        indicatorColor={theme.palette.mode === 'light' ? 'primary' : 'secondary'}
-                        aria-labelledby=""
+                        TabIndicatorProps={{
+                            sx: {
+                                backgroundColor: 'var(--mui-palette-blueAndAmber-main)',
+                            }
+                        }}
                         TabScrollButtonProps={{
                             'aria-label': 'scroll tabs',
                         }}
@@ -132,6 +131,9 @@ export default function RenderMobile({ }: Props) {
                             [`& .${tabsClasses.scrollButtons}`]: {
                                 '&.Mui-disabled': { opacity: 0.3 },
                             },
+                            '& .Mui-selected.MuiButtonBase-root': {
+                                color: 'var(--mui-palette-blueAndAmber-main)',
+                            }
                         }}
                     >
                         <Tab label="Débarras & néttoyage" value={0} />
@@ -211,10 +213,10 @@ export default function RenderMobile({ }: Props) {
                 display: { xs: 'block', md: 'none' }
             }}>
                 <Box component={'article'} sx={{
-                    backgroundColor: theme.palette.background.paper,
-                    borderRadius: theme.shape.borderRadius,
-                    boxShadow: theme.shadows[10],
-                    p: theme.spacing(6),
+                    backgroundColor: 'var(--mui-palette-background-paper)',
+                    borderRadius: 'var(--mui-shape-borderRadius)',
+                    boxShadow: 'var(--mui-shadows-10)',
+                    p: '3rem',
                 }}>
                     <LiveHelp color='secondary' sx={{ fontSize: 100, position: 'absolute', top: 0, right: 0, bottom: 0, transform: 'translate(0, -50%)' }} />
                     <Typography ref={refBox} variant="h3" gutterBottom sx={{ mt: 2, textAlign: 'left', maxWidth: '22rem' }}>
@@ -227,7 +229,7 @@ export default function RenderMobile({ }: Props) {
                         variant="contained"
                         component={Link}
                         size="large"
-                        color="primary"
+                        color="secondary"
                         fullWidth
                         sx={{ mt: 2 }}
                         href="/contact"

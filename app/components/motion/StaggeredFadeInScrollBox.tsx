@@ -1,3 +1,4 @@
+'use client'
 import { cn } from "@/utils/cn";
 import { LazyMotion, m } from "framer-motion";
 import { ReactNode } from "react";

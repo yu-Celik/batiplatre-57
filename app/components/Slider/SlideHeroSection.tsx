@@ -17,7 +17,6 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                     clickable: true,
                 }}
                 keyboard={true}
-                loop={true}
                 modules={[EffectFade, Pagination, A11y, Autoplay]}
                 className="SlideHeroSection"
                 allowTouchMove={false}
@@ -40,11 +39,11 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                         <Image
                             src={image.image}
                             alt={image.alt}
-                            loading={index === 0 ? "eager" : "lazy"}
-                            priority={index === 0 ? true : false}
-                            sizes="100vw"
+                            // loading={index === 0 ? "eager" : "lazy"}
+                            // priority={index === 0 ? true : false}
                             quality={100}
                             fill
+                            sizes='70vw'
                             style={{
                                 objectFit: "cover",
                             }}

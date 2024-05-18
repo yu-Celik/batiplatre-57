@@ -1,6 +1,6 @@
 'use client'
 import { LazyMotion, m, useAnimation } from "framer-motion";
-import { Link as MuiLink, MenuItem, useTheme, Menu } from "@mui/material";
+import { Link as MuiLink, MenuItem, useTheme } from "@mui/material";
 import Link from "next/link";
 import { ArrowBackIos } from "@mui/icons-material";
 import { RefObject, createRef, useEffect, useRef } from "react";
@@ -19,7 +19,7 @@ export const Navigation = ({ isOpen, onClose, pages }: { isOpen: boolean; onClos
                     clipPath: "inset(0% 0% 0% 0% round 5px)",
                     transition: { duration: 0.03 }
                 });
-                liRefs.current.forEach(async (ref, index) => {
+                liRefs.current.forEach(async (_, index) => {
                     await controls.start({
                         opacity: 1,
                         scale: 1,
@@ -27,10 +27,10 @@ export const Navigation = ({ isOpen, onClose, pages }: { isOpen: boolean; onClos
                     });
                 });
             } else {
-                liRefs.current.forEach(async (ref, index) => {
+                liRefs.current.forEach(async (_, index) => {
                     await controls.start({
                         opacity: 0,
-                        scale: 0.5,
+                        scale: 0.8,
                         transition: { delay: index * 0.01 }
                     });
                 });
