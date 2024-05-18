@@ -1,8 +1,13 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, CircularProgress, Container, Typography } from "@mui/material";
 import { TextDecoration } from "@/components/ui/CircleScrollAnimation";
-import SlideParallax from "@/components/Slider/SlideParallax";
-import RenderDesktop from "./RenderDesktop";
+import dynamic from "next/dynamic";
 
+const SlideParallax = dynamic(() => import("@/components/Slider/SlideParallax"), {
+    loading: () => <CircularProgress />,
+})
+const RenderDesktop = dynamic(() => import('./RenderDesktop'), {
+    loading: () => <CircularProgress />,
+})
 type Props = {}
 export default function SectionTwo({ }: Props) {
     return (

@@ -1,6 +1,6 @@
 'use client'
 import { cn } from "@/utils/cn";
-import { LazyMotion, m } from "framer-motion";
+import { LazyMotion, m, domAnimation } from "framer-motion";
 import { ReactNode } from "react";
 
 type Props = {
@@ -36,8 +36,8 @@ const itemVariants = (index: number) => ({
     }
 });
 
-export const StaggeredFadeInScrollBox: React.FC<Props> = ({ children, className }) => {
-    const loadFeatures = () => import('./features').then((res) => res.default);
+const StaggeredFadeInScrollBox: React.FC<Props> = ({ children, className }) => {
+    const loadFeatures = () => import('@/components/motion/features').then((res) => res.default);
 
     return (
         <LazyMotion features={loadFeatures}>
@@ -65,3 +65,6 @@ export const StaggeredFadeInScrollBox: React.FC<Props> = ({ children, className 
         </LazyMotion>
     );
 };
+
+export default StaggeredFadeInScrollBox;
+

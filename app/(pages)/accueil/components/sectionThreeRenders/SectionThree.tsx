@@ -1,8 +1,11 @@
 import { Button, Container, Typography } from "@mui/material";
 import { DirectionsRun } from "@mui/icons-material";
 import Link from "next/link";
-import { StaggeredFadeInScrollBox } from "@/components/motion/StaggeredFadeInScrollBox";
-
+import dynamic from 'next/dynamic';
+import { CircularProgress } from "@mui/material";
+const StaggeredFadeInScrollBox = dynamic(() => import('@/components/motion/StaggeredFadeInScrollBox'), {
+    loading: () => <CircularProgress />,
+})
 type Props = {}
 export default function SectionThree({ }: Props) {
 

@@ -2,7 +2,7 @@
 import React, { CSSProperties } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectCoverflow, Keyboard } from 'swiper/modules';
-import { Button, useTheme } from '@mui/material';
+import { Box, Button, useTheme } from '@mui/material';
 import Image, { StaticImageData } from 'next/image';
 
 interface SimpleSlideProps {
@@ -44,15 +44,16 @@ const theme = useTheme()
         >
             {images.map((img, index) => (
                 <SwiperSlide key={index}>
-                    <Image
+                    <Box
+                        component={Image}
                         src={img.img}
                         alt={img.alt}
                         placeholder="blur"
                         quality={100}
                         sizes="100vw"
-                        style={{
+                        sx={{
                             objectFit: "cover",
-                            height: theme.breakpoints.down('sm') ? '30rem' : "18rem",
+                            height: { xs: '18rem', sm: '30rem' },
                             width: "100%"
                         }}
                         loading={'lazy'}
