@@ -80,15 +80,15 @@ export default function RenderTablet({ }: Props) {
                                 }
                             }}
                         >
-                            <Typography color="white">
+                            <Typography color="grey.100">
                                 <CheckCircle color="success" />
                                 Chaque projet est unique.
                             </Typography>
-                            <Typography color="white">
+                            <Typography color="grey.100">
                                 <CheckCircle color="success" />
                                 Solutions sur mesure.
                             </Typography>
-                            <Typography color="white">
+                            <Typography color="grey.100">
                                 <CheckCircle color="success" />
                                 Un espace qui vous est propre.
                             </Typography>

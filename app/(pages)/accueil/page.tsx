@@ -41,9 +41,9 @@ export default function Page({ }: Props) {
     <>
       <HeroSection />
       <SectionOne />
-      {/* <SectionTwo /> */}
-      {/* <SectionThree /> */}
-      {/* <SectionFour /> */}
+      <SectionTwo />
+      <SectionThree />
+      <SectionFour />
     </>
 
   )
