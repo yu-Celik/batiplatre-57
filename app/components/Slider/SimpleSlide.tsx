@@ -1,13 +1,7 @@
 'use client'
-import React, { useRef, useState, useEffect, CSSProperties } from 'react';
+import React, { useRef, useState, CSSProperties } from 'react';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
-import SwiperCore from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/autoplay';
 import { Autoplay, Pagination, EffectCoverflow, Keyboard } from 'swiper/modules';
-import './stylesSimpleSlide.css';
 import { useTheme, Button } from '@mui/material';
 import Image, { StaticImageData } from 'next/image';
 import { PlayArrow, Pause } from '@mui/icons-material';

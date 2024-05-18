@@ -1,12 +1,8 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import './stylesSlideParallax.css';
 import name from '@/assets/chantier photo/2nd/IMG_20210107_162721.jpg';
 import { Parallax, Pagination } from 'swiper/modules';
-import { Typography, alpha } from '@mui/material';
+import { Typography } from '@mui/material';
 import { CSSProperties } from 'react';
 import { useTheme } from 'next-themes';
 

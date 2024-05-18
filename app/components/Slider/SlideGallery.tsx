@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCreative, Keyboard, Navigation, Pagination } from 'swiper/modules';
 import Image, { StaticImageData } from 'next/image';
 import { CSSProperties } from "react";
-import './stylesSlideGallery.css'
 
 type SlideGalleryProps = {
     items: { id: string; img: StaticImageData; alt: string; }[];

@@ -4,7 +4,6 @@ import Grid from '@mui/material/Unstable_Grid2';
 import LogoBatiPlatre from 'components/Logo/LogoBatiPlatre';
 import { heightHeader } from 'libs/theme';
 import dynamic from 'next/dynamic';
-import ModeToggle from '../Switcher/Switcher';
 // import RenderMobile from 'components/Header/components/rendering/RenderMobile';
 // import RenderTablet from 'components/Header/components/rendering/RenderTablet';
 // import RenderDesktop from 'components/Header/components/rendering/RenderDesktop';
@@ -47,8 +46,6 @@ export default function Header({ }: Props) {
                             <Grid xs={10} sm={12} md={3.5} id={'logo-container'} justifyContent={{ xs: 'flex-start', sm: 'center', md: 'flex-start' }}>
                                 <LogoBatiPlatre sx={{ width: 'auto', height: heightHeader }} />
                             </Grid>
-                            <ModeToggle />
-
                             <RenderMobile pages={pages.filter(page => page.display === 'sm')} />
                             <RenderTablet pages={pages.filter(page => page.display === 'sm')} />
                             <RenderDesktop pages={pages.filter(page => page.display === 'sm')} />

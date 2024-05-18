@@ -3,9 +3,21 @@ import Header from "components/Header/Header";
 import FooterFixed from "components/Footer/FooterFixed";
 import Footer from "components/Footer/Footer";
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Box} from "@mui/material";
-import Providers from "libs/ThemeProvider";
+import Box from "@mui/material/Box";
 import "./globals.css";
+import 'components/Slider/stylesSimpleSlide.css';
+import 'components/Slider/stylesSlideGallery.css'
+import 'components/Slider/stylesSlideHeroSection.css'
+import 'components/Slider/stylesSlideParallax.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/autoplay';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import Providers from "./libs/ThemeProvider";
+import React from 'react';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.batiplatre57.fr'),
   title: {
@@ -27,8 +39,36 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const clientScript = `
+  (function() {
+    try {
+      // Récupère les valeurs de thème stockées dans le localStorage
+      const dataTheme = localStorage.getItem('data-theme');
+
+      // Applique les valeurs récupérées aux attributs correspondants
+      if (dataTheme) {
+        if (dataTheme === 'system') {
+          const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (prefersDarkScheme) {
+            document.documentElement.setAttribute('class', 'dark');
+          } else {
+            document.documentElement.setAttribute('class', 'light');
+          }
+        } else {
+          document.documentElement.setAttribute('class', dataTheme);
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  })();
+`;
+
   return (
     <html lang="fr">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: clientScript }} defer />
+      </head>
       <body>
         <Providers>
           <Header />

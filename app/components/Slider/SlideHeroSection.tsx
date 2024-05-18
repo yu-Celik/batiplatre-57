@@ -1,14 +1,6 @@
 'use client'
 import { CSSProperties } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useTheme } from "@mui/material";
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-import './stylesSlideHeroSection.css'
 import { EffectFade, Pagination, A11y, Autoplay } from 'swiper/modules';
 import Image, { StaticImageData } from 'next/image';
 
@@ -16,7 +8,6 @@ interface CustomCSSProperties extends CSSProperties {
     [key: `--${string}`]: string | undefined;
 }
 export default function SlideHeroSection({ images, styleSlide }: { images: { image: StaticImageData, alt: string }[], styleSlide: CSSProperties }) {
-    const theme = useTheme()
     return (
         <>
             <Swiper
@@ -37,11 +28,11 @@ export default function SlideHeroSection({ images, styleSlide }: { images: { ima
                 }}
                 style={{
                     ...styleSlide,
-                    '--swiper-theme-color': theme.palette.secondary.main,
+                    '--swiper-theme-color': 'var(--mui-palette-secondary-main)',
                     '--swiper-pagination-bullet-horizontal-gap': '0.5rem',
                     '--swiper-pagination-bullet-size': '1.25rem',
                     '--swiper-pagination-bullet-border-radius': '50%',
-                    '--swiper-pagination-bullet-inactive-color': theme.palette.secondary.dark,
+                    '--swiper-pagination-bullet-inactive-color': 'var(--mui-palette-secondary-dark)',
                 } as CustomCSSProperties}
             >
                 {images.map((image, index) => (

@@ -1,8 +1,5 @@
-import { ArrowForwardIos } from "@mui/icons-material"
-import { Card, CardContent, Container, Typography, CardHeader, Avatar, IconButton, CardMedia } from "@mui/material"
-import name from '@/assets/chantier photo/2nd/IMG_20210107_162721.jpg';
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import SlideParallax from "@/components/Slider/SlideParallax";
+import { Typography } from "@mui/material";
 
 type Props = {}
 export default function RenderDesktop({ }: Props) {
