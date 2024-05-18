@@ -1,24 +1,14 @@
 import { Stack, Box, Typography, Button, Container } from "@mui/material";
-import { ArrowRightAlt, CheckCircle, HandymanOutlined, AssignmentOutlined } from "@mui/icons-material";
+import { CheckCircle, HandymanOutlined, AssignmentOutlined } from "@mui/icons-material";
 import Link from "next/link";
 import accueil7 from "../../../../../public/accueil7.webp";
-import accueil8 from "../../../../../public/accueil8.webp";
-import accueil9 from "../../../../../public/accueil9.webp";
-import SlideHeroSection from "@/components/Slider/SlideHeroSection";
 import Image from "next/image";
-
-const ImagesSliding = [
-    { image: accueil7, alt: "Description de l'image accueil7" },
-    { image: accueil8, alt: "Description de l'image accueil8" },
-    { image: accueil9, alt: "Description de l'image accueil9" }
-];
 
 type Props = {};
 export default function RenderMobile({ }: Props) {
     return (
         <Box
             position="relative"
-            minHeight="calc(100svh - 60px)"
             display={{ xs: 'block', sm: 'none' }}
             paddingTop='72px'
         >
