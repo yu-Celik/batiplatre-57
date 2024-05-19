@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Header from "components/Header/Header";
-import FooterFixed from "components/Footer/FooterFixed";
-import Footer from "components/Footer/Footer";
+const Header = dynamic(() => import('components/Header/Header'));
+const FooterFixed = dynamic(() => import('components/Footer/FooterFixed'));
+const Footer = dynamic(() => import('components/Footer/Footer'));
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Box from "@mui/material/Box";
 import "./globals.css";
@@ -18,6 +18,7 @@ import 'swiper/css/navigation';
 import Providers from "./libs/ThemeProvider";
 import { Analytics } from "@vercel/analytics/react"
 import React from 'react';
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.batiplatre57.fr'),
@@ -68,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: clientScript }} defer />
+        <script dangerouslySetInnerHTML={{ __html: clientScript }} />
       </head>
       <body>
         <Providers>
@@ -83,4 +84,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
