@@ -1,29 +1,60 @@
 'use client'
 import { heightHeader } from '@/libs/theme';
-import Grid from '@mui/material/Unstable_Grid2'; // Assurez-vous que ce composant est correctement importé.
+import Grid from '@mui/material/Unstable_Grid2';
 import Stack from '@mui/material/Stack';
 import { Button } from '@mui/material';
 import { LocalPhoneOutlined, EmailOutlined } from '@mui/icons-material';
-import MenuAnimate from '@/components/Header/components/MenuAnimate'; // Assurez-vous que le chemin d'importation est correct.
+import MenuAnimate from '@/components/Header/components/MenuAnimate';
 import Link from 'next/link';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect, useRef } from 'react';
+
 type Props = {
     pages: { label: string, path: string, display: string }[]
 };
 
 export default function RenderDesktop({ pages }: Props) {
     const [isServicesOpen, setIsServicesOpen] = useState(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        setIsTouchDevice('ontouchstart' in window);
+
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setIsServicesOpen(false);
+            }
+        };
+
+        if (isTouchDevice) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isTouchDevice]);
 
     const handleClickServices = () => {
-        setIsServicesOpen(true);
+        setIsServicesOpen((prev) => !prev);
     };
+
+    const handleHoverServices = () => {
+        if (!isTouchDevice) {
+            setIsServicesOpen(true);
+        }
+    };
+
     const handleCloseServices = () => {
-        setIsServicesOpen(false);
+        if (!isTouchDevice) {
+            setIsServicesOpen(false);
+        }
     };
+
     return (
         <Fragment>
             <Grid xs={0} sm={0} md={4} display={{ xs: 'none', md: 'flex' }} alignItems="center" minHeight={heightHeader} justifyContent="center">
-                <Stack direction="row" position="relative" >
+                <Stack direction="row" position="relative" ref={menuRef}>
                     <MenuAnimate
                         isOpen={isServicesOpen}
                         pages={pages.map(page => ({ path: page.path, title: page.label }))}
@@ -31,7 +62,7 @@ export default function RenderDesktop({ pages }: Props) {
                         ariaLabelNav="Menu des services secondaires"
                         ariaControlButton="menu-button"
                         labelledby="menu-button"
-                        onMouseEnter={handleClickServices}
+                        onMouseEnter={handleHoverServices}
                         onMouseLeave={handleCloseServices}
                         onClick={handleClickServices}
                     />

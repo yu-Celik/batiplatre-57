@@ -35,20 +35,28 @@ export default function SlideParallax() {
                 height={900}
                 keyboard={{ enabled: true }}
                 grabCursor={true}
-                className="slideParallax md:min-h-[calc(60vh-156px)]"
+                className="slideParallax md:min-h-[calc(60vh-156px)] lg:min-h-[calc(80vh-156px)]"
             >
                 <Image
                     src={name}
                     alt=""
                     loading='lazy'
                     slot="container-start"
-                    className="absolute left-0 top-0 w-[130%] h-full bg-cover bg-center bg-url"
+                    className="absolute left-0 top-0"
                     data-swiper-parallax="-23%"
+                    // sizes='130vw'
+                    // fill
+                    style={{
+                        objectFit: 'cover',
+                        // objectPosition: 'center',
+                        width: '130%',
+                        height: '100%'
+                    }}
                 />
                 <SwiperSlide >
                     <div className='max-w-[900px] mx-auto flex flex-col gap-2'>
                         <div className="step-number" data-swiper-parallax="-400">Étape 1</div>
-                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} data-swiper-parallax="-300" gutterBottom  sx={{
+                        <Typography variant="h3" fontSize={{ xs: 32, md: 40 }} data-swiper-parallax="-300" gutterBottom sx={{
                             color: 'var(--mui-palette-primary-main)',
                             '[class="dark"] &': {
                                 color: 'var(--mui-palette-secondary-main)'

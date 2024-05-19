@@ -6,9 +6,13 @@
   padding: 2rem;
   backdrop-filter: brightness(0.5);
   height: auto;
-  @media (min-width: 900px) {
+  @media (min-width: 600px) {
     display: flex;
     align-items: center;
+    height: 500px;
+  }
+  @media (min-width: 900px) {
+    height: auto;
   }
 }
 

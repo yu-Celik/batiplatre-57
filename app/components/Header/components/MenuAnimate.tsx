@@ -96,6 +96,7 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                         top: "100%",
                         left: "50%",
                         transform: "translateX(-50%)",
+                        margin: "0 auto",
                         backgroundColor: 'var(--mui-palette-background-paper)',
                         boxShadow: 'var(--mui-shadows-24)',
                         padding: theme.spacing(1),
@@ -107,16 +108,22 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                             position: 'relative',
                             '&:hover': {
                                 color: theme.palette.primary.main,
-                                '&::after': {
-                                    content: '""',
-                                    position: 'absolute',
-                                    bottom: 0,
-                                    left: 0,
-                                    display: 'block',
-                                    height: '2px',
-                                    width: '100%',
-                                    backgroundColor: theme.palette.primary.main
-                                },
+                            },
+                            '&::after': {
+                                content: '""',
+                                position: 'absolute',
+                                left: 0,
+                                bottom: -5,
+                                width: '100%',
+                                height: 2,
+                                background: theme.palette.primary.main,
+                                transform: 'scaleX(0)',
+                                transformOrigin: 'right',
+                                transition: 'transform 0.3s ease',
+                            },
+                            '&:hover::after': {
+                                transform: 'scaleX(1)',
+                                transformOrigin: 'left',
                             }
                         }
                     }}
@@ -125,26 +132,22 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                 >
                     {pages.map((page) => (
                         <Link key={page.path} href={page.path} aria-label={page.title} style={{ textDecoration: 'none' }}>
-                            <MenuItem sx={{
-                                color: theme.palette.text.primary,
-                                ...(location === page.path && {
-                                    color: theme.palette.primary.main,
-                                    '&::after': {
-                                        content: '""',
-                                        position: 'absolute',
-                                        bottom: 0,
-                                        left: 0,
-                                        display: 'block',
-                                        height: '2px',
-                                        width: '100%',
-                                        background: theme.palette.primary.main
-                                    }
-                                }),
-                            }}>
+                            <MenuItem
+                                sx={{
+                                    color: theme.palette.text.primary,
+                                    backgroundColor: 'transparent',
+                                    '&:hover': {
+                                        backgroundColor: 'transparent',
+                                    },
+                                    ...(location === page.path && {
+                                        color: theme.palette.primary.main,
+                                    }),
+                                }}>
                                 {page.title}
                             </MenuItem>
                         </Link>
                     ))}
+
                 </Box>
             </nav>
         </LazyMotion>

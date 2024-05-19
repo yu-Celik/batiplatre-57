@@ -9,7 +9,7 @@ export default function page({ }: Props) {
   return (
     <>
       <Box sx={{ marginTop: '72px' }}>
-        <Image src={accueil7} alt="Débarras et nettoyage" loading="eager" width={1920} height={1080} style={{ objectFit: 'cover' }} />
+        <Image src={accueil7} alt="Débarras et nettoyage" loading="eager"  priority style={{ objectFit: 'cover' }} />
         <TextDecoration text="Débarras et nettoyage" variant="h1" styles={{ marginTop: 8, marginBottom: 4 }} />
         <Container sx={{ marginBottom: 4, display: "flex", justifyContent: "center", flexDirection: "column" }}>
           <Container>
