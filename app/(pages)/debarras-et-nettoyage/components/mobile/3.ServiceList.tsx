@@ -22,7 +22,7 @@ export default function ServiceList() {
                         title="Débarras de maisons"
                         description="Nous débarrassons votre maison de tous les objets encombrants, en veillant à respecter vos biens et à recycler autant que possible."
                         buttonId="debarras-de-maisons"
-                        buttonText="En savoir plus"
+                        buttonText="Voir les détails"
                         useScrollButton
                     />
                 </Grid>
@@ -33,7 +33,7 @@ export default function ServiceList() {
                         title="Nettoyage après travaux"
                         description="Après des travaux de rénovation, nous assurons un nettoyage en profondeur pour que votre espace soit prêt à être utilisé immédiatement."
                         buttonId="nettoyage-apres-travaux"
-                        buttonText="En savoir plus"
+                        buttonText="Voir les détails"
                         useScrollButton
                     />
                 </Grid>
@@ -44,7 +44,7 @@ export default function ServiceList() {
                         title="Entretien régulier"
                         description="Nous proposons des services d'entretien régulier pour maintenir vos espaces toujours propres et accueillants."
                         buttonId="entretien-regulier"
-                        buttonText="En savoir plus"
+                        buttonText="Voir les détails"
                         useScrollButton
                     />
                 </Grid>

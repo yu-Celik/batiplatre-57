@@ -6,6 +6,7 @@ const ServiceList = dynamic(() => import("(pages)/debarras-et-nettoyage/componen
 const Steps = dynamic(() => import("(pages)/debarras-et-nettoyage/components/mobile/4.Steps"));
 const DetailedService = dynamic(() => import("(pages)/debarras-et-nettoyage/components/mobile/5.DetailedService"));
 import { Container } from "@mui/material";
+import ConsultationBox from '@/components/Card/ConsultationBox';
 
 type Props = {}
 export default function page({ }: Props) {
@@ -33,6 +34,8 @@ export default function page({ }: Props) {
                         description="Nous proposons des services d&apos;entretien régulier pour maintenir vos espaces toujours propres et accueillants. Nos équipes expérimentées s&apos;occupent de la propreté de vos espaces pour vous offrir un environnement sain et agréable."
                     />
                 </Container>
+                <ConsultationBox />
+
             </div>
         </>
     );

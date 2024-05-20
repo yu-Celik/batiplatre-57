@@ -45,7 +45,7 @@ export default function RenderDesktop({ }: Props) {
               zIndex: -1
             }} />
           </Container>
-          <div className="flex items-start justify-start ml-2">
+          <div className="flex items-start justify-start ml-2 py-4 px-6">
             <CardDecoration className="w-1/3 h-full -top-0 bg-amber-500 dark:bg-amber-600 -z-10">
               <ContactCard />
             </CardDecoration>
