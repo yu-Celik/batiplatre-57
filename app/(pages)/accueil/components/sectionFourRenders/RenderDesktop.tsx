@@ -77,12 +77,12 @@ export default function RenderDesktop({ }: Props) {
                 justifyContent: 'center',
                 my: 6,
             }}>
-                <Box component={'article'} display={'flex'} justifyContent={'space-between'} maxWidth={'1024px'} className="bg-grey-50 dark:bg-grey-900 rounded-xl shadow-xl p-12" sx={{
+                <Box component={'article'} display={'flex'} justifyContent={'space-between'} maxWidth={'1024px'} className="bg-grey-50 dark:bg-grey-900 rounded-xl pl-12 shadow-xl " sx={{
                 }}>
-                    <Container disableGutters sx={{ maxHeight: '22.5rem' }}>
-                        <LiveHelp color='secondary' sx={{ fontSize: 100, position: 'absolute', top: 0, right: 90, bottom: 0, transform: 'translate(0, -50%)' }} />
-                        <Typography variant="h3" gutterBottom sx={{ mt: 2, textAlign: 'left', maxWidth: '22rem' }}>
-                            Avez-vous des questions spécifiques ou besoin d&apos;une consultation personnalisée ?
+                    <Container sx={{ maxHeight: '22.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '50%', mr: 10 }}>
+                        <LiveHelp color='secondary' sx={{ fontSize: 100, position: 'absolute', top: 0, right: 0, bottom: 0, transform: 'translate(0, -50%)', zIndex: 10 }} />
+                        <Typography variant="h3" color={'secondary'} fontSize={32} gutterBottom sx={{ mt: 2, textAlign: 'left', maxWidth: '22rem' }}>
+                            Des questions ?
                         </Typography>
                         <Typography variant="body1" paragraph sx={{ mt: 1, textAlign: 'left', maxWidth: '26rem' }}>
                             Nous mettrons tout en œuvre pour vous fournir toutes les informations nécessaires et vous guider dans vos choix.
@@ -98,8 +98,21 @@ export default function RenderDesktop({ }: Props) {
                             Parlez à un conseiller
                         </Button>
                     </Container>
-                    <Container sx={{ maxHeight: '22.5rem' }}>
-                        <Image src={img21} alt="chantier" width={img21.width} height={img21.height} className="h-full" style={{ objectFit: 'cover', objectPosition: 'center' }} />
+                    <Container disableGutters sx={{ maxHeight: '22.5rem', width: '55%', position: 'relative' }}>
+                        <Image src={img21} alt="chantier" style={{
+                            // position: 'absolute',
+                            // top: '50%',
+                            // transform: 'translate(0, -50%)',
+                            // right: -200,
+                            objectFit: 'cover',
+                            objectPosition: 'center',
+                            // width: '500px',
+                            // height: '500px',
+                            width: '100%',
+                            height: '100%',
+                            aspectRatio: '1/1',
+                            borderRadius: '0.25rem',
+                        }} />
                     </Container>
                 </Box>
             </Container>

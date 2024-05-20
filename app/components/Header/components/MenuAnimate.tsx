@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from "react";
 import { useAnimate, stagger, LazyMotion, m } from "framer-motion";
-import { Box, Button, MenuItem, useTheme } from "@mui/material";
+import { Box, Button, MenuItem } from "@mui/material";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
@@ -57,7 +57,6 @@ type MenuAnimateProps = {
 
 const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLabelNav, ariaControlButton, labelledby, onMouseEnter, onMouseLeave, onClick }) => {
     const scope = useMenuAnimation(isOpen);
-    const theme = useTheme();
     const location = usePathname();
     const loadFeatures = () => import('@/components/motion/features').then((res) => res.default)
 
@@ -77,7 +76,7 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                     onMouseLeave={onMouseLeave}
                     onClick={onClick}
                     sx={{
-                        color: isOpen ? theme.palette.primary.main : theme.palette.text.primary
+                        color: isOpen ? 'var(--mui-palette-primary-main)' : 'var(--mui-palette-text-primary)'
                     }}
                 >
                     {title}
@@ -99,15 +98,15 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                         margin: "0 auto",
                         backgroundColor: 'var(--mui-palette-background-paper)',
                         boxShadow: 'var(--mui-shadows-24)',
-                        padding: theme.spacing(1),
+                        padding: '0.5rem',
                         flexDirection: 'row',
-                        gap: theme.spacing(1),
+                        gap: '0.5rem',
                         '& .MuiMenuItem-root': {
-                            padding: theme.spacing(1),
+                            padding: '0.5rem',
                             width: "max-content",
                             position: 'relative',
                             '&:hover': {
-                                color: theme.palette.primary.main,
+                                color: 'var(--mui-palette-primary-main)',
                             },
                             '&::after': {
                                 content: '""',
@@ -116,7 +115,7 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                                 bottom: -5,
                                 width: '100%',
                                 height: 2,
-                                background: theme.palette.primary.main,
+                                background: 'var(--mui-palette-primary-main)',
                                 transform: 'scaleX(0)',
                                 transformOrigin: 'right',
                                 transition: 'transform 0.3s ease',
@@ -134,13 +133,13 @@ const MenuAnimate: React.FC<MenuAnimateProps> = ({ isOpen, pages, title, ariaLab
                         <Link key={page.path} href={page.path} aria-label={page.title} style={{ textDecoration: 'none' }}>
                             <MenuItem
                                 sx={{
-                                    color: theme.palette.text.primary,
+                                    color: 'var(--mui-palette-text-primary)',
                                     backgroundColor: 'transparent',
                                     '&:hover': {
                                         backgroundColor: 'transparent',
                                     },
                                     ...(location === page.path && {
-                                        color: theme.palette.primary.main,
+                                        color: 'var(--mui-palette-primary-main)',
                                     }),
                                 }}>
                                 {page.title}

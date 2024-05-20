@@ -1,6 +1,5 @@
 'use client'
 import { Container, Typography, Button } from '@mui/material';
-import { RightCardDecoration } from '@/components/ui/CardDecoration';
 // import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';

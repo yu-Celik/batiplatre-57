@@ -1,9 +1,9 @@
 import { Container, Typography, Button, Card, CardContent } from '@mui/material';
-import { RightCardDecoration } from '@/components/ui/CardDecoration';
 import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CardDecoration } from '@/components/ui/CardDecoration';
 
 type Props = {}
 export default function RenderMobile({ }: Props) {
@@ -23,7 +23,7 @@ export default function RenderMobile({ }: Props) {
                 <Typography variant="h3" gutterBottom>
                     Trois raisons de choisir <strong>BatiPlatre57</strong> pour transformer votre espace.
                 </Typography>
-                <RightCardDecoration className='bg-amber-500 dark:bg-amber-600 mb-2 w-1/3 h-full'>
+                <CardDecoration className='bg-amber-500 dark:bg-amber-600 mb-2 w-1/3 h-full'>
                     <Image width={400} height={400} src={img21} alt="Design intérieur élégant" className="relative w-full h-80 object-cover rounded " />
                     <Card raised sx={{ my: 2 }}>
                         <CardContent>
@@ -55,7 +55,7 @@ export default function RenderMobile({ }: Props) {
                             </Typography>
                         </CardContent>
                     </Card>
-                </RightCardDecoration>
+                </CardDecoration>
 
                 <Button component={Link} href={'/nos-realisations'} aria-label="Voir nos réalisations" variant="contained" fullWidth color="primary" sx={{ mt: 2 }}>
                     Découvrez nos réalisations

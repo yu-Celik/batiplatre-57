@@ -64,7 +64,7 @@ export default function RenderDesktop({ }: Props) {
                 sx={{
                     height: 'fit-content',
                     backdropFilter: 'brightness(1.25)',
-                    borderRadius: theme.shape.borderRadius,
+                    borderRadius: 'var(--mui-shape-borderRadius)',
                     '& .MuiTextField-root': {
                         width: '100%',
                         mx: 'auto',
@@ -76,15 +76,16 @@ export default function RenderDesktop({ }: Props) {
                     alt="Contactez BatiPlatre57"
                     width={1920}
                     height={1080}
-                    layout="responsive"
                     style={{
                         display: 'flex',
                         position: 'relative',
                         zIndex: 1,
                         maxWidth: '700px',
+                        width: '70%',
+                        height: 'auto',
                         borderRadius: '80% 0%',
                         objectFit: 'cover',
-                        paddingRight: theme.spacing(10)
+                        paddingRight: '5rem'
                     }}
                 />
                 <Box sx={{
@@ -93,10 +94,13 @@ export default function RenderDesktop({ }: Props) {
                     bottom: 0,
                     left: 0,
                     transform: 'translate(0%,0%)',
-                    width: '650px',
+                    
+                    maxWidth: '650px',
+                    width: '65%',
+
                     height: `100%`,
                     // backgroundColor: 'red',
-                    backgroundColor: theme.palette.secondary.main,
+                    backgroundColor: 'var(--mui-palette-secondary-main)',
 
                     // borderRadius: '0% 80%',
                     borderRadius: '70% 0%',
@@ -181,12 +185,12 @@ export default function RenderDesktop({ }: Props) {
                 component={'article'}
                 sx={{
                 position: 'relative',
-                p: theme.spacing(6),
-                mt: 8,
-                boxShadow: theme.shadows[10],
+                p: '3rem',
+                my: 8,
+                boxShadow: 'var(--mui-shadows-10)',
                 // width: '93%',
-                borderRadius: theme.shape.borderRadius,
-                backgroundColor: theme.palette.background.paper,
+                borderRadius: 'var(--mui-shape-borderRadius)',
+                backgroundColor: 'var(--mui-palette-background-paper)',
 
             }}>
                 <LiveHelp color='secondary' sx={{ fontSize: 100, position: 'absolute', top: 0, right: { xs: 0, sm: 20, md: 0 }, bottom: 0, transform: 'translate(0, -50%)' }} />

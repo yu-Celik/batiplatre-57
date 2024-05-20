@@ -27,7 +27,7 @@ export default function SectionThree({ }: Props) {
         >
             <StaggeredFadeInScrollBox className='flex flex-col items-center justify-center'>
                 <div className="px-4 py-8 md:py-16">
-                    <Typography variant="h3" fontWeight={700} fontSize={{ xs: 32, md: 48 }} textAlign={'center'}>
+                    <Typography variant="h3" fontWeight={500} fontSize={{ xs: 32, md: 48 }} textAlign={'center'}>
                         Prêt à transformer votre espace ?
                     </Typography>
                 </div>

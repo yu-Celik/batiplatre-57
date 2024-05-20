@@ -36,10 +36,12 @@ export default function RenderMobile({ }: Props) {
                 <Image
                     src={accueil6}
                     alt="Contactez BatiPlatre57"
-                    width={1920}
-                    height={1080}
-                    layout="responsive"
-                    className="max-h-96"
+                    priority
+                    style={{
+                        objectFit: 'cover',
+                        height: '100%',
+                        width: '100%'
+                    }}
                 />
                 {/* alt="Bureau de BatiPlatre57 avec un employé aidant un client" */}
                 <TextDecoration
@@ -140,12 +142,12 @@ export default function RenderMobile({ }: Props) {
             </Box>
             <Container sx={{
                 position: 'relative',
-                p: theme.spacing(6),
-                mt: 8,
-                boxShadow: theme.shadows[10],
+                p: '3rem',
+                my: 8,
+                boxShadow: 'var(--mui-shadows-10)',
                 width: '93%',
-                borderRadius: theme.shape.borderRadius,
-                backgroundColor: theme.palette.background.paper,
+                borderRadius: 'var(--mui-shape-borderRadius)',
+                backgroundColor: 'var(--mui-palette-background-paper)',
 
             }}>
                 <LiveHelp color='secondary' sx={{ fontSize: 100, position: 'absolute', top: 0, right: { xs: 0, sm: 20, md: 0 }, bottom: 0, transform: 'translate(0, -50%)' }} />

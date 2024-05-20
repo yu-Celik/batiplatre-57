@@ -1,12 +1,12 @@
 'use client'
 import { Container, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
-import { RightCardDecoration } from '@/components/ui/CardDecoration';
 import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { CardDecoration } from '@/components/ui/CardDecoration';
 
 
 type Props = {}
@@ -78,7 +78,7 @@ export default function RenderTablet({ }: Props) {
                                 position: 'relative',
                             }}
                         >
-                            <RightCardDecoration
+                            <CardDecoration
                                 height={'100%'}
                                 width={'20%'}
                                 marginBottom={2}
@@ -96,7 +96,7 @@ export default function RenderTablet({ }: Props) {
                                     quality={100}
                                     className='bg-cover min-[680px]:aspect-square'
                                 />
-                            </RightCardDecoration>
+                            </CardDecoration>
                         </Container>
                     </Container>
                     <Container>

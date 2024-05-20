@@ -9,8 +9,8 @@ import { peintureImg, platerieImg, amenagementCombleImg, carrelageImg, poseDeSol
 import { ArrowForwardIos, LiveHelp } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useRouter } from 'next/navigation';
-import { RightCardDecoration } from '@/components/ui/CardDecoration';
 import { SpringUpFadeInBox } from '@/components/motion/SpringUpFadeInBox';
+import { CardDecoration } from '@/components/ui/CardDecoration';
 
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -159,7 +159,7 @@ export default function RenderMobile({ }: Props) {
                     </CustomTabPanel>
                 </Container>
                 <Container sx={{ px: { sm: 2 } }} className='brightness-100 dark:backdrop-brightness-100 bg-gradientToBottomLight dark:bg-gradientToBottom block sm:hidden'>
-                    <RightCardDecoration className='bg-amber-500 dark:bg-amber-600 mb-2 w-1/4 h-full -z-10'>
+                    <CardDecoration className='bg-amber-500 dark:bg-amber-600 mb-2 w-1/4 h-full -z-10'>
                         <Grid container spacing={2} alignItems={'stretch'}>
                             {services.map((service, index) => (
                                 <Grid item xs={12} sm={6} md={4} height={'100%'} key={index}>
@@ -203,7 +203,7 @@ export default function RenderMobile({ }: Props) {
                                 </Grid>
                             ))}
                         </Grid>
-                    </RightCardDecoration>
+                    </CardDecoration>
                 </Container>
             </Box >
             <Container component={SpringUpFadeInBox} sx={{

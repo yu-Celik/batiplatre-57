@@ -107,7 +107,7 @@ export default function RenderMobile({ }: Props) {
                                 className="pointer-events-auto"
                                 aria-label="Contactez-nous pour un devis"
                                 // startIcon={<ArrowRightAlt />}
-                                endIcon={<AssignmentOutlined />}
+                                startIcon={<AssignmentOutlined />}
 
                             >
                                 Demandez un devis
@@ -120,7 +120,7 @@ export default function RenderMobile({ }: Props) {
                                 className="pointer-events-auto"
                                 aria-label="Voir nos services"
                                 // startIcon={<ArrowRightAlt />}
-                                endIcon={<HandymanOutlined />}
+                                startIcon={<HandymanOutlined />}
                             >
                                 Voir nos services
                             </Button>

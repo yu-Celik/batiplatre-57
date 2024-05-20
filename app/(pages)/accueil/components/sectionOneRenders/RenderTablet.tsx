@@ -1,5 +1,5 @@
 import { Container, Typography, Button, Box, Card, CardContent } from '@mui/material';
-import { RightCardDecoration } from '@/components/ui/CardDecoration';
+import { CardDecoration } from '@/components/ui/CardDecoration';
 import img21 from '@/assets/chantier photo/plat.jpg';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
@@ -29,7 +29,7 @@ export default function RenderTablet({ }: Props) {
                     padding: { xs: 0, sm: 0, md: 0, lg: 0, xl: 0 },
                     paddingX: { xs: 0, sm: 2, md: 0, lg: 0, xl: 0 },
                 }}>
-                    <RightCardDecoration className='bg-amber-500 dark:bg-amber-600 mb-2 w-1/4 h-full'>
+                    <CardDecoration className='bg-amber-500 dark:bg-amber-600 mb-2 w-1/4 h-full'>
                         <Container
                             disableGutters
                             sx={{
@@ -147,7 +147,7 @@ export default function RenderTablet({ }: Props) {
                                 </CardContent>
                             </Card>
                         </Container>
-                    </RightCardDecoration>
+                    </CardDecoration>
                     <Button
                         component={Link}
                         href={'/nos-realisations'}
