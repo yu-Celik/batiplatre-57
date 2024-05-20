@@ -1,50 +1,55 @@
 'use client'
 import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent, CardActions, Typography, TextField, MenuItem, Button, Box, Stepper, Step, StepLabel } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
+import { z } from 'zod';
 import FormDialog from "./FormDialog";
 
+// Définir le schéma de validation avec Zod
+const validationSchema = z.object({
+    nom: z.string().min(1, { message: "Nom est requis" }),
+    prenom: z.string().min(1, { message: "Prénom est requis" }),
+    email: z.string().email({ message: "Email invalide" }),
+    telephone: z.string().min(10, { message: "Téléphone invalide" }),
+    adresse: z.string().min(1, { message: "Adresse est requise" }),
+    codePostal: z.string().min(1, { message: "Code postal est requis" }),
+    ville: z.string().min(1, { message: "Ville est requise" }),
+    theme: z.string().min(1, { message: "Thème est requis" }),
+    message: z.string().min(1, { message: "Message est requis" }),
+})
+
+// Définir le type des données du formulaire
+type FormData = z.infer<typeof validationSchema>;
+
 export default function FormCard() {
-    const [step, setStep] = useState(0);
-    const [formData, setFormData] = useState({
-        nom: '',
-        prenom: '',
-        email: '',
-        telephone: '',
-        adresse: '',
-        codePostal: '',
-        ville: '',
-        theme: 'Demande de travaux',
-        message: ''
-    });
-    const [errors, setErrors] = useState({
-        email: false,
-        telephone: false
+    const [step, setStep] = useState<number>(0);
+    const { register, handleSubmit, formState: { errors }, trigger } = useForm<FormData>({
+        resolver: zodResolver(validationSchema),
     });
 
-    const steps = ['Nom et Prénom', 'Contact', 'Localisation', 'Thème et Message'];
+    const steps: string[] = ['Nom et Prénom', 'Contact', 'Localisation', 'Thème et Message'];
 
-    const handleNext = () => {
-        if (step === 1 && !formData.email && !formData.telephone) {
-            setErrors({ email: true, telephone: true });
-            return;
+    const handleNext = async () => {
+        let fieldsToValidate: (keyof FormData)[] = [];
+        if (step === 0) fieldsToValidate = ["nom", "prenom"];
+        if (step === 1) fieldsToValidate = ["email", "telephone"];
+        if (step === 2) fieldsToValidate = ["adresse", "codePostal", "ville"];
+        if (step === 3) fieldsToValidate = ["theme", "message"];
+
+        const isValid = await trigger(fieldsToValidate);
+        if (isValid) {
+            setStep((prevStep) => prevStep + 1);
         }
-        setStep((prevStep) => prevStep + 1);
     };
 
     const handleBack = () => {
         setStep((prevStep) => prevStep - 1);
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { id, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [id]: value
-        }));
-        if (id === 'email' || id === 'telephone') {
-            setErrors({ email: false, telephone: false });
-        }
+    const onSubmit: SubmitHandler<FormData> = (data) => {
+        console.log(data);
     };
 
     return (
@@ -59,10 +64,10 @@ export default function FormCard() {
             p: 2,
         }}>
             <CardContent>
-                <Typography variant="h5" component="div" gutterBottom>
+                <Typography variant="h2" fontWeight="300" fontSize={{ md: "2rem" }} gutterBottom>
                     Un projet ?
                 </Typography>
-                <Typography variant="body2" color="text.secondary" gutterBottom>
+                <Typography variant="body1" gutterBottom>
                     Simple et rapide, réponse sous 48h !
                 </Typography>
                 <Stepper activeStep={step} alternativeLabel sx={{ my: 3 }}>
@@ -75,6 +80,7 @@ export default function FormCard() {
                 <Box
                     component="form"
                     position="relative"
+                    onSubmit={handleSubmit(onSubmit)}
                     sx={{
                         '& .MuiTextField-root': {
                             width: '95%',
@@ -97,8 +103,9 @@ export default function FormCard() {
                                     variant="outlined"
                                     margin="none"
                                     required
-                                    value={formData.nom}
-                                    onChange={handleChange}
+                                    {...register("nom")}
+                                    error={!!errors.nom}
+                                    helperText={errors.nom ? errors.nom.message : ""}
                                     fullWidth
                                 />
                                 <TextField
@@ -107,8 +114,9 @@ export default function FormCard() {
                                     variant="outlined"
                                     margin="normal"
                                     required
-                                    value={formData.prenom}
-                                    onChange={handleChange}
+                                    {...register("prenom")}
+                                    error={!!errors.prenom}
+                                    helperText={errors.prenom ? errors.prenom.message : ""}
                                     fullWidth
                                 />
                             </motion.div>
@@ -127,10 +135,9 @@ export default function FormCard() {
                                     label="Email"
                                     variant="outlined"
                                     margin="dense"
-                                    error={errors.email}
-                                    helperText={errors.email ? "Veuillez remplir soit l'email soit le téléphone" : ""}
-                                    value={formData.email}
-                                    onChange={handleChange}
+                                    {...register("email")}
+                                    error={!!errors.email}
+                                    helperText={errors.email ? errors.email.message : ""}
                                 />
                                 <Typography variant="body2" align="left" sx={{ my: 0.5, pl: 2 }}>
                                     ou
@@ -141,10 +148,9 @@ export default function FormCard() {
                                     label="Téléphone"
                                     variant="outlined"
                                     margin="dense"
-                                    error={errors.telephone}
-                                    helperText={errors.telephone ? "Veuillez remplir soit l'email soit le téléphone" : ""}
-                                    value={formData.telephone}
-                                    onChange={handleChange}
+                                    {...register("telephone")}
+                                    error={!!errors.telephone}
+                                    helperText={errors.telephone ? errors.telephone.message : ""}
                                 />
                             </motion.div>
                         )}
@@ -163,8 +169,9 @@ export default function FormCard() {
                                     variant="outlined"
                                     margin="dense"
                                     required
-                                    value={formData.adresse}
-                                    onChange={handleChange}
+                                    {...register("adresse")}
+                                    error={!!errors.adresse}
+                                    helperText={errors.adresse ? errors.adresse.message : ""}
                                 />
                                 <TextField
                                     id="codePostal"
@@ -173,8 +180,9 @@ export default function FormCard() {
                                     variant="outlined"
                                     margin="normal"
                                     required
-                                    value={formData.codePostal}
-                                    onChange={handleChange}
+                                    {...register("codePostal")}
+                                    error={!!errors.codePostal}
+                                    helperText={errors.codePostal ? errors.codePostal.message : ""}
                                 />
                                 <TextField
                                     id="ville"
@@ -183,8 +191,9 @@ export default function FormCard() {
                                     variant="outlined"
                                     margin="normal"
                                     required
-                                    value={formData.ville}
-                                    onChange={handleChange}
+                                    {...register("ville")}
+                                    error={!!errors.ville}
+                                    helperText={errors.ville ? errors.ville.message : ""}
                                 />
                             </motion.div>
                         )}
@@ -204,8 +213,9 @@ export default function FormCard() {
                                         label="Thème"
                                         variant="outlined"
                                         margin="none"
-                                        value={formData.theme}
-                                        onChange={handleChange}
+                                        {...register("theme")}
+                                        error={!!errors.theme}
+                                        helperText={errors.theme ? errors.theme.message : ""}
                                     >
                                         <MenuItem value="Demande de travaux">Demande de travaux</MenuItem>
                                         <MenuItem value="Autre">Autre</MenuItem>
@@ -219,8 +229,9 @@ export default function FormCard() {
                                         multiline
                                         rows={4}
                                         placeholder="Votre message"
-                                        value={formData.message}
-                                        onChange={handleChange}
+                                        {...register("message")}
+                                        error={!!errors.message}
+                                        helperText={errors.message ? errors.message.message : ""}
                                     />
                                 </motion.div>
                             </>
