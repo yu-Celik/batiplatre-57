@@ -80,7 +80,7 @@ export default function RenderDesktop({ }: Props) {
                 <Box component={'article'} display={'flex'} justifyContent={'space-between'} maxWidth={'1024px'} className="bg-grey-50 dark:bg-grey-900 rounded-xl pl-12 shadow-xl " sx={{
                 }}>
                     <Container sx={{ maxHeight: '22.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '50%', mr: 10 }}>
-                        <LiveHelp color='secondary' sx={{ fontSize: 100, position: 'absolute', top: 0, right: 0, bottom: 0, transform: 'translate(0, -50%)', zIndex: 10 }} />
+                        <LiveHelp color='secondary' sx={{ fontSize: 120, position: 'absolute', top: -10, right: 30, bottom: 0, transform: 'translate(0, -50%)', zIndex: 10 }} />
                         <Typography variant="h3" color={'secondary'} fontSize={32} gutterBottom sx={{ mt: 2, textAlign: 'left', maxWidth: '22rem' }}>
                             Des questions ?
                         </Typography>
@@ -111,7 +111,7 @@ export default function RenderDesktop({ }: Props) {
                             width: '100%',
                             height: '100%',
                             aspectRatio: '1/1',
-                            borderRadius: '0.25rem',
+                            borderEndEndRadius: '0.25rem',
                         }} />
                     </Container>
                 </Box>

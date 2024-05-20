@@ -45,7 +45,7 @@ export default function RenderDesktop({ }: Props) {
                         md: '900px',
                         lg: '1200px'
                     }}
-                    maxWidth={1200}
+                    maxWidth={1500}
                     minHeight={{ md: 'calc(100svh - 100px)' }}
                     justifyContent={{ md: "center" }}
                     sx={{
@@ -53,7 +53,7 @@ export default function RenderDesktop({ }: Props) {
                             textShadow: '2px 2px 4px #000000ba'
                         },
                     }}>
-                    <Container maxWidth="lg" sx={{
+                    <Container maxWidth="xl" sx={{
                         position: 'relative',
                         zIndex: 2,
                         paddingBottom: 6,

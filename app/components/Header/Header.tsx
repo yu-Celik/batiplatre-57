@@ -42,7 +42,7 @@ export default function Header({ }: Props) {
                             paddingY: '0.5rem',
                             justifyContent: { md: 'center' }
                         }}>
-                        <Grid container width={'100%'} maxWidth={1200} role="navigation" aria-label="Navigation principale" >
+                        <Grid container width={'100%'} maxWidth={1500} role="navigation" aria-label="Navigation principale" >
                             <Grid xs={10} sm={12} md={3.5} id={'logo-container'} justifyContent={{ xs: 'flex-start', sm: 'center', md: 'flex-start' }}>
                                 <LogoBatiPlatre sx={{ width: 'auto', height: heightHeader }} />
                             </Grid>
