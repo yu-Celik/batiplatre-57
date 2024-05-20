@@ -2,22 +2,22 @@
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Card, CardContent, CardActions, Typography, TextField, MenuItem, Button, Box, Stepper, Step, StepLabel } from "@mui/material";
+import { Card, CardContent, CardActions, Typography, TextField, MenuItem, Button, Box, Stepper, Step, StepLabel, InputAdornment } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { z } from 'zod';
 import FormDialog from "./FormDialog";
 
 // Définir le schéma de validation avec Zod
 const validationSchema = z.object({
-    nom: z.string().min(1, { message: "Nom est requis" }),
-    prenom: z.string().min(1, { message: "Prénom est requis" }),
-    email: z.string().email({ message: "Email invalide" }),
-    telephone: z.string().min(10, { message: "Téléphone invalide" }),
-    adresse: z.string().min(1, { message: "Adresse est requise" }),
-    codePostal: z.string().min(1, { message: "Code postal est requis" }),
-    ville: z.string().min(1, { message: "Ville est requise" }),
-    theme: z.string().min(1, { message: "Thème est requis" }),
-    message: z.string().min(1, { message: "Message est requis" }),
+    nom: z.string().trim().min(1, { message: "Nom est requis" }),
+    prenom: z.string().trim().min(1, { message: "Prénom est requis" }),
+    email: z.string().trim().email({ message: "L'e-mail est requis" }),
+    telephone: z.string().trim().regex(/^(0|\+33\s?|6\s?|1\s?)[1-9](\s?\d{2}){4}$/, { message: "Téléphone est requis et doit être au format valide" }),
+    adresse: z.string().trim().min(1, { message: "L'adresse est requise" }),
+    codePostal: z.string().trim().min(1, { message: "Le code postal est requis" }),
+    ville: z.string().trim().min(1, { message: "Ville est requise" }),
+    theme: z.string().trim().min(1, { message: "Thème est requis" }),
+    message: z.string().trim().min(1, { message: "Message est requis" }),
 })
 
 // Définir le type des données du formulaire
@@ -134,23 +134,29 @@ export default function FormCard() {
                                     fullWidth
                                     label="Email"
                                     variant="outlined"
-                                    margin="dense"
+                                    margin="none"
+                                    type="email"
+                                    required
                                     {...register("email")}
                                     error={!!errors.email}
                                     helperText={errors.email ? errors.email.message : ""}
                                 />
-                                <Typography variant="body2" align="left" sx={{ my: 0.5, pl: 2 }}>
-                                    ou
-                                </Typography>
                                 <TextField
                                     id="telephone"
                                     fullWidth
                                     label="Téléphone"
                                     variant="outlined"
-                                    margin="dense"
-                                    {...register("telephone")}
+                                    margin="normal"
+                                    type="text"
+                                    required
+                                    {...register("telephone", {
+                                        setValueAs: (value) => value.startsWith('0') ? `+33 ${value.slice(1)}` : value
+                                    })}
                                     error={!!errors.telephone}
-                                    helperText={errors.telephone ? errors.telephone.message : ""}
+                                    helperText={errors.telephone ? errors.telephone.message : ''}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position="start">+33</InputAdornment>,
+                                    }}
                                 />
                             </motion.div>
                         )}
@@ -169,6 +175,7 @@ export default function FormCard() {
                                     variant="outlined"
                                     margin="dense"
                                     required
+                                    // type="address"
                                     {...register("adresse")}
                                     error={!!errors.adresse}
                                     helperText={errors.adresse ? errors.adresse.message : ""}
