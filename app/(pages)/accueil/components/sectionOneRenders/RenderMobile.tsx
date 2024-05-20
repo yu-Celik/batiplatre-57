@@ -4,6 +4,7 @@ import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CardDecoration } from '@/components/ui/CardDecoration';
+import StepCard from '@/components/Card/StepCard';
 
 type Props = {}
 export default function RenderMobile({ }: Props) {
@@ -25,38 +26,19 @@ export default function RenderMobile({ }: Props) {
                 </Typography>
                 <CardDecoration className='bg-amber-500 dark:bg-amber-600 mb-2 w-1/3 h-full'>
                     <Image width={400} height={400} src={img21} alt="Design intérieur élégant" className="relative w-full h-80 object-cover rounded " />
-                    <Card raised sx={{ my: 2 }}>
-                        <CardContent>
-                            <Typography variant="h6" pb={1} className='max-[400px]:max-w-[300px]'>
-                                <strong>1. Expertise</strong> et <strong>personnalisation</strong>
-                            </Typography>
-                            <Typography variant="body2">
-                                Chaque <strong>projet</strong> est une <strong>création unique</strong>, adaptée à vos <strong>besoins</strong> et à votre <strong>style de vie</strong>, transformant chaque <strong>espace</strong> en un lieu de vie <strong>unique</strong> et <strong>personnalisé</strong>.
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                    <Card raised sx={{ mb: 2 }}>
-                        <CardContent>
-                            <Typography variant="h6" pb={1}>
-                                <strong>2. Qualité</strong> et <strong>durabilité</strong>
-                            </Typography>
-                            <Typography variant="body2">
-                                Nous nous engageons à utiliser des <strong>matériaux de haute qualité</strong> et des <strong>techniques éprouvées</strong> pour assurer la <strong>fiabilité</strong> et la <strong>longévité</strong> de vos installations.
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                    <Card raised sx={{ mb: 2 }}>
-                        <CardContent>
-                            <Typography variant="h6" pb={1}>
-                                <strong>3. Rapport qualité-prix</strong>
-                            </Typography>
-                            <Typography variant="body2">
-                                Nous offrons des <strong>solutions compétitives</strong> sans compromettre la <strong>qualité</strong>, valorisant un <strong>travail bien fait</strong> qui nécessite du <strong>temps</strong>, des <strong>compétences</strong> et des <strong>ressources adéquates</strong>.
-                            </Typography>
-                        </CardContent>
-                    </Card>
+                    <StepCard
+                        title={<><strong>1. Expertise</strong> et <strong>personnalisation</strong></>}
+                        description={<>Chaque <strong>projet</strong> est une <strong>création unique</strong>, adaptée à vos <strong>besoins</strong> et à votre <strong>style de vie</strong>, transformant chaque <strong>espace</strong> en un lieu de vie <strong>unique</strong> et <strong>personnalisé</strong>.</>}
+                    />
+                    <StepCard
+                        title={<><strong>2. Qualité</strong> et <strong>durabilité</strong></>}
+                        description={<>Nous nous engageons à utiliser des <strong>matériaux de haute qualité</strong> et des <strong>techniques éprouvées</strong> pour assurer la <strong>fiabilité</strong> et la <strong>longévité</strong> de vos installations.</>}
+                    />
+                    <StepCard
+                        title={<><strong>3. Rapport qualité-prix</strong></>}
+                        description={<>Nous offrons des <strong>solutions compétitives</strong> sans compromettre la <strong>qualité</strong>, valorisant un <strong>travail bien fait</strong> qui nécessite du <strong>temps</strong>, des <strong>compétences</strong> et des <strong>ressources adéquates</strong>.</>}
+                    />
                 </CardDecoration>
-
                 <Button component={Link} href={'/nos-realisations'} aria-label="Voir nos réalisations" variant="contained" fullWidth color="primary" sx={{ mt: 2 }}>
                     Découvrez nos réalisations
                 </Button>

@@ -1,8 +1,10 @@
-import HeaderImage from "(pages)/debarras-et-nettoyage/components/mobile/1.HeaderImage";
-import ServiceDescription from "(pages)/debarras-et-nettoyage/components/mobile/2.ServiceDescription";
-import ServiceList from "(pages)/debarras-et-nettoyage/components/mobile/3.ServiceList";
-import Steps from "(pages)/debarras-et-nettoyage/components/mobile/4.Steps";
-import DetailedService from "(pages)/debarras-et-nettoyage/components/mobile/5.DetailedService";
+import dynamic from 'next/dynamic';
+
+const HeaderImage = dynamic(() => import("(pages)/debarras-et-nettoyage/components/mobile/1.HeaderImage"));
+const ServiceDescription = dynamic(() => import("(pages)/debarras-et-nettoyage/components/mobile/2.ServiceDescription"));
+const ServiceList = dynamic(() => import("(pages)/debarras-et-nettoyage/components/mobile/3.ServiceList"));
+const Steps = dynamic(() => import("(pages)/debarras-et-nettoyage/components/mobile/4.Steps"));
+const DetailedService = dynamic(() => import("(pages)/debarras-et-nettoyage/components/mobile/5.DetailedService"));
 import { Container } from "@mui/material";
 
 type Props = {}
