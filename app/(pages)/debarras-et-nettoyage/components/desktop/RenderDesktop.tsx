@@ -9,12 +9,13 @@ export default function RenderDesktop({ }: Props) {
   return (
     <>
       <Container disableGutters sx={{
-        mt: '100px'
+        mt: '100px',
+        display: { xs: 'none', md: 'block' },
       }}>
         <Container disableGutters sx={{
           display: 'flex',
         }}>
-          <Container  sx={{
+          <Container sx={{
             width: '70%',
             minHeight: 650,
             position: 'relative',
@@ -23,7 +24,7 @@ export default function RenderDesktop({ }: Props) {
             justifyContent: 'flex-start',
             alignItems: 'flex-start'
           }}>
-            <Image src={accueil7} alt="Débarras et nettoyage" loading="eager" priority style={{
+            <Image src={accueil7} alt="Débarras et nettoyage" loading="eager" placeholder="blur" priority style={{
               objectFit: 'cover',
               height: '100%',
               width: '100%',
