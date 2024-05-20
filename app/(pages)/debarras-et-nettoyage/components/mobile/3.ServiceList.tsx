@@ -5,7 +5,7 @@ import accueil7 from "../../../../../public/accueil7.webp";
 export default function ServiceList() {
     return (
         <Container>
-            <Typography variant="h2" fontSize={28}>
+            <Typography variant="h2" fontSize={{ xs: 28, sm: 32 }}>
                 Nos Services
             </Typography>
             <Box sx={{ display: 'flex', justifyContent: 'start', my: 1.25, mb: 3 }}>
@@ -23,6 +23,7 @@ export default function ServiceList() {
                         description="Nous débarrassons votre maison de tous les objets encombrants, en veillant à respecter vos biens et à recycler autant que possible."
                         buttonId="debarras-de-maisons"
                         buttonText="En savoir plus"
+                        useScrollButton
                     />
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -33,6 +34,7 @@ export default function ServiceList() {
                         description="Après des travaux de rénovation, nous assurons un nettoyage en profondeur pour que votre espace soit prêt à être utilisé immédiatement."
                         buttonId="nettoyage-apres-travaux"
                         buttonText="En savoir plus"
+                        useScrollButton
                     />
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -43,6 +45,7 @@ export default function ServiceList() {
                         description="Nous proposons des services d'entretien régulier pour maintenir vos espaces toujours propres et accueillants."
                         buttonId="entretien-regulier"
                         buttonText="En savoir plus"
+                        useScrollButton
                     />
                 </Grid>
             </Grid>

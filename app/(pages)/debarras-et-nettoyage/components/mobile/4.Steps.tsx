@@ -6,7 +6,7 @@ import DecorationH3 from "@/components/DecorationTitle/DecorationH3";
 export default function Steps() {
     return (
         <Container sx={{ marginY: 4 }}>
-            <Typography variant="h2" fontSize={28} gutterBottom>
+            <Typography variant="h2" fontSize={{ xs: 28, sm: 32 }} gutterBottom>
                 Démarches pour Débarras et Nettoyage
             </Typography>
             <DecorationH3 />

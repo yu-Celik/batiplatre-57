@@ -14,7 +14,7 @@ export default function StepCard({ title, description, className, sxDescriptions
         <Card raised sx={{ my: 1 }}>
             <CardContent>
                 <Typography variant="h6" pb={1} className={cn(className)}>{title}</Typography>
-                <Typography variant="body2" sx={sxDescriptions}>
+                <Typography variant="body2" sx={sxDescriptions} fontSize={{ sm: '1rem' }}>
                     {description}
                 </Typography>
             </CardContent>

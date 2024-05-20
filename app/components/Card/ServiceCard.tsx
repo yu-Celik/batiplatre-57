@@ -1,6 +1,7 @@
 import { Card, CardContent, Typography, Button, SxProps } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
+import ScrollButton from "@/components/Button/ScrollButton";
 
 type ServiceCardProps = {
     imageSrc: StaticImageData;
@@ -12,6 +13,7 @@ type ServiceCardProps = {
     buttonVariant?: "text" | "outlined" | "contained";
     buttonColor?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning";
     buttonSx?: SxProps;
+    useScrollButton?: boolean;
 };
 
 export default function ServiceCard({
@@ -24,6 +26,7 @@ export default function ServiceCard({
     buttonVariant = "outlined",
     buttonColor = "primary",
     buttonSx = { mt: 2 },
+    useScrollButton = false,
 }: ServiceCardProps) {
     return (
         <Card raised>
@@ -33,9 +36,15 @@ export default function ServiceCard({
                 <Typography variant="body2">
                     {description}
                 </Typography>
-                <Button variant={buttonVariant} color={buttonColor} sx={buttonSx} id={buttonId} fullWidth>
-                    {buttonText}
-                </Button>
+                {useScrollButton ? (
+                    <ScrollButton variant={buttonVariant} color={buttonColor} sx={buttonSx} id={buttonId} fullWidth>
+                        {buttonText}
+                    </ScrollButton>
+                ) : (
+                    <Button variant={buttonVariant} color={buttonColor} sx={buttonSx} id={buttonId} fullWidth>
+                        {buttonText}
+                    </Button>
+                )}
             </CardContent>
         </Card>
     );

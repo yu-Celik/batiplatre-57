@@ -11,7 +11,7 @@ export default function HeaderImage() {
                 height: '100%',
                 width: '100%'
             }} />
-            <TextDecoration text="Débarras et nettoyage" variant="h1" styles={{ marginTop: 8, marginBottom: 4, fontWeight: 500 }} />
+            <TextDecoration text="Débarras et nettoyage" variant="h1" styles={{ marginTop: 8, marginBottom: 4, fontWeight: 500, fontSize: { sm: '2.5rem' } }} />
         </Box>
     );
 }

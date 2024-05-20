@@ -11,7 +11,7 @@ type Props = {}
 export default function page({ }: Props) {
     return (
         <>
-            <div className="sm:hidden">
+            <div className="md:hidden">
                 <HeaderImage />
                 <ServiceDescription />
                 <ServiceList />
