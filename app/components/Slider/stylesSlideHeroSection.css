@@ -1,6 +1,6 @@
 .imageSlideHeroSection {
     @media (min-width: 900px) {
-        animation: zoomIn 5s ease-in-out forwards;
+        animation: zoomIn 10s ease-in-out forwards;
     }
 }
 
@@ -8,3 +8,8 @@
     0% { transform: scale(1); }
     100% { transform: scale(1.1); }
 }
+
+.imageSlideHeroSection.animate {
+    animation: zoomIn 10s ease-in-out forwards;
+}
+
