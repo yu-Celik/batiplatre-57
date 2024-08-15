@@ -1,0 +1,40 @@
+.iconButtonBurger {
+  color: var(--mui-palette-grey-200);
+  display: flex;
+  padding: 1.5rem;
+}
+
+.burgerLine {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1.5rem;
+  height: 0.10rem;
+  border-radius: 1px;
+  transition: transform 0.2s ease-out;
+  background-color: var(--mui-palette-text-primary);
+}
+
+.burgerLine:nth-of-type(1) {
+  transform: translateY(0.375rem) rotate(0);
+}
+
+.burgerLine:nth-of-type(2) {
+  transform: translateY(0);
+  opacity: 100%;
+}
+
+.burgerLine:nth-of-type(3) {
+  transform: translateY(-0.375rem) rotate(0);
+}
+
+.open .burgerLine:nth-of-type(1) {
+  transform: translateY(0) rotate(-135deg);
+}
+
+.open .burgerLine:nth-of-type(2) {
+  opacity: 0%;
+}
+
+.open .burgerLine:nth-of-type(3) {
+  transform: translateY(0) rotate(135deg);
+}

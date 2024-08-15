@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Mui_provider from "./libs/mui_provider";
+import Header from "./components/header/Header";
+import Footer from "./components/Footer";
+import { Container } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +19,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="fr">
+      <body className={inter.className}>
+        <Mui_provider>
+          <Header />
+          <Container component="main" sx={{
+            marginTop: 10,
+            overflow: "hidden" 
+          }}>
+            {children}
+          </Container>
+          <Footer />
+        </Mui_provider>
+      </body>
     </html>
   );
 }
