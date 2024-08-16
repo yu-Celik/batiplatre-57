@@ -160,7 +160,7 @@ const theme = extendTheme({
                 }),
                 h2: ({ theme }) => ({
                     fontFamily: fira.style.fontFamily,
-                    fontWeight: 300,
+                    fontWeight: 400,
                     fontSize: '2rem',
                     lineHeight: '2.5rem',
                     letterSpacing: '0.031rem',

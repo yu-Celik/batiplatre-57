@@ -8,23 +8,18 @@ import {
     Stack,
     Container
 } from '@mui/material';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import BuildIcon from '@mui/icons-material/Build';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { ArrowForward, Handshake } from '@mui/icons-material';
-import Link from 'next/link';
-import Onde from '../SectionTwo/Onde';
+import { ArrowForwardIos, Handshake } from '@mui/icons-material';
+import SubtitleTitle from '@/app/components/SubtitleTitle';
 
 const PartenaireDeConfiance = () => {
     return (
         <Container sx={{ marginY: 8, position: "relative" }}>
-            <Typography component={Link} href="/Pourquoi-nous-choisir" variant="overline" align="center" sx={{ display: 'block', width: '100%', color: 'primary.light' }}>
-                Pourquoi nous choisir ?
-            </Typography>
+            <SubtitleTitle href="/Pourquoi-nous-choisir" text="Pourquoi nous choisir ?" sx={{ textAlign: "center" }} />
             <Typography variant="h2" align="center" gutterBottom sx={{ mb: 4 }}>
                 Votre partenaire de confiance
             </Typography>
-
             <Stack spacing={2}>
                 {[
                     {
@@ -54,7 +49,7 @@ const PartenaireDeConfiance = () => {
                             <Typography variant="body2" textAlign="center" color="text.secondary">
                                 {item.description}
                             </Typography>
-                            <Box sx={{ position: 'absolute', bottom: 0, left: 0, width: '100%' }}>
+                            <Box sx={{ position: 'absolute', bottom: 0, left: 0, width: '100%', display: 'flex', justifyContent: 'center' }}>
                                 {item.svg}
                             </Box>
                         </CardContent>
@@ -66,18 +61,11 @@ const PartenaireDeConfiance = () => {
                 variant="contained"
                 fullWidth
                 sx={{ mt: 4 }}
-                endIcon={<ArrowForward />}
+                endIcon={<ArrowForwardIos />}
             >
                 Demander un devis
             </Button>
-            <Box sx={{
-                position: "absolute",
-                bottom: -125,
-                left: -20,
-                width: "100%",
-            }}>
-                <Onde />
-            </Box>
+
         </Container>
     );
 };

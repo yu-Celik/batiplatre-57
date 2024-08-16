@@ -2,11 +2,10 @@ import { Container, Typography, List, ListItem, ListItemIcon, ListItemText, Box,
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import BatimentImg from "./BatimentImg"
 import styles from './RenderMobile.module.css'
-import { ArrowForward } from "@mui/icons-material";
+import { ArrowForwardIos } from "@mui/icons-material";
 import Link from "next/link";
-import villa from './../../assets/villa.png';
 import Image from "next/image";
-
+import villa from '/public/villa.png';
 const features = [
     <>Travaux de <i>Rénovation Complète</i> à <i>Metz</i></>,
     <>Entreprise <i>RGE</i> | <i>Haute Qualité</i> | <i>Metz & Moselle</i></>,
@@ -41,10 +40,10 @@ function RenderMobile() {
                     <Typography component={Link} sx={{ color: 'primary.light' }} href="/platrerie">Platrerie</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/isolation">Isolation</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/carrelage">Carrelage</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/peinture">Peinture</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/menuiserie">Menuiserie</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/pose-de-sol">Pose de sol</Typography>.
                 </Typography>
                 <FeatureList />
-                <Button variant="contained" color="primary" endIcon={<ArrowForward />} sx={{ width: '100%' }} >
+                <Button variant="contained" color="primary" endIcon={<ArrowForwardIos />} sx={{ width: '100%' }} >
                     Demandez votre devis gratuit
                 </Button>
-                <Button variant="outlined" color="secondary" endIcon={<ArrowForward />} sx={{ width: '100%', backgroundColor: 'background.default' }} >
+                <Button variant="outlined" color="secondary" endIcon={<ArrowForwardIos />} sx={{ width: '100%', backgroundColor: 'background.default' }} >
                     Voir nos zones d&apos;intervention
                 </Button>
                 <Box sx={{ position: 'absolute', bottom: -5, right: -50, zIndex: -1 }} >

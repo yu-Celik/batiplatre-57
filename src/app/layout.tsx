@@ -25,7 +25,7 @@ export default function RootLayout({
           <Header />
           <Container component="main" sx={{
             marginTop: 10,
-            overflow: "hidden" 
+            overflow: "hidden",
           }}>
             {children}
           </Container>
