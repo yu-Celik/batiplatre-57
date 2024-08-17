@@ -9,7 +9,7 @@ type SubtitleTitleProps = {
 
 const SubtitleTitle: React.FC<SubtitleTitleProps> = ({ href, text, sx }) => {
   return (
-    <Typography component={Link} href={href} variant="overline" sx={{ display: 'block', width: '100%', color: 'primary.light', textDecoration: 'underline', ...sx }}>
+    <Typography component={Link} href={href} variant="overline" sx={{ display: 'block', width: '100%', color: 'primary.light', textDecoration: 'underline', lineHeight: '1rem', ...sx }}>
       {text}
     </Typography>
   );

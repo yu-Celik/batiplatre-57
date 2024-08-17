@@ -14,13 +14,14 @@ function RenderMobile({ }: Props) {
       flexDirection: "column",
       alignItems: "center",
       py: 4,
-      px: 2
+      px: 2,
+      marginBottom: 8
     }}>
       <SubtitleTitle href="/Pourquoi-nous-choisir" text="Découvrez nos services complets" sx={{ textAlign: "center" }} />
       <Typography gutterBottom variant="h3" sx={{ textAlign: "center", maxWidth: 360 }}>
         Prêt à transformer votre espace ?
       </Typography>
-      <Button variant="outlined" color="primary" endIcon={<ArrowForwardIos />}>
+      <Button variant="outlined" color="primary" fullWidth endIcon={<ArrowForwardIos />}>
         Commencez maintenant
       </Button>
       <Box sx={{

@@ -1,0 +1,37 @@
+.embla {
+    max-width: 48rem;
+    margin: auto;
+    --slide-height: 19rem;
+    --slide-spacing: 1rem;
+    --slide-size: 100%;
+  }
+  .embla__viewport {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slide-spacing) * -1);
+  }
+  .embla__slide {
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    padding-left: var(--slide-spacing);
+  }
+ 
+  .embla__controls {
+    display: flex;
+    grid-template-columns: auto 1fr;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+
+  .embla__dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: calc((2.6rem - 1.4rem) / 2 * -1); */
+  }

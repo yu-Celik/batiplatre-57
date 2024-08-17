@@ -3,7 +3,7 @@ import RenderMobile1 from "./components/HeroSection/RenderMobile";
 import RenderMobile2 from "./components/SectionOne/RenderMobile";
 import RenderMobile3 from "./components/SectionTwo/RenderMobile";
 import RenderMobile4 from "./components/SectionThree/RenderMobile";
-import Onde from "./components/SectionTwo/Onde";
+import RenderMobile5 from "./components/SectionFour/RenderMobile";
 
 type Props = {}
 function Accueil({ }: Props) {
@@ -13,6 +13,7 @@ function Accueil({ }: Props) {
             <RenderMobile2 />
             <RenderMobile3 />
             <RenderMobile4 />
+            <RenderMobile5 />
         </>
     )
 }
