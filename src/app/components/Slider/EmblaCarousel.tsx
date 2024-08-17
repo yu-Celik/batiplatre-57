@@ -49,7 +49,7 @@ const EmblaCarousel: React.FC<PropType> = ({ images, options }) => {
 
 export const EmblaCarouselWithTabs = () => {
 
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState(0);
 
     const handleChange = (_: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -71,7 +71,6 @@ export const EmblaCarouselWithTabs = () => {
                         '&.Mui-disabled': { opacity: 0.3 },
                     },
                     [`& .${tabsClasses.flexContainer}`]: {
-                        justifyContent: 'center',
                     },
                 }}
             >

@@ -15,7 +15,7 @@ import SubtitleTitle from '@/app/components/SubtitleTitle';
 
 const PartenaireDeConfiance = () => {
     return (
-        <Container sx={{ marginY: 8, position: "relative" }} component="section">
+        <Box sx={{ marginY: 8, position: "relative" }} component="section">
             <SubtitleTitle href="/Pourquoi-nous-choisir" text="Pourquoi nous choisir ?" sx={{ textAlign: "center" }} />
             <Typography variant="h2" align="center" gutterBottom sx={{ mb: 4 }}>
                 Votre partenaire de confiance
@@ -66,7 +66,7 @@ const PartenaireDeConfiance = () => {
                 Demander un devis
             </Button>
 
-        </Container>
+        </Box>
     );
 };
 

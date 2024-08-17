@@ -20,7 +20,7 @@ type Props = {
 
 const RenderMobile: React.FC<Props> = () => {
     return (
-        <Box sx={{ padding: 2 }} component="section">
+        <Box component="section">
             <SubtitleTitle href="/nos-realisations" text="Nos réalisations" sx={{ textAlign: 'center' }} />
             <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>
                 Découvrez nos projets

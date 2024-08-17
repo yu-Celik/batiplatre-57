@@ -9,7 +9,7 @@ function RenderMobile({ }: Props) {
         <>
             <Paper component="section" elevation={3} sx={{
                 paddingY: 4,
-                paddingX: 3,
+                paddingX: 2,
                 borderRadius: 'var(--mui-shape-borderRadius)',
                 marginBottom: 8
             }}>
