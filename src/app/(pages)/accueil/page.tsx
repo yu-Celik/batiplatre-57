@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Metadata } from 'next';
 import RenderMobile1 from "@/app/(pages)/accueil/components/HeroSection/RenderMobile";
 import RenderMobile2 from "@/app/(pages)/accueil/components/SectionOne/RenderMobile";
 import RenderMobile3 from "@/app/(pages)/accueil/components/SectionTwo/RenderMobile";
@@ -7,8 +7,14 @@ import RenderMobile5 from "@/app/(pages)/accueil/components/SectionFour/RenderMo
 import RenderMobile6 from "@/app/(pages)/accueil/components/SectionFive/RenderMobile";
 import RenderMobile7 from "@/app/(pages)/accueil/components/SectionSix/RenderMobile";
 import RenderMobile8 from "@/app/(pages)/accueil/components/LastSection/RenderMobile";
-type Props = {}
-function Accueil({ }: Props) {
+
+export const metadata: Metadata = {
+    title: "Accueil | Bati Plâtre 57 - Entreprise de rénovation à Metz",
+    description: "Découvrez Bati Plâtre 57, votre partenaire pour tous vos travaux de rénovation à Metz. Isolation, aménagement intérieur et extérieur, rénovation énergétique pour maison et appartement.",
+    keywords: "entreprise de rénovation Metz, Plâtrerie Metz, travaux maison, isolation, aménagement intérieur, rénovation énergétique, artisans Metz",
+};
+
+export default function Accueil() {
     return (
         <>
             <RenderMobile1 />
@@ -22,4 +28,3 @@ function Accueil({ }: Props) {
         </>
     )
 }
-export default Accueil
