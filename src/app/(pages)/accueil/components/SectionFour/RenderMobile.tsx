@@ -1,22 +1,19 @@
-import { Box, Typography, List, ListItem, ListItemIcon, ListItemText, Paper, Button } from '@mui/material';
+import { Box, Typography, List, ListItem, ListItemIcon, Paper, Button } from '@mui/material';
 import paint_brunsh from '@/app/assets/paint_brunsh.png';
 import square from '@/app/assets/square.png';
 import star from '@/app/assets/star.png';
 import trowel from '@/app/assets/trowel.png';
 import broom from '@/app/assets/broom.png';
-import { peintureImg, platerieImg, amenagementCombleImg, carrelageImg, poseDeSolImg } from "@/app/data/imagesSlideHome";
-
 import Image from 'next/image';
 import SubtitleTitle from '@/app/components/SubtitleTitle';
 import Link from 'next/link';
-import villa from './../../../../../../public/villa.png';
-
-import EmblaCarousel, { EmblaCarouselWithTabs } from '@/app/components/Slider/EmblaCarousel';
+import EmblaCarouselWithTabs from '@/app/components/Slider/EmblaCarouselWithTabs';
 import { ArrowForwardIos } from '@mui/icons-material';
 import Insulation from './Insulation_svg';
 
 type Props = {
 }
+
 
 const RenderMobile: React.FC<Props> = () => {
     return (

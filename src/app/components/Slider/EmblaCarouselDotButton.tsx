@@ -1,7 +1,8 @@
 import React, {
     useCallback,
     useEffect,
-    useState
+    useState,
+    memo
 } from 'react'
 import { EmblaCarouselType } from 'embla-carousel'
 import { IconButton, IconButtonProps } from '@mui/material'
@@ -55,7 +56,7 @@ interface DotButtonProps extends Omit<IconButtonProps, 'onClick'> {
     onClick: () => void
 }
 
-export const DotButton: React.FC<DotButtonProps> = ({ selected, onClick, ...props }) => {
+export const DotButton: React.FC<DotButtonProps> = memo(({ selected, onClick, ...props }) => {
     return (
         <IconButton
             onClick={onClick}
@@ -70,4 +71,7 @@ export const DotButton: React.FC<DotButtonProps> = ({ selected, onClick, ...prop
             <FiberManualRecordIcon fontSize="small" />
         </IconButton>
     )
-}
+})
+
+
+DotButton.displayName = 'DotButton';

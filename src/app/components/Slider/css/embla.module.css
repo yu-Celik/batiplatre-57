@@ -26,12 +26,3 @@
     justify-content: center;
     margin-top: 0.5rem;
   }
-
-
-  .embla__dots {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    /* margin-right: calc((2.6rem - 1.4rem) / 2 * -1); */
-  }

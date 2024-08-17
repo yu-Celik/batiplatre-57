@@ -1,4 +1,4 @@
-import { Box, Button, Paper, Stack, Typography } from "@mui/material"
+import { Button, Paper, Stack, Typography } from "@mui/material"
 import Image from "next/image"
 import service from '@/app/assets/service.png';
 import { ArrowForwardIos } from "@mui/icons-material";
