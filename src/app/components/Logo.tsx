@@ -1,7 +1,11 @@
 import { SvgIcon, type SvgIconProps, Typography } from '@mui/material';
 import Link from 'next/link';
 
-const Logo: React.FC<SvgIconProps> = ({ id, ...props }: SvgIconProps): JSX.Element => {
+type LogoProps = SvgIconProps & {
+    displayText?: boolean;
+}
+
+const Logo: React.FC<LogoProps> = ({ id, displayText = true, ...props }: LogoProps): JSX.Element => {
 
     return (
         <Link
@@ -23,12 +27,13 @@ const Logo: React.FC<SvgIconProps> = ({ id, ...props }: SvgIconProps): JSX.Eleme
                     <path d="M11.9492 39.9648H39.8269V22.2026L37.1021 20.0881L43.8095 14.8018L48.0016 17.9736V48H11.9492V39.9648Z" fill={`var(--mui-palette-primary-main)`} />
                 </svg>
             </SvgIcon>
-            <Typography
-                variant="h3"
-            >
-                Bâti Plâtre 57
-            </Typography>
-
+            {displayText && (
+                <Typography
+                    variant="h3"
+                >
+                    Bâti Plâtre 57
+                </Typography>
+            )}
         </Link >
     );
 };

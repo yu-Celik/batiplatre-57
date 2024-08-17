@@ -13,7 +13,7 @@ import villa from './../../../../../../public/villa.png';
 
 import EmblaCarousel, { EmblaCarouselWithTabs } from '@/app/components/Slider/EmblaCarousel';
 import { ArrowForwardIos } from '@mui/icons-material';
-import Insulation from './Insulation';
+import Insulation from './Insulation_svg';
 
 type Props = {
 }
@@ -41,7 +41,7 @@ const RenderMobile: React.FC<Props> = () => {
                         <ListItemIcon sx={{ minWidth: 24 }}>
                             <Image src={trowel} alt="trowel" width={24} height={24} />
                         </ListItemIcon>
-                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-main)' }}>
+                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-light)' }}>
                             Plâtrerie et isolation
                         </Typography>
                     </ListItem>
@@ -49,7 +49,7 @@ const RenderMobile: React.FC<Props> = () => {
                         <ListItemIcon sx={{ minWidth: 24 }}>
                             <Image src={broom} alt="broom" width={24} height={24} />
                         </ListItemIcon>
-                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-main)' }}>
+                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-light)' }}>
                             Menuiserie et pose de sol
                         </Typography>
                     </ListItem>
@@ -57,7 +57,7 @@ const RenderMobile: React.FC<Props> = () => {
                         <ListItemIcon sx={{ minWidth: 24 }}>
                             <Image src={square} alt="square" width={24} height={24} />
                         </ListItemIcon>
-                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-main)' }}>
+                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-light)' }}>
                             Débarras et nettoyage
                         </Typography>
                     </ListItem>
@@ -65,7 +65,7 @@ const RenderMobile: React.FC<Props> = () => {
                         <ListItemIcon sx={{ minWidth: 24 }}>
                             <Image src={star} alt="star" width={24} height={24} />
                         </ListItemIcon>
-                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-main)' }}>
+                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-light)' }}>
                             Aménagement et décoration
                         </Typography>
                     </ListItem>
@@ -73,7 +73,7 @@ const RenderMobile: React.FC<Props> = () => {
                         <ListItemIcon sx={{ minWidth: 24 }}>
                             <Image src={paint_brunsh} alt="paint_brunsh" width={24} height={24} />
                         </ListItemIcon>
-                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-main)' }}>
+                        <Typography component={Link} href="/services" sx={{ color: 'var(--mui-palette-primary-light)' }}>
                             Peinture et carrelage
                         </Typography>
                     </ListItem>
