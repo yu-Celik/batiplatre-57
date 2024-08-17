@@ -15,23 +15,23 @@ function RenderMobile({ }: Props) {
             }}>
                 <Stack direction="column" justifyContent="center" alignItems="start">
                     <SubtitleTitle href="/services" text="Nos Services à Metz" />
-                    <Typography variant="h2" textAlign="left" gutterBottom sx={{ fontSize: { xs: '1.25rem' }, lineHeight: { xs: '2rem' } }}>
+                    <Typography variant="h2" gutterBottom sx={{ fontSize: { xs: '1.25rem' }, lineHeight: { xs: '2rem' } }}>
                         <Image src={service} alt="Rénovation / Extension" width={32} height={32} style={{ display: 'inline-block' }} />
                         Rénovation / Extension
                     </Typography>
                 </Stack>
-                <Typography variant="body1" textAlign="left" gutterBottom>
+                <Typography variant="body1" gutterBottom>
                     Améliorez l&apos;isolation thermique et acoustique de votre maison à Metz. Nos travaux d&apos;isolation et de plâtrerie assurent confort et efficacité énergétique. Proposez un espace de vie propre grâce à nos services de débarras et nettoyage.
                 </Typography>
 
-                <Typography variant="body1" textAlign="left" gutterBottom>
+                <Typography variant="body1" gutterBottom>
                     Faites appel à notre expertise pour la pose de sols et la menuiserie sur mesure. Transformez votre intérieur avec nos services d&apos;aménagement et décoration. Nous concevons des espaces de vie personnalisés, répondant à vos envies et besoins.
                 </Typography>
 
-                <Typography variant="body1" textAlign="left" gutterBottom sx={{ color: 'var(--mui-palette-secondary-light)' }}>
+                <Typography variant="body1" gutterBottom sx={{ color: 'var(--mui-palette-secondary-light)' }}>
                     Offrez une nouvelle vie à votre logement avec nos prestations de peinture et pose de carrelage. Nous proposons des solutions adaptées pour la rénovation de vos murs, sols, et salles de bains, avec des matériaux de haute qualité.
                 </Typography>
-                <Button variant="outlined" color="primary" endIcon={<ArrowForwardIos />} sx={{ width: '100%' }}>
+                <Button variant="outlined" color="primary" endIcon={<ArrowForwardIos />} fullWidth >
                     Découvrez nos services complets
                 </Button>
             </Paper >
