@@ -7,7 +7,7 @@ type Props = {}
 function RenderMobile({ }: Props) {
     return (
         <>
-            <Paper elevation={3} sx={{
+            <Paper component="section" elevation={3} sx={{
                 paddingY: 4,
                 paddingX: 3,
                 borderRadius: 'var(--mui-shape-borderRadius)',

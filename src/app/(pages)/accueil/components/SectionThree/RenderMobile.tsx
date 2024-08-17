@@ -8,7 +8,7 @@ import { ArrowForwardIos } from "@mui/icons-material";
 type Props = {}
 function RenderMobile({ }: Props) {
   return (
-    <Paper sx={{
+    <Paper component="section" sx={{
       position: "relative",
       display: "flex",
       flexDirection: "column",

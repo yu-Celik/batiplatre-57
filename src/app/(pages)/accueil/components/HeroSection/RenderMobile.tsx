@@ -50,7 +50,7 @@ function RenderMobile() {
                     <BatimentImg />
                 </Box>
             </Container>
-            <Image src={villa} alt="belle villa avec piscine" />
+            <Image src={villa} priority alt="belle villa avec piscine" />
         </>
     )
 }

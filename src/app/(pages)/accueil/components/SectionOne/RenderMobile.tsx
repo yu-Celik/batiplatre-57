@@ -15,7 +15,7 @@ import SubtitleTitle from '@/app/components/SubtitleTitle';
 
 const PartenaireDeConfiance = () => {
     return (
-        <Container sx={{ marginY: 8, position: "relative" }}>
+        <Container sx={{ marginY: 8, position: "relative" }} component="section">
             <SubtitleTitle href="/Pourquoi-nous-choisir" text="Pourquoi nous choisir ?" sx={{ textAlign: "center" }} />
             <Typography variant="h2" align="center" gutterBottom sx={{ mb: 4 }}>
                 Votre partenaire de confiance
@@ -24,17 +24,17 @@ const PartenaireDeConfiance = () => {
                 {[
                     {
                         icon: <BuildIcon color="warning" />, title: "Expertise Polyvalente", description: "Une maîtrise complète de tous les métiers de la rénovation : agencement, isolation, carrelage, et plus encore.", svg: <svg width="358" height="14" viewBox="0 0 358 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M-60 27C9.63066 7.37979 202.914 -20.0885 419 27" stroke="var(--mui-palette-warning-main)" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" />
+                            <path d="M-60 27C9.63066 7.37979 202.914 -20.0885 419 27" stroke="var(--mui-palette-warning-main)" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" />
                         </svg>
                     },
                     {
                         icon: <CheckCircleIcon color="success" />, title: "Qualité Certifiée", description: "Intervention conforme aux normes RGE, garantissant des travaux durables, performants, et éligibles aux aides énergétiques.", svg: <svg width="358" height="14" viewBox="0 0 358 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M-60 27C9.63066 7.37979 202.914 -20.0885 419 27" stroke="var(--mui-palette-success-main)" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" />
+                            <path d="M-60 27C9.63066 7.37979 202.914 -20.0885 419 27" stroke="var(--mui-palette-success-main)" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" />
                         </svg>
                     },
                     {
                         icon: <Handshake color="primary" />, title: "Accompagnement Personnalisé", description: "Suivi personnalisé de votre projet, de la conception à la réalisation, avec un engagement de respect des délais et du budget.", svg: <svg width="358" height="14" viewBox="0 0 358 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M-60 27C9.63066 7.37979 202.914 -20.0885 419 27" stroke="var(--mui-palette-primary-main)" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" />
+                            <path d="M-60 27C9.63066 7.37979 202.914 -20.0885 419 27" stroke="var(--mui-palette-primary-main)" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" />
                         </svg>
                     },
                 ].map((item, index) => (

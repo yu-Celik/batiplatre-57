@@ -1,26 +1,16 @@
 'use client'
-
 import React, { useState } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import { tabsClasses } from '@mui/material/Tabs';
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
-import {
-    PrevButton,
-    NextButton,
-    usePrevNextButtons
-} from './EmblaCarouselArrowButtons'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image, { StaticImageData } from 'next/image'
 import styles from './css/embla.module.css'
-import { Box, Container, Tab, Tabs } from '@mui/material'
+import { Box, Tab, Tabs } from '@mui/material'
 import { amenagementCombleImg, peintureImg, platerieImg, poseDeSolImg } from '@/app/data/imagesSlideHome';
 
 
 const OPTIONS: EmblaOptionsType = {}
-type Props = {
-    slides: typeof peintureImg
-}
-
 interface PropType {
     images: { img: StaticImageData, alt: string }[];
     options: EmblaOptionsType
@@ -31,13 +21,6 @@ const EmblaCarousel: React.FC<PropType> = ({ images, options }) => {
 
     const { selectedIndex, scrollSnaps, onDotButtonClick } =
         useDotButton(emblaApi)
-
-    const {
-        prevBtnDisabled,
-        nextBtnDisabled,
-        onPrevButtonClick,
-        onNextButtonClick
-    } = usePrevNextButtons(emblaApi)
 
     return (
         <section className={styles.embla}>
@@ -86,6 +69,9 @@ export const EmblaCarouselWithTabs = () => {
                 sx={{
                     [`& .${tabsClasses.scrollButtons}`]: {
                         '&.Mui-disabled': { opacity: 0.3 },
+                    },
+                    [`& .${tabsClasses.flexContainer}`]: {
+                        justifyContent: 'center',
                     },
                 }}
             >

@@ -13,13 +13,14 @@ import villa from './../../../../../../public/villa.png';
 
 import EmblaCarousel, { EmblaCarouselWithTabs } from '@/app/components/Slider/EmblaCarousel';
 import { ArrowForwardIos } from '@mui/icons-material';
+import Insulation from './Insulation';
 
 type Props = {
 }
 
 const RenderMobile: React.FC<Props> = () => {
     return (
-        <Box sx={{ padding: 2 }}>
+        <Box sx={{ padding: 2 }} component="section">
             <SubtitleTitle href="/nos-realisations" text="Nos réalisations" sx={{ textAlign: 'center' }} />
             <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>
                 Découvrez nos projets
@@ -29,8 +30,13 @@ const RenderMobile: React.FC<Props> = () => {
             </Typography>
             <Paper sx={{
                 marginY: 3,
+                position: 'relative',
+                overflow: 'hidden',
             }}>
                 <List>
+                    <Typography variant="body1" color="var(--mui-palette-secondary-light)" sx={{ textAlign: 'left', marginX: 2 }}>
+                        Nous proposons :
+                    </Typography>
                     <ListItem>
                         <ListItemIcon sx={{ minWidth: 24 }}>
                             <Image src={trowel} alt="trowel" width={24} height={24} />
@@ -72,6 +78,9 @@ const RenderMobile: React.FC<Props> = () => {
                         </Typography>
                     </ListItem>
                 </List>
+                <Box sx={{ position: 'absolute', bottom: -5, right: -5 }}>
+                    <Insulation />
+                </Box>
             </Paper>
             <Typography variant="body2" gutterBottom sx={{ textAlign: 'center', color: 'var(--mui-palette-secondary-light)' }}>
                 Notre équipe de professionnels est à votre disposition pour transformer vos espaces selon vos envies.
