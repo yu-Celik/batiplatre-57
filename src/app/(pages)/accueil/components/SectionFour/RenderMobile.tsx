@@ -83,7 +83,7 @@ const RenderMobile: React.FC<Props> = () => {
                 Notre équipe de professionnels est à votre disposition pour transformer vos espaces selon vos envies.
             </Typography>
             <EmblaCarouselWithTabs />
-            <Button variant="contained" color="primary" fullWidth sx={{ marginY: 3 }} endIcon={<ArrowForwardIos />}>
+            <Button variant="contained" color="primary" fullWidth sx={{ marginTop: 3 }} endIcon={<ArrowForwardIos />}>
                 Voir toutes nos réalisations
             </Button>
         </Box>

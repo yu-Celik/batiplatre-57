@@ -18,7 +18,7 @@ function RenderMobile({ }: Props) {
       marginBottom: 8
     }}>
       <SubtitleTitle href="/Pourquoi-nous-choisir" text="Découvrez nos services complets" sx={{ textAlign: "center" }} />
-      <Typography gutterBottom variant="h3" sx={{ textAlign: "center", maxWidth: 360 }}>
+      <Typography gutterBottom variant="h3" sx={{ textAlign: "center", maxWidth: 350 }}>
         Prêt à transformer votre espace ?
       </Typography>
       <Button variant="outlined" color="primary" fullWidth endIcon={<ArrowForwardIos />}>
@@ -26,8 +26,8 @@ function RenderMobile({ }: Props) {
       </Button>
       <Box sx={{
         position: "absolute",
-        bottom: 150,
-        right: 0,
+        bottom: { xs: 150, sm: 75 },
+        right: { xs: 0, sm: 100 },
       }}>
         <Homme_svg />
       </Box>

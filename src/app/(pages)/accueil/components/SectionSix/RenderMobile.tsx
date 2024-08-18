@@ -11,7 +11,7 @@ function RenderMobile() {
             paddingY: 4,
             paddingX: 2,
             borderRadius: 'var(--mui-shape-borderRadius)',
-            marginBottom: 8
+            marginY: 8
         }}>
             <Stack direction="column" justifyContent="center" alignItems="start">
                 <SubtitleTitle href="/nos-expertises" text="Nos expertises" />

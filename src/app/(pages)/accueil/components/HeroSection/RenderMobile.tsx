@@ -36,19 +36,13 @@ function RenderMobile() {
                 <Typography variant="h1" component="h1" sx={{ lineHeight: 1.2 }} >
                     Transformez Votre Habitat à <i>Metz</i>
                 </Typography>
-                <Typography variant="body1" component="p" >
-                    <Typography component={Link} sx={{ color: 'primary.light' }} href="/platrerie">Platrerie</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/isolation">Isolation</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/carrelage">Carrelage</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/peinture">Peinture</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/menuiserie">Menuiserie</Typography>, <Typography component={Link} sx={{ color: 'primary.light' }} href="/pose-de-sol">Pose de sol</Typography>.
-                </Typography>
                 <FeatureList />
-                <Button variant="contained" color="primary" endIcon={<ArrowForwardIos />} sx={{ width: '100%' }} >
+                <Button variant="contained" color="primary" endIcon={<ArrowForwardIos />} >
                     Demandez votre devis gratuit
                 </Button>
                 <Button variant="outlined" color="secondary" endIcon={<ArrowForwardIos />} sx={{ width: '100%', backgroundColor: 'background.default' }} >
                     Voir nos zones d&apos;intervention
                 </Button>
-                <Box sx={{ position: 'absolute', bottom: -5, right: -50, zIndex: -1 }} >
-                    <BatimentImg />
-                </Box>
             </Container>
             <Image src={villa} priority alt="belle villa avec piscine" />
         </>
