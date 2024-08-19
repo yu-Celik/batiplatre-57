@@ -22,7 +22,7 @@ const EmblaCarousel: React.FC<PropType> = ({ images, options }) => {
                 <div className={styles.embla__container}>
                     {images.map((img, index) => (
                         <div className={styles.embla__slide} key={index}>
-                            <Image className='embla__slide__number' src={img.img} alt={img.alt} />
+                            <Image className='embla__slide__number' src={img.img} alt={img.alt}  />
                         </div>
                     ))}
                 </div>

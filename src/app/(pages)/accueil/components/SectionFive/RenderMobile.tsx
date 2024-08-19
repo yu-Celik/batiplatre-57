@@ -1,12 +1,11 @@
 import SubtitleTitle from "@/app/components/SubtitleTitle"
-import { Paper, Typography, List, ListItem, ListItemIcon, ListItemText, Button, Box } from "@mui/material"
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Paper, Typography, List, ListItem, ListItemIcon, ListItemText, Button } from "@mui/material"
 import Image from 'next/image';
-import symbols_lightbulb from './../../../../assets/material-symbols_lightbulb-outline.png';
-import symbols_map from './../../../../assets/material-symbols_map-outline.png';
-import mdi_comments from './../../../../assets/mdi_comments-outline.png';
-import tabler_zoom from './../../../../assets/tabler_zoom-exclamation.png';
-import fluent_mdl2 from './../../../../assets/fluent-mdl2_bullseye.png';
+import symbols_lightbulb from '@/app/assets/material-symbols_lightbulb-outline.png';
+import symbols_map from '@/app/assets/material-symbols_map-outline.png';
+import mdi_comments from '@/app/assets/mdi_comments-outline.png';
+import tabler_zoom from '@/app/assets/tabler_zoom-exclamation.png';
+import fluent_mdl2 from '@/app/assets/fluent-mdl2_bullseye.png';
 import { ArrowForwardIos } from "@mui/icons-material";
 
 type Props = {}

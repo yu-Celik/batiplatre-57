@@ -229,6 +229,21 @@ const theme = extendTheme({
                 },
             }
         },
+        MuiCard: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 'var(--mui-shape-borderRadius)',
+                    boxShadow: 'var(--mui-shadows-3)',
+                },
+            }
+        },
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    boxShadow: 'var(--mui-shadows-3)',
+                },
+            }
+        },
     },
 });
 

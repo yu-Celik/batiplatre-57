@@ -1,9 +1,6 @@
-import { Container, Typography, List, ListItem, ListItemIcon, ListItemText, Box, Button } from "@mui/material"
+import { Typography, List, ListItem, ListItemIcon, Box, Button, Card } from "@mui/material"
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
-import BatimentImg from "./BatimentImg"
-import styles from './RenderMobile.module.css'
 import { ArrowForwardIos } from "@mui/icons-material";
-import Link from "next/link";
 import Image from "next/image";
 import villa from '/public/villa.png';
 const features = [
@@ -32,9 +29,9 @@ function FeatureList() {
 function RenderMobile() {
     return (
         <>
-            <Container component="section" sx={{ display: 'flex', flexDirection: 'column', gap: 2, position: 'relative'}} >
+            <Box component="section" sx={{ display: 'flex', flexDirection: 'column', gap: 2, position: 'relative' }} >
                 <Typography variant="h1" component="h1" sx={{ lineHeight: 1.2 }} >
-                    Transformez Votre Habitat à <i>Metz</i>
+                    Transformez votre habitat
                 </Typography>
                 <FeatureList />
                 <Button variant="contained" color="primary" endIcon={<ArrowForwardIos />} >
@@ -43,8 +40,10 @@ function RenderMobile() {
                 <Button variant="outlined" color="secondary" endIcon={<ArrowForwardIos />} sx={{ width: '100%', backgroundColor: 'background.default' }} >
                     Voir nos zones d&apos;intervention
                 </Button>
-            </Container>
-            <Image src={villa} priority alt="belle villa avec piscine" />
+            </Box>
+            <Card sx={{ my: 2 }} >
+                <Image src={villa} priority alt="belle villa avec piscine" />
+            </Card>
         </>
     )
 }

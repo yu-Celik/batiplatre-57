@@ -16,6 +16,7 @@
     flex: 0 0 var(--slide-size);
     min-width: 0;
     padding-left: var(--slide-spacing);
+    margin-top: 0.5rem;
   }
  
   .embla__controls {

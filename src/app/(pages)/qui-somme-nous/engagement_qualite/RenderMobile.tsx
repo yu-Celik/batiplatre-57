@@ -9,7 +9,7 @@ import SubtitleTitle from '@/app/components/SubtitleTitle';
 import Link from 'next/link';
 import EmblaCarouselWithTabs from '@/app/components/Slider/EmblaCarouselWithTabs';
 import { ArrowForwardIos } from '@mui/icons-material';
-import Insulation from '../../../../components/Insulation_svg';
+import Insulation from '@/app/components/Insulation_svg';
 
 type Props = {
 }
@@ -19,11 +19,14 @@ const RenderMobile: React.FC<Props> = () => {
     return (
         <Box component="section">
             <SubtitleTitle href="/nos-realisations" text="Nos réalisations" sx={{ textAlign: 'center' }} />
-            <Typography variant="h2" gutterBottom sx={{ textAlign: 'center' }}>
-                Découvrez nos projets
+            <Typography variant="h2" sx={{ textAlign: 'center', marginBottom: 4 }}>
+                Engagement et Qualité
             </Typography>
-            <Typography variant="body1">
-                Nous offrons une gamme complète de services pour répondre à tous vos besoins en matière de rénovation et d&apos;aménagement.
+            <Typography variant="body1" gutterBottom>
+                Chez Bâti Plâtre 57, nous nous engageons à fournir des services de haute qualité qui répondent aux besoins spécifiques de chaque client.
+            </Typography>
+            <Typography variant="body1" color="var(--mui-palette-secondary-light)">
+                Nous mettons tout en œuvre pour garantir votre satisfaction et réaliser vos projets avec excellence.
             </Typography>
             <Paper sx={{
                 marginY: 3,
@@ -80,9 +83,8 @@ const RenderMobile: React.FC<Props> = () => {
                 </Box>
             </Paper>
             <Typography variant="body2" gutterBottom sx={{ textAlign: 'center', color: 'var(--mui-palette-secondary-light)' }}>
-                Notre équipe de professionnels est à votre disposition pour transformer vos espaces selon vos envies.
+                Chaque projet est une opportunité pour nous de démontrer notre expertise
             </Typography>
-            <EmblaCarouselWithTabs />
             <Button variant="contained" color="primary" fullWidth sx={{ marginTop: 3 }} endIcon={<ArrowForwardIos />}>
                 Voir toutes nos réalisations
             </Button>

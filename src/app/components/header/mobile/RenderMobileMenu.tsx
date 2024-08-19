@@ -5,6 +5,14 @@ import { SwipeableDrawer, List, ListItemButton, ListItemText, Box, Typography } 
 import MenuToggle from "./MenuToggle/MenuToggle";
 import Link from 'next/link';
 
+// Tableau d'objets pour les éléments du menu
+const menuItems = [
+    { text: 'Accueil', link: '/' },
+    { text: 'Qui somme-nous', link: '/qui-somme-nous' },
+    { text: 'Services', link: '/services' },
+    { text: 'Contact', link: '/contact' },
+];
+
 function RenderMobileMenu() {
     const [open, setOpen] = useState(false);
 
@@ -12,13 +20,22 @@ function RenderMobileMenu() {
         setOpen(newOpen);
     };
 
+    const handleLinkClick = () => {
+        setOpen(false);
+    };
+
     const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     const drawerContent = (
         <List>
-            {['Accueil', 'À propos', 'Services', 'Contact'].map((text) => (
-                <ListItemButton component={Link} href={`/${text.toLowerCase()}`} key={text} >
-                    <ListItemText primary={text} />
+            {menuItems.map((item) => (
+                <ListItemButton 
+                    component={Link} 
+                    href={item.link} 
+                    key={item.text}
+                    onClick={handleLinkClick}
+                >
+                    <ListItemText primary={item.text} />
                 </ListItemButton>
             ))}
         </List>

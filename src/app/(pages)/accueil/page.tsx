@@ -6,7 +6,7 @@ import RenderMobile4 from "@/app/(pages)/accueil/components/SectionThree/RenderM
 import RenderMobile5 from "@/app/(pages)/accueil/components/SectionFour/RenderMobile";
 import RenderMobile6 from "@/app/(pages)/accueil/components/SectionFive/RenderMobile";
 import RenderMobile7 from "@/app/(pages)/accueil/components/SectionSix/RenderMobile";
-import RenderMobile8 from "@/app/(pages)/accueil/components/LastSection/RenderMobile";
+import RenderMobile8 from "@/app/components/ContactSection/RenderMobile"
 
 export const metadata: Metadata = {
     title: "Accueil | Bati Plâtre 57 - Entreprise de rénovation à Metz",
