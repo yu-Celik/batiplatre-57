@@ -1,5 +1,5 @@
 import SubtitleTitle from "@/app/components/SubtitleTitle"
-import { Box, Typography, Card, CardMedia } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import Image from "next/image"
 import businessHandshake from "/public/business-handshake.png"
 
@@ -18,13 +18,11 @@ function RenderMobile({ }: Props) {
                 <Typography variant="body1" color="text.secondary">
                     Leur satisfaction totale est notre plus grande fierté et la preuve de notre engagement envers l&apos;excellence.
                 </Typography>
-                <Card sx={{ marginTop: 4 }}>
-                    <Image
-                        alt="Poignée de main"
-                        src={businessHandshake}
-                        title="Poignée de main"
-                    />
-                </Card>
+                <Image
+                    src={businessHandshake}
+                    alt="Poignée de main"
+                    style={{ width: '100%', height: 'auto', borderRadius: 'var(--mui-shape-borderRadius)', boxShadow: 'var(--mui-shadows-3)', marginTop: '1rem' }}
+                />
             </Box>
         </>
     )

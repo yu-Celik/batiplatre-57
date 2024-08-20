@@ -9,7 +9,7 @@ function RenderMobile({ }: Props) {
         <>
             <Box component="section" sx={{ marginY: 8 }} aria-labelledby="section-title">
                 <SubtitleTitle href="#" text="Qualité, Prix, et Satisfaction" sx={{ textAlign: 'center' }} />
-                <Typography id="section-title" variant="h2" color="text.primary" sx={{ textAlign: 'center', marginBottom: 4 }}>
+                <Typography id="section-title" variant="h2" color="text.primary" sx={{ textAlign: 'center', marginBottom: 4, maxWidth: '310px', marginX: 'auto' }}>
                     Pourquoi nous choisir ?
                 </Typography>
                 <Typography variant="body1" gutterBottom color="text.secondary">

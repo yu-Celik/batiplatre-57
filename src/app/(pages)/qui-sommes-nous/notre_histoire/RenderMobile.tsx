@@ -1,5 +1,5 @@
 import SubtitleTitle from "@/app/components/SubtitleTitle"
-import { Card, Paper, Typography } from "@mui/material"
+import { Paper, Typography } from "@mui/material"
 import Image from "next/image"
 import maison from "/public/maison_.png"
 type Props = {}
@@ -17,13 +17,11 @@ function RenderMobile({ }: Props) {
                 <Typography gutterBottom>
                     Au fil des années, cette transmission de connaissances et de compétences a façonné notre réputation et notre succès.
                 </Typography>
-                <Card>
-                    <Image
-                        src={maison}
-                        alt="maison"
-                        height="300"
-                    />
-                </Card>
+                <Image
+                    src={maison}
+                    alt="maison"
+                    style={{ width: '100%', height: 'auto', borderRadius: 'var(--mui-shape-borderRadius)', boxShadow: 'var(--mui-shadows-3)', marginTop: '1rem' }}
+                />
             </Paper>
         </>
     )

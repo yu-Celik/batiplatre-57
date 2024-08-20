@@ -41,9 +41,7 @@ function RenderMobile() {
                     Voir nos zones d&apos;intervention
                 </Button>
             </Box>
-            <Card sx={{ my: 2 }} >
-                <Image src={villa} priority alt="belle villa avec piscine" />
-            </Card>
+            <Image src={villa} priority alt="belle villa avec piscine" style={{ borderRadius: 'var(--mui-shape-borderRadius)', boxShadow: 'var(--mui-shadows-3)', marginTop: '1rem' }} />
         </>
     )
 }

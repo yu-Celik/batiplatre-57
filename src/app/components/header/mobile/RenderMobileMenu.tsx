@@ -8,8 +8,8 @@ import Link from 'next/link';
 // Tableau d'objets pour les éléments du menu
 const menuItems = [
     { text: 'Accueil', link: '/' },
-    { text: 'Qui somme-nous', link: '/qui-somme-nous' },
-    { text: 'Services', link: '/services' },
+    { text: 'Qui sommes-nous', link: '/qui-sommes-nous' },
+    { text: 'Nos services', link: '/nos-services' },
     { text: 'Contact', link: '/contact' },
 ];
 
