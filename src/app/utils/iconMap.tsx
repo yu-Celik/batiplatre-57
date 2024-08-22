@@ -298,8 +298,8 @@ const iconMap = {
     CheckSquare,
     Hammer,
     Vaadin,
-
 };
+
 export type IconName = keyof typeof iconMap;
 
 export default iconMap;

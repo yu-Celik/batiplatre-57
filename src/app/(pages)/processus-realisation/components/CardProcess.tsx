@@ -14,8 +14,8 @@ type CardProcessProps = {
     title: string;
     subTitle: string;
     description: string;
-    chips: ChipData[];
     icon: IconName;
+    chips: ChipData[];
 };
 
 export default function CardProcess({ title, subTitle, description, chips, icon }: CardProcessProps) {
