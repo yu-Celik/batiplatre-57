@@ -5,7 +5,7 @@ type Props = {}
 function RenderMobile({ }: Props) {
     return (
         <>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 8, my: 8 }}>
+            <Box component="section" sx={{ display: 'flex', flexDirection: 'column', gap: 8, my: 8 }}>
                 <ContactForm />
                 <NewsletterSignup />
             </Box>

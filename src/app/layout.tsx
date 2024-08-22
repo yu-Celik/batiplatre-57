@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={inter.className}>
+      <body>
         <Mui_provider>
           <Header />
           <Container component="main" sx={{

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { SwipeableDrawer, List, ListItemButton, ListItemText, Box, Typography } from "@mui/material";
 import MenuToggle from "./MenuToggle/MenuToggle";
 import Link from 'next/link';
+import { servicesData } from '@/app/data/servicesData';
 
 // Tableau d'objets pour les éléments du menu
 const menuItems = [
@@ -11,6 +12,9 @@ const menuItems = [
     { text: 'Qui sommes-nous', link: '/qui-sommes-nous' },
     { text: 'Nos services', link: '/nos-services' },
     { text: 'Contact', link: '/contact' },
+    { text: 'Processus de réalisation', link: '/processus-realisation' },
+    { text: 'Nos réalisations', link: '/nos-realisations' },
+    ...servicesData.map(service => ({ text: service.titleH1, link: `/services/${service.id}` }))
 ];
 
 function RenderMobileMenu() {

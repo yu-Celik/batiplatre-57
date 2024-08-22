@@ -64,17 +64,17 @@ export const peintureImg = [
 
 export const platerieImg = [
     {
-        id: '1',
+        id: '9',
         src: platerie1,
         alt: "platerie-1",
     },
     {
-        id: '2',
+        id: '10',
         src: platerie2,
         alt: "platerie-2",
     },
     {
-        id: '3',
+        id: '11',
         src: platerie3,
         alt: "platerie-3",
     },
@@ -82,17 +82,17 @@ export const platerieImg = [
 
 export const amenagementCombleImg = [
     {
-        id: '1',
+        id: '12',
         src: amenagementComble1,
         alt: "Aménagement comble C-1",
     },
     {
-        id: '2',
+        id: '13',
         src: amenagementComble2,
         alt: "Aménagement comble C-2",
     },
     {
-        id: '3',
+        id: '14',
         src: amenagementComble3,
         alt: "Aménagement comble C-3",
     },
@@ -100,17 +100,17 @@ export const amenagementCombleImg = [
 
 export const carrelageImg = [
     {
-        id: '1',
+        id: '15',
         src: carrelage1,
         alt: "carrelage-1",
     },
     {
-        id: '2',
+        id: '16',
         src: carrelage2,
         alt: "carrelage-2",
     },
     {
-        id: '3',
+        id: '17',
         src: carrelage3,
         alt: "carrelage-3",
     },
@@ -118,17 +118,17 @@ export const carrelageImg = [
 
 export const poseDeSolImg = [
     {
-        id: '1',
+        id: '18',
         src: poseDeSol1,
         alt: "pose-de-sol-1",
     },
     {
-        id: '2',
+        id: '19',
         src: poseDeSol2,
         alt: "pose-de-sol-2",
     },
     {
-        id: '3',
+        id: '20',
         src: poseDeSol3,
         alt: "pose-de-sol-3",
     },

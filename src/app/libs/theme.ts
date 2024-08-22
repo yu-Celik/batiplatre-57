@@ -149,63 +149,66 @@ const theme = extendTheme({
                     fontFamily: fira.style.fontFamily,
                     fontWeight: 300,
                     fontSize: '2rem',
-                    lineHeight: '2.5rem',
-                    letterSpacing: '0.094rem',
-
+                    lineHeight: '2.8rem',
+                    letterSpacing: '0.03125rem', // 0.5px équivalent en rem
                     color: theme.vars.palette.text.primary,
                     '@media (min-width:600px)': {
                         fontSize: '3rem',
-                        lineHeight: '3.5rem',
+                        lineHeight: '4rem',
+                        letterSpacing: '0.046875rem', // 0.75px équivalent en rem
                     },
                 }),
                 h2: ({ theme }) => ({
                     fontFamily: fira.style.fontFamily,
                     fontWeight: 400,
                     fontSize: '2rem',
-                    lineHeight: '2.5rem',
-                    letterSpacing: '0.031rem',
+                    lineHeight: '2.8rem',
+                    letterSpacing: '0.03125rem', // 0.5px équivalent en rem
                     color: theme.vars.palette.text.primary,
                     '@media (min-width:600px)': {
                         fontSize: '2.5rem',
                         lineHeight: '3rem',
+                        letterSpacing: '0.0375rem', // 0.6px équivalent en rem
                     },
                 }),
                 h3: ({ theme }) => ({
                     fontFamily: fira.style.fontFamily,
                     fontWeight: 400,
                     fontSize: '1.5rem',
-                    letterSpacing: '0.02em',
-                    lineHeight: '2rem',
+                    letterSpacing: '0.03125rem', // 0.5px équivalent en rem
+                    lineHeight: '2.1rem',
                     color: theme.vars.palette.text.primary,
                 }),
                 h4: {
                     fontFamily: fira.style.fontFamily,
                     fontWeight: 400,
+                    letterSpacing: '0.03125rem', // 0.5px équivalent en rem
                 },
                 h5: {
                     fontFamily: fira.style.fontFamily,
                     fontWeight: 400,
+                    letterSpacing: '0.03125rem', // 0.5px équivalent en rem
                 },
                 h6: {
                     fontFamily: fira.style.fontFamily,
                     fontWeight: 500,
                     fontSize: '1.25rem',
-                    lineHeight: '2rem',
-                    letterSpacing: '0.02em',
+                    lineHeight: '1.75rem',
+                    letterSpacing: '0.03125rem', // 0.5px équivalent en rem
                 },
                 body1: {
                     fontFamily: fira.style.fontFamily,
                     fontWeight: 400,
                     fontSize: '1rem',
-                    lineHeight: '1.5rem',
-                    letterSpacing: '0.0094rem',
+                    lineHeight: '1.4rem',
+                    letterSpacing: '0.03125rem', // 0.5px équivalent en rem
                 },
                 body2: {
                     fontFamily: fira.style.fontFamily,
                     fontWeight: 400,
                     fontSize: '0.875rem',
-                    lineHeight: '1.25rem',
-                    letterSpacing: '0.0125rem',
+                    lineHeight: '1.225rem',
+                    letterSpacing: '0.03125rem', // 0.5px équivalent en rem
                 },
             },
         },
@@ -240,4 +243,3 @@ const theme = extendTheme({
 });
 
 export default theme;
-
