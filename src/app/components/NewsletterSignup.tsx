@@ -12,7 +12,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const NewsletterSignup: React.FC = () => {
     return (
-        <Paper elevation={3} sx={{ borderRadius: 'var(--mui-shape-borderRadius)'}}>
+        <Paper elevation={3} sx={{ borderRadius: 'var(--mui-shape-borderRadius)', height: '100%' }}>
             <Container>
                 <Typography variant="h6" component="h2" textAlign="center" sx={{
                     mb: 2,
@@ -42,7 +42,7 @@ const NewsletterSignup: React.FC = () => {
                         color="primary"
                         startIcon={<PersonAddIcon />}
                         sx={{
-                            height: 56, // Pour aligner avec le TextField
+                            height: 56,
                             minWidth: 'auto',
                             px: 2,
                             position: 'absolute',

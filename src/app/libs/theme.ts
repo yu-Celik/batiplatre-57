@@ -115,7 +115,9 @@ const theme = extendTheme({
                     // transition: 'all 0.3s ease-in-out',
                     textTransform: 'none',
                     borderRadius: 'var(--mui-shape-borderRadius)',
-                    // fontSize: '1rem',
+                    '@media (min-width:900px)': {
+                        fontSize: '1rem',
+                    },
                     // color: 'var(--mui-palette-grey-900)',
                     // '[class="dark"] &': {
                     //     color: 'var(--mui-palette-grey-50)',
@@ -153,6 +155,11 @@ const theme = extendTheme({
                     letterSpacing: '0.03125rem', // 0.5px équivalent en rem
                     color: theme.vars.palette.text.primary,
                     '@media (min-width:600px)': {
+                        fontSize: '3rem',
+                        lineHeight: '4rem',
+                        letterSpacing: '0.046875rem', // 0.75px équivalent en rem
+                    },
+                    '@media (min-width:900px)': {
                         fontSize: '3rem',
                         lineHeight: '4rem',
                         letterSpacing: '0.046875rem', // 0.75px équivalent en rem
@@ -208,7 +215,12 @@ const theme = extendTheme({
                     fontWeight: 400,
                     fontSize: '0.875rem',
                     lineHeight: '1.225rem',
-                    letterSpacing: '0.03125rem', // 0.5px équivalent en rem
+                    letterSpacing: '0.03125rem', 
+                    '@media (min-width:900px)': {
+                        fontSize: '1rem',
+                        lineHeight: '1.4rem',
+                        letterSpacing: '0.03125rem', 
+                    },
                 },
             },
         },

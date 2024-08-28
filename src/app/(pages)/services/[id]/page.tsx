@@ -1,4 +1,3 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
 import { servicesData } from '@/app/data/servicesData';
 import PageService from '@/app/(pages)/services/components/PageService';
 import ContactSection from '@/app/components/ContactSection/RenderMobile';

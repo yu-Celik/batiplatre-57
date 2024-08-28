@@ -1,22 +1,47 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import {
     Box,
     Typography,
     TextField,
     Button,
-    Select,
-    MenuItem,
-    FormControl,
-    InputLabel,
     Paper,
     Container
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import Logo from '@/app/components/Logo';
+import useSendMail from '@/app/hooks/useSendMail';
+import { MailType } from '@/app/libs/models/model_mail';
 
 const ContactForm: React.FC = () => {
+    const [formData, setFormData] = useState<MailType>({
+        fullName: '',
+        email: '',
+        phone: '',
+        address: '',
+        subject: 'Question',
+        message: '',
+    });
+    const { sendMail, loading, error } = useSendMail();
+    const [response, setResponse] = useState<{ message: string } | null>(null);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            const result = await sendMail(formData);
+            setResponse(result);
+            setFormData({ fullName: '', email: '', phone: '', address: '', subject: 'Question', message: '' });
+        } catch (err) {
+            // L'erreur est déjà gérée dans le hook
+        }
+    };
+
     return (
-        <Paper sx={{ borderRadius: 'var(--mui-shape-borderRadius)', overflow: 'hidden', position: 'relative' }}>
+        <Paper sx={{ borderRadius: 'var(--mui-shape-borderRadius)', overflow: 'hidden', position: 'relative', maxWidth: '500px' }}>
             <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0.5 }}>
                 <Wave />
             </Box>
@@ -31,37 +56,47 @@ const ContactForm: React.FC = () => {
                     Nous mettrons tout en œuvre pour vous fournir toutes les informations nécessaires et vous guider dans vos choix.
                 </Typography>
 
-                <Box component="form" sx={{ '& > :not(style)': { mb: 2 } }}>
-                    <TextField fullWidth label="Nom et prénom" variant="outlined" />
-                    <TextField fullWidth label="E-mail" variant="outlined" type="email" />
-                    <TextField fullWidth label="Téléphone" variant="outlined" type="tel" />
-                    <FormControl fullWidth>
-                        <InputLabel id="ville-label">Ville</InputLabel>
-                        <Select
-                            labelId="ville-label"
-                            label="Ville"
-                            value=""
-                        >
-                            <MenuItem value="">Sélectionnez une ville</MenuItem>
-                            {/* Ajoutez ici les options de ville */}
-                        </Select>
-                    </FormControl>
+                <Box component="form" onSubmit={handleSubmit} sx={{ '& > :not(style)': { mb: 2 } }}>
+                    <TextField fullWidth name="fullName" label="Nom complet" variant="outlined" margin="none" placeholder="Jean Dupont" required value={formData.fullName} onChange={handleChange} />
+                    <TextField fullWidth name="email" label="Email" type="email" variant="outlined" margin="none" placeholder="jean.dupont@gmail.com" required value={formData.email} onChange={handleChange} />
+                    <TextField fullWidth name="phone" label="Numéro de téléphone" type="tel" variant="outlined" margin="none" placeholder="06 12 34 56 78" required value={formData.phone} onChange={handleChange} />
+                    <TextField fullWidth name="address" label="Adresse" variant="outlined" margin="none" placeholder="123 Rue de la Paix, 75000 Paris, France" required value={formData.address} onChange={handleChange} />
+
                     <TextField
                         fullWidth
-                        label="Message"
-                        variant="outlined"
+                        name="message"
+                        label="Votre question"
                         multiline
                         rows={4}
+                        variant="outlined"
+                        margin="none"
+                        placeholder="...."
+                        required
+                        value={formData.message}
+                        onChange={handleChange}
                     />
                     <Button
                         fullWidth
                         variant="outlined"
                         color="primary"
                         endIcon={<SendIcon />}
+                        type="submit"
+                        disabled={loading}
                     >
-                        Envoyer
+                        {loading ? 'Envoi en cours...' : 'Envoyer'}
                     </Button>
                 </Box>
+
+                {error && (
+                    <Typography variant="body2" color="error" sx={{ mt: 2 }} textAlign="center">
+                        {error}
+                    </Typography>
+                )}
+                {response && (
+                    <Typography variant="body2" color="success.main" sx={{ mt: 2 }} textAlign="center">
+                        {response.message}
+                    </Typography>
+                )}
             </Container>
         </Paper>
     );

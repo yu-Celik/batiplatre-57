@@ -4,22 +4,24 @@ import {
     Typography,
     Card,
     CardContent,
-    Button,
     Stack,
+    SxProps,
 } from '@mui/material';
 import BuildIcon from '@mui/icons-material/Build';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { ArrowForwardIos, Handshake } from '@mui/icons-material';
 import SubtitleTitle from '@/app/components/SubtitleTitle';
+import ButtonLink from '@/app/components/ButtonLink';
 
-const PartenaireDeConfiance = () => {
+
+const PartenaireDeConfiance = ({ sx }: { sx?: SxProps }) => {
     return (
-        <Box sx={{ marginY: 8, position: "relative" }} component="section">
-            <SubtitleTitle href="/Pourquoi-nous-choisir" text="Pourquoi nous choisir ?" sx={{ textAlign: "center" }} />
+        <Box sx={{ marginY: { xs: 8, md: 16 }, position: "relative", ...sx }} component="section" >
+            <SubtitleTitle href="/qui-sommes-nous" text="Pourquoi nous choisir ?" sx={{ textAlign: "center" }} />
             <Typography variant="h2" align="center" gutterBottom sx={{ mb: 4 }}>
                 Votre partenaire de confiance
             </Typography>
-            <Stack spacing={2}>
+            <Stack spacing={{ xs: 2, md: 0 }} gap={{ xs: 0, md: 2 }} flexDirection={{ xs: "column", md: "row" }} alignItems={{ xs: "center", md: "flex-start" }}>
                 {[
                     {
                         icon: <BuildIcon color="warning" />, title: "Expertise Polyvalente", description: "Une maîtrise complète de tous les métiers de la rénovation : agencement, isolation, carrelage, et plus encore.", svg: <svg width="358" height="14" viewBox="0 0 358 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,33 +39,34 @@ const PartenaireDeConfiance = () => {
                         </svg>
                     },
                 ].map((item, index) => (
-                    <Card key={index} elevation={2} sx={{ borderRadius: 2 }}>
-                        <CardContent sx={{ position: 'relative' }}>
-                            <Box display="flex" flexDirection="column" alignItems="center" mb={1}>
+                    <Card key={index} elevation={2} sx={{ display: "flex", flexDirection: { md: "column" }, justifyContent: 'center', borderRadius: 2, minHeight: { md: 255, lg: 205 }, width: { sm: '100%' }, position: "relative", alignItems: { md: "center" } }}>
+                        <CardContent >
+                            <Box display="flex" flexDirection="column" alignItems="center" mb={{ xs: 1, md: 1.5 }}>
                                 {item.icon}
-                                <Typography variant="h6" sx={{ ml: 1 }} textAlign="center">
+                                <Typography variant="h6" textAlign="center">
                                     {item.title}
                                 </Typography>
                             </Box>
-                            <Typography variant="body2" textAlign="center" color="text.secondary">
+                            <Typography variant="body2" textAlign="center" color="text.secondary" gutterBottom>
                                 {item.description}
                             </Typography>
-                            <Box sx={{ position: 'absolute', bottom: 0, left: 0, width: '100%', display: 'flex', justifyContent: 'center' }}>
-                                {item.svg}
-                            </Box>
                         </CardContent>
+                        <Box sx={{ position: 'absolute', bottom: 0, left: 0, width: '100%', display: 'flex', justifyContent: 'center' }}>
+                            {item.svg}
+                        </Box>
                     </Card>
                 ))}
             </Stack>
 
-            <Button
+            <ButtonLink
+                link="/devis"
                 variant="contained"
                 fullWidth
-                sx={{ mt: 4 }}
+                sx={{ mt: 4, display: { md: "none" } }}
                 endIcon={<ArrowForwardIos />}
             >
                 Demander un devis
-            </Button>
+            </ButtonLink>
 
         </Box>
     );
