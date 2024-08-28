@@ -107,7 +107,7 @@ function RenderMobileMenu() {
 
     return (
         <>
-            <MenuToggle open={open} onToggle={toggleDrawer(!open)} />
+            <MenuToggle open={open} onToggle={toggleDrawer(!open)} sx={{ display: { xs: 'flex', md: 'none' } }} />
             <SwipeableDrawer
                 anchor="right"
                 open={open}
