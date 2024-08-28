@@ -15,39 +15,29 @@ type Props = {
 }
 
 
-function HideOnScroll(props: Props) {
-    const { children, window } = props;
-    const trigger = useScrollTrigger({
-        target: window ? window() : undefined,
-    });
+function Header() {
+    const theme = useTheme();
+    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
     return (
-        <Slide appear={false} direction="down" in={!trigger}>
-            {children ?? <div />}
-        </Slide>
-    );
-}
-function Header(props: Props) {
-    return (
-        <>
-            <HideOnScroll {...props}>
-                <AppBar role="banner" sx={{ backgroundColor: 'background.default', zIndex: 1000 }}>
-                    <Toolbar component="nav">
-                        <Container maxWidth="lg">
-                            <Grid container alignItems="center" justifyContent="space-between">
-                                <Grid item>
-                                    <Logo sx={{ width: '48px', height: '48px' }} />
-                                </Grid>
-                                <Grid item sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' }, justifyContent: 'flex-end' }}>
-                                    <RenderDesktopMenu />
-                                    <RenderMobileMenu />
-                                </Grid>
-                            </Grid>
-                        </Container>
-                    </Toolbar>
-                </AppBar>
-            </HideOnScroll>
-        </>
+        <AppBar role="banner" sx={{ backgroundColor: 'background.default', zIndex: 1000 }}>
+            <Toolbar component="nav">
+                <Container maxWidth="lg">
+                    <Grid container alignItems="center" justifyContent="space-between">
+                        <Grid item>
+                            <Logo sx={{ width: '48px', height: '48px' }} />
+                        </Grid>
+                        <Grid item>
+                            {isDesktop ? (
+                                <RenderDesktopMenu />
+                            ) : (
+                                <RenderMobileMenu />
+                            )}
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Toolbar>
+        </AppBar>
     )
 }
 
