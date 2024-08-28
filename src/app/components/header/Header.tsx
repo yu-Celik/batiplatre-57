@@ -8,8 +8,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from "@mui/material";
 
 function Header() {
-    const theme = useTheme();
-    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
     return (
         <AppBar role="banner" sx={{ backgroundColor: 'background.default', zIndex: 1000 }}>
@@ -19,12 +17,9 @@ function Header() {
                         <Grid item>
                             <Logo sx={{ width: '48px', height: '48px' }} />
                         </Grid>
-                        <Grid item>
-                            {isDesktop ? (
-                                <RenderDesktopMenu />
-                            ) : (
-                                <RenderMobileMenu />
-                            )}
+                        <Grid item sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' }, justifyContent: 'flex-end' }}>
+                            <RenderDesktopMenu />
+                            <RenderMobileMenu />
                         </Grid>
                     </Grid>
                 </Container>

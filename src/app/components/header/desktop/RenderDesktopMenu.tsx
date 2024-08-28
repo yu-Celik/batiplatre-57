@@ -41,7 +41,7 @@ function RenderDesktopMenu() {
 
 
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
             {menuItems.map((item) => (
                 <Box key={item.text}>
                     {item.subItems ? (
