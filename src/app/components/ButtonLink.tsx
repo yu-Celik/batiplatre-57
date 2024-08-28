@@ -1,28 +1,24 @@
-"use client"
-import { ArrowForwardIos } from "@mui/icons-material"
-import { Button, SxProps } from "@mui/material"
-import { useRouter } from "next/navigation"
+"use client";
+import { Button, ButtonProps } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 type Props = {
-    variant: "contained" | "outlined" | "text"
-    color: "primary" | "secondary" | "success" | "error" | "info" | "warning"
-    href: string
-    text: string
-    sx?: SxProps
-}
+    link: string;
+} & ButtonProps;
 
-function ButtonLink({ variant, color, href, text, sx }: Props) {
-    const router = useRouter()
+function ButtonLink({ link, children, ...props }: Props) {
+    const router = useRouter();
     const handleClick = () => {
-        router.push(href)
-    }
+        router.push(link);
+    };
     return (
-        <>
-            <Button variant={variant} color={color} fullWidth sx={{ mt: 3, ...sx }} endIcon={<ArrowForwardIos />} onClick={handleClick}>
-                {text}
-            </Button>
-        </>
-    )
+        <Button
+            onClick={handleClick}
+            {...props}
+        >
+            {children}
+        </Button>
+    );
 }
 
-export default ButtonLink
+export default ButtonLink;

@@ -4,19 +4,17 @@ import SubtitleTitle from "@/app/components/SubtitleTitle";
 import { ArrowForwardIos } from "@mui/icons-material";
 import Image from 'next/image';
 import service from '@/app/assets/service.png';
+import ButtonLink from '@/app/components/ButtonLink';
 
 function RenderMobile() {
     return (
-        <Paper component="section" elevation={3} sx={{
-            paddingY: 4,
-            paddingX: 2,
+        <Box component="section" sx={{
             borderRadius: 'var(--mui-shape-borderRadius)',
-            marginY: 8
+            marginY: { xs: 8, md: 16 }
         }}>
             <Stack direction="column" justifyContent="center" alignItems="start">
-                <SubtitleTitle href="/nos-expertises" text="Nos expertises" />
-                <Typography variant="h2" textAlign="left" gutterBottom sx={{ fontSize: { xs: '1.25rem' }, lineHeight: { xs: '2rem' } }}>
-                    <Image src={service} alt="Rénovation / Extension" width={32} height={32} style={{ display: 'inline-block' }} />
+                <SubtitleTitle href="/processus-realisation" text="Nos expertises" sx={{ textAlign: { xs: 'center'} }} />
+                <Typography variant="h2" sx={{ width: '100%', mb: 4, textAlign: { xs: 'center'} }} >
                     Votre partenaire pour tous vos travaux
                 </Typography>
             </Stack>
@@ -27,13 +25,10 @@ function RenderMobile() {
             <Typography variant="body1" gutterBottom>
                 Notre équipe d&apos;artisans professionnels maîtrise tous les corps de métiers nécessaires pour transformer votre intérieur. De l&apos;aménagement des combles à la rénovation complète des pièces de vie, en passant par la pose de revêtements et la construction, nous réalisons vos projets sur mesure pour optimiser votre espace de vie.
             </Typography>
-            <Typography variant="body1" gutterBottom sx={{ color: 'var(--mui-palette-secondary-light)' }}>
+            <Typography variant="body1" gutterBottom >
                 Chaque chantier est unique, c&apos;est pourquoi nous proposons un service personnalisé. Que ce soit pour des travaux dans une maison individuelle ou un projet de rénovation immobilière plus conséquent, notre savoir-faire et notre expérience nous permettent de répondre à tous vos besoins.
             </Typography>
-            <Button variant="outlined" color="primary" endIcon={<ArrowForwardIos />} fullWidth >
-                Découvrez nos expertises
-            </Button>
-        </Paper>
+        </Box>
     );
 }
 

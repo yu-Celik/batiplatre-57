@@ -30,31 +30,32 @@ export default function CardProcess({ title, subTitle, description, chips, icon 
     );
 
     return (
-        <Card component="article" sx={{ overflow: 'visible', position: 'relative', mb: 4 }}>
-            <CardContent>
-                <Typography variant="overline" color="text.secondary" component="p">
-                    {subTitle}
-                </Typography>
-                <Typography variant="h2" sx={{ fontSize: '1.5rem', lineHeight: 1.2, mb: 1.5 }}>
-                    {title}
-                </Typography>
-                <Typography variant="body2" gutterBottom>{description}</Typography>
-                <Paper
-                    sx={{
-                        position: 'absolute',
-                        top: '-5%',
-                        right: '2.5%',
-                        p: 1.5,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}
-                    elevation={3}
-                    aria-hidden="true"
-                >
-                    {IconComponent && <IconComponent sx={{ fontSize: '2rem', color: 'primary.main' }}/>}
-                </Paper>
-
+        <Card component="article" sx={{ overflow: 'visible', position: 'relative', mb: 4, width: { xs: '100%', md: '45%' } }}>
+            <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+                <Box>
+                    <Typography variant="overline" color="text.secondary" component="p">
+                        {subTitle}
+                    </Typography>
+                    <Typography variant="h2" sx={{ fontSize: '1.5rem', lineHeight: 1.2, mb: 1.5 }}>
+                        {title}
+                    </Typography>
+                    <Typography variant="body2" gutterBottom>{description}</Typography>
+                    <Paper
+                        sx={{
+                            position: 'absolute',
+                            top: '-5%',
+                            right: '2.5%',
+                            p: 1.5,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                        elevation={3}
+                        aria-hidden="true"
+                    >
+                        {IconComponent && <IconComponent sx={{ fontSize: '2rem', color: 'primary.main' }} />}
+                    </Paper>
+                </Box>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                     {IconComponents.map(({ IconComponent, label }, index) => (
                         <Chip

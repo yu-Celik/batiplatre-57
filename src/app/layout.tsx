@@ -6,8 +6,6 @@ import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import { Container } from "@mui/material";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Bati Plâtre 57 | Entreprise de rénovation à Metz",
   description: "Entreprise de rénovation à Metz spécialisée en travaux de rénovation intérieure, isolation, aménagement intérieur et extérieur. Devis gratuit pour vos projets de maison et appartement.",

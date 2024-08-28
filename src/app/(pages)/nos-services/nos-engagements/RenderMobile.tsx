@@ -1,19 +1,17 @@
 import SubtitleTitle from "@/app/components/SubtitleTitle"
 import { Box, Typography } from "@mui/material"
-import Image from "next/image"
-import homme_handcheck from "@/app/assets/homme_handcheck.png"
 import Homme_handcheck_svg from "../components/homme_handcheck_svg"
 
 type Props = {}
 function RenderMobile({ }: Props) {
     return (
-        <Box component="section">
-            <Typography variant="h1" gutterBottom textAlign="center">
+        <Box component="section" >
+            <Typography variant="h1" gutterBottom sx={{ textAlign: { xs: 'center' }, mt: { md: 8 } }}>
                 Nos Services
             </Typography>
-            <Box my={4}>
-                <SubtitleTitle href="#" text="Promesse de qualité" sx={{ textAlign: 'center' }} />
-                <Typography variant="h2" component="h3" sx={{ textAlign: 'center', mb: 4 }}>
+            <Box sx={{ mt: { xs: 0, md: 16 }, gap: { xs: 0, md: 4 } }}>
+                <SubtitleTitle href="#" text="Promesse de qualité" sx={{ textAlign: { xs: 'center', md: 'left' } }} />
+                <Typography variant="h2" sx={{ textAlign: { xs: 'center', md: 'left' }, mb: { xs: 2, md: 4 } }}>
                     Nos engagements
                 </Typography>
                 <Typography variant="body1" gutterBottom>
@@ -26,6 +24,7 @@ function RenderMobile({ }: Props) {
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                 <Homme_handcheck_svg />
             </Box>
-        </Box>)
+        </Box>
+    )
 }
 export default RenderMobile

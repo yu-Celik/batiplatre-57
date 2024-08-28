@@ -6,7 +6,7 @@ import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import Typography from "@mui/material/Typography";
 import { Box, IconButton, IconButtonProps } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -16,6 +16,7 @@ interface ExpandMoreProps extends IconButtonProps {
 }
 
 type ServiceCard = {
+    id: string;
     imageUrl?: StaticImageData;
     title?: string;
     description?: string[];
@@ -33,12 +34,16 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 export default function CardAccordionService({ card }: { card: ServiceCard }) {
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState<boolean>(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
+    useEffect(() => {
+        console.log(card.id);
+        console.log(expanded);
+    }, [card.id, expanded]);
     return (
         <Card component="article" sx={{ mb: 4 }}>
             <Image
@@ -46,27 +51,29 @@ export default function CardAccordionService({ card }: { card: ServiceCard }) {
                 alt={card.title ?? ""}
             />
             <Box display={"flex"} justifyContent={"space-between"}>
-                <CardContent sx={{ pr: 0 }}>
-                    <Typography variant="h6" color="text.primary" fontWeight={500} fontSize={18}>
+                <CardContent sx={{ pr: 0, pb: 0 }}>
+                    <Typography variant="h6" color="text.primary" fontWeight={500} fontSize={18} gutterBottom>
                         {card.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {card.description}
-                    </Typography>
+                    {card.description?.map((text, index) => (
+                        <Typography variant="body2" key={index} color="text.secondary" paragraph>
+                            {text}
+                        </Typography>
+                    ))}
                 </CardContent>
                 <CardActions disableSpacing>
                     <ExpandMore
                         expand={expanded}
                         onClick={handleExpandClick}
                         aria-expanded={expanded}
-                        aria-label="show more"
+                        aria-label={expanded ? "réduire" : "voir plus"}
                     >
                         <ExpandMoreIcon />
                     </ExpandMore>
                 </CardActions>
             </Box>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent>
+                <CardContent sx={{ py: 0 }}>
                     {card.text?.map((text, index) => (
                         <Typography variant="body2" key={index} paragraph>
                             {text}

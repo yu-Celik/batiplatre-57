@@ -7,9 +7,9 @@ import broom from '@/app/assets/broom.png';
 import Image from 'next/image';
 import SubtitleTitle from '@/app/components/SubtitleTitle';
 import Link from 'next/link';
-import EmblaCarouselWithTabs from '@/app/components/Slider/EmblaCarouselWithTabs';
 import { ArrowForwardIos } from '@mui/icons-material';
 import Insulation from '@/app/components/Insulation_svg';
+import ButtonLink from '@/app/components/ButtonLink';
 
 type Props = {
 }
@@ -17,7 +17,7 @@ type Props = {
 
 const RenderMobile: React.FC<Props> = () => {
     return (
-        <Box component="section">
+        <Box component="section" display={{ xs: 'block', md: 'none' }}>
             <SubtitleTitle href="/nos-realisations" text="Nos réalisations" sx={{ textAlign: 'center' }} />
             <Typography variant="h2" sx={{ textAlign: 'center', marginBottom: 4 }}>
                 Engagement et Qualité
@@ -85,9 +85,16 @@ const RenderMobile: React.FC<Props> = () => {
             <Typography variant="body2" gutterBottom sx={{ textAlign: 'center', color: 'var(--mui-palette-secondary-light)' }}>
                 Chaque projet est une opportunité pour nous de démontrer notre expertise
             </Typography>
-            <Button variant="contained" color="primary" fullWidth sx={{ marginTop: 3 }} endIcon={<ArrowForwardIos />}>
+            <ButtonLink
+                link="/nos-realisations"
+                variant="contained"
+                color="primary"
+                fullWidth
+                sx={{ marginTop: 3 }}
+                endIcon={<ArrowForwardIos />}
+            >
                 Voir toutes nos réalisations
-            </Button>
+            </ButtonLink>
         </Box>
     );
 }

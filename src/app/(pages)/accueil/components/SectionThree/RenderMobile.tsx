@@ -4,6 +4,7 @@ import Image from "next/image"
 import homme_s_interoge from '@/app/assets/homme_s_interoge.png';
 import Homme_svg from "./Homme_svg";
 import { ArrowForwardIos } from "@mui/icons-material";
+import ButtonLink from "@/app/components/ButtonLink";
 
 type Props = {}
 function RenderMobile({ }: Props) {
@@ -15,15 +16,23 @@ function RenderMobile({ }: Props) {
       alignItems: "center",
       py: 4,
       px: 2,
-      marginBottom: 8
+      marginBottom: { xs: 8, md: 16 },
+      maxWidth: 600,
+      mx: "auto"
     }}>
-      <SubtitleTitle href="/Pourquoi-nous-choisir" text="Découvrez nos services complets" sx={{ textAlign: "center" }} />
+      <SubtitleTitle href="/qui-sommes-nous" text="Découvrez nos services complets" sx={{ textAlign: "center" }} />
       <Typography gutterBottom variant="h3" sx={{ textAlign: "center", maxWidth: 350 }}>
         Prêt à transformer votre espace ?
       </Typography>
-      <Button variant="outlined" color="primary" fullWidth endIcon={<ArrowForwardIos />}>
+      <ButtonLink
+        link="/devis"
+        variant="outlined"
+        color="primary"
+        endIcon={<ArrowForwardIos />}
+        fullWidth
+      >
         Commencez maintenant
-      </Button>
+      </ButtonLink>
       <Box sx={{
         position: "absolute",
         bottom: { xs: 150, sm: 75 },

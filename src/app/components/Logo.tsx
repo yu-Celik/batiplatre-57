@@ -11,7 +11,7 @@ const Logo: React.FC<LogoProps> = ({ id, displayText = true, ...props }: LogoPro
         <Link
             aria-controls="header"
             aria-label="Logo Bati Plâtre 57"
-            href="/accueil"
+            href="/"
             className='flex items-center relative gap-2 sm:justify-center md:justify-start'
             style={{
                 width: 'auto',

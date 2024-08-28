@@ -6,6 +6,7 @@ import Link from "next/link";
 import CircleSvg from "./CircleSvg";
 import { Box } from "@mui/material";
 import { ArrowForwardIos } from "@mui/icons-material";
+import ButtonLink from "@/app/components/ButtonLink";
 
 type ServiceCardProps = {
     title: string;
@@ -23,7 +24,7 @@ const OPTIONS: EmblaOptionsType = {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, subtitle, description, imageUrl, buttonText, href }) => {
     return (
-        <Paper component="article" sx={{ paddingY: 4, paddingX: 2, marginBottom: 4, position: 'relative' }}>
+        <Paper component="article" sx={{ paddingY: 4, paddingX: 2, marginBottom: 4, position: 'relative', width: { xs: '100%', md: '45%' } }}>
             <Typography variant="h3" gutterBottom>{title}</Typography>
             <Typography variant="body1" gutterBottom>
                 Nous proposons :
@@ -47,9 +48,16 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, subtitle, description,
                 <CircleSvg />
             </Box>
             <EmblaCarousel images={imageUrl.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
-            <Button variant="outlined" color="primary" endIcon={<ArrowForwardIos />} fullWidth sx={{ marginTop: '1rem' }}>
+            <ButtonLink
+                link={href}
+                variant="outlined"
+                color="primary"
+                endIcon={<ArrowForwardIos />}
+                fullWidth
+                sx={{ marginTop: '1rem' }}
+            >
                 {buttonText}
-            </Button>
+            </ButtonLink>
         </Paper>
     );
 };

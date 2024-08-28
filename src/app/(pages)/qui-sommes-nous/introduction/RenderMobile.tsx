@@ -8,26 +8,30 @@ const IntroductionPage = () => {
     return (
         <>
             <Box component="section">
-                <Typography variant="h1" gutterBottom textAlign="center">
+                <Typography variant="h1" gutterBottom sx={{ textAlign: { xs: 'center' }, mt: { md: 8 } }}>
                     Qui sommes-nous
                 </Typography>
-                <Box my={4}>
-                    <SubtitleTitle href="#" text="Bienvenue chez batiplatre57" sx={{ textAlign: 'center' }} />
-                    <Typography variant="h2" sx={{ textAlign: 'center', mb: 4 }}>
-                        Introduction
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                        Artisan du bâtiment avec plus de 15 ans d’expérience, je vous propose une large gamme de services pour transformer et embellir votre espace.
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                        Découvrez notre savoir-faire et notre passion pour la rénovation et l’aménagement.
-                    </Typography>
+                <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', my: { xs: 0, md: 16 }, gap: { xs: 0, md: 4 } }}>
+                    <Box>
+                        <SubtitleTitle href="#" text="Bienvenue chez batiplatre57" sx={{ textAlign: { xs: 'center', md: 'left' } }} />
+                        <Typography variant="h2" sx={{ textAlign: { xs: 'center', md: 'left' }, mb: { xs: 2, md: 4 } }}>
+                            Introduction
+                        </Typography>
+                        <Typography variant="body1" gutterBottom>
+                            Artisan du bâtiment avec plus de 15 ans d’expérience, je vous propose une large gamme de services pour transformer et embellir votre espace.
+                        </Typography>
+                        <Typography variant="body1" gutterBottom>
+                            Découvrez notre savoir-faire et notre passion pour la rénovation et l’aménagement.
+                        </Typography>
+                    </Box>
+                    <Box sx={{ width: { xs: '100%', md: '90%' } }}>
+                        <Image
+                            src={salleDeBain}
+                            alt="Rénovation"
+                            style={{ width: '100%', height: 'auto', borderRadius: 'var(--mui-shape-borderRadius)', boxShadow: 'var(--mui-shadows-3)', marginTop: '1rem' }}
+                        />
+                    </Box>
                 </Box>
-                <Image
-                    src={salleDeBain}
-                    alt="Rénovation"
-                    style={{ width: '100%', height: 'auto', borderRadius: 'var(--mui-shape-borderRadius)', boxShadow: 'var(--mui-shadows-3)', marginTop: '1rem' }}
-                />
             </Box>
         </>
     );
