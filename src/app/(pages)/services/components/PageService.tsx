@@ -37,7 +37,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ titleH1, titleH2, subTitle, d
                         {line}
                     </Typography>
                 ))}
-                <ButtonLink endIcon={<ArrowForwardIos />} link={href ?? ""} variant="contained" color="primary" sx={{ marginTop: 2, mb: { xs: 8, md: 16 }, width: { xs: '100%', md: '60%' } }} >
+                <ButtonLink endIcon={<ArrowForwardIos />} link={href ?? ""} variant="contained" color="primary" sx={{ marginTop: 2, mb: { xs: 8, md: 16 }, width: { xs: '100%', md: '45%' } }} >
                     {buttonText}
                 </ButtonLink>
                 <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} justifyContent="space-between" flexWrap="wrap" gap={{ xs: 4, md: 0 }} alignItems="stretch">

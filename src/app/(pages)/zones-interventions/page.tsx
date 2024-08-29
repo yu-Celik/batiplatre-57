@@ -75,8 +75,7 @@ const ZoneInterventionPage = () => {
                 link="/contact"
                 variant="contained"
                 color="primary"
-                fullWidth
-                sx={{ mt: 1 }}
+                sx={{ mt: 3, width: { xs: '100%', md: '45%' } }}
             >
                 Contactez-nous pour votre projet
             </ButtonLink>

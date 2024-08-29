@@ -67,8 +67,9 @@ export default function CardAccordionService({ card }: { card: ServiceCard }) {
                         onClick={handleExpandClick}
                         aria-expanded={expanded}
                         aria-label={expanded ? "réduire" : "voir plus"}
+                        color="primary"
                     >
-                        <ExpandMoreIcon />
+                        <ExpandMoreIcon fontSize="large" />
                     </ExpandMore>
                 </CardActions>
             </Box>
