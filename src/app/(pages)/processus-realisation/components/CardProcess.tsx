@@ -53,7 +53,7 @@ export default function CardProcess({ title, subTitle, description, chips, icon 
                         elevation={3}
                         aria-hidden="true"
                     >
-                        {IconComponent && <IconComponent sx={{ fontSize: '2rem', color: 'primary.main' }} />}
+                        {IconComponent && <IconComponent sx={{ fontSize: '2rem', color: 'secondary.main' }} />}
                     </Paper>
                 </Box>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>

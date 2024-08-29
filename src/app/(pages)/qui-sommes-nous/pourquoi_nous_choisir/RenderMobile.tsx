@@ -68,7 +68,7 @@ function RenderMobile({ }: Props) {
                     link="/devis"
                     variant="contained"
                     color="primary"
-                    sx={{ marginTop: 3, width: { xs: '100%', md: '60%' } }}
+                    sx={{ marginTop: 3, width: { xs: '100%', md: '45%' } }}
                     aria-label="Demander un devis"
                     endIcon={<ArrowForwardIos />}
                 >

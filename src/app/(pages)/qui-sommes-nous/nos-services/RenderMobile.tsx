@@ -17,7 +17,7 @@ function RenderMobile({ }: Props) {
                     link="/nos-services"
                     variant="contained"
                     color="primary"
-                    sx={{ mt: 3, width: { xs: '100%', md: 'auto' } }}
+                    sx={{ mt: 3, width: { xs: '100%', md: '45%' } }}
                     endIcon={<ArrowForwardIos />}
                 >
                     Découvrez nos services complets
