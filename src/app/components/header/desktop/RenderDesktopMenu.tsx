@@ -1,7 +1,9 @@
+'use client'
+
 import { Box, Button, Menu, MenuItem, Divider, Grid, Typography } from "@mui/material";
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { servicesData } from '@/app/data/servicesData';
 import villa from '/public/villa.png';
@@ -28,6 +30,7 @@ const menuItems = [
 
 function RenderDesktopMenu() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [isSubMenuHovered, setIsSubMenuHovered] = useState<string | null>(null);
     const pathname = usePathname();
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -38,17 +41,36 @@ function RenderDesktopMenu() {
         setAnchorEl(null);
     };
 
+    const handleMouseEnter = (id: string) => {
+        setIsSubMenuHovered(id);
+    };
+
+    const handleMouseLeave = () => {
+        setIsSubMenuHovered(null);
+    };
+
+    useEffect(() => {
+        console.log(isSubMenuHovered);
+    }, [isSubMenuHovered]);
+
 
 
     return (
         <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
             {menuItems.map((item) => (
-                <Box key={item.text}>
+                <Box key={item.text} gap={2}>
                     {item.subItems ? (
                         <>
                             <Button
                                 onClick={handleClick}
-                                sx={{ color: 'text.primary' }}
+                                variant="text"
+                                sx={{
+                                    color: pathname === item.link ? 'primary.main' : 'text.primary',
+                                    '&:hover': {
+                                        color: 'primary.main',
+                                    },
+                                    px: 1.5
+                                }}
                                 {...(anchorEl && {
                                     'aria-controls': 'simple-menu',
                                     'aria-haspopup': 'true',
@@ -70,6 +92,11 @@ function RenderDesktopMenu() {
                                         width: '80vw',
                                     },
                                 }}
+                                sx={{
+                                    '& .MuiList-root': {
+                                        pb: 0,
+                                    },
+                                }}
                             >
                                 <Grid container spacing={2} sx={{ p: 2 }}>
                                     {item.subItems.map((subItem, index) => (
@@ -78,13 +105,16 @@ function RenderDesktopMenu() {
                                                 onClick={handleClose}
                                                 component={Link}
                                                 href={subItem.link}
-                                                sx={{ 
-                                                    display: 'flex', 
-                                                    flexDirection: 'column', 
+                                                onMouseEnter={() => handleMouseEnter(subItem.id)}
+                                                onMouseLeave={handleMouseLeave}
+                                                sx={{
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
                                                     alignItems: 'center',
                                                     textAlign: 'center',
-                                                    p: 2, 
-                                                    flexGrow: 1
+                                                    p: 2,
+                                                    flexGrow: 1,
+                                                    borderRadius: 'var(--mui-shape-borderRadius)',
                                                 }}
                                             >
                                                 <Image
@@ -93,8 +123,13 @@ function RenderDesktopMenu() {
                                                     width={150}
                                                     height={100}
                                                     objectFit="cover"
+                                                    style={{ borderRadius: 'var(--mui-shape-borderRadius)' }}
                                                 />
-                                                <Typography variant="body1" variantMapping={{ body1: 'h6' }} sx={{ mt: 1 }}>
+                                                <Typography variant="body1" variantMapping={{ body1: 'h6' }} sx={{
+                                                    mt: 1,
+                                                    color: pathname === subItem.link || isSubMenuHovered === subItem.id ? 'primary.main' : 'text.primary',
+                                                    transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+                                                }}>
                                                     {subItem.text}
                                                 </Typography>
                                             </MenuItem>
@@ -109,7 +144,14 @@ function RenderDesktopMenu() {
                                     onClick={handleClose}
                                     component={Link}
                                     href="/nos-services"
-                                    sx={{ justifyContent: 'center', p: 2 }}
+                                    sx={{
+                                        justifyContent: 'center',
+                                        p: 2,
+                                        transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+                                        '&:hover': {
+                                            color: 'primary.main',
+                                        },
+                                    }}
                                 >
                                     Toutes nos prestations
                                 </MenuItem>
@@ -119,8 +161,10 @@ function RenderDesktopMenu() {
                         <Button
                             component={Link}
                             href={item.link}
+                            variant="text"
                             sx={{
                                 color: pathname === item.link ? 'primary.main' : 'text.primary',
+                                px: 1.5,
                                 '&:hover': {
                                     color: 'primary.main',
                                 },

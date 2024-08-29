@@ -25,7 +25,7 @@ function RenderMobile({ }: Props) {
         Prêt à transformer votre espace ?
       </Typography>
       <ButtonLink
-        link="/devis"
+        link="/contact"
         variant="outlined"
         color="primary"
         endIcon={<ArrowForwardIos />}

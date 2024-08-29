@@ -1,7 +1,6 @@
 "use client"
 
-import { Box, Typography, Grid, Card, CardContent, CardMedia, CardActionArea } from "@mui/material";
-import { useState } from "react";
+import { Box, Typography, Grid, Card, CardContent, CardActionArea } from "@mui/material";
 import Link from "next/link";
 import SubtitleTitle from "@/app/components/SubtitleTitle";
 import EmblaCarouselWithTabs from "@/app/components/Slider/EmblaCarouselWithTabs";
@@ -26,7 +25,6 @@ const metiers: MetierType[] = [
 ];
 
 function RenderDesktop() {
-    const [hoveredCard, setHoveredCard] = useState<number | null>(null);
     const router = useRouter();
     return (
         <Box component="section" sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', alignItems: 'center' }}>
@@ -41,32 +39,23 @@ function RenderDesktop() {
 
             <Grid container spacing={4} justifyContent="center" mb={8}>
                 {metiers.map((metier) => (
-                    <Grid item md={4} key={metier.id} onClick={() => router.push(metier.link)} style={{ cursor: 'pointer' }}>
-                        <Card
-                            sx={{
-                                height: '100%',
-                                transition: 'all 0.3s ease',
-                                transform: hoveredCard === metier.id ? 'scale(1.01)' : 'scale(1)',
-                                boxShadow: hoveredCard === metier.id ? 'var(--mui-shadows-8)' : 'var(--mui-shadows-3)',
-                                backgroundColor: hoveredCard === metier.id ? 'var(--mui-palette-background-default)' : 'var(--mui-palette-background-paper)',
-                            }}
-                            onMouseEnter={() => setHoveredCard(metier.id)}
-                            onMouseLeave={() => setHoveredCard(null)}
-                        >
-                            <CardContent sx={{  }}>
-                                <Typography gutterBottom variant="h5" component="div">
-                                    {metier.title}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary" sx={{ mr: '56px' }}>
-                                    {metier.description}
-                                </Typography>
-                            </CardContent>
-                            <CardActions sx={{ justifyContent: 'flex-end', position: 'absolute', bottom: 0, right: 0 }}>
-                                <IconButton component={Link} href={metier.link} sx={{ color: 'var(--mui-palette-primary-main)' }}>
-                                    <ArrowOutward />
-                                </IconButton>
-                            </CardActions>
-
+                    <Grid item md={4} key={metier.id}>
+                        <Card>
+                            <CardActionArea onClick={() => router.push(metier.link)}>
+                                <CardContent sx={{}}>
+                                    <Typography gutterBottom variant="h5" component="div">
+                                        {metier.title}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary" sx={{ mr: '56px' }}>
+                                        {metier.description}
+                                    </Typography>
+                                </CardContent>
+                                <CardActions sx={{ justifyContent: 'flex-end', position: 'absolute', bottom: 0, right: 0 }}>
+                                    <IconButton component={Link} href={metier.link} sx={{ color: 'var(--mui-palette-primary-main)' }}>
+                                        <ArrowOutward />
+                                    </IconButton>
+                                </CardActions>
+                            </CardActionArea>
                         </Card>
                     </Grid>
                 ))}
