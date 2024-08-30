@@ -29,29 +29,32 @@ function validateEmail(body: MailType) {
 
 export async function POST(req: NextRequest) {
     console.log("POST /mails");
-    const mailId = new ObjectId();
     try {
+        const body = await req.json();  // Lire le corps de la requête une seule fois
+        console.log("req.json()", body);
         console.log('je suis la 1');
-        console.log("req.json()", await req.json());
-        const body = await req.json();
-        console.log('je suis la 2');
+
         const error = validateEmail(body);
         if (error) {
             return NextResponse.json({ message: error }, { status: 400 });
         }
-        console.log('je suis la 3');
+        console.log('je suis la 2');
+
         const db = await connectDB();
-        console.log('je suis la 4');
+        console.log('je suis la 3');
+
         const mail = new Mail({
             ...body,
-            _id: mailId,
+            _id: new ObjectId(),
             nodemailerStatus: body.nodemailerStatus || 'sent',
             createdAt: new Date()
         });
-        console.log('je suis la 5');
+        console.log('je suis la 4');
         console.log("mail avant insertion:", mail.toObject());
+
         await db.collection("mails").insertOne(mail);
-        console.log('je suis la 6');
+        console.log('je suis la 5');
+
         // Asynchronous email sending
         sendMailAsync(mail, transporter);
 
