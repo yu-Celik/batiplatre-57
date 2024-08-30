@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const MONGODB_URI = process.env.MONGODB_URI;
 
 const connectDB = async (): Promise<mongoose.Connection> => {
+    console.log('Connecting to MongoDB...');
     const connectionState = mongoose.connection.readyState;
 
     if (connectionState === 1) {
@@ -19,6 +20,7 @@ const connectDB = async (): Promise<mongoose.Connection> => {
     }
 
     try {
+        console.log('Connecting to MongoDB 2...');
         await mongoose.connect(MONGODB_URI!, {
             dbName: 'batiplatre57',
             bufferCommands: false,
