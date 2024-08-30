@@ -26,7 +26,7 @@ const DevisPage = () => {
                         Notre équipe d&apos;experts en rénovation est à votre écoute pour transformer vos idées en réalité. Que ce soit pour des travaux de plâtrerie, d&apos;isolation, de peinture, ou une rénovation complète, nous sommes votre partenaire de confiance.
                     </Typography>
                     <Box sx={{ width: '100%', minHeight: { md: 'auto', lg: '450px' } }}>
-                        <Image src={villa} alt="Contact"  style={{ width: '100%', height: '100%', borderRadius: 'var(--mui-shape-borderRadius)' }} />
+                        <Image src={villa} alt="Contact" width={540} height={360} style={{ width: '100%', height: '100%', borderRadius: 'var(--mui-shape-borderRadius)' }} />
                     </Box>
                 </Box>
                 <Box sx={{ flex: 1 }}>

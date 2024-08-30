@@ -49,12 +49,6 @@ function RenderDesktopMenu() {
         setIsSubMenuHovered(null);
     };
 
-    useEffect(() => {
-        console.log(isSubMenuHovered);
-    }, [isSubMenuHovered]);
-
-
-
     return (
         <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
             {menuItems.map((item) => (

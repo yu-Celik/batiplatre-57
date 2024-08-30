@@ -18,7 +18,6 @@ const useSendMail = () => {
             return response.data;
         } catch (err: any) {
             setLoading(false);
-            console.log(err.response?.data);
             setError(err.response?.data?.message || 'Une erreur est survenue');
             throw err;
         }

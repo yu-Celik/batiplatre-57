@@ -23,6 +23,9 @@ function RenderMobile({ }: Props) {
                     <Image
                         src={maison}
                         alt="maison"
+                        width={540}
+                        height={360}
+                        priority
                         style={{ width: '100%', height: 'auto', borderRadius: 'var(--mui-shape-borderRadius)', boxShadow: 'var(--mui-shadows-3)', marginTop: '1rem' }}
                     />
                 </Box>
