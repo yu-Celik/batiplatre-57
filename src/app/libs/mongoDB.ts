@@ -13,16 +13,18 @@ let isConnected = false;
 
 export async function connectDB() {
     if (!isConnected) {
-        await client.connect();
-        isConnected = true;
-        console.log("Connected to MongoDB");
         try {
+            await client.connect();
+            isConnected = true;
+            console.log("Connected to MongoDB");
+
             const db = client.db("batiplatre57");
             await db.command({ ping: 1 });
             console.log("Pinged your deployment. You successfully connected to MongoDB!");
             return db;
         } catch (error) {
-            console.error("Error pinging MongoDB:", error);
+            console.error("Error connecting or pinging MongoDB:", error);
+            throw error;  // Propagate the error
         }
     }
     return client.db("batiplatre57");
