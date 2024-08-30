@@ -24,6 +24,7 @@
     "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.33.5",
     "swiper": "^11.1.9",
     "validator": "^13.12.0"
   },
