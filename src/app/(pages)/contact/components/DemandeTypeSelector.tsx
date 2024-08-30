@@ -46,11 +46,7 @@ const DemandeTypeSelector: React.FC<DemandeTypeSelectorProps> = ({ value, messag
                 required
                 value={message}
                 onChange={handleMessageChange}
-<<<<<<< HEAD
                 fullWidth
-=======
-                sx={{ width: { xs: '100%', md: '91.5%' } }}
->>>>>>> 3adef34323fe2165d6f42b60d45242bc050e72f1
             />
         </>
     );
