@@ -40,10 +40,6 @@ export default function CardAccordionService({ card }: { card: ServiceCard }) {
         setExpanded(!expanded);
     };
 
-    useEffect(() => {
-        console.log(card.id);
-        console.log(expanded);
-    }, [card.id, expanded]);
     return (
         <Card component="article" sx={{ mb: 4 }}>
             <Image

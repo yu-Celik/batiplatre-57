@@ -10,7 +10,6 @@ type ServicePageProps = {
 
 const ServicePage: React.FC<ServicePageProps> = ({ params }) => {
     const service = servicesData.find(service => service.id === params?.id);
-    console.log(service)
     return (
         <>
             <PageService

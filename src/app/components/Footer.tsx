@@ -32,7 +32,6 @@ const Footer: React.FC = () => {
                         <Typography variant="h6" color="white" gutterBottom>
                             Contact
                         </Typography>
-                        <Typography variant="body2" sx={{ paddingX: 1 }}>Tel : +33 (0)6 77 95 15 23</Typography>
                         <Typography variant="body2" sx={{ paddingX: 1 }}>Email : batiplatre57@hotmail.com</Typography>
                         <Typography variant="body2" sx={{ paddingX: 1 }}>Adresse : 3 rue Louis Hestaux 57070 Metz</Typography>
                     </Grid>

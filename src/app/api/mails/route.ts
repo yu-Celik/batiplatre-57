@@ -3,6 +3,7 @@ import Mail, { MailType } from "@/app/libs/models/model_mail";
 import { connectDB } from "@/app/libs/mongoDB";
 import validator from "validator";
 import transporter from "@/app/libs/mailer";
+import { ObjectId } from "mongodb";
 
 function validateEmail(body: MailType) {
     if (!validator.isLength(body.fullName, { min: 3, max: 50 })) {
@@ -27,12 +28,12 @@ function validateEmail(body: MailType) {
 }
 
 export async function POST(req: NextRequest) {
-    let body: MailType | null = null;
+    const mailId = new ObjectId();
     try {
         console.log("POST /mails");
-        body = await req.json();
+        const body = await req.json();
 
-        const error = validateEmail(body as MailType);
+        const error = validateEmail(body);
         if (error) {
             return NextResponse.json({ message: error }, { status: 400 });
         }
@@ -40,60 +41,66 @@ export async function POST(req: NextRequest) {
         const db = await connectDB();
         const mail = new Mail({
             ...body,
-            nodemailerStatus: 'pending'
+            _id: mailId,
+            nodemailerStatus: body.nodemailerStatus || 'sent',
+            createdAt: new Date()
         });
 
-        // Insertion dans la base de données
-        const dbPromise = db.collection("mails").insertOne(mail);
+        console.log("mail avant insertion:", mail.toObject());
+        await db.collection("mails").insertOne(mail);
 
-        // Envoi de l'e-mail
-        const mailPromise = transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
-            subject: `Nouveau message de ${body?.fullName} avec le sujet ${body?.subject}`,
-            text: `
-                Email: ${body?.email}
-                Téléphone: ${body?.phone}
-                Adresse: ${body?.address}
-                Message: ${body?.message}
-            `,
-        });
-
-        // Exécution des promesses en parallèle
-        const [dbResponse, mailResponse] = await Promise.all([dbPromise, mailPromise]);
-
-        // Mise à jour du statut de l'e-mail à 'sent'
-        await db.collection("mails").updateOne(
-            { _id: dbResponse.insertedId },
-            { $set: { nodemailerStatus: 'sent' } }
-        );
+        // Asynchronous email sending
+        sendMailAsync(mail, transporter);
 
         return NextResponse.json({ message: "Message envoyé avec succès !" });
     } catch (error: any) {
-        console.error("Erreur détaillée:", error);
+        console.error("Erreur lors de l'insertion dans la base de données:", error);
+        return NextResponse.json({ message: "Erreur lors de l'envoi du message." }, { status: 500 });
+    }
+}
 
-        // Si l'insertion dans la base de données a réussi mais l'envoi de l'e-mail a échoué
-        if (error.code !== 11000 && body) { // Vérification que body est défini
-            try {
-                const db = await connectDB();
-                await db.collection("mails").updateOne(
-                    { email: body.email, createdAt: { $gte: new Date(Date.now() - 60000) } }, // Recherche les entrées créées dans la dernière minute
-                    {
-                        $set: {
-                            nodemailerStatus: 'error',
-                            errorDetails: {
-                                message: error.message || "Erreur inconnue",
-                                code: error.code || "CODE_INCONNU",
-                            }
+function sendMailAsync(mail: MailType, transporter: any) {
+    setTimeout(async () => {
+        try {
+            await transporter.sendMail({
+                from: process.env.EMAIL_USER,
+                to: process.env.EMAIL_USER,
+                subject: `Nouveau message de ${mail.fullName} avec le sujet ${mail.subject}`,
+                text: `
+                    Email: ${mail.email}
+                    Téléphone: ${mail.phone}
+                    Adresse: ${mail.address}
+                    Message: ${mail.message}
+                    Date: ${new Date().toLocaleString()}
+                `,
+            });
+            console.log("Email envoyé avec succès !");
+        } catch (error) {
+            console.error("Erreur lors de l'envoi de l'email:", error);
+            handleErrorAsync(mail._id as ObjectId, error);
+        }
+    }, 0);
+}
+
+function handleErrorAsync(mailId: ObjectId, error: any) {
+    setTimeout(async () => {
+        try {
+            const db = await connectDB();
+            await db.collection("mails").updateOne(
+                { _id: mailId },
+                {
+                    $set: {
+                        nodemailerStatus: 'error',
+                        errorDetails: {
+                            message: error.message || "Erreur inconnue",
+                            code: error.code || "CODE_INCONNU",
                         }
                     }
-                );
-            } catch (dbError) {
-                console.error("Erreur lors de la mise à jour du statut dans la base de données:", dbError);
-            }
+                }
+            );
+            console.log(`Erreur d'email gérée pour l'ID : ${mailId}`);
+        } catch (dbError) {
+            console.error("Erreur lors de la mise à jour du statut de l'email dans la base de données:", dbError);
         }
-
-        // Toujours renvoyer un message de succès au front-end
-        return NextResponse.json({ message: "Message envoyé avec succès !" });
-    }
+    }, 0);
 }
