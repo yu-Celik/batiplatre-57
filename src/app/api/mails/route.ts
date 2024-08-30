@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Mail, { MailType } from "@/app/libs/models/model_mail";
-import { connectDB } from "@/app/libs/mongoDB";
+import connectDB from "@/app/libs/mongoDB";
 import validator from "validator";
 import transporter from "@/app/libs/mailer";
 import { ObjectId } from "mongodb";
@@ -30,7 +30,7 @@ function validateEmail(body: MailType) {
 export async function POST(req: NextRequest) {
     console.log("POST /mails");
     try {
-        const body = await req.json();  // Lire le corps de la requête une seule fois
+        const body = await req.json();
         console.log("req.json()", body);
         console.log('je suis la 1');
 
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
         }
         console.log('je suis la 2');
 
-        const db = await connectDB();
+        const db = await connectDB();  // Utiliser l'instance de la connexion
         console.log('je suis la 3');
 
         const mail = new Mail({
@@ -55,7 +55,6 @@ export async function POST(req: NextRequest) {
         await db.collection("mails").insertOne(mail);
         console.log('je suis la 5');
 
-        // Asynchronous email sending
         sendMailAsync(mail, transporter);
 
         return NextResponse.json({ message: "Message envoyé avec succès !" });
