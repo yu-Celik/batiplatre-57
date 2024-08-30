@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Mail, { MailType } from "@/app/libs/models/model_mail";
-import connectDB from "@/app/libs/mongoDB";
+import { connectDB } from "@/app/libs/mongoDB";
 import validator from "validator";
 import transporter from "@/app/libs/mailer";
 import { ObjectId } from "mongodb";
@@ -28,33 +28,28 @@ function validateEmail(body: MailType) {
 }
 
 export async function POST(req: NextRequest) {
-    console.log("POST /mails");
+    const mailId = new ObjectId();
     try {
+        console.log("POST /mails");
         const body = await req.json();
-        console.log("req.json()", body);
-        console.log('je suis la 1');
 
         const error = validateEmail(body);
         if (error) {
             return NextResponse.json({ message: error }, { status: 400 });
         }
-        console.log('je suis la 2');
 
-        const db = await connectDB();  // Utiliser l'instance de la connexion
-        console.log('je suis la 3');
-
+        const db = await connectDB();
         const mail = new Mail({
             ...body,
-            _id: new ObjectId(),
+            _id: mailId,
             nodemailerStatus: body.nodemailerStatus || 'sent',
             createdAt: new Date()
         });
-        console.log('je suis la 4');
+
         console.log("mail avant insertion:", mail.toObject());
-
         await db.collection("mails").insertOne(mail);
-        console.log('je suis la 5');
 
+        // Asynchronous email sending
         sendMailAsync(mail, transporter);
 
         return NextResponse.json({ message: "Message envoyé avec succès !" });

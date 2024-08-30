@@ -1,35 +1,29 @@
-import mongoose from 'mongoose';
+import { MongoClient, ServerApiVersion } from 'mongodb';
+const uri = process.env.MONGODB_URI as string;
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const client = new MongoClient(uri, {
+    serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+    }
+});
 
-const connectDB = async (): Promise<mongoose.Connection> => {
-    console.log('Checking MongoDB connection state...');
-    const connectionState = mongoose.connection.readyState;
+let isConnected = false;
 
-    if (connectionState === 1) {
-        console.log('Already connected to MongoDB');
-        return mongoose.connection;
-    } else if (connectionState === 2) {
-        console.log('Connection to MongoDB is currently being established...');
-        return new Promise((resolve, reject) => {
-            mongoose.connection.once('open', resolve);
-            mongoose.connection.once('error', reject);
-        });
-    } else {
-        console.log('Connecting to MongoDB...');
-        console.log(MONGODB_URI);
+export async function connectDB() {
+    if (!isConnected) {
+        await client.connect();
+        isConnected = true;
+        console.log("Connected to MongoDB");
         try {
-            await mongoose.connect(MONGODB_URI!, {
-                dbName: 'batiplatre57',
-                bufferCommands: false,
-            });
-            console.log('Connected to MongoDB');
-            return mongoose.connection;
+            const db = client.db("batiplatre57");
+            await db.command({ ping: 1 });
+            console.log("Pinged your deployment. You successfully connected to MongoDB!");
+            return db;
         } catch (error) {
-            console.error('Failed to connect to MongoDB:', error);
-            throw new Error('Failed to connect to MongoDB');
+            console.error("Error pinging MongoDB:", error);
         }
     }
-};
-
-export default connectDB;
+    return client.db("batiplatre57");
+}
