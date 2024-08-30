@@ -33,6 +33,7 @@ const DevisForm = () => {
 
     return (
         <Box component="form" noValidate autoComplete="off" onSubmit={handleSubmit}>
+<<<<<<< HEAD
             <TextField fullWidth name="fullName" label="Nom complet" variant="outlined" margin="normal" placeholder="Jean Dupont" required value={formData.fullName} onChange={handleChange} />
             <TextField fullWidth name="email" label="Email" type="email" variant="outlined" margin="normal" placeholder="jean.dupont@gmail.com" required value={formData.email} onChange={handleChange} />
             <TextField fullWidth name="phone" label="Numéro de téléphone" type="tel" variant="outlined" margin="normal" placeholder="06 12 34 56 78" required value={formData.phone} onChange={handleChange} />
@@ -40,6 +41,15 @@ const DevisForm = () => {
             <DevisFormInteractive value={formData.subject} message={formData.message} onChange={(subject, message) => setFormData({ ...formData, subject, message })} />
 
             <Button fullWidth variant="contained" color="primary" sx={{ my: 2 }} type="submit" disabled={loading}>
+=======
+            <TextField sx={{ width: { xs: '100%', md: '45%' }, mr: { md: 2 } }} name="fullName" label="Nom complet" variant="outlined" margin="normal" placeholder="Jean Dupont" required value={formData.fullName} onChange={handleChange} />
+            <TextField sx={{ width: { xs: '100%', md: '45%' }, mr: { md: 2 } }} name="email" label="Email" type="email" variant="outlined" margin="normal" placeholder="jean.dupont@gmail.com" required value={formData.email} onChange={handleChange} />
+            <TextField sx={{ width: { xs: '100%', md: '45%' }, mr: { md: 2 } }} name="phone" label="Numéro de téléphone" type="tel" variant="outlined" margin="normal" placeholder="06 12 34 56 78" required value={formData.phone} onChange={handleChange} />
+            <TextField sx={{ width: { xs: '100%', md: '45%' }, mr: { md: 2 } }} name="address" label="Adresse" type="address" variant="outlined" margin="normal" placeholder="123 Rue de la Paix, 75000 Paris, France" required value={formData.address} onChange={handleChange} />
+            <DevisFormInteractive value={formData.subject} message={formData.message} onChange={(subject, message) => setFormData({ ...formData, subject, message })} />
+
+            <Button variant="contained" color="primary" sx={{ my: 2, width: { xs: '100%', md: '45%' } }} type="submit" disabled={loading}>
+>>>>>>> 3adef34323fe2165d6f42b60d45242bc050e72f1
                 {loading ? 'Envoi en cours...' : 'Envoyer'}
             </Button>
 

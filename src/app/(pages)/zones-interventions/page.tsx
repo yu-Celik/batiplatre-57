@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 import { Box, Typography, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import LocationOnOutlined from '@mui/icons-material/LocationOnOutlined';
 import GoogleMapComponent from '@/app/components/GoogleMap';
+=======
+import { Box, Typography, Paper, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ButtonLink from "@/app/components/ButtonLink";
+import GoogleMapComponent from '@/app/components/GoogleMap';
+import VerifiedOutlined from '@mui/icons-material/VerifiedOutlined';
+>>>>>>> 3adef34323fe2165d6f42b60d45242bc050e72f1
 import ContactSection from "@/app/components/ContactSection/RenderMobile"
 
 const ZoneInterventionPage = () => {
@@ -9,6 +17,7 @@ const ZoneInterventionPage = () => {
             <Typography variant="h1" sx={{ textAlign: { xs: 'center' }, mt: { md: 8 }, mb: { xs: 8, md: 16 } }}>
                 Zones d&apos;Intervention de Bâti Plâtre 57
             </Typography>
+<<<<<<< HEAD
             <Typography variant="h2" sx={{ mb: 4 }}>
                 Votre expert en rénovation à Metz et ses environs
             </Typography>
@@ -17,6 +26,46 @@ const ZoneInterventionPage = () => {
             </Typography>
             <List sx={{
                 mb: 4,
+=======
+
+            <Paper elevation={3} sx={{ p: 3, mb: { xs: 8, md: 16 } }}>
+                <Typography variant="h6" fontWeight="400" sx={{ mb: 2 }}>
+                    Votre expert en rénovation à Metz et ses environs
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                    Bâti Plâtre 57 intervient dans toute la région de Metz et ses alentours. Notre équipe de professionnels est mobile et prête à se déplacer pour réaliser vos projets de rénovation, que vous soyez en ville ou dans les communes environnantes. Découvrez nos principales zones d&apos;intervention :
+                </Typography>
+                <List sx={{
+                    '& .MuiListItem-root': {
+                        paddingX: 0
+                    },
+                    '& .MuiListItemIcon-root': {
+                        minWidth: 32
+                    },
+                }}>
+                    {[
+                        "Metz et son agglomération",
+                        "Thionville et ses environs",
+                        "Nancy et sa périphérie",
+                        "Tout le département de la Moselle"
+                    ].map((item, index) => (
+                        <ListItem key={index} >
+                            <ListItemIcon>
+                                <LocationOnIcon color="primary" />
+                            </ListItemIcon>
+                            <ListItemText primary={item} />
+                        </ListItem>
+                    ))}
+                </List>
+            </Paper>
+
+            <GoogleMapComponent />
+
+            <Typography variant="h3" gutterBottom sx={{ mt: { xs: 8, md: 16 } }}>
+                Pourquoi choisir Bâti Plâtre 57 pour vos travaux ?
+            </Typography>
+            <List sx={{
+>>>>>>> 3adef34323fe2165d6f42b60d45242bc050e72f1
                 '& .MuiListItem-root': {
                     paddingX: 0
                 },
@@ -25,6 +74,7 @@ const ZoneInterventionPage = () => {
                 },
             }}>
                 {[
+<<<<<<< HEAD
                     "Metz et son agglomération",
                     "Thionville et ses environs",
                     "Nancy et sa périphérie",
@@ -33,14 +83,35 @@ const ZoneInterventionPage = () => {
                     <ListItem key={index} >
                         <ListItemIcon>
                             <LocationOnOutlined color="primary" />
+=======
+                    "Intervention rapide dans toute la région",
+                    "Équipe locale connaissant parfaitement le territoire",
+                    "Adaptabilité à tous types de chantiers",
+                    "Respect des spécificités architecturales locales"
+                ].map((item, index) => (
+                    <ListItem key={index}>
+                        <ListItemIcon>
+                            <VerifiedOutlined color="success" />
+>>>>>>> 3adef34323fe2165d6f42b60d45242bc050e72f1
                         </ListItemIcon>
                         <ListItemText primary={item} />
                     </ListItem>
                 ))}
             </List>
 
+<<<<<<< HEAD
             <GoogleMapComponent />
 
+=======
+            <ButtonLink
+                link="/contact"
+                variant="contained"
+                color="primary"
+                sx={{ mt: 3, width: { xs: '100%', md: '45%' } }}
+            >
+                Contactez-nous pour votre projet
+            </ButtonLink>
+>>>>>>> 3adef34323fe2165d6f42b60d45242bc050e72f1
             <ContactSection />
         </Box>
     );

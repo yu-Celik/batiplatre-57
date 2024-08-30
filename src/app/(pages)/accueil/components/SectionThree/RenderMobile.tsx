@@ -25,7 +25,11 @@ function RenderMobile({ }: Props) {
         Prêt à transformer votre espace ?
       </Typography>
       <ButtonLink
+<<<<<<< HEAD
         link="/contact"
+=======
+        link="/devis"
+>>>>>>> 3adef34323fe2165d6f42b60d45242bc050e72f1
         variant="outlined"
         color="primary"
         endIcon={<ArrowForwardIos />}
