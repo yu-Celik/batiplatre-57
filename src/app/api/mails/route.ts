@@ -28,9 +28,9 @@ function validateEmail(body: MailType) {
 }
 
 export async function POST(req: NextRequest) {
+    console.log("POST /mails");
     const mailId = new ObjectId();
     try {
-        console.log("POST /mails");
         const body = await req.json();
 
         const error = validateEmail(body);

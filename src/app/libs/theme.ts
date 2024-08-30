@@ -80,7 +80,7 @@ const theme = extendTheme({
                 },
                 divider: blue[200],
                 background: {
-                    default: '#E6EDF2',
+                    default: '#f2f2f2',
                     paper: '#F7F9FA',
                 },
                 text: {
