@@ -7,6 +7,12 @@ const mailSchema = new Schema({
     address: { type: String, required: true, minlength: 3, maxlength: 100 },
     subject: { type: String, required: true, minlength: 8, maxlength: 30 },
     message: { type: String, required: true, minlength: 3, maxlength: 1000 },
+    nodemailerStatus: { type: String, required: true, default: 'pending' },
+    errorDetails: {
+        message: String,
+        code: String,
+        stack: String
+    },
     createdAt: { type: Date, default: Date.now },
 });
 
@@ -21,5 +27,11 @@ export interface MailType {
     address: string;
     subject: string;
     message: string;
+    nodemailerStatus: 'pending' | 'sent' | 'error';
+    errorDetails?: {
+        message: string;
+        code: string;
+        stack?: string;
+    };
     createdAt?: Date;
 }

@@ -27,48 +27,73 @@ function validateEmail(body: MailType) {
 }
 
 export async function POST(req: NextRequest) {
+    let body: MailType | null = null;
     try {
         console.log("POST /mails");
-        const body = await req.json();
+        body = await req.json();
 
-        const error = validateEmail(body);
+        const error = validateEmail(body as MailType);
         if (error) {
             return NextResponse.json({ message: error }, { status: 400 });
         }
 
         const db = await connectDB();
+        const mail = new Mail({
+            ...body,
+            nodemailerStatus: 'pending'
+        });
 
-        const mail = new Mail(body);
-        await db.collection("mails").insertOne(mail);
+        // Insertion dans la base de données
+        const dbPromise = db.collection("mails").insertOne(mail);
 
-        console.log(body);
-        console.log(process.env.EMAIL_USER);
-        console.log(process.env.EMAIL_PASS);
-        
-        const mailOptions = {
+        // Envoi de l'e-mail
+        const mailPromise = transporter.sendMail({
             from: process.env.EMAIL_USER,
             to: process.env.EMAIL_USER,
-            subject: `Nouveau message de ${body.fullName} avec le sujet ${body.subject}`,
+            subject: `Nouveau message de ${body?.fullName} avec le sujet ${body?.subject}`,
             text: `
-                Email: ${body.email}
-                Téléphone: ${body.phone}
-                Adresse: ${body.address}
-                Message: ${body.message}
+                Email: ${body?.email}
+                Téléphone: ${body?.phone}
+                Adresse: ${body?.address}
+                Message: ${body?.message}
             `,
-        };
+        });
 
-        try {
-            await transporter.sendMail(mailOptions);
-            return NextResponse.json({ message: "Message envoyé avec succès !" });
-        } catch (error: any) {
-            console.error("Erreur détaillée:", error);
-            if (error.code === 'EAUTH') {
-                return NextResponse.json({ message: "Erreur d'authentification lors de l'envoi du mail. Vérifiez vos identifiants." }, { status: 500 });
+        // Exécution des promesses en parallèle
+        const [dbResponse, mailResponse] = await Promise.all([dbPromise, mailPromise]);
+
+        // Mise à jour du statut de l'e-mail à 'sent'
+        await db.collection("mails").updateOne(
+            { _id: dbResponse.insertedId },
+            { $set: { nodemailerStatus: 'sent' } }
+        );
+
+        return NextResponse.json({ message: "Message envoyé avec succès !" });
+    } catch (error: any) {
+        console.error("Erreur détaillée:", error);
+
+        // Si l'insertion dans la base de données a réussi mais l'envoi de l'e-mail a échoué
+        if (error.code !== 11000 && body) { // Vérification que body est défini
+            try {
+                const db = await connectDB();
+                await db.collection("mails").updateOne(
+                    { email: body.email, createdAt: { $gte: new Date(Date.now() - 60000) } }, // Recherche les entrées créées dans la dernière minute
+                    {
+                        $set: {
+                            nodemailerStatus: 'error',
+                            errorDetails: {
+                                message: error.message || "Erreur inconnue",
+                                code: error.code || "CODE_INCONNU",
+                            }
+                        }
+                    }
+                );
+            } catch (dbError) {
+                console.error("Erreur lors de la mise à jour du statut dans la base de données:", dbError);
             }
-            return NextResponse.json({ message: "Une erreur est survenue lors de l'envoi du mail" }, { status: 500 });
         }
-    } catch (error) {
-        console.error(error);
-        return NextResponse.json({ message: "Une erreur est survenue lors de l'envoi du mail" }, { status: 500 });
+
+        // Toujours renvoyer un message de succès au front-end
+        return NextResponse.json({ message: "Message envoyé avec succès !" });
     }
 }
