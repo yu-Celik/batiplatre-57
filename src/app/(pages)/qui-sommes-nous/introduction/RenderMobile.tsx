@@ -18,7 +18,7 @@ const IntroductionPage = () => {
                             Introduction
                         </Typography>
                         <Typography variant="body1" gutterBottom>
-                            Artisan du bâtiment avec plus de 15 ans d’expérience, je vous propose une large gamme de services pour transformer et embellir votre espace.
+                            Artisan du bâtiment avec plus de 17 ans d’expérience, je vous propose une large gamme de services pour transformer et embellir votre espace.
                         </Typography>
                         <Typography variant="body1" gutterBottom>
                             Découvrez notre savoir-faire et notre passion pour la rénovation et l’aménagement.

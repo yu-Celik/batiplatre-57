@@ -24,12 +24,12 @@ const PartenaireDeConfiance = ({ sx }: { sx?: SxProps }) => {
             <Stack spacing={{ xs: 2, md: 0 }} gap={{ xs: 0, md: 2 }} flexDirection={{ xs: "column", md: "row" }} alignItems={{ xs: "center", md: "flex-start" }}>
                 {[
                     {
-                        icon: <BuildIcon color="warning" />, title: "Expertise Polyvalente", description: "Une maîtrise complète de tous les métiers de la rénovation : agencement, isolation, carrelage, et plus encore.", svg: <svg width="358" height="14" viewBox="0 0 358 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        icon: <BuildIcon color="warning" />, title: "Expertise Polyvalente", description: "Une maîtrise complète de tous les métiers de la rénovation : Façade, plâtrerie, agencement, isolation, plomberie, carrelage, et plus encore.", svg: <svg width="358" height="14" viewBox="0 0 358 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M-60 27C9.63066 7.37979 202.914 -20.0885 419 27" stroke="var(--mui-palette-warning-main)" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" />
                         </svg>
                     },
                     {
-                        icon: <CheckCircleIcon color="success" />, title: "Qualité Certifiée", description: "Intervention conforme aux normes RGE, garantissant des travaux durables, performants, et éligibles aux aides énergétiques.", svg: <svg width="358" height="14" viewBox="0 0 358 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        icon: <CheckCircleIcon color="success" />, title: "Qualité Certifiée", description: "Intervention conforme aux normes DTU, décénale 10 ans inclus garantissant des travaux durables, performants, et éligibles aux aides énergétiques.", svg: <svg width="358" height="14" viewBox="0 0 358 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M-60 27C9.63066 7.37979 202.914 -20.0885 419 27" stroke="var(--mui-palette-success-main)" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" />
                         </svg>
                     },

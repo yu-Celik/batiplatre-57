@@ -5,8 +5,14 @@ import { ArrowForwardIos } from "@mui/icons-material";
 import SubtitleTitle from "@/app/components/SubtitleTitle";
 import ButtonLink from "@/app/components/ButtonLink";
 import plan from '@/app/assets/plan.png';
+import { Handshake, Calculate, AssignmentTurnedIn, Headset } from '@mui/icons-material';
 
 type Props = { sx?: SxProps }
+
+/**
+ * Composant pour afficher la section des services sur mobile.
+ * Ce composant est conçu pour être accessible et conforme aux normes WCAG.
+ */
 function RenderMobile({ sx }: Props) {
     return (
         <>
@@ -29,20 +35,22 @@ function RenderMobile({ sx }: Props) {
                     <Stack direction="column" justifyContent="center" alignItems="start">
                         <SubtitleTitle href="/nos-services" text="Nos Services à Metz" />
                         <Typography variant="h2" gutterBottom sx={{ fontSize: { xs: '1.25rem' }, lineHeight: { xs: '2rem' } }}>
-                            <Image src={service} alt="Rénovation / Extension" width={32} height={32} style={{ display: 'inline-block' }} />
-                            Rénovation / Extension
+                            <Image src={service} alt="Construction, Rénovation, Extension" width={32} height={32} style={{ display: 'inline-block' }} />
+                            Construction, Rénovation, Extension
                         </Typography>
                     </Stack>
                     <Typography variant="body1" gutterBottom>
-                        Améliorez l&apos;isolation thermique et acoustique de votre maison à Metz. Nos travaux d&apos;isolation et de plâtrerie assurent confort et efficacité énergétique. Proposez un espace de vie propre grâce à nos services de débarras et nettoyage.
+                        Avec plus de 17 ans d&apos;expérience dans le secteur du bâtiment, nous avons établi des partenariats solides pour réaliser tous vos travaux. Que ce soit pour des rénovations, des constructions neuves ou des extensions, notre expertise nous permet de répondre à toutes vos attentes avec précision et efficacité.
+
                     </Typography>
 
                     <Typography variant="body1" gutterBottom>
-                        Faites appel à notre expertise pour la pose de sols et la menuiserie sur mesure. Transformez votre intérieur avec nos services d&apos;aménagement et décoration. Nous concevons des espaces de vie personnalisés, répondant à vos envies et besoins.
+                        Répondant à la demande croissante de nos clients, nous proposons des projets clé en main, prenant en charge la totalité de vos travaux. Vous n&apos;avez plus à vous soucier de rien, même sans connaissances techniques. De la conception initiale à la livraison finale, nous nous occupons de tout.
+
                     </Typography>
 
                     <Typography variant="body1" gutterBottom sx={{ color: 'var(--mui-palette-secondary-light)' }}>
-                        Offrez une nouvelle vie à votre logement avec nos prestations de peinture et pose de carrelage. Nous proposons des solutions adaptées pour la rénovation de vos murs, sols, et salles de bains, avec des matériaux de haute qualité.
+                        Nous garantissons une honnêteté irréprochable et une bienveillance constante. Approchez vous de votre artisan comme jamais auparavant ! Nous sommes transparents sur les coûts, les délais et les matériaux utilisés, assurant ainsi une relation de confiance avec nos clients.
                     </Typography>
                     <ButtonLink
                         link="/nos-services"
@@ -50,10 +58,11 @@ function RenderMobile({ sx }: Props) {
                         color="primary"
                         endIcon={<ArrowForwardIos />}
                         fullWidth
+                        aria-label="Découvrez nos services complets"
                     >
                         Découvrez nos services complets
                     </ButtonLink>
-                </Paper >
+                </Paper>
                 <Container component="section" sx={{
                     position: { xs: 'relative', lg: 'absolute' },
                     right: { md: 0 },
@@ -66,17 +75,45 @@ function RenderMobile({ sx }: Props) {
                     width: { lg: '60%', md: '40%', xs: '100%' },
                     marginTop: { xs: 8, md: 0 },
                 }}>
-                    <CardDetails src={plan} alt="Plan d'ecriture" title="Installer & Finir" description="Installation précise et finitions de haute qualité pour chaque détail." sx={{}} />
-                    <CardDetails src={plan} alt="Rénovation / Extension" title="Peindre & Revêtir" description="Application experte de peintures et revêtements pour transformer votre espace." sx={{}} />
-                    <CardDetails src={plan} alt="Rénovation / Extension" title="Nettoyer & Préparer" description="Préparation et nettoyage post-chantier pour un espace impeccable." sx={{}} />
-                    <CardDetails src={plan} alt="Rénovation / Extension" title="Concevoir & Isoler" description="Des solutions sur mesure pour optimiser votre espace et confort." sx={{}} />
+                    <CardDetails 
+                        icon={<Handshake fontSize="large" aria-hidden="true" />}
+                        alt="Présentation des partenaires" 
+                        title="Présentation" 
+                        description="Mise en relation avec nos partenaires pour votre projet de construction." 
+                        sx={{}} 
+                    />
+                    <CardDetails 
+                        icon={<Calculate fontSize="large" aria-hidden="true" />}
+                        alt="Estimation des travaux" 
+                        title="Estimation" 
+                        description="Estimation précise des travaux selon vos exigences et votre budget." 
+                        sx={{}} 
+                    />
+                    <CardDetails 
+                        icon={<AssignmentTurnedIn fontSize="large" aria-hidden="true" />}
+                        alt="Suivi des travaux" 
+                        title="Suivi personnalisé" 
+                        description="Suivi rigoureux de l'avancement avec des comptes rendus réguliers." 
+                        sx={{}} 
+                    />
+                    <CardDetails 
+                        icon={<Headset fontSize="large" aria-hidden="true" />}
+                        alt="Assistance après livraison" 
+                        title="Assistance" 
+                        description="Service d'assistance et post-livraison pour assurer votre satisfaction continue." 
+                        sx={{}} 
+                    />
                 </Container>
             </Box>
         </>
     )
 }
 
-const CardDetails = ({ src, alt, title, description, sx }: { src: StaticImageData, alt: string, title: string, description: string, sx: SxProps }) => {
+/**
+ * Composant pour afficher les détails des cartes de services.
+ * Assure la compatibilité avec les technologies d'assistance grâce aux balises ARIA appropriées.
+ */
+const CardDetails = ({ icon, alt, title, description, sx }: { icon: React.ReactNode, alt: string, title: string, description: string, sx: SxProps }) => {
     return (
         <Paper
             component="article"
@@ -85,18 +122,20 @@ const CardDetails = ({ src, alt, title, description, sx }: { src: StaticImageDat
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                aspectRatio: '16 / 9',
+                // aspectRatio: '16 / 9',
                 width: '100%',
                 maxWidth: '300px',
                 overflow: 'hidden',
-                paddingY: 1,
-                paddingX: 2,
+                paddingY: 2,
+                paddingX: 4,
                 ...sx
             }}
         >
-            <Image src={src} alt={alt} width={62} height={62} quality={100} style={{ display: 'inline-block', marginBottom: 12 }} />
-            <Typography variant="body1" variantMapping={{ body1: 'h2' }}>{title}</Typography>
-            <Typography variant="body2" textAlign="center" gutterBottom>{description}</Typography>
+            <Box sx={{ color: 'primary.main', mb: 2 }}>
+                {icon}
+            </Box>
+            <Typography variant="h3" gutterBottom>{title}</Typography>
+            <Typography variant="body2" textAlign="center">{description}</Typography>
         </Paper>
     )
 }

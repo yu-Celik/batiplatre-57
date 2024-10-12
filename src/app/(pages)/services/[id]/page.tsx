@@ -20,6 +20,10 @@ const ServicePage: React.FC<ServicePageProps> = ({ params }) => {
                 buttonText={service?.buttonText}
                 href={service?.href}
                 card={service?.card}
+                menuiserieTitle={service?.menuiserieTitle}
+                plomberieTitle={service?.plomberieTitle}
+                charpenteToitureTitle={service?.charpenteToitureTitle}
+                faadeIsolationExtToitureTitle={service?.faadeIsolationExtToitureTitle}
             />
             <ContactSection />
         </>

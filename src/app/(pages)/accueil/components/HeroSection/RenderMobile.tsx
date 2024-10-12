@@ -11,7 +11,7 @@ import plan from '@/app/assets/plan.png';
 
 const features = [
     <>Travaux de <i>rénovation complète</i> à <i>Metz</i></>,
-    <>15 ans d&apos;expérience</>,
+    <>17 ans d&apos;expérience</>,
     <><i>Devis gratuit</i> sous 48h</>
 ];
 
@@ -41,10 +41,10 @@ function RenderMobile() {
                         Transformez votre habitat
                     </Typography>
                     <FeatureList />
-                    <ButtonLink link="/devis" variant="contained" color="primary" endIcon={<ArrowForwardIos />} sx={{ width: { xs: '100%', md: '20rem' } }} >
+                    <ButtonLink link="/devis" variant="contained" color="primary" endIcon={<ArrowForwardIos />} sx={{ width: { xs: '100%', md: '50%' } }} >
                         Demandez votre devis gratuit
                     </ButtonLink>
-                    <ButtonLink link="/zones-intervention" variant="outlined" color="secondary" endIcon={<ArrowForwardIos />} sx={{ width: { xs: '100%', md: '20rem' }, backgroundColor: 'background.default' }} >
+                    <ButtonLink link="/zones-intervention" variant="outlined" color="secondary" endIcon={<ArrowForwardIos />} sx={{ width: { xs: '100%', md: '50%' }, backgroundColor: 'background.default' }} >
                         Voir nos zones d&apos;intervention
                     </ButtonLink>
                 </Box>
@@ -62,7 +62,7 @@ function RenderMobile() {
                         transform: 'translateY(125%) translateX(-50%)',
                     }} />
 
-                    <CardDecor src={plan} alt="belle villa avec piscine" title="15 ans" description="D'expérience" sx={{
+                    <CardDecor src={plan} alt="belle villa avec piscine" title="17 ans" description="D'expérience" sx={{
                         position: 'absolute',
                         bottom: 0,
                         left: 0,

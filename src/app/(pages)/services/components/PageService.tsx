@@ -12,18 +12,41 @@ type ServiceCardProps = {
     description?: string[];
     buttonText?: string;
     href?: string;
+    menuiserieTitle?: string;
+    plomberieTitle?: string;
+    faadeIsolationExtToitureTitle?: string;
+    charpenteToitureTitle?: string;
     card?: {
         id: string;
         imageUrl?: StaticImageData;
         title?: string;
         description?: string[];
         text?: string[];
+        category?: 'menuiserie' | 'plomberie' | string;
     }[];
 };
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ titleH1, titleH2, subTitle, description, buttonText, href, card }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({
+    titleH1,
+    titleH2,
+    subTitle,
+    description,
+    buttonText,
+    href,
+    menuiserieTitle,
+    plomberieTitle,
+    faadeIsolationExtToitureTitle,
+    charpenteToitureTitle,
+    card
+}) => {
+    const menuiserieCards = card?.filter(c => c.category === 'menuiserie') || [];
+    const plomberieCards = card?.filter(c => c.category === 'plomberie') || [];
+    const otherCards = card?.filter(c => c.category !== 'menuiserie' && c.category !== 'plomberie') || [];
+    const charpenteToitureCards = card?.filter(c => c.category === 'charpente-toiture') || [];
+    const façadeIsolationExtToitureCards = card?.filter(c => c.category === 'façade-isolation-ext-toiture') || [];
+
     return (
-        <Box component="section" sx={{}}>
+        <Box component="section">
             <Typography variant="h1" gutterBottom sx={{ textAlign: { xs: 'center' }, mt: { md: 8 }, mb: { xs: 8, md: 16 } }}>
                 {titleH1}
             </Typography>
@@ -40,18 +63,57 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ titleH1, titleH2, subTitle, d
                 <ButtonLink endIcon={<ArrowForwardIos />} link={href ?? ""} variant="contained" color="primary" sx={{ marginTop: 2, mb: { xs: 8, md: 16 }, width: { xs: '100%', md: '45%' } }} >
                     {buttonText}
                 </ButtonLink>
-                <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} justifyContent="space-between" flexWrap="wrap" gap={{ xs: 4, md: 0 }} alignItems="stretch">
-                    {card && (
-                        card.map((card) => (
-                            <Box sx={{ width: { xs: '100%', md: '45%' }, mb: 4, display: 'flex', flexDirection: 'column' }} key={card.id} >
-                                <CardAccordionService card={card} />
-                            </Box>
-                        ))
-                    )}
-                </Box>
+
+                {charpenteToitureTitle && (
+                    <>
+                        <Typography variant="h2" variantMapping={{ h2: 'h3' }} gutterBottom sx={{ textAlign: 'center', marginBottom: 4, maxWidth: { xs: '310px', md: 'none' }, marginX: { xs: 'auto', md: '0' } }}>
+                            {charpenteToitureTitle}
+                        </Typography>
+                        <CardGrid cards={charpenteToitureCards} />
+                    </>
+                )}
+
+                {menuiserieTitle && (
+                    <>
+                        <Typography variant="h2" variantMapping={{ h2: 'h3' }} gutterBottom sx={{ textAlign: 'center', marginBottom: 4, maxWidth: { xs: '310px', md: 'none' }, marginX: { xs: 'auto', md: '0' } }}>
+                            {menuiserieTitle}
+                        </Typography>
+                        <CardGrid cards={menuiserieCards} />
+                    </>
+                )}
+
+                {faadeIsolationExtToitureTitle && (
+                    <>
+                        <Typography variant="h2" variantMapping={{ h2: 'h3' }} gutterBottom sx={{ textAlign: 'center', marginBottom: 4, maxWidth: { xs: '310px', md: 'none' }, marginX: { xs: 'auto', md: '0' }, mt: 8 }}>
+                            {faadeIsolationExtToitureTitle}
+                        </Typography>
+                        <CardGrid cards={façadeIsolationExtToitureCards} />
+                    </>
+                )}
+
+                {plomberieTitle && (
+                    <>
+                        <Typography variant="h2" variantMapping={{ h2: 'h3' }} gutterBottom sx={{ textAlign: 'center', marginBottom: 4, maxWidth: { xs: '310px', md: 'none' }, marginX: { xs: 'auto', md: '0' }, mt: 8 }}>
+                            {plomberieTitle}
+                        </Typography>
+                        <CardGrid cards={plomberieCards} />
+                    </>
+                )}
+
+                {(!menuiserieTitle && !plomberieTitle) && <CardGrid cards={otherCards} />}
             </Box>
         </Box>
     );
 };
+
+const CardGrid: React.FC<{ cards: ServiceCardProps['card'] }> = ({ cards }) => (
+    <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} justifyContent="space-between" flexWrap="wrap" gap={{ xs: 4, md: 0 }} alignItems="stretch">
+        {cards?.map((card) => (
+            <Box sx={{ width: { xs: '100%', md: '45%' }, mb: 4, display: 'flex', flexDirection: 'column' }} key={card.id}>
+                <CardAccordionService card={card} />
+            </Box>
+        ))}
+    </Box>
+);
 
 export default ServiceCard;

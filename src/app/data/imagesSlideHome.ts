@@ -13,7 +13,9 @@ import amenagementComble3 from "/public/villa.png"
 import poseDeSol1 from "/public/villa.png"
 import poseDeSol2 from "/public/villa.png"
 import poseDeSol3 from "/public/villa.png"
-
+import façade1 from "/public/villa.png"
+import façade2 from "/public/villa.png"
+import façade3 from "/public/villa.png"
 
 
 
@@ -131,5 +133,24 @@ export const poseDeSolImg = [
         id: '20',
         src: poseDeSol3,
         alt: "pose-de-sol-3",
+    },
+]
+
+
+export const façadeImg = [
+    {
+        id: '21',
+        src: façade1,
+        alt: "façade-1",
+    },
+    {
+        id: '22',
+        src: façade2,
+        alt: "façade-2",
+    },
+    {
+        id: '23',
+        src: façade3,
+        alt: "façade-3",
     },
 ]

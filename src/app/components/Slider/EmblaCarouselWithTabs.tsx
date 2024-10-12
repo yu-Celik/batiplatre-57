@@ -2,7 +2,7 @@
 import { Box, Tab, Tabs, tabsClasses } from "@mui/material";
 import { useState, memo } from "react";
 import dynamic from 'next/dynamic';
-import { amenagementCombleImg, peintureImg, platerieImg, poseDeSolImg } from '@/app/data/imagesSlideHome';
+import { amenagementCombleImg, peintureImg, platerieImg, poseDeSolImg, façadeImg } from '@/app/data/imagesSlideHome';
 import { EmblaOptionsType } from "embla-carousel";
 
 const EmblaCarousel = dynamic(() => import('./EmblaCarousel'), { ssr: false });
@@ -41,6 +41,7 @@ export default memo(function EmblaCarouselWithTabs() {
                 <Tab label="Aménagement & décoration" value={2} />
                 <Tab label="Peinture" value={3} />
                 <Tab label="Pose de sol" value={4} />
+                <Tab label="Façade" value={5} />
             </Tabs>
             <CustomTabPanel value={value} index={0} aria-label="Débarras & néttoyage" aria-controls="Débarras & néttoyage" >
                 <EmblaCarousel images={platerieImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
@@ -56,6 +57,9 @@ export default memo(function EmblaCarouselWithTabs() {
             </CustomTabPanel>
             <CustomTabPanel value={value} index={4} aria-label="Pose de sol" aria-controls="Pose de sol" >
                 <EmblaCarousel images={poseDeSolImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={5} aria-label="Façade" aria-controls="Façade" >
+                <EmblaCarousel images={façadeImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
         </>
     )
