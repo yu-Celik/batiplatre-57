@@ -10,7 +10,7 @@ function Page({ }: Props) {
             <Typography variant="h1" gutterBottom sx={{ textAlign: { xs: 'center' }, mt: { md: 8 } }}>
                 Notre processus de réalisation
             </Typography>
-            <Typography variant="body1" gutterBottom sx={{ mt: { xs: 0, md: 8 } }}>
+            <Typography variant="body1" gutterBottom sx={{ mt: { xs: 0, md: 8 }, maxWidth: { md: '700px' } }} >
                 Chez Bâti Plâtre 57, nous suivons un processus structuré et rigoureux pour garantir la réussite de chaque projet.
             </Typography>
             <Typography variant="body1" gutterBottom mb={4} >

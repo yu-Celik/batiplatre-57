@@ -32,33 +32,31 @@ export default memo(function EmblaCarouselWithTabs() {
                     [`& .${tabsClasses.scrollButtons}`]: {
                         '&.Mui-disabled': { opacity: 0.3 },
                     },
-                    [`& .${tabsClasses.flexContainer}`]: {
-                    },
                 }}
             >
-                <Tab label="Débarras & néttoyage" value={0} />
-                <Tab label="Plâtrerie & isolation" value={1} />
-                <Tab label="Aménagement & décoration" value={2} />
-                <Tab label="Peinture" value={3} />
-                <Tab label="Pose de sol" value={4} />
-                <Tab label="Façade" value={5} />
+                <Tab label="Maçonnerie & extension" value={0} />
+                <Tab label="Façade isolation ext et toiture" value={1} />
+                <Tab label="Électricité et sol chauffant" value={2} />
+                <Tab label="Plâtrerie et isolation intérieur" value={3} />
+                <Tab label="Peinture, pose de sol et carrelage" value={4} />
+                <Tab label="Menuiserie et plomberie" value={5} />
             </Tabs>
-            <CustomTabPanel value={value} index={0} aria-label="Débarras & néttoyage" aria-controls="Débarras & néttoyage" >
+            <CustomTabPanel value={value} index={0} aria-label="Maçonnerie & extension" aria-controls="Maçonnerie & extension" >
                 <EmblaCarousel images={platerieImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
-            <CustomTabPanel value={value} index={1} aria-label="Plâtrerie & isolation" aria-controls="Plâtrerie & isolation" >
+            <CustomTabPanel value={value} index={1} aria-label="Façade isolation ext et toiture" aria-controls="Façade isolation ext et toiture" >
                 <EmblaCarousel images={platerieImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
-            <CustomTabPanel value={value} index={2} aria-label="Aménagement & décoration" aria-controls="Aménagement & décoration" >
+            <CustomTabPanel value={value} index={2} aria-label="Électricité et sol chauffant" aria-controls="Électricité et sol chauffant" >
                 <EmblaCarousel images={amenagementCombleImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
-            <CustomTabPanel value={value} index={3} aria-label="Peinture" aria-controls="Peinture" >
+            <CustomTabPanel value={value} index={3} aria-label="Plâtrerie et isolation intérieur" aria-controls="Plâtrerie et isolation intérieur" >
                 <EmblaCarousel images={peintureImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
-            <CustomTabPanel value={value} index={4} aria-label="Pose de sol" aria-controls="Pose de sol" >
+            <CustomTabPanel value={value} index={4} aria-label="Peinture, pose de sol et carrelage" aria-controls="Peinture, pose de sol et carrelage" >
                 <EmblaCarousel images={poseDeSolImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
-            <CustomTabPanel value={value} index={5} aria-label="Façade" aria-controls="Façade" >
+            <CustomTabPanel value={value} index={5} aria-label="Menuiserie et plomberie" aria-controls="Menuiserie et plomberie" >
                 <EmblaCarousel images={façadeImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
         </>

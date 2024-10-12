@@ -41,9 +41,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, subtitle, description,
             <Typography variant="body1" sx={{ fontSize: '0.85rem', marginBottom: '1rem' }}>
                 {description[1]}
             </Typography>
-            <Typography component={Link} color="primary" href={href} variant="body1" sx={{ fontSize: '0.85rem', marginBottom: '0.75rem', display: 'inline-block' }}>
-                Voir plus...
-            </Typography>
             <Box sx={{ position: 'absolute', top: 0, right: 0, transform: 'translateY(300%)' }}>
                 <CircleSvg />
             </Box>

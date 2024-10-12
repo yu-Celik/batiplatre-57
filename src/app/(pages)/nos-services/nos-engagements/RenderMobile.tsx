@@ -14,10 +14,10 @@ function RenderMobile({ }: Props) {
                 <Typography variant="h2" sx={{ textAlign: { xs: 'center', md: 'left' }, mb: { xs: 2, md: 4 } }}>
                     Nos engagements
                 </Typography>
-                <Typography variant="body1" gutterBottom>
+                <Typography variant="body1" gutterBottom maxWidth={{ md: '700px' }}>
                     Chez Bâti Plâtre 57, nous nous engageons à offrir une gamme complète de services de bâtiment pour répondre à tous vos besoins.
                 </Typography>
-                <Typography variant="body1" gutterBottom>
+                <Typography variant="body1" gutterBottom maxWidth={{ md: '700px' }}>
                     Découvrez ci-dessous nos prestations détaillées et laissez-nous transformer votre vision en réalité.
                 </Typography>
             </Box>

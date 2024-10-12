@@ -80,9 +80,6 @@ export default function GaleriePhotos({ photos }: GaleriePhotosProps) {
                     [`& .${tabsClasses.scrollButtons}`]: {
                         '&.Mui-disabled': { opacity: 0.3 },
                     },
-                    [`& .${tabsClasses.flexContainer}`]: {
-                        justifyContent: { md: 'center' },
-                    },
                 }}
             >
                 {categories.map((category) => (
@@ -95,8 +92,8 @@ export default function GaleriePhotos({ photos }: GaleriePhotosProps) {
             </Tabs>
 
             <ImageList variant="masonry" cols={isXs ? 1 : isSm ? 2 : isMd ? 3 : 4} gap={8}>
-                {currentPhotos.map((photo) => (
-                    <ImageListItem key={photo.id}>
+                {currentPhotos.map((photo, index) => (
+                    <ImageListItem key={`${photo.id}-${index}`}>
                         <Image
                             src={photo.src}
                             alt={photo.alt}
