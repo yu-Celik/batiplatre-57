@@ -10,6 +10,7 @@ import { contactSchema, Subject, type ContactData } from '@/app/libs/schemas/con
 import { useTransition } from 'react';
 import LoopIcon from '@mui/icons-material/Loop';
 import SendIcon from '@mui/icons-material/Send';
+import { MailType } from '@/app/libs/models/model_mail';
 
 const DevisForm = () => {
     const { sendMail, loading, error, success } = useSendMail();
@@ -45,7 +46,7 @@ const DevisForm = () => {
     const onSubmit = async (data: ContactData) => {
         startTransition(async () => {
             try {
-                await sendMail(data);
+                await sendMail(data as MailType);
                 reset();
             } catch (err) {
                 // L'erreur est déjà gérée dans le hook
