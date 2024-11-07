@@ -20,7 +20,7 @@ import maçonnerie7 from "/public/maçonnerie/coulage-escalier-beton-finition.jp
 import maçonnerie8 from "/public/maçonnerie/coulage-escalier-beton-finition-1.jpg"
 import maçonnerie9 from "/public/maçonnerie/coulage-escalier-beton.jpg"
 import maçonnerie10 from "/public/maçonnerie/coffrage-escalier-beton-construction.jpg"
-import façadeIsolation1 from "/public/façade/isolation-exterieure-polystère.jpg"
+import façadeIsolation1 from "/public/façade/isolation-exterieure-polystere.jpg"
 import façadeIsolation2 from "/public/façade/façage-finition.jpg"
 import façadeIsolation3 from "/public/façade/façage-crépis-projeté.jpg"
 import façadeIsolation4 from "/public/façade/enduit-ravalement-de-facades.jpg"
