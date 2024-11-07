@@ -5,74 +5,42 @@ import transporter from "@/app/libs/mailer";
 import { ObjectId } from "mongodb";
 import { parse } from 'valibot';
 import { contactSchema, type ContactData } from '@/app/libs/schemas/contact.schema';
-
-// Type pour les erreurs Nodemailer
-interface NodemailerError extends Error {
-    code?: string;
-    command?: string;
-    response?: string;
-}
-
-// Type pour les erreurs de base de données
-interface DatabaseError extends Error {
-    code?: string;
-}
+import { NodemailerError } from '@/app/libs/mailer';
 
 export async function POST(req: NextRequest) {
     const mailId = new ObjectId();
-    console.log("🚀 Début du traitement POST /mails");
-    
     try {
+        console.log("POST /mails");
         const body = await req.json();
-        console.log("📦 Données reçues:", body);
 
         // Validation avec Valibot
         try {
-            console.log("🔍 Début de la validation Valibot");
             parse(contactSchema, body);
-            console.log("✅ Validation réussie");
         } catch (validationError: any) {
-            console.error("❌ Erreur de validation Valibot:", validationError);
-            console.error("Details des erreurs:", validationError.issues);
+            console.error("Erreur de validation:", validationError);
             return NextResponse.json({ 
                 message: "Données invalides", 
                 errors: validationError.issues 
             }, { status: 400 });
         }
 
-        console.log("🔌 Tentative de connexion à la base de données");
         const db = await connectDB();
-        console.log("✅ Connexion BD réussie");
-
         const mail = new Mail({
             ...body,
             _id: mailId,
-            nodemailerStatus: 'sent',
+            nodemailerStatus: body.nodemailerStatus || 'sent',
             createdAt: new Date()
         });
 
-        console.log("📧 Mail à insérer:", mail.toObject());
+        console.log("mail avant insertion:", mail.toObject());
         await db.collection("mails").insertOne(mail);
-        console.log("✅ Mail inséré dans la BD avec succès");
-
-        // Vérification des paramètres de configuration nodemailer
-        console.log("📨 Configuration Nodemailer:", {
-            host: process.env.EMAIL_HOST,
-            port: process.env.EMAIL_PORT,
-            user: process.env.EMAIL_USER ? "Défini" : "Non défini",
-            pass: process.env.EMAIL_PASS ? "Défini" : "Non défini"
-        });
 
         // Envoi asynchrone de l'email
-        console.log("🚀 Démarrage de l'envoi d'email asynchrone");
         sendMailAsync(mail as ContactData, transporter);
 
         return NextResponse.json({ message: "Message envoyé avec succès !" });
     } catch (error: any) {
-        console.error("❌ Erreur générale:", error);
-        if (error instanceof Error) {
-            console.error("Stack trace:", error.stack);
-        }
+        console.error("Erreur lors de l'insertion dans la base de données:", error);
         return NextResponse.json(
             { message: "Erreur lors de l'envoi du message." }, 
             { status: 500 }
@@ -80,17 +48,27 @@ export async function POST(req: NextRequest) {
     }
 }
 
+
 function sendMailAsync(mail: ContactData, transporter: any) {
     console.log("📨 Début sendMailAsync");
-    console.log("Données du mail:", mail);
+    console.log("Configuration du transporteur:", {
+        host: transporter.options.host,
+        port: transporter.options.port,
+        secure: transporter.options.secure,
+        auth: {
+            user: transporter.options.auth.user ? "Défini" : "Non défini",
+            pass: transporter.options.auth.pass ? "Défini" : "Non défini"
+        }
+    });
     
     setTimeout(async () => {
         try {
-            console.log("🔄 Tentative d'envoi d'email via Nodemailer");
-            console.log("📧 Configuration email:", {
+            console.log("🔄 Tentative d'envoi d'email");
+            console.log("Destinataire:", process.env.EMAIL_USER);
+            console.log("Contenu du mail:", {
+                subject: `Nouveau message de ${mail.fullName}`,
                 from: process.env.EMAIL_USER,
-                to: process.env.EMAIL_USER,
-                subject: `Nouveau message de ${mail.fullName}`
+                to: process.env.EMAIL_USER
             });
 
             const result = await transporter.sendMail({
@@ -114,31 +92,28 @@ function sendMailAsync(mail: ContactData, transporter: any) {
                     <h3>Message:</h3>
                     <p>${mail.message.replace(/\n/g, '<br>')}</p>
                     <p><em>Date: ${new Date().toLocaleString()}</em></p>
-                `,
+                `
             });
-            console.log("✅ Email envoyé avec succès!", result);
-        } catch (error) {
+            
+            console.log("✅ Email envoyé avec succès!");
+            console.log("Détails de l'envoi:", result);
+        } catch (error: any) {
             const nodemailerError = error as NodemailerError;
-            console.error("❌ Erreur lors de l'envoi de l'email:", nodemailerError);
-            console.error("Details de l'erreur:", {
-                message: nodemailerError.message,
-                code: nodemailerError.code,
-                command: nodemailerError.command,
-                response: nodemailerError.response
-            });
+            console.error("❌ Erreur lors de l'envoi de l'email:");
+            console.error("Message d'erreur:", nodemailerError.message);
+            console.error("Code d'erreur:", nodemailerError.code);
+            console.error("Commande:", nodemailerError.command);
+            console.error("Réponse du serveur:", nodemailerError.response);
+            console.error("Code de réponse:", nodemailerError.responseCode);
+            console.error("Stack trace complet:", nodemailerError.stack);
             handleErrorAsync(mail._id as unknown as ObjectId, nodemailerError);
         }
     }, 0);
 }
 
-function handleErrorAsync(mailId: ObjectId, error: NodemailerError) {
-    console.log("⚠️ Début handleErrorAsync");
-    console.log("ID du mail:", mailId);
-    console.log("Erreur à traiter:", error);
-
+function handleErrorAsync(mailId: ObjectId, error: any) {
     setTimeout(async () => {
         try {
-            console.log("🔄 Tentative de mise à jour du statut dans la BD");
             const db = await connectDB();
             await db.collection("mails").updateOne(
                 { _id: mailId },
@@ -152,14 +127,9 @@ function handleErrorAsync(mailId: ObjectId, error: NodemailerError) {
                     }
                 }
             );
-            console.log("✅ Statut d'erreur mis à jour dans la BD");
-        } catch (error) {
-            const dbError = error as DatabaseError;
-            console.error("❌ Erreur lors de la mise à jour du statut:", dbError);
-            console.error("Details de l'erreur BD:", {
-                message: dbError.message,
-                code: dbError.code
-            });
+            console.log(`Erreur d'email gérée pour l'ID : ${mailId}`);
+        } catch (dbError) {
+            console.error("Erreur lors de la mise à jour du statut de l'email dans la base de données:", dbError);
         }
     }, 0);
 }
