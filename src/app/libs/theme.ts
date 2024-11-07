@@ -56,7 +56,6 @@ declare module '@mui/material/Typography' {
 const fira = Fira_Sans({
     weight: ['300', '400', '500'],
     subsets: ['latin'],
-    display: 'swap',
 });
 
 

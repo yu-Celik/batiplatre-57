@@ -36,7 +36,7 @@ export default function CardProcess({ title, subTitle, description, chips, icon 
                     <Typography variant="overline" color="text.secondary" component="p">
                         {subTitle}
                     </Typography>
-                    <Typography variant="h2" sx={{ fontSize: '1.5rem', lineHeight: 1.2, mb: 1.5 }}>
+                    <Typography variant="h2" variantMapping={{ h2: 'h6' }} sx={{ fontSize: { xs: '1.2rem', md: '2rem' }, lineHeight: 1.2, mb: 1.5 }}>
                         {title}
                     </Typography>
                     <Typography variant="body2" gutterBottom>{description}</Typography>

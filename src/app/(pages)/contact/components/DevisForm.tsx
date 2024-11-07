@@ -1,55 +1,157 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Box, TextField, Button, Typography } from '@mui/material';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { valibotResolver } from "@hookform/resolvers/valibot";
+import { Box, TextField, Button, Typography, CircularProgress } from '@mui/material';
 import DevisFormInteractive from '@/app/(pages)/contact/components/DemandeTypeSelector';
 import useSendMail from '@/app/hooks/useSendMail';
-import { MailType } from '@/app/libs/models/model_mail';
+import { contactSchema, Subject, type ContactData } from '@/app/libs/schemas/contact.schema';
+import { useTransition } from 'react';
+import LoopIcon from '@mui/icons-material/Loop';
+import SendIcon from '@mui/icons-material/Send';
 
 const DevisForm = () => {
-    const [formData, setFormData] = useState<MailType>({
-        fullName: '',
-        email: '',
-        phone: '',
-        address: '',
-        subject: 'Description de projet',
-        message: '',
-    });
     const { sendMail, loading, error, success } = useSendMail();
+    const [isPending, startTransition] = useTransition();
+    const {
+        register,
+        handleSubmit,
+        reset,
+        setValue,
+        watch,
+        formState: { errors },
+    } = useForm<ContactData>({
+        resolver: valibotResolver(contactSchema),
+        mode: 'onBlur',
+        defaultValues: {
+            fullName: '',
+            email: '',
+            phone: '',
+            address: '',
+            subject: Subject.DESCRIPTION_PROJET,
+            message: '',
+        },
+    });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    const subjectValue = watch('subject');
+    const messageValue = watch('message');
+
+    const handleTypeChange = (subject: Subject, message: string) => {
+        setValue('subject', subject, { shouldValidate: true });
+        setValue('message', message, { shouldValidate: true });
     };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        try {
-            await sendMail(formData);
-            setFormData({ fullName: '', email: '', phone: '', address: '', subject: 'Question', message: '' });
-        } catch (err) {
-            // L'erreur est déjà gérée dans le hook
-        }
+    const onSubmit = async (data: ContactData) => {
+        startTransition(async () => {
+            try {
+                await sendMail(data);
+                reset();
+            } catch (err) {
+                // L'erreur est déjà gérée dans le hook
+            }
+        });
     };
 
     return (
-        <Box component="form" noValidate autoComplete="off" onSubmit={handleSubmit}>
-            <TextField fullWidth name="fullName" label="Nom complet" variant="outlined" margin="normal" placeholder="Jean Dupont" required value={formData.fullName} onChange={handleChange} />
-            <TextField fullWidth name="email" label="Email" type="email" variant="outlined" margin="normal" placeholder="jean.dupont@gmail.com" required value={formData.email} onChange={handleChange} />
-            <TextField fullWidth name="phone" label="Numéro de téléphone" type="tel" variant="outlined" margin="normal" placeholder="06 12 34 56 78" required value={formData.phone} onChange={handleChange} />
-            <TextField fullWidth name="address" label="Adresse" type="address" variant="outlined" margin="normal" placeholder="123 Rue de la Paix, 75000 Paris, France" required value={formData.address} onChange={handleChange} />
-            <DevisFormInteractive value={formData.subject} message={formData.message} onChange={(subject, message) => setFormData({ ...formData, subject, message })} />
+        <Box
+            component="form"
+            noValidate
+            autoComplete="off"
+            onSubmit={handleSubmit(onSubmit)}
+        >
+            <TextField
+                fullWidth
+                label="Nom complet"
+                placeholder="Jean Dupont"
+                margin="normal"
+                error={!!errors.fullName}
+                helperText={errors.fullName?.message}
+                {...register('fullName')}
+                aria-label="Nom complet"
+            />
 
-            <Button fullWidth variant="contained" color="primary" sx={{ my: 2 }} type="submit" disabled={loading}>
-                {loading ? 'Envoi en cours...' : 'Envoyer'}
+            <TextField
+                fullWidth
+                label="Email"
+                type="email"
+                placeholder="jean.dupont@gmail.com"
+                margin="normal"
+                error={!!errors.email}
+                helperText={errors.email?.message}
+                {...register('email')}
+                aria-label="Adresse email"
+            />
+
+            <TextField
+                fullWidth
+                label="Numéro de téléphone"
+                type="tel"
+                placeholder="06 12 34 56 78"
+                margin="normal"
+                error={!!errors.phone}
+                helperText={errors.phone?.message}
+                {...register('phone')}
+                aria-label="Numéro de téléphone"
+            />
+
+            <TextField
+                fullWidth
+                label="Adresse"
+                placeholder="123 Rue de la Paix, 75000 Paris, France"
+                margin="normal"
+                error={!!errors.address}
+                helperText={errors.address?.message}
+                {...register('address')}
+                aria-label="Adresse postale"
+            />
+
+            <DevisFormInteractive
+                subjectValue={subjectValue}
+                messageValue={messageValue}
+                subjectError={errors.subject?.message}
+                messageError={errors.message?.message}
+                onChange={handleTypeChange}
+            />
+
+            <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                sx={{ my: 2 }}
+                disabled={isPending}
+                aria-label={isPending ? 'Envoi en cours' : 'Envoyer le formulaire'}
+                endIcon={isPending ? <LoopIcon className="h-4 w-4 animate-spin" /> : <SendIcon />}
+            >
+                {isPending ? (
+                    <>
+                        Envoi en cours...
+                    </>
+                ) : (
+                    <>
+                        Envoyer
+                    </>
+                )}
             </Button>
 
             {error && (
-                <Typography variant="body1" color="error" textAlign="center">
+                <Typography
+                    variant="body1"
+                    color="error"
+                    textAlign="center"
+                    role="alert"
+                >
                     {error}
                 </Typography>
             )}
+
             {success && (
-                <Typography variant="body1" color="success.main" textAlign="center">
+                <Typography
+                    variant="body1"
+                    color="success.main"
+                    textAlign="center"
+                    role="alert"
+                >
                     {success}
                 </Typography>
             )}

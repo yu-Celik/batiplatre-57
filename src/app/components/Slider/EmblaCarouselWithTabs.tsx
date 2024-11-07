@@ -1,8 +1,8 @@
 'use client'
-import { Box, Tab, Tabs, tabsClasses } from "@mui/material";
+import { Box, Tab, Tabs, tabsClasses, Divider } from "@mui/material";
 import { useState, memo } from "react";
 import dynamic from 'next/dynamic';
-import { amenagementCombleImg, peintureImg, platerieImg, poseDeSolImg, façadeImg } from '@/app/data/imagesSlideHome';
+import { amenagementCombleImg, peintureImg, platerieImg, poseDeSolImg, façadeImg, maçonnerieImg, façadeIsolationImg, electriciteImg, menuiserieImg } from '@/app/data/imagesSlideHome';
 import { EmblaOptionsType } from "embla-carousel";
 
 const EmblaCarousel = dynamic(() => import('./EmblaCarousel'), { ssr: false });
@@ -41,23 +41,24 @@ export default memo(function EmblaCarouselWithTabs() {
                 <Tab label="Peinture, pose de sol et carrelage" value={4} />
                 <Tab label="Menuiserie et plomberie" value={5} />
             </Tabs>
+            <Divider sx={{ my: 1, mt: 2, borderColor: 'black', height: '2px', width: '33%' }} />
             <CustomTabPanel value={value} index={0} aria-label="Maçonnerie & extension" aria-controls="Maçonnerie & extension" >
-                <EmblaCarousel images={platerieImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
+                <EmblaCarousel images={maçonnerieImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1} aria-label="Façade isolation ext et toiture" aria-controls="Façade isolation ext et toiture" >
-                <EmblaCarousel images={platerieImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
+                <EmblaCarousel images={façadeIsolationImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2} aria-label="Électricité et sol chauffant" aria-controls="Électricité et sol chauffant" >
-                <EmblaCarousel images={amenagementCombleImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
+                <EmblaCarousel images={electriciteImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={3} aria-label="Plâtrerie et isolation intérieur" aria-controls="Plâtrerie et isolation intérieur" >
-                <EmblaCarousel images={peintureImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
+                <EmblaCarousel images={platerieImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={4} aria-label="Peinture, pose de sol et carrelage" aria-controls="Peinture, pose de sol et carrelage" >
-                <EmblaCarousel images={poseDeSolImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
+                <EmblaCarousel images={peintureImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={5} aria-label="Menuiserie et plomberie" aria-controls="Menuiserie et plomberie" >
-                <EmblaCarousel images={façadeImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
+                <EmblaCarousel images={menuiserieImg.map(img => ({ img: img.src, alt: img.alt }))} options={OPTIONS} />
             </CustomTabPanel>
         </>
     )

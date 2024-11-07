@@ -121,13 +121,15 @@ function RenderDesktopMenu() {
                                                 />
                                                 <Typography variant="body1" variantMapping={{ body1: 'h6' }} sx={{
                                                     mt: 1,
+                                                    maxWidth: { xs: '100%', md: '210px', lg: '100%' },
+                                                    whiteSpace: 'wrap',
                                                     color: pathname === subItem.link || isSubMenuHovered === subItem.id ? 'primary.main' : 'text.primary',
                                                     transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
                                                 }}>
                                                     {subItem.text}
                                                 </Typography>
                                             </MenuItem>
-                                            {index < item.subItems.length - 1 && (
+                                            {index < item.subItems.length - 1 && index !== 2 && (
                                                 <Divider sx={{ borderWidth: '0.5px', height: '100%', ml: 2 }} />
                                             )}
                                         </Grid>

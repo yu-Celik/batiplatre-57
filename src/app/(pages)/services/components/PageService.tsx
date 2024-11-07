@@ -14,7 +14,7 @@ type ServiceCardProps = {
     href?: string;
     menuiserieTitle?: string;
     plomberieTitle?: string;
-    faadeIsolationExtToitureTitle?: string;
+    façadeIsolationExtToitureTitle?: string;
     charpenteToitureTitle?: string;
     card?: {
         id: string;
@@ -35,7 +35,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     href,
     menuiserieTitle,
     plomberieTitle,
-    faadeIsolationExtToitureTitle,
+    façadeIsolationExtToitureTitle,
     charpenteToitureTitle,
     card
 }) => {
@@ -82,10 +82,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     </>
                 )}
 
-                {faadeIsolationExtToitureTitle && (
+                {façadeIsolationExtToitureTitle && (
                     <>
                         <Typography variant="h2" variantMapping={{ h2: 'h3' }} gutterBottom sx={{ textAlign: 'center', marginBottom: 4, maxWidth: { xs: '310px', md: 'none' }, marginX: { xs: 'auto', md: '0' }, mt: 8 }}>
-                            {faadeIsolationExtToitureTitle}
+                            {façadeIsolationExtToitureTitle}
                         </Typography>
                         <CardGrid cards={façadeIsolationExtToitureCards} />
                     </>
@@ -100,7 +100,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     </>
                 )}
 
-                {(!menuiserieTitle && !plomberieTitle) && <CardGrid cards={otherCards} />}
+                {(!menuiserieTitle && !plomberieTitle && !façadeIsolationExtToitureTitle && !charpenteToitureTitle) && <CardGrid cards={otherCards} />}
             </Box>
         </Box>
     );

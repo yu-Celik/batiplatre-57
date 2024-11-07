@@ -12,6 +12,7 @@
     "@emotion/cache": "^11.13.1",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@hookform/resolvers": "^3.9.1",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
     "@mui/material-nextjs": "^5.16.6",
@@ -24,8 +25,10 @@
     "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.53.1",
     "sharp": "^0.33.5",
     "swiper": "^11.1.9",
+    "valibot": "^1.0.0-beta.3",
     "validator": "^13.12.0"
   },
   "devDependencies": {

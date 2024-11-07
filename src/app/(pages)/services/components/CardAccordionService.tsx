@@ -45,6 +45,7 @@ export default function CardAccordionService({ card }: { card: ServiceCard }) {
             <Image
                 src={card.imageUrl ?? ""}
                 alt={card.title ?? ""}
+                className="object-cover max-h-[300px]"
             />
             <Box display={"flex"} justifyContent={"space-between"}>
                 <CardContent sx={{ pr: 0, pb: 0 }}>

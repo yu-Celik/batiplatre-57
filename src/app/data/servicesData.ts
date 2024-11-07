@@ -1,4 +1,22 @@
 import villa from "/public/villa.png";
+import maçonnerie from "/public/maçonnerie/maconnerie.jpg"
+import assainissement from "/public/maçonnerie/assainissement.jpg"
+import soubassement from "/public/maçonnerie/soubassement.jpg"
+import mur from "/public/maçonnerie/mur.jpg"
+import plancheBeton from "/public/maçonnerie/planche-beton.jpg"
+import toiturePrep from "/public/maçonnerie/toiture-prep.jpg"
+import piscine from "/public/maçonnerie/piscine.jpg"
+import terasse from "/public/maçonnerie/terasse.jpg"
+import veranda from "/public/maçonnerie/veranda.avif"
+import humidite from "/public/maçonnerie/humidit.avif"
+import charpenteTraditionnelle from "/public/façade/charpente-traditionnelle.jpg"
+import couverture from "/public/façade/couverture.jpg"
+import façageFinition from "/public/façade/façage-finition.jpg"
+import isolantMurExterieur from "/public/façade/meilleur-isolant-mur-exterieur-isolation-ides-avec-isolation-exterieure-des-murs.jpg"
+import echafaudage from "/public/façade/batiment-construction-echafaudage.jpg"
+import enduitRavalement from "/public/façade/enduit-ravalement-de-facades.jpg"
+import lavage from "/public/façade/lavage.avif"
+import enduitFaçade from "/public/façade/enduit-façade.webp"
 
 export const servicesData = [
     {
@@ -12,11 +30,11 @@ export const servicesData = [
         ],
         buttonText: "Contactez-nous dès maintenant",
         href: "/contact",
-        image: villa,
+        image: maçonnerie,
         card: [
             {
                 "id": "fondations-etude-sol",
-                imageUrl: villa,
+                imageUrl: maçonnerie,
                 "title": "Étude de sol, terrassement et excavation",
                 "description": [
                     "Étape cruciale débutant par une étude de sol approfondie pour déterminer la nature du terrain et sa capacité portante.",
@@ -32,7 +50,7 @@ export const servicesData = [
             },
             {
                 "id": "assainissement",
-                imageUrl: villa,
+                imageUrl: assainissement,
                 "title": "L'assainissement",
                 "description": [
                     "Étape essentielle pour garantir la salubrité et le confort de l'habitation.",
@@ -48,7 +66,7 @@ export const servicesData = [
             },
             {
                 "id": "soubassement",
-                imageUrl: villa,
+                imageUrl: soubassement,
                 "title": "Le soubassement",
                 "description": [
                     "Partie basse des murs située entre les fondations et le niveau du sol fini.",
@@ -64,7 +82,7 @@ export const servicesData = [
             },
             {
                 "id": "elevation-murs",
-                imageUrl: villa,
+                imageUrl: mur,
                 "title": "L'élévation des murs",
                 "description": [
                     "Étape où la maison commence véritablement à prendre forme.",
@@ -80,7 +98,7 @@ export const servicesData = [
             },
             {
                 "id": "realisation-planchers",
-                imageUrl: villa,
+                imageUrl: plancheBeton,
                 "title": "La réalisation des planchers",
                 "description": [
                     "Élément essentiel pour la solidité de la structure et le confort de vie.",
@@ -96,7 +114,7 @@ export const servicesData = [
             },
             {
                 "id": "preparations-charpente",
-                imageUrl: villa,
+                imageUrl: toiturePrep,
                 "title": "Les préparations à la pose de la charpente",
                 "description": [
                     "Étape préparatoire essentielle avant l'installation de la charpente.",
@@ -112,7 +130,7 @@ export const servicesData = [
             },
             {
                 id: "construction-installation-piscines",
-                imageUrl: villa,
+                imageUrl: piscine,
                 title: "Construction et Installation de Piscines",
                 description: [
                     "Experts en création d'espaces aquatiques, nous concevons et réalisons des piscines sur mesure pour sublimer votre extérieur.",
@@ -132,7 +150,7 @@ export const servicesData = [
             },
             {
                 id: "construction-renovation-terrasses",
-                imageUrl: villa,
+                imageUrl: terasse,
                 title: "Construction et Rénovation de Terrasses",
                 description: [
                     "Experts en aménagement extérieur, nous créons et rénovons des terrasses sur mesure pour sublimer votre espace de vie en plein air.",
@@ -152,7 +170,7 @@ export const servicesData = [
             },
             {
                 id: "conception-installation-verandas",
-                imageUrl: villa,
+                imageUrl: veranda,
                 title: "Conception et Installation de Vérandas",
                 description: [
                     "Experts en création d'espaces lumineux, nous concevons et installons des vérandas sur mesure pour agrandir votre espace de vie.",
@@ -172,7 +190,7 @@ export const servicesData = [
             },
             {
                 id: "reparation-degats-eaux",
-                imageUrl: villa,
+                imageUrl: humidite,
                 title: "Réparation des Dégâts des Eaux",
                 description: [
                     "Experts en restauration après sinistre, nous intervenons rapidement pour réparer et rénover votre habitat suite à des dégâts des eaux.",
@@ -443,7 +461,7 @@ export const servicesData = [
         titleH1: "Façade, isolation extérieur et toiture",
         titleH2: "Engagement envers l'excellence",
         charpenteToitureTitle: "Charpente et toiture",
-        faadeIsolationExtToitureTitle: "Façade",
+        façadeIsolationExtToitureTitle: "Façade",
         subTitle: "Charpente, couverture, bardage, isolation thermique, filet, crépris, peinture, lavage de façade",
         description: [
             "Chez Bâti Plâtre 57, nous sommes spécialisés dans les travaux d'isolation et de plâtrerie, offrant des solutions sur mesure pour chaque projet.",
@@ -453,8 +471,8 @@ export const servicesData = [
         href: "/contact",
         card: [
             {
-                id: "Pose de charpente",
-                imageUrl: villa,
+                id: "pose-de-charpente",
+                imageUrl: charpenteTraditionnelle,
                 title: "Pose de charpente",
                 description: [
                     "Nous réalisons votre charpente dans les régles de l'art, les éléments qui la compose, leur dimensionnement et leur mise en œuvre. La charpente est un assemblage de pièce de bois qui supporte le toit."
@@ -466,7 +484,7 @@ export const servicesData = [
             },
             {
                 id: "couverture-de-toiture",
-                imageUrl: villa,
+                imageUrl: couverture,
                 title: "Couverture de toiture",
                 description: [
                     "Nous installons différents types de tuiles pour répondre à toutes vos exigences esthétiques et fonctionnelles, en utilisant des matériaux de haute qualité adaptés à chaque style."
@@ -483,8 +501,8 @@ export const servicesData = [
                 category: 'charpente-toiture',
             },
             {
-                id: "Ravalement de facade et restauration",
-                imageUrl: villa,
+                id: "ravalement-de-façade-et-restauration",
+                imageUrl: façageFinition,
                 title: "Ravalement de façade et restauration",
                 description: [
                     "Experts en rénovation de façades, nous redonnons vie et solidité à l'enveloppe de votre bâtiment.",
@@ -502,7 +520,7 @@ export const servicesData = [
             },
             {
                 id: "isolation-thermique-exterieure",
-                imageUrl: villa,
+                imageUrl: isolantMurExterieur,
                 title: "Isolation Thermique par l'Extérieur (ITE)",
                 description: [
                     "Experts en isolation thermique par l'extérieur, nous optimisons l'efficacité énergétique de votre habitat tout en embellissant sa façade.",
@@ -521,8 +539,8 @@ export const servicesData = [
                 category: 'façade-isolation-ext-toiture',
             },
             {
-                id: "services pro-et-installation-d-echafaudage",
-                imageUrl: villa,
+                id: "services-pro-et-installation-d-echafaudage",
+                imageUrl: echafaudage,
                 title: "Services pro et installation d'échafaudage",
                 description: [
                     "Experts en solutions d'accès en hauteur, nous fournissons des services d'échafaudage sûrs et efficaces pour tous types de chantiers.",
@@ -542,7 +560,7 @@ export const servicesData = [
             },
             {
                 id: "peinture-exterieure-enduits",
-                imageUrl: villa,
+                imageUrl: enduitRavalement,
                 title: "Peinture Extérieure et Enduits Décoratifs",
                 description: [
                     "Experts en embellissement et protection des façades, nous sublimez l'extérieur de votre habitat avec des finitions durables et esthétiques.",
@@ -558,6 +576,46 @@ export const servicesData = [
                     "Variété de textures : Nos finitions incluent des options talochées, ribbées, grattées, rustiques ou rustiques écrasées, permettant de personnaliser l'aspect de votre façade.",
                     "Palette de couleurs étendue : Nous offrons un large choix de coloris pour répondre à vos envies et s'harmoniser avec l'environnement de votre propriété.",
                     "Conseils d'experts : Notre équipe vous guide dans le choix des meilleures solutions en termes de matériaux, de couleurs et de finitions, en tenant compte de l'exposition de votre façade et de vos préférences esthétiques."
+                ],
+                category: 'façade-isolation-ext-toiture',
+            },
+            {
+                id: "crépis-grésé-taloché",
+                imageUrl: enduitFaçade,
+                title: "Crépis, grésé, taloché",
+                description: [
+                    "Spécialistes des finitions murales traditionnelles, nous réalisons des crépis et enduits qui allient esthétique et protection.",
+                    "Notre expertise en techniques de crépissage permet d'obtenir différentes textures adaptées à votre style architectural."
+                ],
+                text: [
+                    "Diagnostic et préparation : Évaluation approfondie du support pour déterminer le type de crépi le plus adapté et préparation minutieuse des surfaces pour une adhérence optimale.",
+                    "Crépis traditionnel : Application experte de crépis minéraux ou organiques, offrant une protection durable contre les intempéries tout en permettant aux murs de respirer.",
+                    "Finition grésée : Réalisation de finitions grésées pour un aspect granuleux régulier, particulièrement adapté aux façades contemporaines.",
+                    "Technique talochée : Maîtrise de la finition talochée pour un rendu plus lisse et moderne, idéal pour les façades urbaines.",
+                    "Personnalisation : Large choix de granulométries et de teintes pour créer une façade unique qui s'harmonise avec votre environnement.",
+                    "Respect des traditions : Utilisation de techniques ancestrales combinées aux matériaux modernes pour des résultats durables.",
+                    "Protection optimale : Application d'enduits qui protègent votre façade contre l'humidité et les variations climatiques.",
+                    "Finitions sur mesure : Adaptation des techniques selon vos préférences et le style architectural de votre bâtiment."
+                ],
+                category: 'façade-isolation-ext-toiture',
+            },
+            {
+                id: "entretien-façade-lavage-haute-pression",
+                imageUrl: lavage,
+                title: "Entretiens de Façade et Lavage Haute Pression",
+                description: [
+                    "Experts en nettoyage et rénovation de façades, nous redonnons éclat et propreté à vos murs extérieurs.",
+                    "Notre approche combine technologie moderne et respect des matériaux pour un résultat impeccable et durable."
+                ],
+                text: [
+                    "Diagnostic initial : Évaluation détaillée de l'état de la façade et identification des traitements appropriés selon les matériaux et les types de salissures.",
+                    "Nettoyage haute pression : Utilisation d'équipements professionnels avec pression ajustable pour un nettoyage efficace sans endommager les supports.",
+                    "Traitement anti-mousse : Application de solutions spécifiques pour éliminer et prévenir la formation de mousses, algues et lichens.",
+                    "Décontamination : Élimination des pollutions atmosphériques et des traces noires qui ternissent l'aspect de votre façade.",
+                    "Protection hydrofuge : Application possible de traitements hydrofuges pour protéger durablement la façade contre l'humidité.",
+                    "Respect des matériaux : Adaptation des techniques et produits selon la nature des supports (pierre, enduit, brique...).",
+                    "Intervention préventive : Programmes d'entretien régulier pour maintenir la propreté et prolonger la durée de vie de votre façade.",
+                    "Finitions soignées : Attention particulière portée aux détails pour un résultat homogène sur l'ensemble de la façade."
                 ],
                 category: 'façade-isolation-ext-toiture',
             },

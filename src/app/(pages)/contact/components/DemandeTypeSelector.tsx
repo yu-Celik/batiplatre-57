@@ -2,51 +2,78 @@
 
 import React from 'react';
 import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, TextField } from '@mui/material';
+import { Subject } from '@/app/libs/schemas/contact.schema';
 
 interface DemandeTypeSelectorProps {
-    value: string;
-    message: string;
-    onChange: (subject: string, message: string) => void;
+    subjectValue: Subject;
+    messageValue: string;
+    subjectError?: string;
+    messageError?: string;
+    onChange: (subject: Subject, message: string) => void;
 }
 
-const DemandeTypeSelector: React.FC<DemandeTypeSelectorProps> = ({ value, message, onChange }) => {
+const DemandeTypeSelector: React.FC<DemandeTypeSelectorProps> = ({
+    subjectValue,
+    messageValue,
+    subjectError,
+    messageError,
+    onChange
+}) => {
     const handleSubjectChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        onChange((event.target as HTMLInputElement).value, message);
+        onChange(event.target.value as Subject, messageValue);
     };
 
     const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        onChange(value, event.target.value);
+        onChange(subjectValue, event.target.value);
     };
 
     return (
         <>
-            <FormControl component="fieldset" sx={{ mt: 2, width: { xs: '100%' } }}>
-                <FormLabel component="legend" sx={{ color: 'var(--mui-palette-primary-main)' }}>Type de demande</FormLabel>
+            <FormControl 
+                component="fieldset" 
+                sx={{ mt: 2, width: '100%' }}
+                error={!!subjectError}
+            >
+                <FormLabel 
+                    component="legend" 
+                    sx={{ color: subjectError ? 'error.main' : 'primary.main' }}
+                >
+                    Type de demande
+                </FormLabel>
                 <RadioGroup
                     row
-                    aria-label="demande type"
-                    name="demandeType"
-                    value={value}
+                    aria-label="type de demande"
+                    name="subject"
+                    value={subjectValue}
                     onChange={handleSubjectChange}
                 >
-                    <FormControlLabel value="Description de projet" sx={{
-                        color: value === 'Description de projet' ? 'var(--mui-palette-primary-main)' : 'var(--mui-palette-text-secondary)'
-                    }} control={<Radio />} label="Description de projet" />
-                    <FormControlLabel value="Question" sx={{
-                        color: value === 'Question' ? 'var(--mui-palette-primary-main)' : 'var(--mui-palette-text-secondary)'
-                    }} control={<Radio />} label="Question" />
+                    {Object.values(Subject).map((subject) => (
+                        <FormControlLabel
+                            key={subject}
+                            value={subject}
+                            control={<Radio />}
+                            label={subject}
+                            sx={{
+                                color: subjectValue === subject ? 'primary.main' : 'text.secondary'
+                            }}
+                        />
+                    ))}
                 </RadioGroup>
             </FormControl>
+            
             <TextField
-                label={value === 'Description de projet' ? "Description du projet" : "Votre question"}
+                label={subjectValue === Subject.DESCRIPTION_PROJET ? "Description du projet" : "Votre question"}
                 multiline
                 rows={4}
                 variant="outlined"
                 margin="normal"
                 required
-                value={message}
+                value={messageValue}
                 onChange={handleMessageChange}
+                error={!!messageError}
+                helperText={messageError}
                 fullWidth
+                aria-label="Message"
             />
         </>
     );

@@ -23,7 +23,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ params }) => {
                 menuiserieTitle={service?.menuiserieTitle}
                 plomberieTitle={service?.plomberieTitle}
                 charpenteToitureTitle={service?.charpenteToitureTitle}
-                faadeIsolationExtToitureTitle={service?.faadeIsolationExtToitureTitle}
+                façadeIsolationExtToitureTitle={service?.façadeIsolationExtToitureTitle}
             />
             <ContactSection />
         </>
