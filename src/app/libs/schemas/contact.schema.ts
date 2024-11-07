@@ -2,6 +2,7 @@ import * as v from 'valibot';
 
 // TypeScript
 type ContactData = {
+  _id?: string;
   fullName: string;
   email: string;
   phone: string;
